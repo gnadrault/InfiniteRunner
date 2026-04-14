@@ -1,24 +1,26 @@
 ---
 name: Feature
-about: Suggest an idea for this project
+about: Fonctionnalité pour le projet
 title: "[FEATURE]"
 labels: feature
 assignees: gnadrault
 
 ---
 
-**Objective**
-Describe the feature clearly and concisely.
-What should be achieved?
+**Objectif**
+Décrire clairement la fonctionnalité à implémenter.
+Quel résultat concret est attendu ?
 
-**Context**
-Why is this feature needed?
-Link it to gameplay, system requirements, or user experience.
+**Contexte**
+Pourquoi cette feature est nécessaire ?
+Lien avec le gameplay, les contraintes du projet ou l’expérience joueur.
 
-**Tasks**
+**Tâches**
 - [ ] 
 - [ ]
 
-**Acceptance Criteria**
+**Critères d'acceptation**
 - [ ] 
 - [ ]
+
+**Note**
