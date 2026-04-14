@@ -7,28 +7,28 @@ assignees: gnadrault
 
 ---
 
-## 🎯 Objectif
+### 🎯 Objectif
 Décrire clairement la fonctionnalité à implémenter.
 Quel résultat concret est attendu ?
 
 ---
 
-## 🧠 Contexte
+### 🧠 Contexte
 Pourquoi cette feature est nécessaire ?
 Lien avec le gameplay, les contraintes du projet ou l’expérience joueur.
 
 ---
 
-## 📋 Tâches
+### 📋 Tâches
 - [ ] 
 - [ ]
 
 ---
 
-## ✅ Critères d’acceptation
+### ✅ Critères d’acceptation
 - [ ] 
 - [ ]
 
 ---
 
-## ⚠️ Notes
+### ⚠️ Notes
