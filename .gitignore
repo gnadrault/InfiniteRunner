@@ -38,6 +38,9 @@
 # Rider cache
 .idea/
 
+# Apple
+.DS_Store
+
 # Gradle cache directory
 .gradle/
 
