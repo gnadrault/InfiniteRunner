@@ -20,13 +20,11 @@ namespace World
             _chunkLength = firstChunk.GetComponent<Renderer>().bounds.size.z;
             _chunkX = firstChunk.transform.position.x;
             _chunkY = firstChunk.transform.position.y;
-            print(_chunkLength);
         }
 
         private void AddChunk()
         {
             Chunk lastChunk = _chunkList[_chunkList.Count - 1];
-            print(lastChunk.transform.position.z);
             Vector3 spawnPos = new Vector3(_chunkX, _chunkY, lastChunk.transform.position.z + _chunkLength);
             Chunk newChunk = Instantiate(chunkPrefab, spawnPos, Quaternion.identity);
             _chunkList.Add(newChunk);
