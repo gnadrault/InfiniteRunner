@@ -265,7 +265,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 378551903}
-  - component: {fileID: 378551907}
+  - component: {fileID: 378551909}
   - component: {fileID: 378551908}
   - component: {fileID: 378551906}
   - component: {fileID: 378551904}
@@ -340,19 +340,6 @@ MonoBehaviour:
   timeApexExtraWait: 0.2
   timeDescent: 0.2
   jumpInput: {fileID: 3161682069650093083, guid: 0eae3734640624049a0c62a5acdfe144, type: 3}
---- !u!114 &378551907
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 378551902}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6cc8b4da72643c7b7ac7f50d8b6d592, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Player.PlayerController
-  currentState: 0
 --- !u!114 &378551908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -372,8 +359,23 @@ MonoBehaviour:
   initAnchorIndex: 1
   speed: 10
   rotationSpeed: 1
+--- !u!114 &378551909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 378551902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e6885ad4e6a43038f33d2f596320460, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Player.PlayerController2
+  playerMove: {fileID: 378551908}
+  playerJump: {fileID: 378551906}
   leftInput: {fileID: -481456329149820956, guid: 0eae3734640624049a0c62a5acdfe144, type: 3}
   rightInput: {fileID: -7142251320732278877, guid: 0eae3734640624049a0c62a5acdfe144, type: 3}
+  jumpInput: {fileID: 3161682069650093083, guid: 0eae3734640624049a0c62a5acdfe144, type: 3}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0

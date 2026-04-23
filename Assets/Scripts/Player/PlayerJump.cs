@@ -1,48 +1,37 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 using Utils;
 
 namespace Player
 {
     public class PlayerJump : MonoBehaviour
     {
+        [Header("Settings")]
         [SerializeField] private float jumpHeight = 2f;
         [SerializeField] private float timeToApex = 0.1f; // Time to reach the Apex
         [SerializeField] private float timeApexWait = 0.2f; // Time waiting on Apex (1 input)
         [SerializeField] private float timeApexExtraWait = 0.2f; // Time waiting on Apex (keep pressed)
         [SerializeField] private float timeDescent = 0.2f; // Time to descent from Apex 
         
-        public InputActionReference jumpInput;
-        
-        private Transform _transform;
-        private PlayerInput _playerInput;
         private float _elapsedTimeJump;
         private float _elapsedTimeDown;
-        private float _startHeight;
-
         private float _tUpEnd;
         private float _tShortApexEnd;
         private float _tLongApexEnd;
-        
-        private void Start()
+        private bool _isJumping;
+
+        public void StartJump()
         {
-            _transform = transform;
-            _startHeight = _transform.position.y;
-            
+            _elapsedTimeDown = 0;
+            _elapsedTimeJump = 0;
             _tUpEnd = timeToApex;
             _tShortApexEnd = _tUpEnd + timeApexWait;
             _tLongApexEnd = _tShortApexEnd + timeApexExtraWait;
-            jumpInput.action.started += HandleOnJumpInput;
+            _isJumping = true;
         }
-        
-        private void HandleOnJumpInput(InputAction.CallbackContext obj)
+
+        public bool IsJumping()
         {
-            if (PlayerController.Instance.currentState == PlayerState.Ground)
-            {
-                _elapsedTimeDown = 0;
-                _elapsedTimeJump = 0;
-                PlayerController.Instance.currentState = PlayerState.Jumping;
-            }
+            return _isJumping;
         }
         
         /// <summary>
@@ -51,13 +40,11 @@ namespace Player
         /// - Waiting in apex (depends on keypressed state)
         /// - Falling
         /// </summary>
-        void Update()
+        public float HandlePlayerJump(bool isPressed)
         {
-            if (PlayerController.Instance.currentState == PlayerState.Jumping)
+            float heightFactor = 0;
+            if (_isJumping)
             {
-                Vector3 position = _transform.position;
-                float heightFactor;
-
                 _elapsedTimeJump += Time.deltaTime;
                 if (_elapsedTimeJump < _tUpEnd) // Jump up
                 {
@@ -65,7 +52,7 @@ namespace Player
                     heightFactor = EvaluateUp(t);
                 }
                 else if ((_elapsedTimeJump < _tShortApexEnd) || 
-                         (_elapsedTimeJump < _tLongApexEnd && jumpInput.action.IsPressed())) // Waiting in apex
+                         (_elapsedTimeJump < _tLongApexEnd && isPressed)) // Waiting in apex
                 {
                     float t = (_elapsedTimeJump - _tUpEnd) / timeApexWait;
                     heightFactor = EvaluateApex(t);
@@ -75,14 +62,10 @@ namespace Player
                     _elapsedTimeDown += Time.deltaTime;
                     float t = _elapsedTimeDown / timeDescent;
                     heightFactor = EvaluateDown(t);
-                    if (t >= 1) // End jump
-                    {
-                        PlayerController.Instance.currentState = PlayerState.Ground;
-                    }
+                    _isJumping = t < 1; // End jump
                 }
-                position.y = _startHeight + heightFactor * jumpHeight;
-                _transform.position = position;
             }
+            return heightFactor * jumpHeight;
         }
         
         private float EvaluateUp(float t)
