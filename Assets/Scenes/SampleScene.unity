@@ -265,7 +265,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 378551903}
-  - component: {fileID: 378551905}
+  - component: {fileID: 378551907}
+  - component: {fileID: 378551908}
+  - component: {fileID: 378551906}
   - component: {fileID: 378551904}
   m_Layer: 0
   m_Name: Player (Root)
@@ -320,7 +322,38 @@ MonoBehaviour:
   m_DefaultActionMap: 
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &378551905
+--- !u!114 &378551906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 378551902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0696dd2227b2438b87adc1885040efc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Player.PlayerJump
+  jumpHeight: 1.5
+  timeToApex: 0.1
+  timeApexWait: 0.2
+  timeApexExtraWait: 0.2
+  timeDescent: 0.2
+  jumpInput: {fileID: 3161682069650093083, guid: 0eae3734640624049a0c62a5acdfe144, type: 3}
+--- !u!114 &378551907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 378551902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6cc8b4da72643c7b7ac7f50d8b6d592, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Player.PlayerController
+  currentState: 0
+--- !u!114 &378551908
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -331,7 +364,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 854464a2479e1e847a1981da29be2c47, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerController
+  m_EditorClassIdentifier: Assembly-CSharp::Player.PlayerMove
   lineAnchors:
   - {fileID: 619037839}
   - {fileID: 1224596348}
