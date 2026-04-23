@@ -6,6 +6,7 @@ namespace World
     public class ChunkManager : MonoBehaviour
     {
         [SerializeField] private int maxChunks = 5;
+        [SerializeField] private float scrollSpeed = 2f;
         [SerializeField] private Chunk chunkPrefab;
         [SerializeField] private Chunk firstChunk;
         private List<Chunk> _chunkList;
@@ -22,6 +23,16 @@ namespace World
             _chunkY = firstChunk.transform.position.y;
         }
 
+        private void OnEnable()
+        {
+            Chunk.OnChunkDestroyed += RemoveChunk;
+        }
+
+        private void OnDisable()
+        {
+            Chunk.OnChunkDestroyed -= RemoveChunk;
+        }
+
         private void AddChunk()
         {
             Chunk lastChunk = _chunkList[_chunkList.Count - 1];
@@ -30,11 +41,20 @@ namespace World
             _chunkList.Add(newChunk);
         }
 
+        private void RemoveChunk(Chunk chunk)
+        {
+            _chunkList.Remove(chunk);
+        }
+
         private void Update()
         {
             while (_chunkList.Count < maxChunks)
             {
                 AddChunk();
+            }
+            foreach (Chunk chunk in _chunkList)
+            {
+                chunk.Scroll(scrollSpeed * Time.deltaTime);
             }
         }
     }

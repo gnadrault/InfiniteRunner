@@ -1,13 +1,16 @@
 using UnityEngine;
-using World;
 
-public class ChunkDestoy : MonoBehaviour
+namespace World
 {
-    private void OnTriggerEnter(Collider other)
+    public class ChunkDestoy : MonoBehaviour
     {
-        if (other.TryGetComponent(out Chunk chunk))
+        
+        private void OnTriggerEnter(Collider other)
         {
-            Destroy(chunk);
+            if (other.TryGetComponent(out Chunk chunk))
+            {
+                Destroy(chunk.gameObject);
+            }
         }
     }
 }
