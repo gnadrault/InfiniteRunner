@@ -5,6 +5,7 @@ namespace World
 {
     public class ChunkManager : MonoBehaviour
     {
+        [Header("Settings")]
         [SerializeField] private int maxChunks = 5;
         [SerializeField] private float scrollSpeed = 2f;
         [SerializeField] private Chunk chunkPrefab;
