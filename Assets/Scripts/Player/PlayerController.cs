@@ -30,7 +30,7 @@ namespace Player
         {
             _transform = transform;
             _startHeight = _transform.position.y;
-            leftInput.action.started += HandleOnLeftInput;
+            leftInput.action.started += HandleOnLeftInput; // delegate
             rightInput.action.started += HandleOnRightInput;
             jumpInput.action.started += HandleOnJumpInput;
         }
@@ -64,7 +64,7 @@ namespace Player
                 position.y = _startHeight + playerJump.HandlePlayerJump(jumpInput.action.IsPressed());
             } else if (_currentState == PlayerState.Ground)
             {
-                position.x = playerMove.HandlePlayerMove();
+                position.x = playerMove.HandlePlayerMove(_transform.position.x);
             }
             _transform.position = position;
         }

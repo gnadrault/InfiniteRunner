@@ -18,19 +18,22 @@ namespace Player
 
         public void MoveLeft()
         {
-            if ( _index > 0)
-                _index--;
+            Move(--_index);
         }
 
         public void MoveRight()
         {
-            if (_index < lineAnchors.Length - 1)
-                _index++;
+            Move(++_index);
         }
 
-        public float HandlePlayerMove()
+        private void Move(int i)
         {
-            return lineAnchors[_index].position.x;
+            _index = Mathf.Clamp(i, 0, lineAnchors.Length - 1);
+        }
+
+        public float HandlePlayerMove(float currentXPosition)
+        {
+            return Mathf.Lerp(currentXPosition, lineAnchors[_index].position.x, speed * Time.deltaTime);
         }
     }
 }
