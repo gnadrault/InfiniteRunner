@@ -1,73 +1,52 @@
-﻿using System;
-using Player.Data;
+﻿using Player.Data;
 
 namespace Player.State
 {
     public class PlayerStateMachine
     {
-        private LaneChangingState _laneChangingState;
-        private JumpingState _jumpingState;
-        private IdleState _idleState;
+        private IPlayerState _lane;
+        private IPlayerState _jump;
+        private IPlayerState _idle;
         
-        private enum PlayerState
-        {
-            Idle,
-            ChangingLane,
-            Jumping
-        }
-        
-        private PlayerState _currentStateValue;
-        private IPlayerState _currentStateHandler;
+        private IPlayerState _currentState;
 
         public PlayerStateMachine(PlayerController playerController, PlayerSettings playerSettings)
         {
-            _idleState = new IdleState();
-            _jumpingState = new JumpingState(playerController, playerSettings.jump);
-            _laneChangingState = new LaneChangingState(playerController, playerSettings.changeLane);
+            _idle = new IdleState();
+            _jump = new JumpingState(playerController, playerSettings.jump);
+            _lane = new LaneChangingState(playerController, playerSettings.changeLane);
         }
         
         public void InitializeState()
         {
-            SetState(PlayerState.Idle);
-            _currentStateHandler.Enter();
+            _currentState = Idle();
+            _currentState.Enter();
         }
         
         public void UpdateState()
         {
             CheckStateTransitions();
-            _currentStateHandler.UpdateState();
+            _currentState.UpdateState();
         }
         
-        private void ChangeState(PlayerState newPlayerState)
+        public void ChangeState(IPlayerState newState)
         {
-            _currentStateHandler.Exit();
-            SetState(newPlayerState);
-            _currentStateHandler.Enter();
-        }
-
-        private void SetState(PlayerState newPlayerState)
-        {
-            _currentStateValue = newPlayerState;
-            _currentStateHandler = _currentStateValue switch
-            {
-                PlayerState.Idle => _idleState,
-                PlayerState.ChangingLane => _laneChangingState,
-                PlayerState.Jumping => _jumpingState,
-                _ => throw new ArgumentOutOfRangeException()
-            };
+            _currentState.Exit();
+            _currentState = newState;
+            _currentState.Enter();
         }
 
         private void CheckStateTransitions()
         {
-            if (_currentStateValue != PlayerState.Idle && _currentStateHandler.IsDone())
+            if (_currentState != Idle() && _currentState.IsDone())
             {
-                Idle();
+                ChangeState(Idle());
             }
         }
 
-        public bool CanChangeState() => _currentStateValue == PlayerState.Idle;
-        public void ChangingLane() => ChangeState(PlayerState.ChangingLane);
-        public void Idle() => ChangeState(PlayerState.Idle);
-        public void Jumping() => ChangeState(PlayerState.Jumping);
+        public IPlayerState Idle() => _idle;
+        public IPlayerState ChangingLane() => _lane;
+        public IPlayerState Jumping() => _jump;
+        public bool CanChangeState() => _currentState == Idle();
     }
 }

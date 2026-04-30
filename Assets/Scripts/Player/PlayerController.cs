@@ -72,14 +72,14 @@ namespace Player
             if (newLaneIndex != _currentLaneIndex)
             {
                 _currentLaneIndex = newLaneIndex;
-                _stateMachine.ChangingLane();
+                _stateMachine.ChangeState(_stateMachine.ChangingLane());
             }
         }
 
         private void TryJumping()
         {
             if (!_stateMachine.CanChangeState()) return;
-            _stateMachine.Jumping();
+            _stateMachine.ChangeState(_stateMachine.Jumping());
         }
 
         public void Update()
