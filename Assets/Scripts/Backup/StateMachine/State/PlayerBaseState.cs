@@ -3,14 +3,14 @@
     public abstract class PlayerBaseState
     {
         protected PlayerStateMachine StateMachine { get; }
-        protected PlayerControllerSm ControllerSm { get; }
+        protected PlayerController Controller { get; }
         
         protected bool IsExitingState { get; private set; }
 
-        protected PlayerBaseState(PlayerStateMachine playerStateMachine, PlayerControllerSm playerControllerSm)
+        protected PlayerBaseState(PlayerStateMachine playerStateMachine, PlayerController playerController)
         {
             StateMachine = playerStateMachine;
-            ControllerSm = playerControllerSm;
+            Controller = playerController;
         }
 
         public virtual void Enter()
@@ -21,7 +21,7 @@
         public virtual void Update()
         {
             CheckTransitions();
-            ControllerSm.ConsumeInputFlags();
+            Controller.ConsumeInputFlags();
         }
 
         public virtual void Exit()

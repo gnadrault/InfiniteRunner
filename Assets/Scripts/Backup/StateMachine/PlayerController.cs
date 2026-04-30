@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 
 namespace Backup.StateMachine
 {
-    public class PlayerControllerSm : MonoBehaviour
+    public class PlayerController : MonoBehaviour
     {
         private Transform _transform;
         private PlayerStateMachine _stateMachine;

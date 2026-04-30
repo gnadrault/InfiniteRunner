@@ -2,7 +2,7 @@
 {
     public class PlayerIdleState : PlayerBaseState
     {
-        public PlayerIdleState(PlayerStateMachine stateMachine, PlayerControllerSm controllerSm) : base(stateMachine, controllerSm)
+        public PlayerIdleState(PlayerStateMachine stateMachine, PlayerController controller) : base(stateMachine, controller)
         {
             
         }
@@ -10,15 +10,15 @@
         protected override void CheckTransitions()
         {
             // Priority: Jump > Move
-            if (ControllerSm.IsJumpRequested)
+            if (Controller.IsJumpRequested)
             {
-                StateMachine.ChangeState(ControllerSm.JumpingState);
+                StateMachine.ChangeState(Controller.JumpingState);
             }
-            else if (ControllerSm.IsMoveRequested)
+            else if (Controller.IsMoveRequested)
             {
                 // Update anchor index and transition
                 //Controller.SetCurrentAnchorIndex(Controller.TargetAnchorIndex);
-                StateMachine.ChangeState(ControllerSm.MovingState);
+                StateMachine.ChangeState(Controller.MovingState);
             }
         }
     }

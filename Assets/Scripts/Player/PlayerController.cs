@@ -1,4 +1,3 @@
-using System;
 using Player.State;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -15,25 +14,15 @@ namespace Player
         [SerializeField] private InputActionReference jumpInput;
         
         [Header("References")]
-        [SerializeField] private LaneChangingState laneChangingState;
-        [SerializeField] private JumpingState jumpingState;
-        [SerializeField] private IdleState idleState;
+        [SerializeField] private PlayerStateMachine stateMachine;
         
         [Header("Lane Anchors")]
         [SerializeField] private Transform[] laneAnchors;
         [SerializeField] private int initLaneIndex = 1;
-
-        public enum PlayerState
-        {
-            Idle,
-            ChangingLane,
-            Jumping
-        }
         
         private Transform _transform;
         private int _currentLaneIndex;
-        private PlayerState _currentStateValue;
-        private IPlayerState _currentStateHandler;
+
 
         private void Awake()
         {
@@ -49,7 +38,7 @@ namespace Player
             _currentLaneIndex = initLaneIndex;
             _transform.position = laneAnchors[_currentLaneIndex].position;
             
-            InitializeState();
+            stateMachine.InitializeState();
         }
         
         private void OnEnable()
@@ -83,24 +72,24 @@ namespace Player
         
         private void TryChangingLane(int newLaneIndex)
         {
-            if (_currentStateValue != PlayerState.Idle) return;
+            if (stateMachine.GetCurrentState() != PlayerState.Idle) return;
             newLaneIndex = Mathf.Clamp(newLaneIndex, 0, laneAnchors.Length - 1);
             if (newLaneIndex != _currentLaneIndex)
             {
                 _currentLaneIndex = newLaneIndex;
-                ChangeState(PlayerState.ChangingLane);
+                stateMachine.ChangeState(PlayerState.ChangingLane);
             }
         }
 
         private void TryJumping()
         {
-            if (_currentStateValue != PlayerState.Idle) return;
-            ChangeState(PlayerState.Jumping);
+            if (stateMachine.GetCurrentState() != PlayerState.Idle) return;
+            stateMachine.ChangeState(PlayerState.Jumping);
         }
 
         public void Update()
         {
-            UpdateState();
+            stateMachine.UpdateState();
         }
 
         #region Getters/Setters
@@ -134,50 +123,6 @@ namespace Player
             return jumpInput.action.IsPressed();
         }
 
-        #endregion
-
-
-        #region State Machine
-        
-        public void InitializeState()
-        {
-            SetState(PlayerState.Idle);
-            _currentStateHandler.Enter();
-        }
-        
-        public void UpdateState()
-        {
-            CheckStateTransitions();
-            _currentStateHandler.UpdateState();
-        }
-        
-        public void ChangeState(PlayerState newPlayerState)
-        {
-            _currentStateHandler.Exit();
-            SetState(newPlayerState);
-            _currentStateHandler.Enter();
-        }
-
-        private void SetState(PlayerState newPlayerState)
-        {
-            _currentStateValue = newPlayerState;
-            _currentStateHandler = _currentStateValue switch
-            {
-                PlayerState.Idle => idleState,
-                PlayerState.ChangingLane => laneChangingState,
-                PlayerState.Jumping => jumpingState,
-                _ => throw new ArgumentOutOfRangeException()
-            };
-        }
-
-        private void CheckStateTransitions()
-        {
-            if (_currentStateHandler.IsDone() && _currentStateValue != PlayerState.Idle)
-            {
-                ChangeState(PlayerState.Idle);
-            }
-        }
-        
         #endregion
     }
 }

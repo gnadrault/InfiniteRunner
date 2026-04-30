@@ -11,8 +11,8 @@ namespace Backup.StateMachine.State
         private float _startX;
         private float _targetX;
 
-        public PlayerMovingState(PlayerStateMachine playerStateMachine, PlayerControllerSm playerControllerSm,
-            float moveDuration) : base(playerStateMachine, playerControllerSm)
+        public PlayerMovingState(PlayerStateMachine playerStateMachine, PlayerController playerController,
+            float moveDuration) : base(playerStateMachine, playerController)
         {
             _moveDuration = moveDuration;
         }
@@ -22,8 +22,8 @@ namespace Backup.StateMachine.State
             base.Enter();
             
             _elapsedTime = 0f;
-            _startX = ControllerSm.GetCurrentPosition().x;
-            _targetX = ControllerSm.GetTargetLinePosition().x;
+            _startX = Controller.GetCurrentPosition().x;
+            _targetX = Controller.GetTargetLinePosition().x;
         }
 
         public override void Update()
@@ -39,14 +39,14 @@ namespace Backup.StateMachine.State
             float t = _elapsedTime / _moveDuration;
             float moveFactor = EasingFunctions.EaseOutQuint(Mathf.Clamp01(t));
             float newX = Mathf.Lerp(_startX, _targetX, moveFactor);
-            ControllerSm.SetPositionX(newX);
+            Controller.SetPositionX(newX);
         }
 
         protected override void CheckTransitions()
         {
             if (_elapsedTime >= _moveDuration)
             {
-                StateMachine.ChangeState(ControllerSm.IdleState);
+                StateMachine.ChangeState(Controller.IdleState);
             }
         }
     }

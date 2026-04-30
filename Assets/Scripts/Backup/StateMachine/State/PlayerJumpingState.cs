@@ -30,13 +30,13 @@ namespace Backup.StateMachine.State
 
         public PlayerJumpingState(
             PlayerStateMachine stateMachine,
-            PlayerControllerSm controllerSm,
+            PlayerController controller,
             float timeToApex,
             float timeApexWait,
             float timeApexExtraWait,
             float timeDescent,
             float jumpHeight)
-            : base(stateMachine, controllerSm)
+            : base(stateMachine, controller)
         {
             _timeToApex = timeToApex;
             _timeApexWait = timeApexWait;
@@ -52,7 +52,7 @@ namespace Backup.StateMachine.State
             _currentPhase = JumpPhase.Ascending;
             _elapsedTime = 0f;
             _descentElapsedTime = 0f;
-            _startY = ControllerSm.GetCurrentPosition().y;
+            _startY = Controller.GetCurrentPosition().y;
 
             // Calculate phase timing
             _apexStartTime = _timeToApex;
@@ -90,7 +90,7 @@ namespace Backup.StateMachine.State
             }
 
             float newY = _startY + heightFactor * _jumpHeight;
-            ControllerSm.SetPositionY(newY);
+            Controller.SetPositionY(newY);
         }
 
         private float UpdateAscending()
@@ -109,7 +109,7 @@ namespace Backup.StateMachine.State
         {
             bool shortApexExpired = _elapsedTime >= _shortApexEndTime;
             bool longApexExpired = _elapsedTime >= _longApexEndTime;
-            bool jumpButtonHeld = ControllerSm.IsJumpButtonPressed();
+            bool jumpButtonHeld = Controller.IsJumpButtonPressed();
 
             if ((shortApexExpired && !jumpButtonHeld) || longApexExpired) // Waiting in apex (short or long)
             {
@@ -130,7 +130,7 @@ namespace Backup.StateMachine.State
         {
             if (_currentPhase == JumpPhase.Descending && _descentElapsedTime >= _timeDescent)
             {
-                StateMachine.ChangeState(ControllerSm.IdleState);
+                StateMachine.ChangeState(Controller.IdleState);
             }
         }
     }
