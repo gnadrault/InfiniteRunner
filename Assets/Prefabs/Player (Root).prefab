@@ -131,10 +131,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8282890193573465798}
-  - component: {fileID: 8695671345767340018}
-  - component: {fileID: 1725171168581489487}
-  - component: {fileID: 680024104504100425}
-  - component: {fileID: 7788266882313755729}
+  - component: {fileID: 8027669263008946748}
+  - component: {fileID: 3921688716679344208}
   m_Layer: 0
   m_Name: Player (Root)
   m_TagString: Untagged
@@ -158,7 +156,7 @@ Transform:
   - {fileID: 3896789859278134716}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8695671345767340018
+--- !u!114 &8027669263008946748
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -169,49 +167,26 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7e6885ad4e6a43038f33d2f596320460, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Player.PlayerController2
-  playerMove: {fileID: 1725171168581489487}
-  playerJump: {fileID: 680024104504100425}
+  m_EditorClassIdentifier: Assembly-CSharp::Player.PlayerController
   leftInput: {fileID: -481456329149820956, guid: 0eae3734640624049a0c62a5acdfe144, type: 3}
   rightInput: {fileID: -7142251320732278877, guid: 0eae3734640624049a0c62a5acdfe144, type: 3}
   jumpInput: {fileID: 3161682069650093083, guid: 0eae3734640624049a0c62a5acdfe144, type: 3}
---- !u!114 &1725171168581489487
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7305124773151762212}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 854464a2479e1e847a1981da29be2c47, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Player.PlayerMove
-  lineAnchors:
+  playerSettings:
+    jump:
+      jumpHeight: 1.5
+      timeToApex: 0.1
+      timeApexWait: 0.2
+      timeApexExtraWait: 0.2
+      timeDescent: 0.2
+    changeLane:
+      laneChangeDuration: 0.1
+      rotationSpeed: 1
+  laneAnchors:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  initAnchorIndex: 1
-  speed: 10
-  rotationSpeed: 1
---- !u!114 &680024104504100425
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7305124773151762212}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0696dd2227b2438b87adc1885040efc8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Player.PlayerJump
-  jumpHeight: 1.5
-  timeToApex: 0.1
-  timeApexWait: 0.2
-  timeApexExtraWait: 0.2
-  timeDescent: 0.2
---- !u!114 &7788266882313755729
+  initLaneIndex: 1
+--- !u!114 &3921688716679344208
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

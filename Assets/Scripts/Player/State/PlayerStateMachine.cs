@@ -1,16 +1,23 @@
 ﻿using System;
-using UnityEngine;
+using Player.Data;
 
 namespace Player.State
 {
-    public class PlayerStateMachine : MonoBehaviour
+    public class PlayerStateMachine
     {
-        [SerializeField] private LaneChangingState laneChangingState;
-        [SerializeField] private JumpingState jumpingState;
-        [SerializeField] private IdleState idleState;
+        private LaneChangingState _laneChangingState;
+        private JumpingState _jumpingState;
+        private IdleState _idleState;
         
         private PlayerState _currentStateValue;
         private IPlayerState _currentStateHandler;
+
+        public PlayerStateMachine(PlayerController playerController, PlayerSettings playerSettings)
+        {
+            _idleState = new IdleState();
+            _jumpingState = new JumpingState(playerController, playerSettings.jump);
+            _laneChangingState = new LaneChangingState(playerController, playerSettings.changeLane);
+        }
         
         public void InitializeState()
         {
@@ -36,9 +43,9 @@ namespace Player.State
             _currentStateValue = newPlayerState;
             _currentStateHandler = _currentStateValue switch
             {
-                PlayerState.Idle => idleState,
-                PlayerState.ChangingLane => laneChangingState,
-                PlayerState.Jumping => jumpingState,
+                PlayerState.Idle => _idleState,
+                PlayerState.ChangingLane => _laneChangingState,
+                PlayerState.Jumping => _jumpingState,
                 _ => throw new ArgumentOutOfRangeException()
             };
         }

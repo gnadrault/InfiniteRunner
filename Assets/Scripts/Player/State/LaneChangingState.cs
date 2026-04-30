@@ -1,43 +1,48 @@
+using Player.Data;
 using UnityEngine;
 using Utils;
 
 namespace Player.State
 {
-    public class LaneChangingState : MonoBehaviour, IPlayerState
+    public class LaneChangingState : IPlayerState
     {
-        [Header("Settings")]
-        [SerializeField] private float laneChangeDuration = 0.1f;
-        [SerializeField] private float rotationSpeed = 1f;
-        
+        private readonly PlayerController _playerController;
+        private readonly ChangeLaneSettings _laneSettings;
         private float _elapsedTime;
         private float _startX;
         private float _targetX;
 
+        public LaneChangingState(PlayerController playerController, ChangeLaneSettings changeLaneSettings)
+        {
+            _playerController = playerController;
+            _laneSettings = changeLaneSettings;
+        }
+
         public void Enter()
         {
             _elapsedTime = 0f;
-            _startX = PlayerController.Instance.GetCurrentPosition().x;
-            _targetX = PlayerController.Instance.GetCurrentLanePosition().x;
+            _startX = _playerController.GetCurrentPosition().x;
+            _targetX = _playerController.GetCurrentLanePosition().x;
         }
 
         public void UpdateState()
         {
             _elapsedTime += Time.deltaTime;
             
-            float t = _elapsedTime / laneChangeDuration;
+            float t = _elapsedTime / _laneSettings.laneChangeDuration;
             float moveFactor = EasingFunctions.EaseOutQuint(Mathf.Clamp01(t));
             float newX = Mathf.Lerp(_startX, _targetX, moveFactor);
-            PlayerController.Instance.SetPositionX(newX);
+            _playerController.SetPositionX(newX);
         }
 
         public void Exit()
         {
-
+            
         }
 
         public bool IsDone()
         {
-            return _elapsedTime >= laneChangeDuration;
+            return _elapsedTime >= _laneSettings.laneChangeDuration;
         }
     }
 }

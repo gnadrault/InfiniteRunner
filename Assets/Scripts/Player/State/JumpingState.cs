@@ -1,16 +1,13 @@
+using Player.Data;
 using UnityEngine;
 using Utils;
 
 namespace Player.State
 {
-    public class JumpingState : MonoBehaviour, IPlayerState
+    public class JumpingState : IPlayerState
     {
-        [Header("Settings")]
-        [SerializeField] private float jumpHeight = 2f;
-        [SerializeField] private float timeToApex = 0.1f; // Time to reach the Apex
-        [SerializeField] private float timeApexWait = 0.2f; // Time waiting at Apex (1 input)
-        [SerializeField] private float timeApexExtraWait = 0.2f; // Time waiting at Apex (keep pressed)
-        [SerializeField] private float timeDescent = 0.2f; // Time to descent from Apex 
+        private readonly PlayerController _playerController;
+        private readonly JumpSettings _jumpSettings;
         
         private enum JumpPhase
         {
@@ -24,21 +21,28 @@ namespace Player.State
         private float _descentElapsedTime;
         private float _startY;
 
+        // Apex timing
         private float _apexStartTime;
         private float _shortApexEndTime;
         private float _longApexEndTime;
+
+        public JumpingState(PlayerController playerController, JumpSettings jumpSettings)
+        {
+            _playerController = playerController;
+            _jumpSettings = jumpSettings;
+        }
 
         public void Enter()
         {
             _currentPhase = JumpPhase.Ascending;
             _elapsedTime = 0f;
             _descentElapsedTime = 0f;
-            _startY = PlayerController.Instance.GetCurrentPosition().y;
+            _startY = _playerController.GetCurrentPosition().y;
 
             // Calculate phase timing
-            _apexStartTime = timeToApex;
-            _shortApexEndTime = _apexStartTime + timeApexWait;
-            _longApexEndTime = _shortApexEndTime + timeApexExtraWait;
+            _apexStartTime = _jumpSettings.timeToApex;
+            _shortApexEndTime = _apexStartTime + _jumpSettings.timeApexWait;
+            _longApexEndTime = _shortApexEndTime + _jumpSettings.timeApexExtraWait;
         }
         
         /// <summary>
@@ -64,8 +68,8 @@ namespace Player.State
                     break;
             }
 
-            float newY = _startY + heightFactor * jumpHeight;
-            PlayerController.Instance.SetPositionY(newY);
+            float newY = _startY + heightFactor * _jumpSettings.jumpHeight;
+            _playerController.SetPositionY(newY);
         }
         
         private float UpdateAscending()
@@ -76,7 +80,7 @@ namespace Player.State
                 return 1f;
             }
 
-            float t = _elapsedTime / timeToApex;
+            float t = _elapsedTime / _jumpSettings.timeToApex;
             return EasingFunctions.EaseOutQuint(Mathf.Clamp01(t));
         }
 
@@ -84,7 +88,7 @@ namespace Player.State
         {
             bool shortApexExpired = _elapsedTime >= _shortApexEndTime;
             bool longApexExpired = _elapsedTime >= _longApexEndTime;
-            bool jumpButtonHeld = PlayerController.Instance.IsJumpButtonPressed();
+            bool jumpButtonHeld = _playerController.IsJumpButtonPressed();
 
             if ((shortApexExpired && !jumpButtonHeld) || longApexExpired) // Waiting in apex (short or long)
             {
@@ -97,7 +101,7 @@ namespace Player.State
         {
             _descentElapsedTime += Time.deltaTime;
 
-            float t = _descentElapsedTime / timeDescent;
+            float t = _descentElapsedTime / _jumpSettings.timeDescent;
             return EasingFunctions.EaseInQuint(Mathf.Clamp01(t));
         }
 
@@ -109,7 +113,7 @@ namespace Player.State
         public bool IsDone()
         {
             return _currentPhase == JumpPhase.Descending
-                   && _descentElapsedTime >= timeDescent;
+                   && _descentElapsedTime >= _jumpSettings.timeDescent;
         }
     }
 }

@@ -1,8 +1,6 @@
-using UnityEngine;
-
 namespace Player.State
 {
-    public class IdleState : MonoBehaviour, IPlayerState
+    public class IdleState : IPlayerState
     {
         public void Enter()
         {
@@ -15,6 +13,7 @@ namespace Player.State
 
         public void Exit()
         {
+            
         }
 
         public bool IsDone()

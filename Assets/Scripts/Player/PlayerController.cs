@@ -1,3 +1,5 @@
+using System;
+using Player.Data;
 using Player.State;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -6,39 +8,33 @@ namespace Player
 {
     public class PlayerController : MonoBehaviour
     {
-        public static PlayerController Instance;
-        
         [Header("Input")] 
         [SerializeField] private InputActionReference leftInput;
         [SerializeField] private InputActionReference rightInput;
         [SerializeField] private InputActionReference jumpInput;
         
-        [Header("References")]
-        [SerializeField] private PlayerStateMachine stateMachine;
+        [Header("Settings")]
+        [SerializeField] private PlayerSettings playerSettings;
         
-        [Header("Lane Anchors")]
+        [Header("Lanes")]
         [SerializeField] private Transform[] laneAnchors;
         [SerializeField] private int initLaneIndex = 1;
         
-        private Transform _transform;
         private int _currentLaneIndex;
-
+        private Transform _transform;
+        private PlayerStateMachine _stateMachine;
 
         private void Awake()
         {
-            if (Instance == null)
-                Instance = this;
-            else
-                Destroy(gameObject);
+            _transform = transform;
+            _currentLaneIndex = initLaneIndex;
+            _stateMachine = new PlayerStateMachine(this, playerSettings);
         }
 
         private void Start()
         {
-            _transform = transform;
-            _currentLaneIndex = initLaneIndex;
             _transform.position = laneAnchors[_currentLaneIndex].position;
-            
-            stateMachine.InitializeState();
+            _stateMachine.InitializeState();
         }
         
         private void OnEnable()
@@ -72,24 +68,24 @@ namespace Player
         
         private void TryChangingLane(int newLaneIndex)
         {
-            if (stateMachine.GetCurrentState() != PlayerState.Idle) return;
+            if (_stateMachine.GetCurrentState() != PlayerState.Idle) return;
             newLaneIndex = Mathf.Clamp(newLaneIndex, 0, laneAnchors.Length - 1);
             if (newLaneIndex != _currentLaneIndex)
             {
                 _currentLaneIndex = newLaneIndex;
-                stateMachine.ChangeState(PlayerState.ChangingLane);
+                _stateMachine.ChangeState(PlayerState.ChangingLane);
             }
         }
 
         private void TryJumping()
         {
-            if (stateMachine.GetCurrentState() != PlayerState.Idle) return;
-            stateMachine.ChangeState(PlayerState.Jumping);
+            if (_stateMachine.GetCurrentState() != PlayerState.Idle) return;
+            _stateMachine.ChangeState(PlayerState.Jumping);
         }
 
         public void Update()
         {
-            stateMachine.UpdateState();
+            _stateMachine.UpdateState();
         }
 
         #region Getters/Setters
