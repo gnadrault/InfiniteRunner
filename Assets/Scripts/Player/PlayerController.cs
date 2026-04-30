@@ -1,80 +1,183 @@
+using System;
+using Player.State;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace Player
 {
-    
     public class PlayerController : MonoBehaviour
     {
-        private enum PlayerState
-        {
-            Ground,
-            Jumping
-        }
+        public static PlayerController Instance;
         
-        [Header("References")]
-        [SerializeField] private PlayerMove playerMove;
-        [SerializeField] private PlayerJump playerJump;
-
-        [Header("Input")]
+        [Header("Input")] 
         [SerializeField] private InputActionReference leftInput;
         [SerializeField] private InputActionReference rightInput;
         [SerializeField] private InputActionReference jumpInput;
         
+        [Header("References")]
+        [SerializeField] private LaneChangingState laneChangingState;
+        [SerializeField] private JumpingState jumpingState;
+        [SerializeField] private IdleState idleState;
+        
+        [Header("Lane Anchors")]
+        [SerializeField] private Transform[] laneAnchors;
+        [SerializeField] private int initLaneIndex = 1;
+
+        public enum PlayerState
+        {
+            Idle,
+            ChangingLane,
+            Jumping
+        }
+        
         private Transform _transform;
-        private float _startHeight;
-        
-        private PlayerState _currentState = PlayerState.Ground;
-        
+        private int _currentLaneIndex;
+        private PlayerState _currentStateValue;
+        private IPlayerState _currentStateHandler;
+
+        private void Awake()
+        {
+            if (Instance == null)
+                Instance = this;
+            else
+                Destroy(gameObject);
+        }
+
         private void Start()
         {
             _transform = transform;
-            _startHeight = _transform.position.y;
-            leftInput.action.started += HandleOnLeftInput; // delegate
-            rightInput.action.started += HandleOnRightInput;
-            jumpInput.action.started += HandleOnJumpInput;
+            _currentLaneIndex = initLaneIndex;
+            _transform.position = laneAnchors[_currentLaneIndex].position;
+            
+            InitializeState();
         }
         
-        private void HandleOnLeftInput(InputAction.CallbackContext obj)
+        private void OnEnable()
         {
-            if (_currentState == PlayerState.Ground)
-                playerMove.MoveLeft();
+            leftInput.action.started += OnLeftInput;
+            rightInput.action.started += OnRightInput;
+            jumpInput.action.started += OnJumpInput;
+        }
+
+        private void OnDisable()
+        {
+            leftInput.action.started -= OnLeftInput;
+            rightInput.action.started -= OnRightInput;
+            jumpInput.action.started -= OnJumpInput;
+        }
+
+        private void OnLeftInput(InputAction.CallbackContext obj)
+        {
+            TryChangingLane(_currentLaneIndex - 1);
+        }
+
+        private void OnRightInput(InputAction.CallbackContext obj)
+        {
+            TryChangingLane(_currentLaneIndex + 1);
+        }
+
+        private void OnJumpInput(InputAction.CallbackContext obj)
+        {
+            TryJumping();
         }
         
-        private void HandleOnRightInput(InputAction.CallbackContext obj)
+        private void TryChangingLane(int newLaneIndex)
         {
-            if (_currentState == PlayerState.Ground)
-                playerMove.MoveRight();
+            if (_currentStateValue != PlayerState.Idle) return;
+            newLaneIndex = Mathf.Clamp(newLaneIndex, 0, laneAnchors.Length - 1);
+            if (newLaneIndex != _currentLaneIndex)
+            {
+                _currentLaneIndex = newLaneIndex;
+                ChangeState(PlayerState.ChangingLane);
+            }
         }
-        
-        private void HandleOnJumpInput(InputAction.CallbackContext obj)
+
+        private void TryJumping()
         {
-            if (_currentState != PlayerState.Ground) return;
-            _currentState = PlayerState.Jumping;
-            playerJump.StartJump();
+            if (_currentStateValue != PlayerState.Idle) return;
+            ChangeState(PlayerState.Jumping);
         }
 
         public void Update()
         {
-            HandlePlayerState();
-            
-            Vector3 position = _transform.position;
-            if (_currentState == PlayerState.Jumping)
-            {
-                position.y = _startHeight + playerJump.HandlePlayerJump(jumpInput.action.IsPressed());
-            } else if (_currentState == PlayerState.Ground)
-            {
-                position.x = playerMove.HandlePlayerMove(_transform.position.x);
-            }
-            _transform.position = position;
+            UpdateState();
         }
 
-        private void HandlePlayerState()
+        #region Getters/Setters
+
+        public void SetPositionX(float x)
         {
-            if (_currentState == PlayerState.Jumping && !playerJump.IsJumping())
+            Vector3 position = _transform.position;
+            position.x = x;
+            _transform.position = position;
+        }
+        
+        public void SetPositionY(float y)
+        {
+            Vector3 position = _transform.position;
+            position.y = y;
+            _transform.position = position;
+        }
+        
+        public Vector3 GetCurrentPosition()
+        {
+            return _transform.position;
+        }
+        
+        public Vector3 GetCurrentLanePosition()
+        {
+            return laneAnchors[_currentLaneIndex].position;
+        }
+        
+        public bool IsJumpButtonPressed()
+        {
+            return jumpInput.action.IsPressed();
+        }
+
+        #endregion
+
+
+        #region State Machine
+        
+        public void InitializeState()
+        {
+            SetState(PlayerState.Idle);
+            _currentStateHandler.Enter();
+        }
+        
+        public void UpdateState()
+        {
+            CheckStateTransitions();
+            _currentStateHandler.UpdateState();
+        }
+        
+        public void ChangeState(PlayerState newPlayerState)
+        {
+            _currentStateHandler.Exit();
+            SetState(newPlayerState);
+            _currentStateHandler.Enter();
+        }
+
+        private void SetState(PlayerState newPlayerState)
+        {
+            _currentStateValue = newPlayerState;
+            _currentStateHandler = _currentStateValue switch
             {
-                _currentState = PlayerState.Ground;
+                PlayerState.Idle => idleState,
+                PlayerState.ChangingLane => laneChangingState,
+                PlayerState.Jumping => jumpingState,
+                _ => throw new ArgumentOutOfRangeException()
+            };
+        }
+
+        private void CheckStateTransitions()
+        {
+            if (_currentStateHandler.IsDone() && _currentStateValue != PlayerState.Idle)
+            {
+                ChangeState(PlayerState.Idle);
             }
         }
+        
+        #endregion
     }
 }
