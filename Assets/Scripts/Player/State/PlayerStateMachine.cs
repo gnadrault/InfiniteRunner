@@ -9,6 +9,13 @@ namespace Player.State
         private JumpingState _jumpingState;
         private IdleState _idleState;
         
+        private enum PlayerState
+        {
+            Idle,
+            ChangingLane,
+            Jumping
+        }
+        
         private PlayerState _currentStateValue;
         private IPlayerState _currentStateHandler;
 
@@ -31,7 +38,7 @@ namespace Player.State
             _currentStateHandler.UpdateState();
         }
         
-        public void ChangeState(PlayerState newPlayerState)
+        private void ChangeState(PlayerState newPlayerState)
         {
             _currentStateHandler.Exit();
             SetState(newPlayerState);
@@ -52,15 +59,15 @@ namespace Player.State
 
         private void CheckStateTransitions()
         {
-            if (_currentStateHandler.IsDone() && _currentStateValue != PlayerState.Idle)
+            if (_currentStateValue != PlayerState.Idle && _currentStateHandler.IsDone())
             {
-                ChangeState(PlayerState.Idle);
+                Idle();
             }
         }
 
-        public PlayerState GetCurrentState()
-        {
-            return _currentStateValue;
-        }
+        public bool CanChangeState() => _currentStateValue == PlayerState.Idle;
+        public void ChangingLane() => ChangeState(PlayerState.ChangingLane);
+        public void Idle() => ChangeState(PlayerState.Idle);
+        public void Jumping() => ChangeState(PlayerState.Jumping);
     }
 }

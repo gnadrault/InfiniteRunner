@@ -1,4 +1,3 @@
-using System;
 using Player.Data;
 using Player.State;
 using UnityEngine;
@@ -68,19 +67,19 @@ namespace Player
         
         private void TryChangingLane(int newLaneIndex)
         {
-            if (_stateMachine.GetCurrentState() != PlayerState.Idle) return;
+            if (!_stateMachine.CanChangeState()) return;
             newLaneIndex = Mathf.Clamp(newLaneIndex, 0, laneAnchors.Length - 1);
             if (newLaneIndex != _currentLaneIndex)
             {
                 _currentLaneIndex = newLaneIndex;
-                _stateMachine.ChangeState(PlayerState.ChangingLane);
+                _stateMachine.ChangingLane();
             }
         }
 
         private void TryJumping()
         {
-            if (_stateMachine.GetCurrentState() != PlayerState.Idle) return;
-            _stateMachine.ChangeState(PlayerState.Jumping);
+            if (!_stateMachine.CanChangeState()) return;
+            _stateMachine.Jumping();
         }
 
         public void Update()
