@@ -50,6 +50,8 @@ namespace Player.State
         public IPlayerState ChangingLane() => _lane;
         public IPlayerState Jumping() => _jump;
         public IPlayerState Sliding() => _slide;
-        public bool CanChangeState() => _currentState == Idle();
+        public bool CanJump() => _currentState == Idle();
+        public bool CanSlide() => _currentState == Idle() ;
+        public bool CanChangeLane() => _currentState != Sliding() && _currentState != Jumping();
     }
 }

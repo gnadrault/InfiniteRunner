@@ -913,6 +913,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8027669263008946748, guid: 7b7fe22e7203a55459925ca643d3dac9, type: 3}
+      propertyPath: leftInput
+      value: 
+      objectReference: {fileID: -481456329149820956, guid: 0eae3734640624049a0c62a5acdfe144, type: 3}
+    - target: {fileID: 8027669263008946748, guid: 7b7fe22e7203a55459925ca643d3dac9, type: 3}
       propertyPath: slideInput
       value: 
       objectReference: {fileID: 1796795438463239281, guid: 0eae3734640624049a0c62a5acdfe144, type: 3}

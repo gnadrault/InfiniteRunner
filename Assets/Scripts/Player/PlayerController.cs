@@ -75,7 +75,7 @@ namespace Player
         
         private void TryChangingLane(int newLaneIndex)
         {
-            if (!_stateMachine.CanChangeState()) return;
+            if (!_stateMachine.CanChangeLane()) return;
             newLaneIndex = Mathf.Clamp(newLaneIndex, 0, laneAnchors.Length - 1);
             if (newLaneIndex != _currentLaneIndex)
             {
@@ -86,13 +86,13 @@ namespace Player
 
         private void TryJumping()
         {
-            if (!_stateMachine.CanChangeState()) return;
+            if (!_stateMachine.CanJump()) return;
             _stateMachine.ChangeState(_stateMachine.Jumping());
         }
 
         private void TrySlide()
         {
-            if (!_stateMachine.CanChangeState()) return;
+            if (!_stateMachine.CanSlide()) return;
             _stateMachine.ChangeState(_stateMachine.Sliding());
         }
 
