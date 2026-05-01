@@ -68,7 +68,7 @@ namespace Player.State
                     break;
             }
 
-            float newY = _startY + heightFactor * _jumpSettings.jumpHeight;
+            float newY = _startY +  _jumpSettings.jumpHeight * heightFactor;
             _playerController.SetPositionY(newY);
         }
         

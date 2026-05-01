@@ -7,10 +7,11 @@ namespace Player
 {
     public class PlayerController : MonoBehaviour
     {
-        [Header("Input")] 
+        [Header("Input")]
         [SerializeField] private InputActionReference leftInput;
         [SerializeField] private InputActionReference rightInput;
         [SerializeField] private InputActionReference jumpInput;
+        [SerializeField] private InputActionReference slideInput;
         
         [Header("Settings")]
         [SerializeField] private PlayerSettings playerSettings;
@@ -41,6 +42,7 @@ namespace Player
             leftInput.action.started += OnLeftInput;
             rightInput.action.started += OnRightInput;
             jumpInput.action.started += OnJumpInput;
+            slideInput.action.started += OnSlideInput;
         }
 
         private void OnDisable()
@@ -48,6 +50,7 @@ namespace Player
             leftInput.action.started -= OnLeftInput;
             rightInput.action.started -= OnRightInput;
             jumpInput.action.started -= OnJumpInput;
+            slideInput.action.started -= OnSlideInput;
         }
 
         private void OnLeftInput(InputAction.CallbackContext obj)
@@ -65,6 +68,11 @@ namespace Player
             TryJumping();
         }
         
+        private void OnSlideInput(InputAction.CallbackContext obj)
+        {
+            TrySlide();
+        }
+        
         private void TryChangingLane(int newLaneIndex)
         {
             if (!_stateMachine.CanChangeState()) return;
@@ -80,6 +88,12 @@ namespace Player
         {
             if (!_stateMachine.CanChangeState()) return;
             _stateMachine.ChangeState(_stateMachine.Jumping());
+        }
+
+        private void TrySlide()
+        {
+            if (!_stateMachine.CanChangeState()) return;
+            _stateMachine.ChangeState(_stateMachine.Sliding());
         }
 
         public void Update()
@@ -102,21 +116,19 @@ namespace Player
             position.y = y;
             _transform.position = position;
         }
-        
-        public Vector3 GetCurrentPosition()
+
+        public void SetScaleY(float y)
         {
-            return _transform.position;
+            Vector3 scale = _transform.localScale;
+            scale.y = y;
+            _transform.localScale = scale;
         }
         
-        public Vector3 GetCurrentLanePosition()
-        {
-            return laneAnchors[_currentLaneIndex].position;
-        }
-        
-        public bool IsJumpButtonPressed()
-        {
-            return jumpInput.action.IsPressed();
-        }
+        public Vector3 GetCurrentPosition() => _transform.position;
+        public Vector3 GetCurrentScale() => _transform.localScale;
+        public Vector3 GetCurrentLanePosition() => laneAnchors[_currentLaneIndex].position;
+        public bool IsJumpButtonPressed() => jumpInput.action.IsPressed();
+        public bool IsSlideButtonPressed() => slideInput.action.IsPressed();
 
         #endregion
     }

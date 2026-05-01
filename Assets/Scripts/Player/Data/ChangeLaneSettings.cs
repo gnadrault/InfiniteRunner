@@ -4,6 +4,5 @@
     public class ChangeLaneSettings
     {
         public float laneChangeDuration = 0.1f;
-        public float rotationSpeed = 1f;
     }
 }

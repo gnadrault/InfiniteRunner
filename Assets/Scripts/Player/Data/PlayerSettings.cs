@@ -5,5 +5,6 @@
     {
         public JumpSettings jump;
         public ChangeLaneSettings changeLane;
+        public SlideSettings slide;
     }
 }
