@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -3573949801234290712, guid: 8e0faa93c84d11941bba2c5cc6d43308, type: 3}
+      propertyPath: obstacleSize
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6036364487910594465, guid: 8e0faa93c84d11941bba2c5cc6d43308, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.25
@@ -50,7 +54,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8930819974588595678, guid: 8e0faa93c84d11941bba2c5cc6d43308, type: 3}
       propertyPath: m_Name
-      value: ObstacleMobile (1) Variant
+      value: 4-3 Mobile Falling Wall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

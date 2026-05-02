@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5282468833573100779, guid: a21a66848c9dd53439eb7a8533aad622, type: 3}
       propertyPath: m_Name
-      value: ObstacleMobile (1) Variant
+      value: 4-4 Mobile Vertical Simple Wall
       objectReference: {fileID: 0}
     - target: {fileID: 7024143845274367636, guid: a21a66848c9dd53439eb7a8533aad622, type: 3}
       propertyPath: m_LocalPosition.x
@@ -50,6 +50,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7024143845274367636, guid: a21a66848c9dd53439eb7a8533aad622, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8996357584562194141, guid: a21a66848c9dd53439eb7a8533aad622, type: 3}
+      propertyPath: obstacleSize
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

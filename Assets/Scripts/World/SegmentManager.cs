@@ -8,13 +8,20 @@ namespace World
         [Header("Settings")]
         [SerializeField] private int maxChunks = 5;
         [SerializeField] private float scrollSpeed = 2f;
+        
+        [Header("Segments")]
         [SerializeField] private Segment segmentPrefab;
         [SerializeField] private Segment firstSegment;
-        private List<Segment> _chunkList;
+        
+        [Header("Obstacles")]
+        [SerializeField] private List<Obstacle> obstaclesFixedPrefab;
+        [SerializeField] private List<Obstacle> obstaclesMobilePrefab;
         
         private float _chunkLength;
         private float _chunkX;
         private float _chunkY;
+        
+        private List<Segment> _chunkList;
 
         private void Start()
         {

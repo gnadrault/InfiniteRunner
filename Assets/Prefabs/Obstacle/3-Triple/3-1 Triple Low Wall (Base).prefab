@@ -8,9 +8,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8610238662108238282, guid: 7cad67516b97a854f82238320844cc56, type: 3}
+      propertyPath: obstacleSize
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6501239765962510561, guid: 7cad67516b97a854f82238320844cc56, type: 3}
       propertyPath: m_Name
-      value: Triple Low Wall (Base) Variant
+      value: 3-1 Triple Low Wall (Base)
       objectReference: {fileID: 0}
     - target: {fileID: 7617021302289975344, guid: 7cad67516b97a854f82238320844cc56, type: 3}
       propertyPath: m_LocalScale.x

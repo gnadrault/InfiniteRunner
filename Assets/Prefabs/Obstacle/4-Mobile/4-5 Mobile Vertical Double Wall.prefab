@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5205317427943004886, guid: 4f4fe2efdf1401c43a01a2171a708a61, type: 3}
       propertyPath: m_Name
-      value: ObstacleMobile (1) Variant
+      value: 4-5 Mobile Vertical Double Wall
       objectReference: {fileID: 0}
     - target: {fileID: 6920023171744673961, guid: 4f4fe2efdf1401c43a01a2171a708a61, type: 3}
       propertyPath: m_LocalScale.x
@@ -55,6 +55,10 @@ PrefabInstance:
     - target: {fileID: 6920023171744673961, guid: 4f4fe2efdf1401c43a01a2171a708a61, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9055439757348929760, guid: 4f4fe2efdf1401c43a01a2171a708a61, type: 3}
+      propertyPath: obstacleSize
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

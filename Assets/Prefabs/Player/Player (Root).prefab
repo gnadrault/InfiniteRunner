@@ -171,16 +171,21 @@ MonoBehaviour:
   leftInput: {fileID: -481456329149820956, guid: 0eae3734640624049a0c62a5acdfe144, type: 3}
   rightInput: {fileID: -7142251320732278877, guid: 0eae3734640624049a0c62a5acdfe144, type: 3}
   jumpInput: {fileID: 3161682069650093083, guid: 0eae3734640624049a0c62a5acdfe144, type: 3}
+  slideInput: {fileID: 1796795438463239281, guid: 0eae3734640624049a0c62a5acdfe144, type: 3}
   playerSettings:
     jump:
-      jumpHeight: 1.5
+      jumpHeight: 2
       timeToApex: 0.1
       timeApexWait: 0.2
       timeApexExtraWait: 0.2
       timeDescent: 0.2
     changeLane:
-      laneChangeDuration: 0.1
-      rotationSpeed: 1
+      laneChangeDuration: 0.15
+    slide:
+      slideShrinkHeight: 0.5
+      timeToFlatten: 0
+      timeFlattenWait: 0.2
+      timeToRecover: 0
   laneAnchors:
   - {fileID: 0}
   - {fileID: 0}
