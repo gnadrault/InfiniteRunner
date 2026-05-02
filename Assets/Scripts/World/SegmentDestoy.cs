@@ -7,9 +7,11 @@ namespace World
         
         private void OnTriggerEnter(Collider other)
         {
-            if (other.TryGetComponent(out Segment chunk))
+            Segment segment = other.GetComponentInParent<Segment>();
+            
+            if (segment != null)
             {
-                Destroy(chunk.gameObject);
+                Destroy(segment.gameObject);
             }
         }
     }

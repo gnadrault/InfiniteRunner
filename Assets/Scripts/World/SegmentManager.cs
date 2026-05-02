@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace World
@@ -6,63 +7,65 @@ namespace World
     public class SegmentManager : MonoBehaviour
     {
         [Header("Settings")]
-        [SerializeField] private int maxChunks = 5;
+        [SerializeField] private int maxSegments = 5;
         [SerializeField] private float scrollSpeed = 2f;
         
         [Header("Segments")]
-        [SerializeField] private Segment segmentPrefab;
         [SerializeField] private Segment firstSegment;
         
-        [Header("Obstacles")]
-        [SerializeField] private List<Obstacle> obstaclesFixedPrefab;
-        [SerializeField] private List<Obstacle> obstaclesMobilePrefab;
+        [SerializeField] private int segmentsCountPerPhase = 5;
+        [SerializeField] private List<Segment> segmentsPoolPhase1;
+        [SerializeField] private SegmentGeneration segmentGenerator;
         
-        private float _chunkLength;
-        private float _chunkX;
-        private float _chunkY;
+        private float _segmentLength;
+        private float _segmentX;
+        private float _segmentY;
         
-        private List<Segment> _chunkList;
+        private List<Segment> _activeSegmentList;
+        private List<Segment> _poolSegmentList;
 
         private void Start()
         {
-            _chunkList = new List<Segment> { firstSegment };
-            _chunkLength = firstSegment.GetComponent<Renderer>().bounds.size.z;
-            _chunkX = firstSegment.transform.position.x;
-            _chunkY = firstSegment.transform.position.y;
+            _activeSegmentList = new List<Segment> { firstSegment };
+            _segmentLength = firstSegment.GetComponentInChildren<Renderer>().bounds.size.z;
+            _segmentX = firstSegment.transform.position.x;
+            _segmentY = firstSegment.transform.position.y;
         }
 
         private void OnEnable()
         {
-            Segment.OnChunkDestroyed += RemoveChunk;
+            Segment.OnChunkDestroyed += RemoveSegment;
         }
 
         private void OnDisable()
         {
-            Segment.OnChunkDestroyed -= RemoveChunk;
+            Segment.OnChunkDestroyed -= RemoveSegment;
         }
 
-        private void AddChunk()
+        private void AddSegment()
         {
-            Segment lastSegment = _chunkList[_chunkList.Count - 1];
-            Vector3 spawnPos = new Vector3(_chunkX, _chunkY, lastSegment.transform.position.z + _chunkLength);
-            Segment newSegment = Instantiate(segmentPrefab, spawnPos, Quaternion.identity);
-            _chunkList.Add(newSegment);
+            Segment lastSegment = _activeSegmentList[_activeSegmentList.Count - 1];
+            Vector3 spawnPos = new Vector3(_segmentX, _segmentY, lastSegment.transform.position.z + _segmentLength);
+            Segment pooledSegment = segmentsPoolPhase1[Random.Range(0, segmentsPoolPhase1.Count)]; // TODO change on current phase
+            Segment newSegment = Instantiate(pooledSegment, spawnPos, Quaternion.identity);
+            segmentGenerator.GenerateSegmentObjects(newSegment);
+            _activeSegmentList.Add(newSegment);
         }
 
-        private void RemoveChunk(Segment segment)
+        private void RemoveSegment(Segment segment)
         {
-            _chunkList.Remove(segment);
+            _activeSegmentList.Remove(segment);
         }
 
         private void Update()
         {
-            while (_chunkList.Count < maxChunks)
+            while (_activeSegmentList.Count < maxSegments)
             {
-                AddChunk();
+                AddSegment();
             }
-            foreach (Segment chunk in _chunkList)
+            foreach (Segment segment in _activeSegmentList)
             {
-                chunk.Scroll(scrollSpeed * Time.deltaTime);
+                segment.Scroll(scrollSpeed * Time.deltaTime);
             }
         }
     }
