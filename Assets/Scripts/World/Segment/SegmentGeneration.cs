@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using Gameplay;
+using Gameplay.Data;
 using UnityEngine;
 using World.GameElement;
 using World.Spawn;
@@ -13,6 +15,24 @@ namespace World.Segment
 
         [Header("Collectibles")]
         [SerializeField] private Letter letterPrefab;
+        [SerializeField] private int activeLettersSpawnRate = 3;
+        
+        private WordData[] _activeWords;
+        
+        private void OnEnable()
+        {
+            LettersSystem.OnActiveWordsChanged += SetActiveWords;
+        }
+        
+        private void OnDisable()
+        {
+            LettersSystem.OnActiveWordsChanged -= SetActiveWords;
+        }
+
+        private void SetActiveWords(WordData[] words)
+        {
+            _activeWords = words;
+        }
         
         public void GenerateSegmentObjects(Segment segment, int phaseIndex)
         {
@@ -48,7 +68,23 @@ namespace World.Segment
         private void GenerateCollectibleObject(Collectible element, int phaseIndex)
         {
             Letter letterSpawned = Instantiate(letterPrefab, element.transform.position, Quaternion.identity, element.transform);
-            letterSpawned.SetLabelText("E"); // TODO Set letters values depending on words
+            letterSpawned.SetLabelText(GetRandomLetter().ToString());
+        }
+
+        private char GetRandomLetter()
+        {
+            List<char> pool = new List<char>();
+            
+            for (char c = 'A'; c <= 'Z'; c++)
+                pool.Add(c);
+
+            foreach (WordData word in _activeWords)
+                for (int i = 0; i < activeLettersSpawnRate; i++)
+                {
+                    foreach (char c in word.word)
+                        pool.Add(c);
+                }
+            return pool[Random.Range(0, pool.Count)];
         }
 
         private void GenerateVirusObject(Virus element, int phaseIndex)

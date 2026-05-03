@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using Gameplay.Data;
 using UnityEngine;
 
@@ -34,6 +32,19 @@ namespace Gameplay
                     letterCell.SetHighlight(letterCollected);
                 }
             }
+        }
+
+        public List<char> GetNonActiveLetters()
+        {
+            List<char> nonActiveLetters = new List<char>();
+            foreach (var letterCell in _letterCells)
+            {
+                if (!letterCell.IsHighlighted)
+                {
+                    nonActiveLetters.Add(letterCell.Character);
+                }
+            }
+            return nonActiveLetters;
         }
     }
 }

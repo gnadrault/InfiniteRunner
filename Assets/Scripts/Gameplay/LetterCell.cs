@@ -5,28 +5,32 @@ namespace Gameplay
 {
     public class LetterCell : MonoBehaviour
     {
-        [SerializeField] private TextMeshProUGUI character;
+        [SerializeField] private TextMeshProUGUI label;
+
 
         private static readonly Color DefaultColor = Color.white;
         private static readonly Color HighlightColor = Color.cyan;
         private bool _isHighlighted;
+        private char _character;
         
         public bool IsHighlighted => _isHighlighted;
+        public char Character => _character;
         
         private void OnValidate()
         {
-            character = GetComponent<TextMeshProUGUI>();
+            label = GetComponent<TextMeshProUGUI>();
         }
         
         public void Init(char letter)
         {
-            character.text = letter.ToString();
+            _character = letter;
+            label.text = letter.ToString();
         }
 
         public void SetHighlight(string letter)
         {
-            _isHighlighted = letter == character.text;
-            character.color = _isHighlighted ? HighlightColor : DefaultColor;
+            _isHighlighted = letter == label.text;
+            label.color = _isHighlighted ? HighlightColor : DefaultColor;
         }
     }
 }
