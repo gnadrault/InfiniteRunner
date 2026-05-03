@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15ded45f91da42b1be962d68171f626a, type: 3}
+  m_Name: BonusWords
+  m_EditorClassIdentifier: Assembly-CSharp::Gameplay.Data.WordListData
+  words:
+    - word: SLOW
+      effect: 0
+    - word: LAG
+      effect: 0
+    - word: DELAY
+      effect: 0
+    - word: FREEZE
+      effect: 0
+    - word: SHIELD
+      effect: 1
+    - word: GUARD
+      effect: 1
+    - word: DEFEND
+      effect: 1
+    - word: PROTECT
+      effect: 1
+    - word: FIREWALL
+      effect: 1
+    - word: GHOST
+      effect: 2
+    - word: SAFE
+      effect: 2
+    - word: CLEAR
+      effect: 2
+    - word: SYNC
+      effect: 3
+    - word: LINK
+      effect: 3
+    - word: MERGE
+      effect: 3
+    - word: BOOST
+      effect: 4
+    - word: POWER
+      effect: 4
+    - word: CHARGE
+      effect: 4
+    - word: AMP
+      effect: 4

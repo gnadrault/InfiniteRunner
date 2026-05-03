@@ -1,16 +1,14 @@
+using Gameplay.Data;
 using UnityEngine;
 
-public class LootSystem : MonoBehaviour
+namespace Gameplay
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public class LootSystem : MonoBehaviour
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        [Header("Words")] 
+        [SerializeField] private WordDatabase bonusWords;
+        [SerializeField] private WordDatabase malusWords;
+        [SerializeField] private LettersDisplay[] bonusWordsDisplays = new LettersDisplay[3];
+        [SerializeField] private LettersDisplay[] malusWordsDisplays = new LettersDisplay[3];
     }
 }

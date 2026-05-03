@@ -132,8 +132,9 @@ GameObject:
   - component: {fileID: 67451015}
   - component: {fileID: 67451014}
   - component: {fileID: 67451013}
+  - component: {fileID: 67451017}
   m_Layer: 5
-  m_Name: 3-WordDisplay (Panel)
+  m_Name: 3-LettersDisplay (Panel)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -242,6 +243,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 67451011}
   m_CullTransparentMesh: 1
+--- !u!114 &67451017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 67451011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 251b5336e4a24e378f6f74dffa73a279, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Gameplay.WordDisplay
 --- !u!1 &114285514
 GameObject:
   m_ObjectHideFlags: 0
@@ -937,8 +950,9 @@ GameObject:
   - component: {fileID: 483874014}
   - component: {fileID: 483874013}
   - component: {fileID: 483874012}
+  - component: {fileID: 483874016}
   m_Layer: 5
-  m_Name: 2-WordDisplay (Panel)
+  m_Name: 2-LettersDisplay (Panel)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1047,6 +1061,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 483874010}
   m_CullTransparentMesh: 1
+--- !u!114 &483874016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 483874010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 251b5336e4a24e378f6f74dffa73a279, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Gameplay.WordDisplay
 --- !u!1 &582970364
 GameObject:
   m_ObjectHideFlags: 0
@@ -2111,8 +2137,9 @@ GameObject:
   - component: {fileID: 1773744168}
   - component: {fileID: 1773744171}
   - component: {fileID: 1773744172}
+  - component: {fileID: 1773744173}
   m_Layer: 5
-  m_Name: 1-WordDisplay (Panel)
+  m_Name: 1-LettersDisplay (Panel)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2221,6 +2248,18 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &1773744173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1773744166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 251b5336e4a24e378f6f74dffa73a279, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Gameplay.WordDisplay
 --- !u!1 &1915460932
 GameObject:
   m_ObjectHideFlags: 0
@@ -2232,6 +2271,7 @@ GameObject:
   - component: {fileID: 1915460934}
   - component: {fileID: 1915460935}
   - component: {fileID: 1915460936}
+  - component: {fileID: 1915460937}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2305,6 +2345,28 @@ MonoBehaviour:
   - {fileID: 6762589489046989040, guid: b92093df76641414bb52afc381a1212c, type: 3}
   - {fileID: 676060326725753450, guid: 1f00f83558a7e02479135f9f165e82e1, type: 3}
   letterPrefab: {fileID: 7114961241968849724, guid: 59e0584963e46ff4586f0fc3263dcb78, type: 3}
+--- !u!114 &1915460937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1915460932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb1e6807dcf9b8c4d8dbce2d4bad7b5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Gameplay.LootSystem
+  bonusWords: {fileID: 0}
+  malusWords: {fileID: 0}
+  bonusWordsDisplays:
+  - {fileID: 1773744173}
+  - {fileID: 483874016}
+  - {fileID: 67451017}
+  malusWordsDisplays:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &2041563303
 GameObject:
   m_ObjectHideFlags: 0
