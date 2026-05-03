@@ -1,13 +1,13 @@
 using UnityEngine;
 
-namespace World
+namespace World.Segment
 {
     public class SegmentDestoy : MonoBehaviour
     {
         
         private void OnTriggerEnter(Collider other)
         {
-            Segment segment = other.GetComponentInParent<Segment>();
+            Data.Segment segment = other.GetComponentInParent<Data.Segment>();
             
             if (segment != null)
             {

@@ -8,21 +8,33 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8610238662108238282, guid: 7cad67516b97a854f82238320844cc56, type: 3}
+      propertyPath: numLaneSize
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8610238662108238282, guid: 7cad67516b97a854f82238320844cc56, type: 3}
+      propertyPath: probability
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1740123866734240577, guid: 7cad67516b97a854f82238320844cc56, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6501239765962510561, guid: 7cad67516b97a854f82238320844cc56, type: 3}
       propertyPath: m_Name
-      value: Simple Low Wall Variant
+      value: 1-1 Simple Low Wall
       objectReference: {fileID: 0}
     - target: {fileID: 7617021302289975344, guid: 7cad67516b97a854f82238320844cc56, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -28.572346
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 7617021302289975344, guid: 7cad67516b97a854f82238320844cc56, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.0000010218528
+      value: 0.0000010692847
       objectReference: {fileID: 0}
     - target: {fileID: 7617021302289975344, guid: 7cad67516b97a854f82238320844cc56, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.54084086
+      value: -11.239496
       objectReference: {fileID: 0}
     - target: {fileID: 7617021302289975344, guid: 7cad67516b97a854f82238320844cc56, type: 3}
       propertyPath: m_LocalRotation.w

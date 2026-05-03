@@ -8,17 +8,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 259869225034322037, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
+    - target: {fileID: 3326623386477767063, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
     - target: {fileID: 3355376620616414268, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
       propertyPath: size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3355376620616414268, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
       propertyPath: spawnType
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3811796344787990486, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
       propertyPath: spawnType
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3998643824695199962, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
       propertyPath: maxSize
@@ -34,15 +42,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5503453371662959536, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 27.166166
+      value: 65.267
       objectReference: {fileID: 0}
     - target: {fileID: 5503453371662959536, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.0000011804213
+      value: 0.0000012623213
       objectReference: {fileID: 0}
     - target: {fileID: 5503453371662959536, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.3428683
+      value: -4.456861
       objectReference: {fileID: 0}
     - target: {fileID: 5503453371662959536, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -78,7 +86,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5614944108865150314, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
       propertyPath: m_Name
-      value: 1-1 Segment Objects Phase 1
+      value: 1-1 Segment
       objectReference: {fileID: 0}
     - target: {fileID: 5662254449656763107, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
       propertyPath: spawnType
@@ -86,9 +94,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6004701459177135563, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
       propertyPath: size
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6004701459177135563, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+      propertyPath: spawnType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6729227362922703232, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 4162164826716764455, guid: 0000000000000000d000000000000000, type: 0}
+    - target: {fileID: 6844122784589977228, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 4162164826716764455, guid: 0000000000000000d000000000000000, type: 0}
+    - target: {fileID: 7603818156849033519, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
       propertyPath: spawnType
       value: 1
       objectReference: {fileID: 0}
@@ -104,8 +124,69 @@ PrefabInstance:
       propertyPath: spawnType
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6187464319500317914, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+    - {fileID: 8678434225784999224, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3326623386477767063, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2394818237355582236}
+    - targetCorrespondingSourceObject: {fileID: 3326623386477767063, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3592073030491183045}
+    - targetCorrespondingSourceObject: {fileID: 259869225034322037, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3096641102148112596}
   m_SourcePrefab: {fileID: 100100000, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+--- !u!1 &1603139068192743384 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 259869225034322037, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+  m_PrefabInstance: {fileID: 1559445948572618669}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3096641102148112596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1603139068192743384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3bb7c8628a6761459ade3cef95ad7f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::World.GameElement.Obstacle
+  size: 0
+  type: 0
+--- !u!1 &4291589096848254522 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3326623386477767063, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+  m_PrefabInstance: {fileID: 1559445948572618669}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2394818237355582236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4291589096848254522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b5b4a7ce468ab94293337518c2e4d4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::World.Data.SpawnPoint
+--- !u!114 &3592073030491183045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4291589096848254522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3bb7c8628a6761459ade3cef95ad7f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::World.GameElement.Obstacle
+  size: 0
+  type: 0

@@ -9,7 +9,15 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8610238662108238282, guid: 7cad67516b97a854f82238320844cc56, type: 3}
+      propertyPath: numLaneSize
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8610238662108238282, guid: 7cad67516b97a854f82238320844cc56, type: 3}
       propertyPath: obstacleSize
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8610238662108238282, guid: 7cad67516b97a854f82238320844cc56, type: 3}
+      propertyPath: obstacleType
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1740123866734240577, guid: 7cad67516b97a854f82238320844cc56, type: 3}
@@ -30,7 +38,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6501239765962510561, guid: 7cad67516b97a854f82238320844cc56, type: 3}
       propertyPath: m_Name
-      value: 2-2 Left Double Middle Wall 1
+      value: 2-2 Double Middle Wall
       objectReference: {fileID: 0}
     - target: {fileID: 7617021302289975344, guid: 7cad67516b97a854f82238320844cc56, type: 3}
       propertyPath: m_LocalScale.x

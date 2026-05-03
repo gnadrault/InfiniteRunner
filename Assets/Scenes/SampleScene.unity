@@ -149,7 +149,7 @@ Transform:
   m_GameObject: {fileID: 263420515}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -35}
+  m_LocalPosition: {x: 0, y: 0, z: -61}
   m_LocalScale: {x: 20, y: 20, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -903,7 +903,7 @@ Transform:
   m_GameObject: {fileID: 1915460932}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.3066, y: 0, z: 3.07242}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -921,12 +921,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5a1be9f07dc2474288cfa7019e1dc98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChunkManager
-  maxSegments: 5
-  scrollSpeed: 5
+  maxSegments: 4
+  scrollSpeed: 15.6
   firstSegment: {fileID: 4933993261843267823}
   segmentsCountPerPhase: 5
   segmentsPoolPhase1:
   - {fileID: 8224420596382043838, guid: f5145e66e0468d6408719c826bcd21c0, type: 3}
+  - {fileID: 8190739711559514394, guid: a9ad376edd36cad4581ee6017924d862, type: 3}
+  - {fileID: 2395116437490601924, guid: 91c599aec37b1eb4b9469ada3ba22d94, type: 3}
+  - {fileID: 4433967854504895259, guid: d0736f6aee059a34da75b287de885678, type: 3}
+  - {fileID: 6617947424904940279, guid: fa29e595cb9c50c44969f6bc64c70436, type: 3}
   segmentGenerator: {fileID: 1915460936}
 --- !u!114 &1915460936
 MonoBehaviour:
@@ -940,18 +944,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f02b434a211a974385beb81fa173d5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  obstableList:
-  - obstacles:
-    - {fileID: 2870067622271708921, guid: 934c21811592d8549bb4896b3725f1a2, type: 3}
-    - {fileID: 9005284265063251801, guid: 24544b38014626c46b196cf311ca5e9b, type: 3}
-    - {fileID: 8966696435025192100, guid: 5bf63d7617d5da9498145884ae4804d6, type: 3}
-  - obstacles:
-    - {fileID: 9195684417777155218, guid: 6820916fba5c9be49b9b41d9421c0eff, type: 3}
-    - {fileID: 6086931285902227570, guid: 7065a2211b0b1d04aae9b58060000e52, type: 3}
-    - {fileID: 17218713700629804, guid: 2d08f5a25f6dd5945af7530c881db467, type: 3}
-  - obstacles:
-    - {fileID: 3976336028941285806, guid: 4104a3ce1f6df6844ac7946aca93d6ec, type: 3}
-    - {fileID: 250790599989451841, guid: 57d663583a2abea40abc1bbd1f2ad8e7, type: 3}
+  obstaclesFixedPrefab:
+  - {fileID: 2870067622271708921, guid: 934c21811592d8549bb4896b3725f1a2, type: 3}
+  - {fileID: 9005284265063251801, guid: 24544b38014626c46b196cf311ca5e9b, type: 3}
+  - {fileID: 8966696435025192100, guid: 5bf63d7617d5da9498145884ae4804d6, type: 3}
+  - {fileID: 9195684417777155218, guid: 6820916fba5c9be49b9b41d9421c0eff, type: 3}
+  - {fileID: 6086931285902227570, guid: 7065a2211b0b1d04aae9b58060000e52, type: 3}
+  - {fileID: 17218713700629804, guid: 2d08f5a25f6dd5945af7530c881db467, type: 3}
+  - {fileID: 3976336028941285806, guid: 4104a3ce1f6df6844ac7946aca93d6ec, type: 3}
+  - {fileID: 250790599989451841, guid: 57d663583a2abea40abc1bbd1f2ad8e7, type: 3}
   obstaclesMobilePrefab:
   - {fileID: 1208088170945700023, guid: b9f4d6adbddbcf94ea49b8d666b17038, type: 3}
   - {fileID: 7700468688156669711, guid: 4eb860928de30fc4fa4eae89d767cb04, type: 3}
