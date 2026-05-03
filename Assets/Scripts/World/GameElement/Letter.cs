@@ -8,6 +8,8 @@ namespace World.GameElement
     public class Letter: Collectible
     {
         [SerializeField] private TextMeshPro label;
+        
+        public string Label => label.text;
 
         public void SetLabelText(string text)
         {
@@ -16,7 +18,7 @@ namespace World.GameElement
 
         public override void OnPlayerCollision(PlayerController player)
         {
-            player.Collect(this);
+            player.CollectLetter(this);
             Destroy(gameObject);
         }
     }

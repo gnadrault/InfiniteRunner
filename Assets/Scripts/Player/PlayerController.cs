@@ -1,3 +1,4 @@
+using System;
 using Player.Data;
 using Player.State;
 using UnityEngine;
@@ -20,6 +21,8 @@ namespace Player
         [Header("Lanes")]
         [SerializeField] private Transform[] laneAnchors;
         [SerializeField] private int initLaneIndex = 1;
+        
+        public static event Action<string> OnLetterCollected;
         
         private int _currentLaneIndex;
         private Transform _transform;
@@ -133,9 +136,9 @@ namespace Player
             }
         }
         
-        public void Collect(Collectible collectible)
+        public void CollectLetter(Letter letter)
         {
-            print("Collected!!");
+            OnLetterCollected?.Invoke(letter.Label);
         }
 
         public void Die()

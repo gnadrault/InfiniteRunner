@@ -22,15 +22,12 @@ namespace World.Segment
                 switch (spawnPoint.Element.SpawnType)
                 {
                     case SpawnType.Obstacle:
-                        print("Obstacle");
                         GenerateObstacleObject((Obstacle)spawnPoint.Element, phaseIndex);
                         break;
                     case SpawnType.Collectible:
-                        print("Collectible");
                         GenerateCollectibleObject((Collectible)spawnPoint.Element, phaseIndex);
                         break;
                     case SpawnType.Virus:
-                        print("Virus");
                         GenerateVirusObject((Virus)spawnPoint.Element, phaseIndex);
                         break;
                     default:
@@ -51,7 +48,7 @@ namespace World.Segment
         private void GenerateCollectibleObject(Collectible element, int phaseIndex)
         {
             Letter letterSpawned = Instantiate(letterPrefab, element.transform.position, Quaternion.identity, element.transform);
-            letterSpawned.SetLabelText("W"); // TODO Set letters values depending on words
+            letterSpawned.SetLabelText("E"); // TODO Set letters values depending on words
         }
 
         private void GenerateVirusObject(Virus element, int phaseIndex)
