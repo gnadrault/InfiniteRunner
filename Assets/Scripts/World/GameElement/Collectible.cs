@@ -1,8 +1,8 @@
-﻿using World.Data;
+﻿using World.Spawn;
 
 namespace World.GameElement
 {
-    public class Collectible: GameElement
+    public abstract class Collectible: GameElement
     {
         public override SpawnType SpawnType => SpawnType.Collectible;
     }

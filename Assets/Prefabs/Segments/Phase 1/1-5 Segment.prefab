@@ -26,15 +26,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5503453371662959536, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 82.98497
+      value: 77.18497
       objectReference: {fileID: 0}
     - target: {fileID: 5503453371662959536, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.0000017359562
+      value: 0.0000005277507
       objectReference: {fileID: 0}
     - target: {fileID: 5503453371662959536, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -55
+      value: 0.41059563
       objectReference: {fileID: 0}
     - target: {fileID: 5503453371662959536, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -68,6 +68,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 1-5 Segment
       objectReference: {fileID: 0}
+    - target: {fileID: 7460002942747525395, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+      propertyPath: 'spawnPoints.Array.data[0]'
+      value: 
+      objectReference: {fileID: 4061475910253048421}
     - target: {fileID: 8414319428298121258, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
       propertyPath: m_Icon
       value: 
@@ -79,6 +83,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 6459902955554643798, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
     - {fileID: 7767944530300034656, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+    - {fileID: 8457047507283810034, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:

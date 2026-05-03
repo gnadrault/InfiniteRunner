@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Icon
       value: 
       objectReference: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
+    - target: {fileID: 2301340762495569285, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 8418204508859773708, guid: 0000000000000000d000000000000000, type: 0}
     - target: {fileID: 3326623386477767063, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
       propertyPath: m_Icon
       value: 
@@ -36,21 +40,29 @@ PrefabInstance:
       propertyPath: spawnType
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4128096430342093969, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 8418204508859773708, guid: 0000000000000000d000000000000000, type: 0}
+    - target: {fileID: 4314773343558637405, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 8418204508859773708, guid: 0000000000000000d000000000000000, type: 0}
     - target: {fileID: 4915546661123475661, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
       propertyPath: spawnType
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5503453371662959536, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 65.267
+      value: 16.169603
       objectReference: {fileID: 0}
     - target: {fileID: 5503453371662959536, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.0000012623213
+      value: -0.00000036296638
       objectReference: {fileID: 0}
     - target: {fileID: 5503453371662959536, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.456861
+      value: 0.8861617
       objectReference: {fileID: 0}
     - target: {fileID: 5503453371662959536, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -108,6 +120,14 @@ PrefabInstance:
       propertyPath: m_Icon
       value: 
       objectReference: {fileID: 4162164826716764455, guid: 0000000000000000d000000000000000, type: 0}
+    - target: {fileID: 7440682688553447201, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 8418204508859773708, guid: 0000000000000000d000000000000000, type: 0}
+    - target: {fileID: 7460002942747525395, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+      propertyPath: 'spawnPoints.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2394818237355582236}
     - target: {fileID: 7603818156849033519, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
       propertyPath: spawnType
       value: 1
@@ -127,6 +147,11 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 6187464319500317914, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
     - {fileID: 8678434225784999224, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+    - {fileID: 2068943504215356012, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+    - {fileID: 8457047507283810034, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+    - {fileID: 7207097950266659016, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+    - {fileID: 4809054440200004060, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+    - {fileID: 4617851128595925520, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -136,10 +161,39 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3326623386477767063, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3592073030491183045}
+    - targetCorrespondingSourceObject: {fileID: 4314773343558637405, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7185781283873754107}
+    - targetCorrespondingSourceObject: {fileID: 7440682688553447201, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7002291721206030050}
+    - targetCorrespondingSourceObject: {fileID: 4128096430342093969, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5646770804641041690}
+    - targetCorrespondingSourceObject: {fileID: 2301340762495569285, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2958735490964582729}
     - targetCorrespondingSourceObject: {fileID: 259869225034322037, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3096641102148112596}
   m_SourcePrefab: {fileID: 100100000, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+--- !u!1 &744293407131370024 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2301340762495569285, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+  m_PrefabInstance: {fileID: 1559445948572618669}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2958735490964582729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 744293407131370024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b50c7232cef48eea21c792a18a1a941, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::World.GameElement.Letter
 --- !u!1 &1603139068192743384 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 259869225034322037, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
@@ -159,6 +213,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::World.GameElement.Obstacle
   size: 0
   type: 0
+--- !u!1 &3237439450318304060 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4128096430342093969, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+  m_PrefabInstance: {fileID: 1559445948572618669}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5646770804641041690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3237439450318304060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b50c7232cef48eea21c792a18a1a941, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::World.GameElement.Letter
+--- !u!1 &3334181794373490928 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4314773343558637405, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+  m_PrefabInstance: {fileID: 1559445948572618669}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7185781283873754107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3334181794373490928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b50c7232cef48eea21c792a18a1a941, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::World.GameElement.Letter
 --- !u!1 &4291589096848254522 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3326623386477767063, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
@@ -190,3 +278,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::World.GameElement.Obstacle
   size: 0
   type: 0
+--- !u!1 &8279549779893526668 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7440682688553447201, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+  m_PrefabInstance: {fileID: 1559445948572618669}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7002291721206030050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8279549779893526668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b50c7232cef48eea21c792a18a1a941, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::World.GameElement.Letter

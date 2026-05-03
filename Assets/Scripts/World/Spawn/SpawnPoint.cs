@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace World.Data
+namespace World.Spawn
 {
     public class SpawnPoint : MonoBehaviour
     {

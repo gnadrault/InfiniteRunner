@@ -2,6 +2,7 @@ using Player.Data;
 using Player.State;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using World.GameElement;
 
 namespace Player
 {
@@ -122,6 +123,29 @@ namespace Player
             Vector3 scale = _transform.localScale;
             scale.y = y;
             _transform.localScale = scale;
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.TryGetComponent(out GameElement element))
+            {
+                element.OnPlayerCollision(this);
+            }
+        }
+        
+        public void Collect(Collectible collectible)
+        {
+            print("Collected!!");
+        }
+
+        public void Die()
+        {
+            print("Die!!");
+        }
+
+        public void AttachVirus(Virus virus)
+        {
+            print("Attached Virus!!");
         }
         
         public Vector3 GetCurrentPosition() => _transform.position;

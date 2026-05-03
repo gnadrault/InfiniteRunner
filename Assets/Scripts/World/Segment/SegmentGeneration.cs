@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
-using World.Data;
 using World.GameElement;
+using World.Spawn;
 
 namespace World.Segment
 {
@@ -11,10 +11,14 @@ namespace World.Segment
         [SerializeField] private List<Obstacle> obstaclesFixedPrefab;
         [SerializeField] private List<Obstacle> obstaclesMobilePrefab;
 
-        public void GenerateSegmentObjects(Data.Segment segment, int phaseIndex)
+        [Header("Collectibles")]
+        [SerializeField] private Letter letterPrefab;
+        
+        public void GenerateSegmentObjects(Segment segment, int phaseIndex)
         {
             foreach (SpawnPoint spawnPoint in segment.SpawnPoints)
             {
+                if (!spawnPoint.Element) continue; // No element => Go to next spawn point
                 switch (spawnPoint.Element.SpawnType)
                 {
                     case SpawnType.Obstacle:
@@ -28,9 +32,6 @@ namespace World.Segment
                     case SpawnType.Virus:
                         print("Virus");
                         GenerateVirusObject((Virus)spawnPoint.Element, phaseIndex);
-                        break;
-                    case SpawnType.Empty:
-                        print("Empty");
                         break;
                     default:
                         print("Undefined");
@@ -49,6 +50,8 @@ namespace World.Segment
 
         private void GenerateCollectibleObject(Collectible element, int phaseIndex)
         {
+            Letter letterSpawned = Instantiate(letterPrefab, element.transform.position, Quaternion.identity, element.transform);
+            letterSpawned.SetLabelText("W"); // TODO Set letters values depending on words
         }
 
         private void GenerateVirusObject(Virus element, int phaseIndex)

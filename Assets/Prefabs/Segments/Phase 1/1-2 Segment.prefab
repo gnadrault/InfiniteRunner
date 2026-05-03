@@ -38,15 +38,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5503453371662959536, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 78
+      value: 28.819387
       objectReference: {fileID: 0}
     - target: {fileID: 5503453371662959536, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.00000060754905
+      value: 0.00000009114683
       objectReference: {fileID: 0}
     - target: {fileID: 5503453371662959536, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.4217935
+      value: -0.36012897
       objectReference: {fileID: 0}
     - target: {fileID: 5503453371662959536, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -106,9 +106,6 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3326623386477767063, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
-      insertIndex: 1
-      addedObject: {fileID: 7657479482653877722}
     - targetCorrespondingSourceObject: {fileID: 321623824303687237, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2229871549943785747}
@@ -154,20 +151,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::World.GameElement.Obstacle
   size: 0
   type: 0
---- !u!1 &4037073689561715102 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3326623386477767063, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
-  m_PrefabInstance: {fileID: 1597682177987147785}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &7657479482653877722
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4037073689561715102}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b5b4a7ce468ab94293337518c2e4d4c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::World.Data.SpawnPoint

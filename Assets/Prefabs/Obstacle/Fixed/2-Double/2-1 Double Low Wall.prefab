@@ -9,6 +9,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8610238662108238282, guid: 7cad67516b97a854f82238320844cc56, type: 3}
+      propertyPath: size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8610238662108238282, guid: 7cad67516b97a854f82238320844cc56, type: 3}
       propertyPath: numLaneSize
       value: 2
       objectReference: {fileID: 0}

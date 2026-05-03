@@ -7,7 +7,7 @@ namespace World.Segment
         
         private void OnTriggerEnter(Collider other)
         {
-            Data.Segment segment = other.GetComponentInParent<Data.Segment>();
+            Segment segment = other.GetComponentInParent<Segment>();
             
             if (segment != null)
             {

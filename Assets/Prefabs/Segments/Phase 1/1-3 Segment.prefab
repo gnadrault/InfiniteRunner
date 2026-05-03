@@ -22,15 +22,15 @@ PrefabInstance:
       objectReference: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
     - target: {fileID: 5503453371662959536, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 57.42577
+      value: 44.581463
       objectReference: {fileID: 0}
     - target: {fileID: 5503453371662959536, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.000000329037
+      value: 0.0000009539708
       objectReference: {fileID: 0}
     - target: {fileID: 5503453371662959536, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -55.499596
+      value: -0.5388389
       objectReference: {fileID: 0}
     - target: {fileID: 5503453371662959536, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -82,9 +82,6 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3326623386477767063, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
-      insertIndex: 1
-      addedObject: {fileID: 5155975868456265090}
     - targetCorrespondingSourceObject: {fileID: 3723371431422250797, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3848875354272598410}
@@ -92,23 +89,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 4480791253748710357}
   m_SourcePrefab: {fileID: 100100000, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
---- !u!1 &7534771539456419648 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3326623386477767063, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
-  m_PrefabInstance: {fileID: 5096500909253742295}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &5155975868456265090
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7534771539456419648}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b5b4a7ce468ab94293337518c2e4d4c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::World.Data.SpawnPoint
 --- !u!1 &8437065117665100282 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3723371431422250797, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}

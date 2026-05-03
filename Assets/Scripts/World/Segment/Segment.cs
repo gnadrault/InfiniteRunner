@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using World.Spawn;
 
-
-namespace World.Data
+namespace World.Segment
 {
     public class Segment : MonoBehaviour
     {

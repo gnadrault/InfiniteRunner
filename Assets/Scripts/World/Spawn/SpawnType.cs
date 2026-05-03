@@ -1,4 +1,4 @@
-﻿namespace World.Data
+﻿namespace World.Spawn
 {
     public enum SpawnType
     {

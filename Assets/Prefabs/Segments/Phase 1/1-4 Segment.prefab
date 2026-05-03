@@ -26,15 +26,15 @@ PrefabInstance:
       objectReference: {fileID: 4162164826716764455, guid: 0000000000000000d000000000000000, type: 0}
     - target: {fileID: 5503453371662959536, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 70.191216
+      value: 60.810364
       objectReference: {fileID: 0}
     - target: {fileID: 5503453371662959536, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.00000065273707
+      value: 0.0000010146832
       objectReference: {fileID: 0}
     - target: {fileID: 5503453371662959536, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -55.36236
+      value: 0.1681398
       objectReference: {fileID: 0}
     - target: {fileID: 5503453371662959536, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -90,9 +90,6 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3326623386477767063, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
-      insertIndex: 1
-      addedObject: {fileID: 5189478664554803424}
     - targetCorrespondingSourceObject: {fileID: 7896570040784821089, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7620577081013539140}
@@ -138,20 +135,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::World.GameElement.Obstacle
   size: 0
   type: 0
---- !u!1 &8369189194766322591 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3326623386477767063, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
-  m_PrefabInstance: {fileID: 6489651205710946824}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &5189478664554803424
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8369189194766322591}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b5b4a7ce468ab94293337518c2e4d4c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::World.Data.SpawnPoint

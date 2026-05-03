@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 716315856212234882}
   - component: {fileID: 3282505719545526697}
-  - component: {fileID: 940953727048326017}
   m_Layer: 0
   m_Name: ObjectSpawn (Anchor)
   m_TagString: Untagged
@@ -45,15 +44,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b5b4a7ce468ab94293337518c2e4d4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::World.Data.SpawnPoint
---- !u!114 &940953727048326017
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8573217830725502668}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c84fe562bff745aab4a75a4a405bf801, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::World.GameElement.Empty
