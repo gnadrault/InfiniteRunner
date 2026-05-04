@@ -1,19 +1,18 @@
+using TMPro;
 using UnityEngine;
 
 namespace Gameplay
 {
     public class DistanceSystem : MonoBehaviour
     {
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
-        void Start()
-        {
+        [SerializeField] private TextMeshProUGUI distanceLabel;
         
-        }
+        private float distance;
 
-        // Update is called once per frame
-        void Update()
+        private void Update()
         {
-        
+            distance += Time.deltaTime;
+            distanceLabel.text = (int)distance + "m";
         }
     }
 }

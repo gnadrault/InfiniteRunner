@@ -25,7 +25,6 @@ namespace Gameplay
         }
         
         
-        
         public void HighlightLetters(string letterCollected, Color color)
         {
             foreach (LetterCell letterCell in _letterCells)
