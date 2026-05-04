@@ -1,8 +1,8 @@
 ﻿using World.Spawn;
 
-namespace World.GameElement
+namespace World.GameElement.Collectible
 {
-    public abstract class Collectible: GameElement
+    public abstract class CollectibleElement: Element
     {
         public override SpawnType SpawnType => SpawnType.Collectible;
     }

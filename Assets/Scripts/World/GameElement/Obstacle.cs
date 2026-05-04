@@ -4,7 +4,7 @@ using World.Spawn;
 
 namespace World.GameElement
 {
-    public class Obstacle : GameElement
+    public class Obstacle : Element
     {
         [SerializeField] private ObstacleSize size;
         [SerializeField] private ObstacleType type;

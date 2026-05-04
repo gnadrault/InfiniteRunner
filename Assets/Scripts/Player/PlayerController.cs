@@ -4,6 +4,8 @@ using Player.State;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using World.GameElement;
+using World.GameElement.Collectible;
+using World.GameElement.Virus;
 
 namespace Player
 {
@@ -130,7 +132,7 @@ namespace Player
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.TryGetComponent(out GameElement element))
+            if (other.TryGetComponent(out Element element))
             {
                 element.OnPlayerCollision(this);
             }
@@ -146,7 +148,7 @@ namespace Player
             print("Die!!");
         }
 
-        public void AttachVirus(Virus virus)
+        public void AttachVirus(VirusElement virusElement)
         {
             print("Attached Virus!!");
         }

@@ -1,15 +1,13 @@
 using TMPro;
 using UnityEngine;
+using Utils;
 
 namespace Gameplay
 {
     public class LetterCell : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI label;
-
-
-        private static readonly Color DefaultColor = Color.white;
-        private static readonly Color HighlightColor = Color.cyan;
+            
         private bool _isHighlighted;
         private char _character;
         
@@ -27,10 +25,10 @@ namespace Gameplay
             label.text = letter.ToString();
         }
 
-        public void SetHighlight(string letter)
+        public void SetHighlight(string letter, Color color)
         {
             _isHighlighted = letter == label.text;
-            label.color = _isHighlighted ? HighlightColor : DefaultColor;
+            label.color = _isHighlighted ? color : Colors.Default;
         }
     }
 }

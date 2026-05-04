@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Gameplay.Data;
 using Player;
 using UnityEngine;
+using Utils;
 
 namespace Gameplay
 {
@@ -43,15 +44,15 @@ namespace Gameplay
 
         private void OnLetterCollected(string letter)
         {
-            ActivateLetters(bonusWordsDisplays, letter);
-            ActivateLetters(malusWordsDisplays, letter);
+            ActivateLetters(bonusWordsDisplays, letter, Colors.HighlightBonus);
+            ActivateLetters(malusWordsDisplays, letter, Colors.HighlightMalus);
         }
 
-        private void ActivateLetters(LettersDisplay[] lettersDisplays, string letterCollected)
+        private void ActivateLetters(LettersDisplay[] lettersDisplays, string letterCollected, Color color)
         {
             foreach (LettersDisplay lettersDisplay in lettersDisplays)
             {
-                lettersDisplay.HighlightLetters(letterCollected);
+                lettersDisplay.HighlightLetters(letterCollected, color);
             }
             
             // TODO Check if words completed => apply bonus / malus

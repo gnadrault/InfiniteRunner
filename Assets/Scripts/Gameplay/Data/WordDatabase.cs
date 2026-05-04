@@ -9,11 +9,6 @@ namespace Gameplay.Data
     {
         [SerializeField] private List<WordData> words;
         
-        public WordData GetRandomWord()
-        {
-            return words[Random.Range(0, words.Count)];
-        }
-        
         public WordData GetRandomWordExcept(List<WordData> exceptWords)
         {
             List<WordData> availableWords = words.Where(w => !exceptWords.Contains(w)).ToList();

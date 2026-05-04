@@ -9,7 +9,7 @@ namespace Player
     
         private void OnTriggerEnter(Collider other)
         {
-            var element = other.GetComponentInParent<GameElement>();
+            var element = other.GetComponentInParent<Element>();
             element?.OnPlayerCollision(playerController);
         }
     }

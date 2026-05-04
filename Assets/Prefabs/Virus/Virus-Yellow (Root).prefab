@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &8401574388469282065
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 159007242877110198, guid: 13a23ed67c4ee3642868f4d562221c53, type: 3}
+      propertyPath: m_Name
+      value: Virus-Yellow (Mesh)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2784032495156781423, guid: 13a23ed67c4ee3642868f4d562221c53, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: e775d75c89d89634e9a24e667e5aeccc, type: 2}
+    - target: {fileID: 3400904559382451460, guid: 13a23ed67c4ee3642868f4d562221c53, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.4611784
+      objectReference: {fileID: 0}
+    - target: {fileID: 3400904559382451460, guid: 13a23ed67c4ee3642868f4d562221c53, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.000000026598713
+      objectReference: {fileID: 0}
+    - target: {fileID: 3400904559382451460, guid: 13a23ed67c4ee3642868f4d562221c53, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.650392
+      objectReference: {fileID: 0}
+    - target: {fileID: 3400904559382451460, guid: 13a23ed67c4ee3642868f4d562221c53, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3400904559382451460, guid: 13a23ed67c4ee3642868f4d562221c53, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3400904559382451460, guid: 13a23ed67c4ee3642868f4d562221c53, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3400904559382451460, guid: 13a23ed67c4ee3642868f4d562221c53, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3400904559382451460, guid: 13a23ed67c4ee3642868f4d562221c53, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3400904559382451460, guid: 13a23ed67c4ee3642868f4d562221c53, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3400904559382451460, guid: 13a23ed67c4ee3642868f4d562221c53, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5152536472361044462, guid: 13a23ed67c4ee3642868f4d562221c53, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+    - target: {fileID: 7579398550601574980, guid: 13a23ed67c4ee3642868f4d562221c53, type: 3}
+      propertyPath: m_Name
+      value: Virus-Yellow (Root) Variant
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 13a23ed67c4ee3642868f4d562221c53, type: 3}

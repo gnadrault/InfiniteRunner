@@ -4,13 +4,13 @@ namespace World.Spawn
 {
     public class SpawnPoint : MonoBehaviour
     {
-        private GameElement.GameElement _element;
+        private GameElement.Element _element;
 
         private void Awake()
         {
-            _element = GetComponent<GameElement.GameElement>();
+            _element = GetComponent<GameElement.Element>();
         }
 
-        public GameElement.GameElement Element => _element;
+        public GameElement.Element Element => _element;
     }
 }

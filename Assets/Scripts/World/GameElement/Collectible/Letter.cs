@@ -1,11 +1,10 @@
-﻿
-using Player;
+﻿using Player;
 using TMPro;
 using UnityEngine;
 
-namespace World.GameElement
+namespace World.GameElement.Collectible
 {
-    public class Letter: Collectible
+    public class Letter: CollectibleElement
     {
         [SerializeField] private TextMeshPro label;
         

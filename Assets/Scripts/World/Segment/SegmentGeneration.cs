@@ -3,6 +3,8 @@ using Gameplay;
 using Gameplay.Data;
 using UnityEngine;
 using World.GameElement;
+using World.GameElement.Collectible;
+using World.GameElement.Virus;
 using World.Spawn;
 
 namespace World.Segment
@@ -45,10 +47,10 @@ namespace World.Segment
                         GenerateObstacleObject((Obstacle)spawnPoint.Element, phaseIndex);
                         break;
                     case SpawnType.Collectible:
-                        GenerateCollectibleObject((Collectible)spawnPoint.Element, phaseIndex);
+                        GenerateCollectibleObject((CollectibleElement)spawnPoint.Element, phaseIndex);
                         break;
                     case SpawnType.Virus:
-                        GenerateVirusObject((Virus)spawnPoint.Element, phaseIndex);
+                        GenerateVirusObject((VirusElement)spawnPoint.Element, phaseIndex);
                         break;
                     default:
                         print("Undefined");
@@ -65,7 +67,7 @@ namespace World.Segment
             Instantiate(obstacle, element.transform.position, Quaternion.identity, element.transform);
         }
 
-        private void GenerateCollectibleObject(Collectible element, int phaseIndex)
+        private void GenerateCollectibleObject(CollectibleElement element, int phaseIndex)
         {
             Letter letterSpawned = Instantiate(letterPrefab, element.transform.position, Quaternion.identity, element.transform);
             letterSpawned.SetLabelText(GetRandomLetter().ToString());
@@ -87,7 +89,7 @@ namespace World.Segment
             return pool[Random.Range(0, pool.Count)];
         }
 
-        private void GenerateVirusObject(Virus element, int phaseIndex)
+        private void GenerateVirusObject(VirusElement element, int phaseIndex)
         {
             
         }

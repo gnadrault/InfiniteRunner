@@ -1,9 +1,9 @@
 ﻿using Player;
 using World.Spawn;
 
-namespace World.GameElement
+namespace World.GameElement.Virus
 {
-    public class Virus: GameElement
+    public class VirusElement: Element
     {
         public override SpawnType SpawnType => SpawnType.Virus;
         
