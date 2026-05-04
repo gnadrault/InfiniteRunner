@@ -54,15 +54,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5503453371662959536, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 16.169603
+      value: 19.035856
       objectReference: {fileID: 0}
     - target: {fileID: 5503453371662959536, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.00000036296638
+      value: 0.00000019181653
       objectReference: {fileID: 0}
     - target: {fileID: 5503453371662959536, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.8861617
+      value: 0.46790993
       objectReference: {fileID: 0}
     - target: {fileID: 5503453371662959536, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -161,6 +161,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3326623386477767063, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3592073030491183045}
+    - targetCorrespondingSourceObject: {fileID: 4310957541290401819, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3835497912513177391}
     - targetCorrespondingSourceObject: {fileID: 4314773343558637405, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7185781283873754107}
@@ -194,6 +197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b50c7232cef48eea21c792a18a1a941, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::World.GameElement.Letter
+  label: {fileID: 0}
 --- !u!1 &1603139068192743384 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 259869225034322037, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
@@ -212,7 +216,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::World.GameElement.Obstacle
   size: 0
-  type: 0
+  type: 1
 --- !u!1 &3237439450318304060 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4128096430342093969, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
@@ -230,6 +234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b50c7232cef48eea21c792a18a1a941, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::World.GameElement.Letter
+  label: {fileID: 0}
 --- !u!1 &3334181794373490928 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4314773343558637405, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
@@ -247,6 +252,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b50c7232cef48eea21c792a18a1a941, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::World.GameElement.Letter
+  label: {fileID: 0}
+--- !u!1 &3348385473137487798 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4310957541290401819, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+  m_PrefabInstance: {fileID: 1559445948572618669}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3835497912513177391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3348385473137487798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3bb7c8628a6761459ade3cef95ad7f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::World.GameElement.Obstacle
+  size: 0
+  type: 1
 --- !u!1 &4291589096848254522 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3326623386477767063, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
@@ -295,3 +320,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b50c7232cef48eea21c792a18a1a941, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::World.GameElement.Letter
+  label: {fileID: 0}

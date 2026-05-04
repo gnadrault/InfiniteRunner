@@ -18,7 +18,7 @@ namespace Gameplay
         
         // TODO inheritance, bonus / malus
 
-        private List<WordData> _currentWords = new List<WordData>();
+        private List<WordData> _currentWords = new();
         public static event Action<WordData[]> OnActiveWordsChanged;
         
         private void OnEnable()
