@@ -2,9 +2,9 @@ using Player;
 using UnityEngine;
 using World.Spawn;
 
-namespace World.GameElement
+namespace World.GameElement.Obstacle
 {
-    public class Obstacle : Element
+    public class ObstacleElement : Element
     {
         [SerializeField] private ObstacleSize size;
         [SerializeField] private ObstacleType type;

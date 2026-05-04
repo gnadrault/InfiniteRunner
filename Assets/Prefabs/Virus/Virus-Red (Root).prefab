@@ -58,10 +58,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7579398550601574980, guid: 13a23ed67c4ee3642868f4d562221c53, type: 3}
       propertyPath: m_Name
-      value: Virus-Red (Root) Variant
+      value: Virus-Red (Root)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7579398550601574980, guid: 13a23ed67c4ee3642868f4d562221c53, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -35816546029551191}
   m_SourcePrefab: {fileID: 100100000, guid: 13a23ed67c4ee3642868f4d562221c53, type: 3}
+--- !u!1 &7552491089988493126 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7579398550601574980, guid: 13a23ed67c4ee3642868f4d562221c53, type: 3}
+  m_PrefabInstance: {fileID: 135310791399617794}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-35816546029551191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7552491089988493126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71788708fc3f47c1ab16511c3e145993, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::World.GameElement.Virus.RedVirus

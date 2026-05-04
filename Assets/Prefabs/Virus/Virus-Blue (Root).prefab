@@ -18,15 +18,15 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 82c0a6e441f83774987520ee80471364, type: 2}
     - target: {fileID: 3400904559382451460, guid: 13a23ed67c4ee3642868f4d562221c53, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.51833
+      value: 145.7194
       objectReference: {fileID: 0}
     - target: {fileID: 3400904559382451460, guid: 13a23ed67c4ee3642868f4d562221c53, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0
+      value: -0.00000040041255
       objectReference: {fileID: 0}
     - target: {fileID: 3400904559382451460, guid: 13a23ed67c4ee3642868f4d562221c53, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.47725
+      value: -209.79279
       objectReference: {fileID: 0}
     - target: {fileID: 3400904559382451460, guid: 13a23ed67c4ee3642868f4d562221c53, type: 3}
       propertyPath: m_LocalRotation.w
@@ -58,10 +58,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7579398550601574980, guid: 13a23ed67c4ee3642868f4d562221c53, type: 3}
       propertyPath: m_Name
-      value: Virus-Blue (Root) Variant
+      value: Virus-Blue (Root)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7579398550601574980, guid: 13a23ed67c4ee3642868f4d562221c53, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8340013460893703910}
   m_SourcePrefab: {fileID: 100100000, guid: 13a23ed67c4ee3642868f4d562221c53, type: 3}
+--- !u!1 &3773816572117859517 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7579398550601574980, guid: 13a23ed67c4ee3642868f4d562221c53, type: 3}
+  m_PrefabInstance: {fileID: 6732922118660855545}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8340013460893703910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3773816572117859517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d3e89e9edb645ae8abf03c216b85559, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::World.GameElement.Virus.BlueVirus

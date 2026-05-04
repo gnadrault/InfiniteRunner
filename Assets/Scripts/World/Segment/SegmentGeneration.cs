@@ -2,8 +2,8 @@ using System.Collections.Generic;
 using Gameplay;
 using Gameplay.Data;
 using UnityEngine;
-using World.GameElement;
 using World.GameElement.Collectible;
+using World.GameElement.Obstacle;
 using World.GameElement.Virus;
 using World.Spawn;
 
@@ -12,12 +12,15 @@ namespace World.Segment
     public class SegmentGeneration : MonoBehaviour
     {
         [Header("Obstacles")] 
-        [SerializeField] private List<Obstacle> obstaclesFixedPrefab;
-        [SerializeField] private List<Obstacle> obstaclesMobilePrefab;
+        [SerializeField] private List<ObstacleElement> obstaclesFixedPrefab;
+        [SerializeField] private List<ObstacleElement> obstaclesMobilePrefab;
 
         [Header("Collectibles")]
         [SerializeField] private Letter letterPrefab;
         [SerializeField] private int activeLettersSpawnRate = 3;
+        
+        [Header("Virus")]
+        [SerializeField] private VirusDatabase virusDatabase;
         
         private WordData[] _activeWords;
         
@@ -44,7 +47,7 @@ namespace World.Segment
                 switch (spawnPoint.Element.SpawnType)
                 {
                     case SpawnType.Obstacle:
-                        GenerateObstacleObject((Obstacle)spawnPoint.Element, phaseIndex);
+                        GenerateObstacleObject((ObstacleElement)spawnPoint.Element, phaseIndex);
                         break;
                     case SpawnType.Collectible:
                         GenerateCollectibleObject((CollectibleElement)spawnPoint.Element, phaseIndex);
@@ -59,12 +62,12 @@ namespace World.Segment
             }
         }
 
-        private void GenerateObstacleObject(Obstacle element, int phaseIndex)
+        private void GenerateObstacleObject(ObstacleElement element, int phaseIndex)
         {
-            Obstacle obstacle =
+            ObstacleElement obstacleElement =
                 obstaclesFixedPrefab.Find(o =>
                     o.Type == element.Type && o.Size == element.Size);
-            Instantiate(obstacle, element.transform.position, Quaternion.identity, element.transform);
+            Instantiate(obstacleElement, element.transform.position, Quaternion.identity, element.transform);
         }
 
         private void GenerateCollectibleObject(CollectibleElement element, int phaseIndex)
@@ -73,6 +76,13 @@ namespace World.Segment
             letterSpawned.SetLabelText(GetRandomLetter().ToString());
         }
 
+        private void GenerateVirusObject(VirusElement element, int phaseIndex)
+        {
+            VirusElement prefab = virusDatabase.GetPrefab(element);
+            Instantiate(prefab, element.transform.position, Quaternion.identity, element.transform);
+        }
+        
+        
         private char GetRandomLetter()
         {
             List<char> pool = new List<char>();
@@ -87,11 +97,6 @@ namespace World.Segment
                         pool.Add(c);
                 }
             return pool[Random.Range(0, pool.Count)];
-        }
-
-        private void GenerateVirusObject(VirusElement element, int phaseIndex)
-        {
-            
         }
     }
 }

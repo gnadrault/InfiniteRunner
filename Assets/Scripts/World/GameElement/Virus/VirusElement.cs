@@ -3,7 +3,7 @@ using World.Spawn;
 
 namespace World.GameElement.Virus
 {
-    public class VirusElement: Element
+    public abstract class VirusElement: Element
     {
         public override SpawnType SpawnType => SpawnType.Virus;
         

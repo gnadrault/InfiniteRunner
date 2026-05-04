@@ -1,4 +1,4 @@
-﻿namespace World.GameElement
+﻿namespace World.GameElement.Obstacle
 {
     public enum ObstacleSize
     {
