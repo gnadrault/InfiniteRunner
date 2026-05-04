@@ -46,6 +46,8 @@ namespace Gameplay
         {
             ActivateLetters(bonusWordsDisplays, letter, Colors.HighlightBonus);
             ActivateLetters(malusWordsDisplays, letter, Colors.HighlightMalus);
+            AddWords(bonusWordsDisplays, bonusWords);
+            AddWords(malusWordsDisplays, malusWords);
         }
 
         private void ActivateLetters(LettersDisplay[] lettersDisplays, string letterCollected, Color color)
@@ -62,7 +64,7 @@ namespace Gameplay
         {
             foreach (LettersDisplay lettersDisplay in lettersDisplays)
             {
-                if (lettersDisplay.IsEmpty())
+                if (lettersDisplay.IsEmpty() || lettersDisplay.IsComplete())
                 {
                     print("Create word");
                     WordData randomWord = wordDatabase.GetRandomWordExcept(_currentWords);

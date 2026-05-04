@@ -6,13 +6,14 @@ namespace Gameplay
 {
     public class LettersDisplay: MonoBehaviour
     {
-        private readonly List<LetterCell> _letterCells = new List<LetterCell>();
+        private List<LetterCell> _letterCells = new();
 
         public bool IsEmpty() => _letterCells.Count == 0;
         public bool IsComplete() => !_letterCells.Exists(letter => !letter.IsHighlighted);
         
         public void SetWord(WordData wordData, LetterCell letterCellPrefab)
         {
+            _letterCells.ForEach(letterCell => Destroy(letterCell.gameObject)); // Destroy all letters cells
             _letterCells.Clear();
             char[] letters = wordData.word.ToCharArray();
             foreach (char letter in letters)
@@ -22,6 +23,8 @@ namespace Gameplay
                 _letterCells.Add(letterCell);
             }
         }
+        
+        
         
         public void HighlightLetters(string letterCollected, Color color)
         {

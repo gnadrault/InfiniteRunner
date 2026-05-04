@@ -8196,7 +8196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5a1be9f07dc2474288cfa7019e1dc98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChunkManager
-  maxSegments: 6
+  maxSegments: 5
   scrollSpeed: 15.6
   firstSegment: {fileID: 4933993261843267823}
   segmentsCountPerPhase: 5
