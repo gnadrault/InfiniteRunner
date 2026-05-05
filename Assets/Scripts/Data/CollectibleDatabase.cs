@@ -3,7 +3,7 @@ using System.Linq;
 using UnityEngine;
 using World.GameElement.Collectible;
 
-namespace Gameplay.Data
+namespace Data
 {
     [CreateAssetMenu(fileName = "CollectibleDatabase", menuName = "SyntaxError/CollectibleDatabase")]
     public class CollectibleDatabase : ScriptableObject

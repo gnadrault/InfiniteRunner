@@ -1,4 +1,4 @@
-﻿namespace World.GameElement.Obstacle
+﻿namespace Data
 {
     public enum ObstacleType
     {

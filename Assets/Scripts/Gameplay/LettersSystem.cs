@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using Gameplay.Data;
+using Data;
 using Player;
 using UnityEngine;
 using Utils;
@@ -9,33 +9,32 @@ namespace Gameplay
 {
     public class LettersSystem : MonoBehaviour
     {
-        [Header("Words")] 
         [SerializeField] private WordDatabase bonusWords;
         [SerializeField] private WordDatabase malusWords;
         [SerializeField] private LetterCell letterCellPrefab;
         [SerializeField] private LettersDisplay[] bonusWordsDisplays = new LettersDisplay[3];
         [SerializeField] private LettersDisplay[] malusWordsDisplays = new LettersDisplay[3];
-        
+
         // TODO inheritance, bonus / malus
 
         private List<WordData> _currentWords = new();
         public static event Action<WordData[]> OnActiveWordsChanged;
-        
+
         private void OnEnable()
         {
             PlayerController.OnLetterCollected += OnLetterCollected;
         }
-        
+
         private void OnDisable()
         {
             PlayerController.OnLetterCollected -= OnLetterCollected;
         }
-        
+
         private void Start()
         {
             Init();
         }
-        
+
         private void Init()
         {
             AddWords(bonusWordsDisplays, bonusWords);
@@ -56,10 +55,10 @@ namespace Gameplay
             {
                 lettersDisplay.HighlightLetters(letterCollected, color);
             }
-            
+
             // TODO Check if words completed => apply bonus / malus
         }
-        
+
         private void AddWords(LettersDisplay[] lettersDisplays, WordDatabase wordDatabase)
         {
             foreach (LettersDisplay lettersDisplay in lettersDisplays)
@@ -72,9 +71,10 @@ namespace Gameplay
                     _currentWords.Add(randomWord);
                 }
             }
+
             OnActiveWordsChanged?.Invoke(_currentWords.ToArray());
         }
-        
+
         // TODO - Check word complete => removeWord => AddWord
     }
 }

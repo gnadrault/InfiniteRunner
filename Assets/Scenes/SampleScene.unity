@@ -8201,8 +8201,7 @@ MonoBehaviour:
   scrollSpeed: 15.6
   firstSegment: {fileID: 4933993261843267823}
   segmentsCountPerPhase: 5
-  segmentsPoolPhase1:
-  - {fileID: 66493209559607754, guid: 2e656bff70108f042ae8a6a542eb7452, type: 3}
+  segmentDatabase: {fileID: 11400000, guid: a1361d3ea657ba3419e285e6a46ef473, type: 2}
   segmentGenerator: {fileID: 1915460936}
 --- !u!114 &1915460936
 MonoBehaviour:

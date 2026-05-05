@@ -3,7 +3,7 @@ using System.Linq;
 using UnityEngine;
 using World.GameElement.Virus;
 
-namespace Gameplay.Data
+namespace Data
 {
     [CreateAssetMenu(fileName = "VirusDatabase", menuName = "SyntaxError/VirusDatabase")]
     public class VirusDatabase : ScriptableObject

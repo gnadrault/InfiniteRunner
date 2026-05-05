@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Gameplay.Data;
+using Data;
 using UnityEngine;
 
 namespace Gameplay

@@ -3,7 +3,7 @@ using System.Linq;
 using UnityEngine;
 using World.GameElement.Obstacle;
 
-namespace Gameplay.Data
+namespace Data
 {
     [CreateAssetMenu(fileName = "ObstacleDatabase", menuName = "SyntaxError/ObstacleDatabase")]
     public class ObstacleDatabase : ScriptableObject

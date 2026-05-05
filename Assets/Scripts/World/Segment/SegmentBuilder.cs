@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
+using Data;
 using Gameplay;
-using Gameplay.Data;
 using UnityEngine;
 using World.GameElement.Collectible;
 using World.GameElement.Obstacle;
@@ -11,23 +11,22 @@ using Random = UnityEngine.Random;
 
 namespace World.Segment
 {
-    public class SegmentGeneration : MonoBehaviour
+    public class SegmentBuilder : MonoBehaviour
     {
-        [Header("Databases")]
+        [Header("Databases")] 
         [SerializeField] private ObstacleDatabase obstacleDatabase;
         [SerializeField] private CollectibleDatabase collectibleDatabase;
         [SerializeField] private VirusDatabase virusDatabase;
 
-        [Header("Settings")]
-        [SerializeField] private int activeLettersSpawnRate = 3;
-        
+        [Header("Settings")] [SerializeField] private int activeLettersSpawnRate = 3;
+
         private WordData[] _activeWords;
-        
+
         private void OnEnable()
         {
             LettersSystem.OnActiveWordsChanged += SetActiveWords;
         }
-        
+
         private void OnDisable()
         {
             LettersSystem.OnActiveWordsChanged -= SetActiveWords;
@@ -37,8 +36,8 @@ namespace World.Segment
         {
             _activeWords = words;
         }
-        
-        public void GenerateSegmentObjects(Segment segment, int phaseIndex)
+
+        public void GenerateSegmentObjects(Segment segment, PhaseState currentPhase)
         {
             foreach (SpawnPoint spawnPoint in segment.SpawnPoints)
             {
@@ -46,13 +45,13 @@ namespace World.Segment
                 switch (spawnPoint)
                 {
                     case ObstacleSpawnPoint obstacleSpawnPoint:
-                        GenerateObstacleObject(obstacleSpawnPoint, phaseIndex);
+                        GenerateObstacleObject(obstacleSpawnPoint, currentPhase);
                         break;
                     case CollectibleSpawnPoint collectibleSpawnPoint:
-                        GenerateCollectibleObject(collectibleSpawnPoint, phaseIndex);
+                        GenerateCollectibleObject(collectibleSpawnPoint, currentPhase);
                         break;
                     case VirusSpawnPoint virusSpawnPoint:
-                        GenerateVirusObject(virusSpawnPoint, phaseIndex);
+                        GenerateVirusObject(virusSpawnPoint, currentPhase);
                         break;
                     default:
                         throw new NotImplementedException();
@@ -60,30 +59,31 @@ namespace World.Segment
             }
         }
 
-        private void GenerateObstacleObject(ObstacleSpawnPoint spawnPoint, int phaseIndex)
+        private void GenerateObstacleObject(ObstacleSpawnPoint spawnPoint, PhaseState currentPhase)
         {
             ObstacleElement obstacleElement = obstacleDatabase.GetPrefab(spawnPoint.Type, spawnPoint.Size);
             Instantiate(obstacleElement, spawnPoint.transform.position, Quaternion.identity, spawnPoint.transform);
         }
 
-        private void GenerateCollectibleObject(CollectibleSpawnPoint spawnPoint, int phaseIndex)
+        private void GenerateCollectibleObject(CollectibleSpawnPoint spawnPoint, PhaseState currentPhase)
         {
             CollectibleElement element = collectibleDatabase.GetPrefab();
-            Letter letterSpawned = (Letter)Instantiate(element, spawnPoint.transform.position, Quaternion.identity, spawnPoint.transform);
+            Letter letterSpawned = (Letter)Instantiate(element, spawnPoint.transform.position, Quaternion.identity,
+                spawnPoint.transform);
             letterSpawned.SetLabelText(GetRandomLetter().ToString());
         }
 
-        private void GenerateVirusObject(VirusSpawnPoint spawnPoint, int phaseIndex)
+        private void GenerateVirusObject(VirusSpawnPoint spawnPoint, PhaseState currentPhase)
         {
             VirusElement prefab = virusDatabase.GetPrefab();
             Instantiate(prefab, spawnPoint.transform.position, Quaternion.identity, spawnPoint.transform);
         }
-        
-        
+
+
         private char GetRandomLetter()
         {
             List<char> pool = new List<char>();
-            
+
             for (char c = 'A'; c <= 'Z'; c++)
                 pool.Add(c);
 
@@ -93,6 +93,7 @@ namespace World.Segment
                     foreach (char c in word.word)
                         pool.Add(c);
                 }
+
             return pool[Random.Range(0, pool.Count)];
         }
     }

@@ -2,7 +2,7 @@
 using System.Linq;
 using UnityEngine;
 
-namespace Gameplay.Data
+namespace Data
 {
     [CreateAssetMenu(fileName = "WordDatabase", menuName = "SyntaxError/WordDatabase")]
     public class WordDatabase : ScriptableObject

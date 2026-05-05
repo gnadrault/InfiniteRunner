@@ -1,4 +1,4 @@
-﻿namespace Gameplay.Data
+﻿namespace Data
 {
     public enum WordEffect
     {
