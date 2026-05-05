@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 15ded45f91da42b1be962d68171f626a, type: 3}
-  m_Name: BonusWords
-  m_EditorClassIdentifier: Assembly-CSharp::Gameplay.Data.WordListData
-  words:
+  m_Name: WordDatabase
+  m_EditorClassIdentifier: Assembly-CSharp::Data.WordDatabase
+  bonusWords:
     - word: SLOW
       effect: 0
     - word: LAG
@@ -51,3 +51,34 @@ MonoBehaviour:
       effect: 4
     - word: AMP
       effect: 4
+  malusWords:
+    - word: SPEEDHACK
+      effect: 5
+    - word: OVERLOAD
+      effect: 5
+    - word: CHAOS
+      effect: 5
+    - word: BUGGED
+      effect: 6
+    - word: GLITCH
+      effect: 6
+    - word: STALL
+      effect: 6
+    - word: LOCK
+      effect: 6
+    - word: JAM
+      effect: 6
+    - word: REVERSE
+      effect: 7
+    - word: DESYNC
+      effect: 7
+    - word: CORRUPT
+      effect: 7
+    - word: OVERFLOW
+      effect: 8
+    - word: NOISE
+      effect: 8
+    - word: FRAGMENT
+      effect: 8
+    - word: CRASH
+      effect: 8

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Data;
 using Gameplay;
+using Gameplay.Letters;
 using UnityEngine;
 using World.GameElement.Collectible;
 using World.GameElement.Obstacle;
@@ -18,7 +19,8 @@ namespace World.Segment
         [SerializeField] private CollectibleDatabase collectibleDatabase;
         [SerializeField] private VirusDatabase virusDatabase;
 
-        [Header("Settings")] [SerializeField] private int activeLettersSpawnRate = 3;
+        [Header("Settings")] 
+        [SerializeField] private int activeLettersSpawnRate = 3;
 
         private WordData[] _activeWords;
 

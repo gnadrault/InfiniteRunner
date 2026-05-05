@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using Utils;
 
-namespace Gameplay
+namespace Gameplay.Letters
 {
     public class LetterCell : MonoBehaviour
     {
