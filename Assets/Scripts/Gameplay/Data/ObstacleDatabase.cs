@@ -1,31 +1,22 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using World.GameElement.Obstacle;
 
 namespace Gameplay.Data
 {
-    [CreateAssetMenu(menuName = "SyntaxError/ObstacleDatabase")]
+    [CreateAssetMenu(fileName = "ObstacleDatabase", menuName = "SyntaxError/ObstacleDatabase")]
     public class ObstacleDatabase : ScriptableObject
     {
-        [SerializeField] private List<ObstacleData> obstacles;
+        [SerializeField] private List<ObstacleElement> obstacles;
 
-        public GameObject GetPrefab(ObstacleSize size, ObstacleType type)
+        public ObstacleElement GetPrefab(ObstacleType type, ObstacleSize size)
         {
-            ObstacleData obstacle = obstacles.FirstOrDefault(o => 
-                o.size == size && o.type == type);
+            ObstacleElement obstacle = obstacles.FirstOrDefault(o => 
+                o.Size == size && o.Type == type);
         
-            return obstacle?.prefab;
+            return obstacle;
         }
     }
-
-    [System.Serializable]
-    public class ObstacleData
-    {
-        public GameObject prefab;
-        public ObstacleSize size;
-        public ObstacleType type;
-    }
-
-    public enum ObstacleSize { One, Two, Three }
-    public enum ObstacleType { Low, High, Full }
+    
 }

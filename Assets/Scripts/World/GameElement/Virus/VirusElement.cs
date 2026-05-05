@@ -5,7 +5,6 @@ namespace World.GameElement.Virus
 {
     public abstract class VirusElement: Element
     {
-        public override SpawnType SpawnType => SpawnType.Virus;
         
         public override void OnPlayerCollision(PlayerController player)
         {

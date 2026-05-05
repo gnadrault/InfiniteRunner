@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05ca2be89c3040f7989d4e6edeaca346, type: 3}
+  m_Name: ObstacleDatabase
+  m_EditorClassIdentifier: Assembly-CSharp::Gameplay.Data.ObstacleDatabase
+  obstacles:
+  - {fileID: 2870067622271708921, guid: 934c21811592d8549bb4896b3725f1a2, type: 3}
+  - {fileID: 9005284265063251801, guid: 24544b38014626c46b196cf311ca5e9b, type: 3}
+  - {fileID: 8966696435025192100, guid: 5bf63d7617d5da9498145884ae4804d6, type: 3}
+  - {fileID: 9195684417777155218, guid: 6820916fba5c9be49b9b41d9421c0eff, type: 3}
+  - {fileID: 6086931285902227570, guid: 7065a2211b0b1d04aae9b58060000e52, type: 3}
+  - {fileID: 17218713700629804, guid: 2d08f5a25f6dd5945af7530c881db467, type: 3}
+  - {fileID: 3976336028941285806, guid: 4104a3ce1f6df6844ac7946aca93d6ec, type: 3}
+  - {fileID: 250790599989451841, guid: 57d663583a2abea40abc1bbd1f2ad8e7, type: 3}

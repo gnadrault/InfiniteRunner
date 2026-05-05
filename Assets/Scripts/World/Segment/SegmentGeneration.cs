@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Gameplay;
 using Gameplay.Data;
@@ -6,21 +7,19 @@ using World.GameElement.Collectible;
 using World.GameElement.Obstacle;
 using World.GameElement.Virus;
 using World.Spawn;
+using Random = UnityEngine.Random;
 
 namespace World.Segment
 {
     public class SegmentGeneration : MonoBehaviour
     {
-        [Header("Obstacles")] 
-        [SerializeField] private List<ObstacleElement> obstaclesFixedPrefab;
-        [SerializeField] private List<ObstacleElement> obstaclesMobilePrefab;
-
-        [Header("Collectibles")]
-        [SerializeField] private Letter letterPrefab;
-        [SerializeField] private int activeLettersSpawnRate = 3;
-        
-        [Header("Virus")]
+        [Header("Databases")]
+        [SerializeField] private ObstacleDatabase obstacleDatabase;
+        [SerializeField] private CollectibleDatabase collectibleDatabase;
         [SerializeField] private VirusDatabase virusDatabase;
+
+        [Header("Settings")]
+        [SerializeField] private int activeLettersSpawnRate = 3;
         
         private WordData[] _activeWords;
         
@@ -43,43 +42,41 @@ namespace World.Segment
         {
             foreach (SpawnPoint spawnPoint in segment.SpawnPoints)
             {
-                if (!spawnPoint.Element) continue; // No element => Go to next spawn point
-                switch (spawnPoint.Element.SpawnType)
+                if (spawnPoint is EmptySpawnPoint) continue; // No element => Go to next spawn point
+                switch (spawnPoint)
                 {
-                    case SpawnType.Obstacle:
-                        GenerateObstacleObject((ObstacleElement)spawnPoint.Element, phaseIndex);
+                    case ObstacleSpawnPoint obstacleSpawnPoint:
+                        GenerateObstacleObject(obstacleSpawnPoint, phaseIndex);
                         break;
-                    case SpawnType.Collectible:
-                        GenerateCollectibleObject((CollectibleElement)spawnPoint.Element, phaseIndex);
+                    case CollectibleSpawnPoint collectibleSpawnPoint:
+                        GenerateCollectibleObject(collectibleSpawnPoint, phaseIndex);
                         break;
-                    case SpawnType.Virus:
-                        GenerateVirusObject((VirusElement)spawnPoint.Element, phaseIndex);
+                    case VirusSpawnPoint virusSpawnPoint:
+                        GenerateVirusObject(virusSpawnPoint, phaseIndex);
                         break;
                     default:
-                        print("Undefined");
-                        break;
+                        throw new NotImplementedException();
                 }
             }
         }
 
-        private void GenerateObstacleObject(ObstacleElement element, int phaseIndex)
+        private void GenerateObstacleObject(ObstacleSpawnPoint spawnPoint, int phaseIndex)
         {
-            ObstacleElement obstacleElement =
-                obstaclesFixedPrefab.Find(o =>
-                    o.Type == element.Type && o.Size == element.Size);
-            Instantiate(obstacleElement, element.transform.position, Quaternion.identity, element.transform);
+            ObstacleElement obstacleElement = obstacleDatabase.GetPrefab(spawnPoint.Type, spawnPoint.Size);
+            Instantiate(obstacleElement, spawnPoint.transform.position, Quaternion.identity, spawnPoint.transform);
         }
 
-        private void GenerateCollectibleObject(CollectibleElement element, int phaseIndex)
+        private void GenerateCollectibleObject(CollectibleSpawnPoint spawnPoint, int phaseIndex)
         {
-            Letter letterSpawned = Instantiate(letterPrefab, element.transform.position, Quaternion.identity, element.transform);
+            CollectibleElement element = collectibleDatabase.GetPrefab();
+            Letter letterSpawned = (Letter)Instantiate(element, spawnPoint.transform.position, Quaternion.identity, spawnPoint.transform);
             letterSpawned.SetLabelText(GetRandomLetter().ToString());
         }
 
-        private void GenerateVirusObject(VirusElement element, int phaseIndex)
+        private void GenerateVirusObject(VirusSpawnPoint spawnPoint, int phaseIndex)
         {
-            VirusElement prefab = virusDatabase.GetPrefab(element);
-            Instantiate(prefab, element.transform.position, Quaternion.identity, element.transform);
+            VirusElement prefab = virusDatabase.GetPrefab();
+            Instantiate(prefab, spawnPoint.transform.position, Quaternion.identity, spawnPoint.transform);
         }
         
         

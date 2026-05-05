@@ -2172,8 +2172,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190255
-  m_fontColor: {r: 0.6855345, g: 0, b: 0, a: 1}
+    rgba: 4278190284
+  m_fontColor: {r: 0.8, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2190,8 +2190,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2309,8 +2309,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4291800832
-  m_fontColor: {r: 0, g: 0.68723637, b: 0.8113208, a: 1}
+    rgba: 4294957056
+  m_fontColor: {r: 0, g: 0.84705883, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2327,8 +2327,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -8202,7 +8202,7 @@ MonoBehaviour:
   firstSegment: {fileID: 4933993261843267823}
   segmentsCountPerPhase: 5
   segmentsPoolPhase1:
-  - {fileID: 8224420596382043838, guid: f5145e66e0468d6408719c826bcd21c0, type: 3}
+  - {fileID: 66493209559607754, guid: 2e656bff70108f042ae8a6a542eb7452, type: 3}
   segmentGenerator: {fileID: 1915460936}
 --- !u!114 &1915460936
 MonoBehaviour:
@@ -8216,24 +8216,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f02b434a211a974385beb81fa173d5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  obstaclesFixedPrefab:
-  - {fileID: 2870067622271708921, guid: 934c21811592d8549bb4896b3725f1a2, type: 3}
-  - {fileID: 9005284265063251801, guid: 24544b38014626c46b196cf311ca5e9b, type: 3}
-  - {fileID: 8966696435025192100, guid: 5bf63d7617d5da9498145884ae4804d6, type: 3}
-  - {fileID: 9195684417777155218, guid: 6820916fba5c9be49b9b41d9421c0eff, type: 3}
-  - {fileID: 6086931285902227570, guid: 7065a2211b0b1d04aae9b58060000e52, type: 3}
-  - {fileID: 17218713700629804, guid: 2d08f5a25f6dd5945af7530c881db467, type: 3}
-  - {fileID: 3976336028941285806, guid: 4104a3ce1f6df6844ac7946aca93d6ec, type: 3}
-  - {fileID: 250790599989451841, guid: 57d663583a2abea40abc1bbd1f2ad8e7, type: 3}
-  obstaclesMobilePrefab:
-  - {fileID: 1208088170945700023, guid: b9f4d6adbddbcf94ea49b8d666b17038, type: 3}
-  - {fileID: 7700468688156669711, guid: 4eb860928de30fc4fa4eae89d767cb04, type: 3}
-  - {fileID: 8996357584562194141, guid: a21a66848c9dd53439eb7a8533aad622, type: 3}
-  - {fileID: 6762589489046989040, guid: b92093df76641414bb52afc381a1212c, type: 3}
-  - {fileID: 676060326725753450, guid: 1f00f83558a7e02479135f9f165e82e1, type: 3}
-  letterPrefab: {fileID: 7114961241968849724, guid: 59e0584963e46ff4586f0fc3263dcb78, type: 3}
-  activeLettersSpawnRate: 10
-  virusDatabase: {fileID: 0}
+  obstacleDatabase: {fileID: 11400000, guid: d07985f687c28b042ad7b5d2f7df430b, type: 2}
+  collectibleDatabase: {fileID: 11400000, guid: 40e8c6be9a35ca94ea9cfa4279662143, type: 2}
+  virusDatabase: {fileID: 11400000, guid: f24370f7879d92f49be3996611690d25, type: 2}
+  activeLettersSpawnRate: 5
 --- !u!114 &1915460937
 MonoBehaviour:
   m_ObjectHideFlags: 0

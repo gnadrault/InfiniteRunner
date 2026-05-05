@@ -2,8 +2,8 @@
 {
     public enum ObstacleType
     {
-        Low = 0,
-        Middle = 1,
-        High = 2,
+        Low,
+        Medium,
+        High
     }
 }

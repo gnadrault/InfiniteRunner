@@ -5,11 +5,10 @@ namespace World.Spawn
 {
     public class ObstacleSpawnPoint : SpawnPoint
     {
-        [SerializeField] private ObstacleElement prefab;
-        
-        public ObstacleElement Spawn(Transform parent)
-        {
-            return Instantiate(prefab, transform.position, Quaternion.identity, parent);
-        }
+        [SerializeField] private ObstacleSize size;
+        [SerializeField] private ObstacleType type;
+
+        public ObstacleSize Size => size;
+        public ObstacleType Type => type;
     }
 }

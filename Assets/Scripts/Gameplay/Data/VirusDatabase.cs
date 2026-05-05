@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using World.GameElement.Virus;
 
@@ -6,21 +8,11 @@ namespace Gameplay.Data
     [CreateAssetMenu(fileName = "VirusDatabase", menuName = "SyntaxError/VirusDatabase")]
     public class VirusDatabase : ScriptableObject
     {
-        [SerializeField] private RedVirus redVirusPrefab;
-        [SerializeField] private GreenVirus greenVirusPrefab;
-        [SerializeField] private BlueVirus blueVirusPrefab;
-        [SerializeField] private YellowVirus yellowVirusPrefab;
+        [SerializeField] private List<VirusElement> virus;
 
-        public VirusElement GetPrefab(VirusElement virusElement)
+        public VirusElement GetPrefab()
         {
-            return virusElement switch
-            {
-                RedVirus => redVirusPrefab,
-                GreenVirus => greenVirusPrefab,
-                BlueVirus => blueVirusPrefab,
-                YellowVirus => yellowVirusPrefab,
-                _ => null
-            };
+            return virus.First();
         }
     }
 }
