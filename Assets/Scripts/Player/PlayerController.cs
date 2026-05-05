@@ -17,8 +17,12 @@ namespace Player
         [SerializeField] private InputActionReference jumpInput;
         [SerializeField] private InputActionReference slideInput;
         
+        [Header("Mesh")]
+        [SerializeField] private Transform meshTransform;
+        
         [Header("Settings")]
         [SerializeField] private PlayerSettings playerSettings;
+        [SerializeField] private Transform attachedPosition;
         
         [Header("Lanes")]
         [SerializeField] private Transform[] laneAnchors;
@@ -29,6 +33,10 @@ namespace Player
         private int _currentLaneIndex;
         private Transform _transform;
         private PlayerStateMachine _stateMachine;
+        
+        //Virus
+        private VirusElement _currentVirusElement;
+        private bool _isBlocked = false;
 
         private void Awake()
         {
@@ -61,21 +69,25 @@ namespace Player
 
         private void OnLeftInput(InputAction.CallbackContext obj)
         {
+            if (_isBlocked) return;
             TryChangingLane(_currentLaneIndex - 1);
         }
 
         private void OnRightInput(InputAction.CallbackContext obj)
         {
+            if (_isBlocked) return;
             TryChangingLane(_currentLaneIndex + 1);
         }
 
         private void OnJumpInput(InputAction.CallbackContext obj)
         {
+            if (_isBlocked) return;
             TryJumping();
         }
         
         private void OnSlideInput(InputAction.CallbackContext obj)
         {
+            if (_isBlocked) return;
             TrySlide();
         }
         
@@ -106,6 +118,37 @@ namespace Player
         {
             _stateMachine.UpdateState();
         }
+        
+        #region Virus
+
+        public bool AttachVirus(VirusElement virus)
+        {
+            if (_currentVirusElement != null) return false;
+            _currentVirusElement = virus;
+            virus.ApplyEffect(this, attachedPosition);
+            HUD.Instance.ShowVirusPanel(_currentVirusElement.GetLabel());
+            return true;
+        }
+
+        public void DetachVirus()
+        {
+            if (_currentVirusElement == null) return;
+            _currentVirusElement.RemoveEffect(this);
+            HUD.Instance.HideVirusPanel();
+            _currentVirusElement = null;
+        }
+
+        public void DisableMovement()
+        {
+            _isBlocked = true;
+        }
+
+        public void EnableMovement()
+        {
+            _isBlocked = false;
+        }
+
+        #endregion
 
         #region Getters/Setters
 
@@ -125,9 +168,9 @@ namespace Player
 
         public void SetScaleY(float y)
         {
-            Vector3 scale = _transform.localScale;
+            Vector3 scale = meshTransform.localScale;
             scale.y = y;
-            _transform.localScale = scale;
+            meshTransform.localScale = scale;
         }
 
         private void OnTriggerEnter(Collider other)
@@ -145,13 +188,8 @@ namespace Player
 
         public void Die()
         {
-            print("Die!!");
         }
 
-        public void AttachVirus(VirusElement virusElement)
-        {
-            print("Attached Virus!!");
-        }
         
         public Vector3 GetCurrentPosition() => _transform.position;
         public Vector3 GetCurrentScale() => _transform.localScale;

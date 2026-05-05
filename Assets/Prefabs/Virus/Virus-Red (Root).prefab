@@ -15,7 +15,7 @@ PrefabInstance:
     - target: {fileID: 2784032495156781423, guid: 13a23ed67c4ee3642868f4d562221c53, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: fe27b342cd37ce547ad2958a0992aadc, type: 2}
+      objectReference: {fileID: 2100000, guid: db64ec050874958458e598e440c8e0e2, type: 2}
     - target: {fileID: 3400904559382451460, guid: 13a23ed67c4ee3642868f4d562221c53, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2
@@ -56,6 +56,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5112304340009178468, guid: 13a23ed67c4ee3642868f4d562221c53, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: db64ec050874958458e598e440c8e0e2, type: 2}
     - target: {fileID: 7579398550601574980, guid: 13a23ed67c4ee3642868f4d562221c53, type: 3}
       propertyPath: m_Name
       value: Virus-Red (Root)
@@ -67,6 +71,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7579398550601574980, guid: 13a23ed67c4ee3642868f4d562221c53, type: 3}
       insertIndex: -1
       addedObject: {fileID: -35816546029551191}
+    - targetCorrespondingSourceObject: {fileID: 7579398550601574980, guid: 13a23ed67c4ee3642868f4d562221c53, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -1824279388473863459}
   m_SourcePrefab: {fileID: 100100000, guid: 13a23ed67c4ee3642868f4d562221c53, type: 3}
 --- !u!1 &7552491089988493126 stripped
 GameObject:
@@ -85,3 +92,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71788708fc3f47c1ab16511c3e145993, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::World.GameElement.Virus.RedVirus
+  solution: {fileID: -1824279388473863459}
+--- !u!114 &-1824279388473863459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7552491089988493126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 193d985921e24987b81ff9c962dd95d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::World.GameElement.Virus.Solution.SolutionSpamKey
+  spamKey: {fileID: 3161682069650093083, guid: 0eae3734640624049a0c62a5acdfe144, type: 3}
+  requiredPressed: 10

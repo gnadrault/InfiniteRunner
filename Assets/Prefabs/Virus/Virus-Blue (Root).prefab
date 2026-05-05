@@ -15,7 +15,7 @@ PrefabInstance:
     - target: {fileID: 2784032495156781423, guid: 13a23ed67c4ee3642868f4d562221c53, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 82c0a6e441f83774987520ee80471364, type: 2}
+      objectReference: {fileID: 2100000, guid: 9cc2003a829c0b142bb584f0c01550c2, type: 2}
     - target: {fileID: 3400904559382451460, guid: 13a23ed67c4ee3642868f4d562221c53, type: 3}
       propertyPath: m_LocalPosition.x
       value: 145.7194
@@ -56,6 +56,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5112304340009178468, guid: 13a23ed67c4ee3642868f4d562221c53, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 9cc2003a829c0b142bb584f0c01550c2, type: 2}
     - target: {fileID: 7579398550601574980, guid: 13a23ed67c4ee3642868f4d562221c53, type: 3}
       propertyPath: m_Name
       value: Virus-Blue (Root)

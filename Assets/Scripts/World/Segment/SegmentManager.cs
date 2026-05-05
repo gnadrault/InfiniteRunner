@@ -49,7 +49,7 @@ namespace World.Segment
         {
             Segment lastSegment = _activeSegmentList[^1];
             Vector3 spawnPos = new Vector3(_segmentX, _segmentY, lastSegment.transform.position.z + _segmentLength);
-
+            
             Segment pooledSegment =
                 segmentDatabase.GetPrefab(_currentPhaseState,
                     lastSegment); // TODO change on current phase, never same twice
