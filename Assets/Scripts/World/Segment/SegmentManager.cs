@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Data;
+using Player;
 using UnityEngine;
 
 namespace World.Segment
@@ -38,11 +39,13 @@ namespace World.Segment
         private void OnEnable()
         {
             Segment.OnChunkDestroyed += RemoveSegment;
+            PlayerController.OnPlayerDied += StopScroll;
         }
 
         private void OnDisable()
         {
             Segment.OnChunkDestroyed -= RemoveSegment;
+            PlayerController.OnPlayerDied -= StopScroll;
         }
 
         private void AddSegment()
@@ -63,6 +66,11 @@ namespace World.Segment
         private void RemoveSegment(Segment segment)
         {
             _activeSegmentList.Remove(segment);
+        }
+
+        private void StopScroll()
+        {
+            scrollSpeed = 0f;
         }
 
         private void Update()

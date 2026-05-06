@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1740123866734240577}
   - component: {fileID: 8797332260110190430}
   - component: {fileID: 2825985393900552370}
-  - component: {fileID: 7913565950216389294}
   m_Layer: 0
   m_Name: Obstacle (Mesh)
   m_TagString: Untagged
@@ -92,27 +91,6 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7913565950216389294
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4117925487742029494}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6501239765962510561
 GameObject:
   m_ObjectHideFlags: 0
@@ -220,13 +198,43 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 5faaf7aca6054fe4fb0e4f3353903408, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7975485378321292533, guid: e54763f86f82ab44aa016f242a32a589, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2558220333516595909, guid: e54763f86f82ab44aa016f242a32a589, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6002980096169595275}
   m_SourcePrefab: {fileID: 100100000, guid: e54763f86f82ab44aa016f242a32a589, type: 3}
 --- !u!4 &6262748558525371564 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2939530568381003903, guid: e54763f86f82ab44aa016f242a32a589, type: 3}
   m_PrefabInstance: {fileID: 9088985171612331219}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6746972841768308246 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2558220333516595909, guid: e54763f86f82ab44aa016f242a32a589, type: 3}
+  m_PrefabInstance: {fileID: 9088985171612331219}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &6002980096169595275
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6746972841768308246}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.0288675, y: 1.0288675, z: 1.0288675}
+  m_Center: {x: 0, y: 0, z: 0}

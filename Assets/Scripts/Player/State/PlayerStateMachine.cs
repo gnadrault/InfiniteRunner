@@ -8,12 +8,14 @@ namespace Player.State
         private IPlayerState _jump;
         private IPlayerState _idle;
         private IPlayerState _slide;
+        private IPlayerState _die;
         
         private IPlayerState _currentState;
 
         public PlayerStateMachine(PlayerController playerController, PlayerSettings playerSettings)
         {
             _idle = new IdleState();
+            _die = new DieState(playerController, playerSettings.die);
             _jump = new JumpingState(playerController, playerSettings.jump);
             _lane = new LaneChangingState(playerController, playerSettings.changeLane);
             _slide = new SlideState(playerController, playerSettings.slide);
@@ -50,6 +52,7 @@ namespace Player.State
         public IPlayerState ChangingLane() => _lane;
         public IPlayerState Jumping() => _jump;
         public IPlayerState Sliding() => _slide;
+        public IPlayerState Die() => _die;
         public bool CanJump() => _currentState == Idle();
         public bool CanSlide() => _currentState == Idle() ;
         public bool CanChangeLane() => _currentState != Sliding() && _currentState != Jumping();

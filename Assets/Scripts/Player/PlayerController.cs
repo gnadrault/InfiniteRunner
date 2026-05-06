@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Player.Data;
 using Player.State;
 using UnityEngine;
@@ -17,18 +18,17 @@ namespace Player
         [SerializeField] private InputActionReference jumpInput;
         [SerializeField] private InputActionReference slideInput;
         
-        [Header("Mesh")]
-        [SerializeField] private Transform meshTransform;
-        
         [Header("Settings")]
         [SerializeField] private PlayerSettings playerSettings;
         [SerializeField] private Transform attachedPosition;
+        [SerializeField] private GameObject meshGameObject;
         
         [Header("Lanes")]
         [SerializeField] private Transform[] laneAnchors;
         [SerializeField] private int initLaneIndex = 1;
         
         public static event Action<string> OnLetterCollected;
+        public static event Action OnPlayerDied;
         
         private int _currentLaneIndex;
         private Transform _transform;
@@ -168,9 +168,9 @@ namespace Player
 
         public void SetScaleY(float y)
         {
-            Vector3 scale = meshTransform.localScale;
+            Vector3 scale = _transform.localScale;
             scale.y = y;
-            meshTransform.localScale = scale;
+            _transform.localScale = scale;
         }
 
         private void OnTriggerEnter(Collider other)
@@ -188,11 +188,14 @@ namespace Player
 
         public void Die()
         {
+            OnPlayerDied?.Invoke();
+            _stateMachine.ChangeState(_stateMachine.Die());
+            
         }
-
         
         public Vector3 GetCurrentPosition() => _transform.position;
         public Vector3 GetCurrentScale() => _transform.localScale;
+        public GameObject GetMeshObject() => meshGameObject;
         public Vector3 GetCurrentLanePosition() => laneAnchors[_currentLaneIndex].position;
         public bool IsJumpButtonPressed() => jumpInput.action.IsPressed();
         public bool IsSlideButtonPressed() => slideInput.action.IsPressed();

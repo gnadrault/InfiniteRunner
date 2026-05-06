@@ -50,7 +50,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5614944108865150314, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
       propertyPath: m_Name
-      value: Segment (Root) Variant
+      value: 1-1 Segment
       objectReference: {fileID: 0}
     - target: {fileID: 7460002942747525395, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
       propertyPath: 'spawnPoints.Array.data[0]'
@@ -73,6 +73,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4199160293941468839}
     - target: {fileID: 7460002942747525395, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+      propertyPath: 'spawnPoints.Array.data[10]'
+      value: 
+      objectReference: {fileID: 1754363805219985252}
+    - target: {fileID: 7460002942747525395, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
       propertyPath: 'spawnPoints.Array.data[17]'
       value: 
       objectReference: {fileID: 7179708212951471159}
@@ -84,6 +88,10 @@ PrefabInstance:
       propertyPath: 'spawnPoints.Array.data[26]'
       value: 
       objectReference: {fileID: 3078940088512550025}
+    - target: {fileID: 7460002942747525395, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+      propertyPath: 'spawnPoints.Array.data[43]'
+      value: 
+      objectReference: {fileID: 7137198967114160079}
     m_RemovedComponents:
     - {fileID: 444928910054237616, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
     - {fileID: 5711869857427251974, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
@@ -93,6 +101,8 @@ PrefabInstance:
     - {fileID: 3142672006897212498, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
     - {fileID: 896271333471214086, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
     - {fileID: 1434142880874961786, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+    - {fileID: 868959287707568951, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+    - {fileID: 230393923877394147, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -111,6 +121,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7440682688553447201, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4199160293941468839}
+    - targetCorrespondingSourceObject: {fileID: 2596633024854492944, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1754363805219985252}
     - targetCorrespondingSourceObject: {fileID: 4128096430342093969, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7179708212951471159}
@@ -120,6 +133,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 259869225034322037, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3078940088512550025}
+    - targetCorrespondingSourceObject: {fileID: 3113315730020948676, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7137198967114160079}
   m_SourcePrefab: {fileID: 100100000, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
 --- !u!1 &11794897433724920 stripped
 GameObject:
@@ -174,6 +190,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::World.Spawn.CollectibleSpawnPoint
   canBeBonusObject: 0
+--- !u!1 &4855564176771477449 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2596633024854492944, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+  m_PrefabInstance: {fileID: 7452184278052595929}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1754363805219985252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4855564176771477449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 115130638a7e41b98d48d3e1ad625963, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::World.Spawn.VirusSpawnPoint
 --- !u!1 &5278764423078527310 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3326623386477767063, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
@@ -193,6 +226,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::World.Spawn.ObstacleSpawnPoint
   size: 0
   type: 0
+--- !u!1 &5503330812350411293 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3113315730020948676, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+  m_PrefabInstance: {fileID: 7452184278052595929}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7137198967114160079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5503330812350411293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80665b306aa74818a66e18e9269dde92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::World.Spawn.ObstacleSpawnPoint
+  size: 1
+  type: 1
 --- !u!1 &6668244868851072900 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4314773343558637405, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
