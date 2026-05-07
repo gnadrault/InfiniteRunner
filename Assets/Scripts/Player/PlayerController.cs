@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using Player.Data;
 using Player.State;
@@ -48,7 +49,7 @@ namespace Player
         private void Start()
         {
             _transform.position = laneAnchors[_currentLaneIndex].position;
-            _stateMachine.InitializeState();
+            _stateMachine.Start();
         }
         
         private void OnEnable()
@@ -124,12 +125,18 @@ namespace Player
         public bool AttachVirus(VirusElement virus)
         {
             if (_currentVirusElement != null) return false;
-            _currentVirusElement = virus;
-            virus.ApplyEffect(this, attachedPosition);
-            HUD.Instance.ShowVirusPanel(_currentVirusElement.GetLabel());
+            StartCoroutine(WaitAndVirus(virus));
             return true;
         }
 
+        private IEnumerator WaitAndVirus(VirusElement virus)
+        {
+            _currentVirusElement = virus;
+            yield return new WaitForSeconds(2);
+            _currentVirusElement.ApplyEffect(this, attachedPosition);
+            HUD.Instance.ShowVirusPanel(_currentVirusElement.GetLabel());
+        }
+        
         public void DetachVirus()
         {
             if (_currentVirusElement == null) return;
@@ -171,14 +178,6 @@ namespace Player
             Vector3 scale = _transform.localScale;
             scale.y = y;
             _transform.localScale = scale;
-        }
-
-        private void OnTriggerEnter(Collider other)
-        {
-            if (other.TryGetComponent(out Element element))
-            {
-                element.OnPlayerCollision(this);
-            }
         }
         
         public void CollectLetter(Letter letter)

@@ -17,6 +17,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -3573949801234290712, guid: 8e0faa93c84d11941bba2c5cc6d43308, type: 3}
+      propertyPath: isMobile
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -3573949801234290712, guid: 8e0faa93c84d11941bba2c5cc6d43308, type: 3}
       propertyPath: obstacleSize
       value: 1
       objectReference: {fileID: 0}
@@ -71,5 +75,27 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8930819974588595678, guid: 8e0faa93c84d11941bba2c5cc6d43308, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9033628818023688294}
   m_SourcePrefab: {fileID: 100100000, guid: 8e0faa93c84d11941bba2c5cc6d43308, type: 3}
+--- !u!1 &4393186315025498204 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8930819974588595678, guid: 8e0faa93c84d11941bba2c5cc6d43308, type: 3}
+  m_PrefabInstance: {fileID: 5118093441995324802}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &9033628818023688294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4393186315025498204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b7b4743371f44ccb654d6067d110d64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Effect.MoveVertical
+  speed: 1
+  height: 5

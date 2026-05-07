@@ -9,13 +9,15 @@ namespace World.GameElement.Obstacle
     {
         [SerializeField] private ObstacleSize size;
         [SerializeField] private ObstacleType type;
+        [SerializeField] private bool isMobile = false;
         
-        public override void OnPlayerCollision(PlayerController player)
+        public override void OnPlayerCollision(PlayerController player, Transform position)
         {
             player.Die();
         }
 
         public ObstacleSize Size => size;
         public ObstacleType Type => type;
+        public bool IsMobile => isMobile;
     }
 }

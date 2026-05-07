@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: type
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: -3573949801234290712, guid: 8e0faa93c84d11941bba2c5cc6d43308, type: 3}
+      propertyPath: isMobile
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3285176501982059553, guid: 8e0faa93c84d11941bba2c5cc6d43308, type: 3}
       propertyPath: m_LocalScale.y
       value: 3
@@ -71,5 +75,28 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8930819974588595678, guid: 8e0faa93c84d11941bba2c5cc6d43308, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2060153277451166185}
   m_SourcePrefab: {fileID: 100100000, guid: 8e0faa93c84d11941bba2c5cc6d43308, type: 3}
+--- !u!1 &6866843317428186425 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8930819974588595678, guid: 8e0faa93c84d11941bba2c5cc6d43308, type: 3}
+  m_PrefabInstance: {fileID: 2646789395159617767}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2060153277451166185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6866843317428186425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0af2cd8e22d4a959ecce766ae9fdf65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Effect.MoveHorizontal
+  speed: 1
+  leftLaneX: -4
+  rightLaneX: 4

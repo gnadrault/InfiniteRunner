@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using Data;
-using Gameplay;
 using Gameplay.Letters;
 using UnityEngine;
 using World.GameElement.Collectible;
@@ -63,7 +62,7 @@ namespace World.Segment
 
         private void GenerateObstacleObject(ObstacleSpawnPoint spawnPoint, PhaseState currentPhase)
         {
-            ObstacleElement obstacleElement = obstacleDatabase.GetPrefab(spawnPoint.Type, spawnPoint.Size);
+            ObstacleElement obstacleElement = obstacleDatabase.GetPrefab(spawnPoint.Type, spawnPoint.Size, spawnPoint.IsMobile);
             Instantiate(obstacleElement, spawnPoint.transform.position, Quaternion.identity, spawnPoint.transform);
         }
 

@@ -25,7 +25,7 @@ namespace Player.State
 
         public void UpdateState()
         {
-
+            
         }
 
         public void Exit()
@@ -35,7 +35,7 @@ namespace Player.State
 
         public bool IsDone()
         {
-            return false;
+            return _dieSettings.deathParticles.isStopped;
         }
     }
 }

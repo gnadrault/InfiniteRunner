@@ -10,16 +10,15 @@ namespace Data
     {
         [SerializeField] private List<Segment> segments;
 
-        public Segment GetPrefab(PhaseState currentPhase, Segment exceptSegment)
-        {
-            return GetPrefab(currentPhase, new List<Segment> { exceptSegment });
-        }
+        private Segment _lastSegment; // Prevent to pull same segment twice
 
-        public Segment GetPrefab(PhaseState currentPhase, List<Segment> exceptSegments)
+        public Segment GetPrefab(PhaseState currentPhase)
         {
             List<Segment> segmentsPoolPhase =
-                segments.Where(s => !exceptSegments.Contains(s) && s.PhaseState <= currentPhase).ToList();
-            return segmentsPoolPhase[Random.Range(0, segmentsPoolPhase.Count)];
+                segments.Where(s => s != _lastSegment && s.PhaseState <= currentPhase).ToList();
+            Segment segmentPooled = segmentsPoolPhase[Random.Range(0, segmentsPoolPhase.Count)];
+            _lastSegment = segmentPooled;
+            return segmentPooled;
         }
     }
 }

@@ -15,7 +15,7 @@ namespace World.GameElement.Collectible
             label.text = text;
         }
 
-        public override void OnPlayerCollision(PlayerController player)
+        public override void OnPlayerCollision(PlayerController player, Transform position)
         {
             player.CollectLetter(this);
             Destroy(gameObject);

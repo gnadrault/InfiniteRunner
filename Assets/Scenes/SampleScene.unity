@@ -2291,7 +2291,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1132900062}
-  - component: {fileID: 1132900061}
   m_Layer: 0
   m_Name: ScoreSystem
   m_TagString: Untagged
@@ -2299,19 +2298,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1132900061
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1132900060}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 996d0a83f651e414eab6fdf24cb5e9a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Gameplay.DistanceSystem
-  distanceLabel: {fileID: 582970366}
 --- !u!4 &1132900062
 Transform:
   m_ObjectHideFlags: 0
@@ -8544,6 +8530,86 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1775216867}
   m_CullTransparentMesh: 1
+--- !u!1 &1855767983
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1855767987}
+  - component: {fileID: 1855767986}
+  - component: {fileID: 1855767984}
+  - component: {fileID: 1855767985}
+  m_Layer: 0
+  m_Name: SegmentManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1855767984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1855767983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 996d0a83f651e414eab6fdf24cb5e9a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Gameplay.DistanceSystem
+  distanceLabel: {fileID: 582970366}
+--- !u!114 &1855767985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1855767983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f02b434a211a974385beb81fa173d5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  obstacleDatabase: {fileID: 11400000, guid: d07985f687c28b042ad7b5d2f7df430b, type: 2}
+  collectibleDatabase: {fileID: 11400000, guid: 40e8c6be9a35ca94ea9cfa4279662143, type: 2}
+  virusDatabase: {fileID: 11400000, guid: f24370f7879d92f49be3996611690d25, type: 2}
+  activeLettersSpawnRate: 5
+--- !u!114 &1855767986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1855767983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5a1be9f07dc2474288cfa7019e1dc98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChunkManager
+  maxSegments: 5
+  scrollSpeed: 15.6
+  firstSegment: {fileID: 4933993261843267823}
+  segmentsCountPerPhase: 5
+  segmentDatabase: {fileID: 11400000, guid: a1361d3ea657ba3419e285e6a46ef473, type: 2}
+--- !u!4 &1855767987
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1855767983}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 432.18567, y: 0.00001, z: -41.67928}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1904128378
 GameObject:
   m_ObjectHideFlags: 0
@@ -8657,8 +8723,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1915460934}
-  - component: {fileID: 1915460935}
-  - component: {fileID: 1915460936}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -8681,40 +8745,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1915460935
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1915460932}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5a1be9f07dc2474288cfa7019e1dc98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ChunkManager
-  maxSegments: 5
-  scrollSpeed: 15.6
-  firstSegment: {fileID: 4933993261843267823}
-  segmentsCountPerPhase: 5
-  segmentDatabase: {fileID: 11400000, guid: a1361d3ea657ba3419e285e6a46ef473, type: 2}
-  segmentGenerator: {fileID: 1915460936}
---- !u!114 &1915460936
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1915460932}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f02b434a211a974385beb81fa173d5e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  obstacleDatabase: {fileID: 11400000, guid: d07985f687c28b042ad7b5d2f7df430b, type: 2}
-  collectibleDatabase: {fileID: 11400000, guid: 40e8c6be9a35ca94ea9cfa4279662143, type: 2}
-  virusDatabase: {fileID: 11400000, guid: f24370f7879d92f49be3996611690d25, type: 2}
-  activeLettersSpawnRate: 5
 --- !u!1001 &1924738107
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8861,6 +8891,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5252669894630590781, guid: 7b7fe22e7203a55459925ca643d3dac9, type: 3}
+      propertyPath: attachedPlayerPosition
+      value: 
+      objectReference: {fileID: 3842720388287070926}
     - target: {fileID: 7305124773151762212, guid: 7b7fe22e7203a55459925ca643d3dac9, type: 3}
       propertyPath: m_Name
       value: Player (Root)
@@ -9070,5 +9104,6 @@ SceneRoots:
   - {fileID: 1132900062}
   - {fileID: 1701807688}
   - {fileID: 1915460934}
+  - {fileID: 1855767987}
   - {fileID: 508775472}
   - {fileID: 1530522270}

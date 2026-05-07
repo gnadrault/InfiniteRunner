@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Data.SegmentDatabase
   segments:
   - {fileID: 66493209559607754, guid: 2e656bff70108f042ae8a6a542eb7452, type: 3}
+  - {fileID: 66493209559607754, guid: 3c53aec915e8941468d641df6941c91b, type: 3}

@@ -1,4 +1,6 @@
 ﻿using Player.Data;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Player.State
 {
@@ -9,7 +11,7 @@ namespace Player.State
         private IPlayerState _idle;
         private IPlayerState _slide;
         private IPlayerState _die;
-        
+
         private IPlayerState _currentState;
 
         public PlayerStateMachine(PlayerController playerController, PlayerSettings playerSettings)
@@ -20,10 +22,16 @@ namespace Player.State
             _lane = new LaneChangingState(playerController, playerSettings.changeLane);
             _slide = new SlideState(playerController, playerSettings.slide);
         }
-        
-        public void InitializeState()
+
+        public void Start()
         {
-            _currentState = Idle();
+            ChangeState(Idle());
+        }
+
+        public void ChangeState(IPlayerState newState)
+        {
+            _currentState?.Exit();
+            _currentState = newState;
             _currentState.Enter();
         }
         
@@ -32,19 +40,20 @@ namespace Player.State
             CheckStateTransitions();
             _currentState.UpdateState();
         }
-        
-        public void ChangeState(IPlayerState newState)
-        {
-            _currentState.Exit();
-            _currentState = newState;
-            _currentState.Enter();
-        }
 
         private void CheckStateTransitions()
         {
-            if (_currentState != Idle() && _currentState.IsDone())
+            if (_currentState is IdleState || !_currentState.IsDone()) return;
+            switch (_currentState)
             {
-                ChangeState(Idle());
+                case JumpingState: 
+                case SlideState:
+                case LaneChangingState:
+                    ChangeState(Idle());
+                    break;
+                case DieState:
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                    break;
             }
         }
 
@@ -53,8 +62,8 @@ namespace Player.State
         public IPlayerState Jumping() => _jump;
         public IPlayerState Sliding() => _slide;
         public IPlayerState Die() => _die;
-        public bool CanJump() => _currentState == Idle();
-        public bool CanSlide() => _currentState == Idle() ;
-        public bool CanChangeLane() => _currentState != Sliding() && _currentState != Jumping();
+        public bool CanJump() => _currentState is IdleState;
+        public bool CanSlide() => _currentState is IdleState;
+        public bool CanChangeLane() => _currentState is IdleState or LaneChangingState;
     }
 }

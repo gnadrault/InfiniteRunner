@@ -18,12 +18,16 @@ namespace World.GameElement.Virus.State
 
         public VirusStateMachine(VirusElement currentVirus)
         {
+            _currentVirus = currentVirus;
             _idleState = new IdleState();
             _attackState = new AttackState();
-            _attachedState = new AttachedState();
+            _attachedState = new AttachedState(_currentVirus);
             _detachedState = new DetachedState();
             _destroyState = new DestroyState();
-            _currentVirus = currentVirus;
+        }
+
+        public void Start()
+        {
             ChangeState(_idleState);
         }
         

@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using World.Segment;
 
 namespace Gameplay
 {
@@ -7,11 +8,18 @@ namespace Gameplay
     {
         [SerializeField] private TextMeshProUGUI distanceLabel;
         
-        private float distance;
+        private SegmentManager _segmentManager;
+        
+        private float distance = 0f;
+
+        private void Awake()
+        {
+            _segmentManager = GetComponent<SegmentManager>();
+        }
 
         private void Update()
         {
-            distance += Time.deltaTime;
+            distance += (Time.deltaTime * _segmentManager.ScrollSpeed);
             distanceLabel.text = (int)distance + "m";
         }
     }

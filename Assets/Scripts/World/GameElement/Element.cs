@@ -5,6 +5,6 @@ namespace World.GameElement
 {
     public abstract class Element : MonoBehaviour
     {
-        public abstract void OnPlayerCollision(PlayerController player);
+        public abstract void OnPlayerCollision(PlayerController player, Transform position);
     }
 }

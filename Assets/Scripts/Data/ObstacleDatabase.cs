@@ -10,10 +10,10 @@ namespace Data
     {
         [SerializeField] private List<ObstacleElement> obstacles;
 
-        public ObstacleElement GetPrefab(ObstacleType type, ObstacleSize size)
+        public ObstacleElement GetPrefab(ObstacleType type, ObstacleSize size, bool isMobile)
         {
             ObstacleElement obstacle = obstacles.FirstOrDefault(o => 
-                o.Size == size && o.Type == type);
+                o.Size == size && o.Type == type && o.IsMobile == isMobile);
         
             return obstacle;
         }
