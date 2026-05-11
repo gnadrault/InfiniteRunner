@@ -1,11 +1,9 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using Player.Data;
 using Player.State;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using World.GameElement;
 using World.GameElement.Collectible;
 using World.GameElement.Virus;
 
