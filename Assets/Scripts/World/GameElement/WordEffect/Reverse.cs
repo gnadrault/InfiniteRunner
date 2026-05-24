@@ -1,7 +1,7 @@
-﻿namespace World.GameElement.WordEffect
+using UnityEngine;
+
+namespace World.GameElement.WordEffect
 {
-    public class Reverse: WordEffect
-    {
-        
-    }
+    [CreateAssetMenu(fileName = "Reverse", menuName = "SyntaxError/Effects/Reverse")]
+    public class Reverse : WordEffect { }
 }

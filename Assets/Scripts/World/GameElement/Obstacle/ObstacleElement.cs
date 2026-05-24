@@ -1,6 +1,7 @@
 using Data;
 using Player;
 using UnityEngine;
+using Utils;
 
 namespace World.GameElement.Obstacle
 {
@@ -9,12 +10,12 @@ namespace World.GameElement.Obstacle
     {
         [SerializeField] private ObstacleSize size;
         [SerializeField] private ObstacleType type;
-        [SerializeField] private bool isMobile = false;
+        [SerializeField] private bool isMobile;
         
         public override void OnPlayerCollision(PlayerController player, Transform position)
         {
-            if (player.HasShield())
-                player.RemoveShield();
+            if (player.HasGhost())
+                GameEvents.OnGhostBroken?.Invoke();
             else
                 player.Die();
         }

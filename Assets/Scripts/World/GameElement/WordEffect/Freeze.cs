@@ -1,7 +1,7 @@
-﻿namespace World.GameElement.WordEffect
+using UnityEngine;
+
+namespace World.GameElement.WordEffect
 {
-    public class Freeze: WordEffect
-    {
-        
-    }
+    [CreateAssetMenu(fileName = "Freeze", menuName = "SyntaxError/Effects/Freeze")]
+    public class Freeze : WordEffect { }
 }

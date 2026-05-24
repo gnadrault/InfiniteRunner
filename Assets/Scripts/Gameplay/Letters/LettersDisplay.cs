@@ -11,7 +11,7 @@ namespace Gameplay.Letters
         private readonly List<LetterCell> _letterCells = new();
 
         public bool IsEmpty() => _letterCells.Count == 0;
-        public bool IsComplete() => !_letterCells.Exists(letter => !letter.IsHighlighted);
+        public bool IsComplete() => _letterCells.Count > 0 && !_letterCells.Exists(letter => !letter.IsHighlighted);
         public WordData CurrentWordData => _currentWordData;
 
         public void SetWord(WordData wordData, LetterCell letterCellPrefab)

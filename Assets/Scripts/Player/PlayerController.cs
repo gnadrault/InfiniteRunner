@@ -38,6 +38,7 @@ namespace Player
         
         //Bonus
         private bool _shield;
+        private bool _ghost;
         
         //Malus
         
@@ -167,8 +168,16 @@ namespace Player
         {
             _shield = false;
         }
-        
 
+        public void ApplyGhost()
+        {
+            _ghost = true;
+        }
+
+        public void RemoveGhost()
+        {
+            _ghost = false;
+        }
         #endregion
 
         #region Getters/Setters
@@ -213,6 +222,7 @@ namespace Player
         public bool IsSlideButtonPressed() => slideInput.action.IsPressed();
         public bool IsPlayerInfected() => _currentVirusElement != null;
         public bool HasShield() => _shield;
+        public bool HasGhost() => _ghost;
 
         #endregion
     }

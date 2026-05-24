@@ -24,11 +24,7 @@ namespace Gameplay
 
         private void AddPoints(float points)  => _score += points;
 
-        private void RemovePercent(float percent)
-        {
-            _score = Mathf.RoundToInt(_score * (1 - percent));
-            print("Remove 1 percent");
-        }
+        private void RemovePercent(float percent) => _score = Mathf.RoundToInt(_score * (1 - percent));
         
 
         private void Update()

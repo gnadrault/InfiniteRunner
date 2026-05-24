@@ -19,5 +19,10 @@ namespace Utils
         #region Letters
         public static Action<string> OnLetterCollected;
         #endregion
+
+        #region Effects
+        public static Action OnShieldBroken;
+        public static Action OnGhostBroken;
+        #endregion
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using World.GameElement.WordEffect;
 using Random = UnityEngine.Random;
 
 namespace Data
@@ -20,38 +21,11 @@ namespace Data
         }
     }
     
-    [System.Serializable]
-    public class WordData : IEquatable<WordData>
+    [Serializable]
+    public class WordData
     {
-        public readonly string word;
-        public readonly bool isBonus;
-        public readonly World.GameElement.WordEffect.WordEffect effect;
-
-        public WordData(bool isBonus, string word, World.GameElement.WordEffect.WordEffect effect)
-        {
-            this.isBonus = isBonus;
-            this.word = word;
-            this.effect = effect;
-        }
-
-        public bool Equals(WordData other)
-        {
-            if (other is null) return false;
-            if (ReferenceEquals(this, other)) return true;
-            return word == other.word && isBonus == other.isBonus && Equals(effect, other.effect);
-        }
-
-        public override bool Equals(object obj)
-        {
-            if (obj is null) return false;
-            if (ReferenceEquals(this, obj)) return true;
-            if (obj.GetType() != GetType()) return false;
-            return Equals((WordData)obj);
-        }
-
-        public override int GetHashCode()
-        {
-            return HashCode.Combine(word, isBonus, effect);
-        }
+        public string word;
+        public bool isBonus;
+        public WordEffect effect;
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Effect;
 using Player;
 using UnityEngine;
+using Utils;
 
 namespace World.GameElement.Virus
 {
@@ -14,6 +15,14 @@ namespace World.GameElement.Virus
         public override void OnPlayerCollision(PlayerController player, Transform position)
         {
             if (player.IsPlayerInfected()) return;
+
+            if (player.HasShield())
+            {
+                GameEvents.OnShieldBroken?.Invoke();
+                Destroy(gameObject);
+                return;
+            }
+
             DisableVirusMovements();
             transform.SetPositionAndRotation(position.position, position.rotation);
             transform.SetParent(player.transform);

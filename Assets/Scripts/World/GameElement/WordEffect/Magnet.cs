@@ -1,7 +1,7 @@
-﻿namespace World.GameElement.WordEffect
+using UnityEngine;
+
+namespace World.GameElement.WordEffect
 {
-    public class Magnet: WordEffect
-    {
-        
-    }
+    [CreateAssetMenu(fileName = "Magnet", menuName = "SyntaxError/Effects/Magnet")]
+    public class Magnet : WordEffect { }
 }

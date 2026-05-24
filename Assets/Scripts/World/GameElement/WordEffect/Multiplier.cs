@@ -1,7 +1,7 @@
-﻿namespace World.GameElement.WordEffect
+using UnityEngine;
+
+namespace World.GameElement.WordEffect
 {
-    public class Multiplier: WordEffect
-    {
-        
-    }
+    [CreateAssetMenu(fileName = "Multiplier", menuName = "SyntaxError/Effects/Multiplier")]
+    public class Multiplier : WordEffect { }
 }

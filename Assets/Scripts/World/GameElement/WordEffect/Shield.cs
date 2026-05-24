@@ -1,19 +1,26 @@
-﻿using Player;
+using Player;
+using UnityEngine;
+using Utils;
 
 namespace World.GameElement.WordEffect
 {
-    public class Shield: WordEffect
+    [CreateAssetMenu(fileName = "Shield", menuName = "SyntaxError/Effects/Shield")]
+    public class Shield : WordEffect
     {
-        public override void ApplyEffect(PlayerController player)
+        public override void ApplyEffect(PlayerController playerController, MonoBehaviour runner)
         {
-            base.ApplyEffect(player);
+            base.ApplyEffect(player, runner);
+            GameEvents.OnShieldBroken += OnEffectBroken;
             player.ApplyShield();
+            StartEffectTimer();
         }
 
-        public override void RemoveEffect(PlayerController player)
+        public override void RemoveEffect()
         {
-            base.RemoveEffect(player);
+            if (isComplete) return;
+            GameEvents.OnShieldBroken -= OnEffectBroken;
             player.RemoveShield();
+            base.RemoveEffect();
         }
     }
 }

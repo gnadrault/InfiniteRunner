@@ -1,7 +1,7 @@
-﻿namespace World.GameElement.WordEffect
+using UnityEngine;
+
+namespace World.GameElement.WordEffect
 {
-    public class Stroboscope: WordEffect
-    {
-        
-    }
+    [CreateAssetMenu(fileName = "Stroboscope", menuName = "SyntaxError/Effects/Stroboscope")]
+    public class Stroboscope : WordEffect { }
 }
