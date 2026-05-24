@@ -1,0 +1,112 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &135310791399617794
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 159007242877110198, guid: 13a23ed67c4ee3642868f4d562221c53, type: 3}
+      propertyPath: m_Name
+      value: Virus-Red (Mesh)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2784032495156781423, guid: 13a23ed67c4ee3642868f4d562221c53, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: db64ec050874958458e598e440c8e0e2, type: 2}
+    - target: {fileID: 3400904559382451460, guid: 13a23ed67c4ee3642868f4d562221c53, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3400904559382451460, guid: 13a23ed67c4ee3642868f4d562221c53, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3400904559382451460, guid: 13a23ed67c4ee3642868f4d562221c53, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3400904559382451460, guid: 13a23ed67c4ee3642868f4d562221c53, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3400904559382451460, guid: 13a23ed67c4ee3642868f4d562221c53, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3400904559382451460, guid: 13a23ed67c4ee3642868f4d562221c53, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3400904559382451460, guid: 13a23ed67c4ee3642868f4d562221c53, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3400904559382451460, guid: 13a23ed67c4ee3642868f4d562221c53, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3400904559382451460, guid: 13a23ed67c4ee3642868f4d562221c53, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3400904559382451460, guid: 13a23ed67c4ee3642868f4d562221c53, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5112304340009178468, guid: 13a23ed67c4ee3642868f4d562221c53, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: db64ec050874958458e598e440c8e0e2, type: 2}
+    - target: {fileID: 7579398550601574980, guid: 13a23ed67c4ee3642868f4d562221c53, type: 3}
+      propertyPath: m_Name
+      value: Virus (Red)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7579398550601574980, guid: 13a23ed67c4ee3642868f4d562221c53, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -35816546029551191}
+    - targetCorrespondingSourceObject: {fileID: 7579398550601574980, guid: 13a23ed67c4ee3642868f4d562221c53, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9216990374291788481}
+  m_SourcePrefab: {fileID: 100100000, guid: 13a23ed67c4ee3642868f4d562221c53, type: 3}
+--- !u!1 &7552491089988493126 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7579398550601574980, guid: 13a23ed67c4ee3642868f4d562221c53, type: 3}
+  m_PrefabInstance: {fileID: 135310791399617794}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-35816546029551191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7552491089988493126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71788708fc3f47c1ab16511c3e145993, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::World.GameElement.Virus.RedVirus
+  timeReduce: 0.9
+  spamKey: {fileID: 3161682069650093083, guid: 0eae3734640624049a0c62a5acdfe144, type: 3}
+  requiredPressed: 10
+--- !u!114 &9216990374291788481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7552491089988493126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0af2cd8e22d4a959ecce766ae9fdf65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Effect.MoveHorizontal
+  speed: 2
+  leftLaneX: -4
+  rightLaneX: 4
