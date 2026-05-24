@@ -11,9 +11,9 @@ namespace World.GameElement.WordEffect
         [HideInInspector] public bool isComplete;
         
         protected PlayerController player;
-        protected Coroutine timerCoroutine;
+        private Coroutine timerCoroutine;
 
-        protected MonoBehaviour Runner { get; private set; }
+        private MonoBehaviour Runner { get; set; }
 
         public virtual void ApplyEffect(PlayerController playerController, MonoBehaviour runner)
         {
@@ -22,7 +22,7 @@ namespace World.GameElement.WordEffect
             Runner = runner;
         }
 
-        public virtual void RemoveEffect()
+        protected virtual void RemoveEffect()
         {
             isComplete = true;
         }
@@ -31,8 +31,8 @@ namespace World.GameElement.WordEffect
         {
             timerCoroutine = Runner.StartCoroutine(EffectTimer());
         }
-        
-        protected IEnumerator EffectTimer()
+
+        private IEnumerator EffectTimer()
         {
             yield return new WaitForSeconds(duration);
             RemoveEffect();

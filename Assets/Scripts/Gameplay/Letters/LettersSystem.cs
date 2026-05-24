@@ -4,7 +4,6 @@ using Data;
 using Player;
 using UnityEngine;
 using Utils;
-using WordEffect = World.GameElement.WordEffect.WordEffect;
 
 namespace Gameplay.Letters
 {
@@ -25,7 +24,7 @@ namespace Gameplay.Letters
         private readonly List<WordData> _currentBonus = new();
         private readonly List<WordData> _currentMalus = new();
         private readonly Queue<WordData> _completedWordsQueue = new();
-        private WordEffect _activeEffect;
+        private World.GameElement.WordEffect.WordEffect _activeEffect;
 
         private void OnEnable() => GameEvents.OnLetterCollected += OnLetterCollected;
         private void OnDisable() => GameEvents.OnLetterCollected -= OnLetterCollected;
@@ -55,7 +54,7 @@ namespace Gameplay.Letters
             LettersDisplay display = FindDisplay(next, displays);
             currentWords.Remove(next);
             if (display)
-                AssignWord(display, currentWords, next.isBonus);
+                FillDisplays(displays, currentWords, next.isBonus);
 
             FireActiveWordsChanged();
 

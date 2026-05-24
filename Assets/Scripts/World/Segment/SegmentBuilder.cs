@@ -1,13 +1,13 @@
 using System;
 using System.Collections.Generic;
 using Data;
-using Effect;
 using Gameplay.Letters;
+using Movement;
 using UnityEngine;
 using World.GameElement.Collectible;
 using World.GameElement.Obstacle;
 using World.GameElement.Virus;
-using World.Spawn;
+using World.Segment.Spawn;
 using Random = UnityEngine.Random;
 
 namespace World.Segment

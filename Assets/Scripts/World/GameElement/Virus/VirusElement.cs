@@ -1,4 +1,4 @@
-﻿using Effect;
+﻿using Movement;
 using Player;
 using UnityEngine;
 using Utils;

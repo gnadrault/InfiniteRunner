@@ -15,7 +15,7 @@ namespace World.GameElement.WordEffect
             StartEffectTimer();
         }
 
-        public override void RemoveEffect()
+        protected override void RemoveEffect()
         {
             if (isComplete) return;
             GameEvents.OnShieldBroken -= OnEffectBroken;

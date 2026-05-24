@@ -1,4 +1,3 @@
-using System;
 using TMPro;
 using UnityEngine;
 using Utils;
@@ -12,8 +11,7 @@ namespace Gameplay
         [SerializeField] private float distanceScale = 0.2f;
         
         private SegmentManager _segmentManager;
-        
-        private float distance = 0f;
+        private float distance;
 
         private void Awake()
         {

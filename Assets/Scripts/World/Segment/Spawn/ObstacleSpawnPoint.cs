@@ -1,8 +1,7 @@
 using Data;
 using UnityEngine;
-using World.GameElement.Obstacle;
 
-namespace World.Spawn
+namespace World.Segment.Spawn
 {
     public class ObstacleSpawnPoint : SpawnPoint
     {

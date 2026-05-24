@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Effect
+namespace Movement
 {
     public class FallingObject : MonoBehaviour
     {

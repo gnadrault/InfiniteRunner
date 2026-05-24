@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace World.Spawn
+namespace World.Segment.Spawn
 {
     public class CollectibleSpawnPoint : SpawnPoint
     {

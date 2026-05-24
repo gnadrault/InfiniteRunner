@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Data;
 using UnityEngine;
-using World.Spawn;
+using World.Segment.Spawn;
 
 namespace World.Segment
 {

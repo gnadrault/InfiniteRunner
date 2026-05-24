@@ -1,4 +1,4 @@
-﻿namespace World.Spawn
+﻿namespace World.Segment.Spawn
 {
     public enum SpawnType
     {

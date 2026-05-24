@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Utils
+namespace Gameplay
 {
     public class TimeScaleManager : MonoBehaviour
 
@@ -9,7 +9,10 @@ namespace Utils
 
         void Awake()
         {
-            Instance = this;
+            if (Instance == null)
+                Instance = this;
+            else
+                Destroy(this);
         }
 
 
