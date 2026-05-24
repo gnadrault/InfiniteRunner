@@ -120,14 +120,12 @@ namespace Player
         
         #region Virus
 
-        public bool AttachVirus(VirusElement virus)
+        public void AttachVirus(VirusElement virus)
         {
-            if (_currentVirusElement != null) return false;
-            StartCoroutine(WaitAndVirus(virus));
-            return true;
+            StartCoroutine(WaitAndApplyVirusEffect(virus));
         }
 
-        private IEnumerator WaitAndVirus(VirusElement virus)
+        private IEnumerator WaitAndApplyVirusEffect(VirusElement virus)
         {
             _currentVirusElement = virus;
             yield return new WaitForSeconds(2);
@@ -136,7 +134,7 @@ namespace Player
         
         public void DetachVirus()
         {
-            if (_currentVirusElement == null) return;
+            if (!_currentVirusElement) return;
             _currentVirusElement.RemoveEffect(this);
             _currentVirusElement = null;
         }
@@ -193,6 +191,7 @@ namespace Player
         public Vector3 GetCurrentLanePosition() => laneAnchors[_currentLaneIndex].position;
         public bool IsJumpButtonPressed() => jumpInput.action.IsPressed();
         public bool IsSlideButtonPressed() => slideInput.action.IsPressed();
+        public bool IsPlayerInfected() => _currentVirusElement != null;
 
         #endregion
     }

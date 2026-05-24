@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: VirusDatabase
   m_EditorClassIdentifier: Assembly-CSharp::Gameplay.Data.VirusDatabase
   virus:
-  - {fileID: -35816546029551191, guid: 3d5a24b4ceda09b47b19443886dbed74, type: 3}
-  - {fileID: -9186191132360030546, guid: 899210ec524a4d24caf90167c54613ad, type: 3}
-  - {fileID: 8340013460893703910, guid: 1a80f4b066f49eb41acfa18c19e993d1, type: 3}
   - {fileID: 1786364590797097875, guid: 1a08c3a0cb92f6240a237030a04c5b1d, type: 3}
+  - {fileID: -35816546029551191, guid: 3d5a24b4ceda09b47b19443886dbed74, type: 3}
+  - {fileID: 8340013460893703910, guid: 1a80f4b066f49eb41acfa18c19e993d1, type: 3}
+  - {fileID: -9186191132360030546, guid: 899210ec524a4d24caf90167c54613ad, type: 3}

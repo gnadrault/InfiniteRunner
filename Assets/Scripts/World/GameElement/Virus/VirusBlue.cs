@@ -1,23 +1,36 @@
-﻿using Player;
+﻿using System.Collections;
+using Player;
 using UnityEngine;
+using Utils;
 
 namespace World.GameElement.Virus
 {
     public class VirusBlue: VirusElement
     {
+        [SerializeField] private int duration = 5;
+        private PlayerController _player;
+        
         public override void ApplyEffect(PlayerController player, Transform position)
         {
-            throw new System.NotImplementedException();
+            _player = player;
+            StartCoroutine(ApplyVirus());
+            TimeScaleManager.Instance.SetTimeScale(timeReduce);
         }
 
         public override void RemoveEffect(PlayerController player)
         {
-            throw new System.NotImplementedException();
+            TimeScaleManager.Instance.SetTimeScale(1f);
+            Destroy(gameObject);
         }
 
-        public override string GetLabel()
+        #region Solution
+
+        private IEnumerator ApplyVirus()
         {
-            throw new System.NotImplementedException();
+            yield return new WaitForSeconds(duration);
+            _player.DetachVirus();
         }
+
+        #endregion
     }
 }

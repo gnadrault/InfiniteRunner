@@ -1,25 +1,33 @@
-﻿using Player;
+﻿using Effect;
+using Player;
 using UnityEngine;
-using World.GameElement.Virus.Solution;
 
 namespace World.GameElement.Virus
 {
-    public abstract class VirusElement: Element
+    public abstract class VirusElement : Element
     {
-        [SerializeField] protected VirusSolution solution;
         [SerializeField] protected float timeReduce = 0.9f;
-        
+
         public abstract void ApplyEffect(PlayerController player, Transform position);
         public abstract void RemoveEffect(PlayerController player);
-        
+
         public override void OnPlayerCollision(PlayerController player, Transform position)
         {
+            if (player.IsPlayerInfected()) return;
+            DisableVirusMovements();
             transform.SetPositionAndRotation(position.position, position.rotation);
             transform.SetParent(player.transform);
-            bool attachedVirus = player.AttachVirus(this);
-            if (attachedVirus) solution.OnAttached(player);
+            player.AttachVirus(this);
         }
 
-        public abstract string GetLabel();
+        private void DisableVirusMovements()
+        {
+            if (TryGetComponent(out MoveHorizontal move))
+                move.enabled = false;
+
+            Animator animator = GetComponentInChildren<Animator>();
+            if (animator != null)
+                animator.enabled = false;
+        }
     }
 }

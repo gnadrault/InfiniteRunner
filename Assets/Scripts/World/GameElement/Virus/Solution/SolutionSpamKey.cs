@@ -1,4 +1,5 @@
 ﻿using Player;
+using UI;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -35,12 +36,12 @@ namespace World.GameElement.Virus.Solution
             HUD.Instance.UpdateVirusLabel(GetLabel());
         }
         
-        public override string GetLabel()
+        private string GetLabel()
         {
             return $"{spamKey.action.name} x{(requiredPressed - _currentPressedCount)}";
         }
 
-        public override void OnCheckSolution()
+        private void OnCheckSolution()
         {
             if (_currentPressedCount >= requiredPressed)
             {
