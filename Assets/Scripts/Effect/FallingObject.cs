@@ -1,3 +1,4 @@
+using Data;
 using UnityEngine;
 
 namespace Effect
@@ -5,6 +6,7 @@ namespace Effect
     public class FallingObject : MonoBehaviour
     {
         [SerializeField] private Transform obstaclePos;
+        [SerializeField] private float heightDestroyObject = -50;
         
         private Rigidbody _rb;
         private bool _hasDropped;
@@ -26,6 +28,11 @@ namespace Effect
 
         private void Update()
         {
+            if (transform.position.y <= heightDestroyObject)
+            {
+                Destroy(gameObject);
+            }
+            
             if (_hasDropped) return;
             float distanceToPlayer = transform.position.z - _targetPosition.z;
 
