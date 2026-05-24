@@ -23,22 +23,35 @@ namespace Data
     [System.Serializable]
     public class WordData : IEquatable<WordData>
     {
-        public string word;
-        public World.GameElement.WordEffect.WordEffect effect;
+        public readonly string word;
+        public readonly bool isBonus;
+        public readonly World.GameElement.WordEffect.WordEffect effect;
+
+        public WordData(bool isBonus, string word, World.GameElement.WordEffect.WordEffect effect)
+        {
+            this.isBonus = isBonus;
+            this.word = word;
+            this.effect = effect;
+        }
 
         public bool Equals(WordData other)
         {
-            return word == other.word && effect == other.effect;
+            if (other is null) return false;
+            if (ReferenceEquals(this, other)) return true;
+            return word == other.word && isBonus == other.isBonus && Equals(effect, other.effect);
         }
 
         public override bool Equals(object obj)
         {
-            return obj is WordData other && Equals(other);
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            if (obj.GetType() != GetType()) return false;
+            return Equals((WordData)obj);
         }
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(word, effect);
+            return HashCode.Combine(word, isBonus, effect);
         }
     }
 }

@@ -104,14 +104,26 @@ namespace Gameplay.Letters
             OnActiveWordsChanged?.Invoke(all.ToArray());
         }
 
-        private void ApplyEffect(WordData wordData)
+        private void ApplyEffect()
         {
-            //wordData.effect.ApplyEffect();
+            if (_currentWord != null && _currentWord.effect.isDone)
+            {
+                if (_currentWord.isBonus)
+                {
+                    _currentBonus.Remove(_currentWord);
+                    //AssignWord(bonusDisplays[], _currentBonus, _currentWord.isBonus);
+                }
+                else
+                {
+                    _currentMalus.Remove(_currentWord);
+                    //AssignWord(malusDisplays[], _currentMalus, _currentWord.isBonus);
+                }
+            }
         }
 
         private void Update()
         {
-
+            ApplyEffect();
         }
     }
 }
