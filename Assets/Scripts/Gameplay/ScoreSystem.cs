@@ -33,7 +33,7 @@ namespace Gameplay
             scoreLabel.text = _score + "pts";
         }
 
-        public static void OnScoreChanged(int obj)
+        public static void OnAddScore(int obj)
         {
             ScoreChanged?.Invoke(obj);
         }

@@ -24,7 +24,7 @@ namespace Gameplay
             distance += (Time.deltaTime * _segmentManager.ScrollSpeed * distanceScale);
             if ((int)distance > (int)oldDistance)
             {
-                ScoreSystem.OnScoreChanged(1);
+                ScoreSystem.OnAddScore(1);
             }
             distanceLabel.text = (int)distance + "m";
         }

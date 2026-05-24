@@ -44,6 +44,8 @@ namespace Gameplay.Letters
 
         private void OnLetterCollected(string letter)
         {
+            ScoreSystem.OnAddScore(30);
+            
             HighlightLetters(bonusDisplays, letter, bonusHighlight);
             HighlightLetters(malusDisplays, letter, malusHighlight);
 
@@ -64,6 +66,11 @@ namespace Gameplay.Letters
             foreach (LettersDisplay display in displays)
             {
                 if (!display.IsComplete()) continue;
+
+                if (isBonus)
+                {
+                    ScoreSystem.OnAddScore(display.CurrentWordData.word.Length * 100);
+                }
 
                 // TODO apply effect completed word => Then remove the word from current
                 // ApplyEffect(display.CurrentWord.effect); 
