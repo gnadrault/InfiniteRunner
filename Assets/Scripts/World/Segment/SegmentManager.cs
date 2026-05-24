@@ -13,6 +13,8 @@ namespace World.Segment
         [Header("Segments")] [SerializeField] private Segment firstSegment;
         [SerializeField] private int segmentsCountPerPhase = 5;
         [SerializeField] private SegmentDatabase segmentDatabase;
+        
+        //TODO Pass phases database (speed, color, spawnrate, ...)
 
         private float _segmentLength;
         private float _segmentX;
@@ -62,7 +64,7 @@ namespace World.Segment
             Segment newSegment = Instantiate(pooledSegment, spawnPos, Quaternion.identity);
 
             // Segment builder
-            _segmentBuilder.GenerateSegmentObjects(newSegment, _currentPhaseState);
+            _segmentBuilder.GenerateSegmentObjects(newSegment, _currentPhaseState, ScrollSpeed); // TODO: Pass the current phase info (speed, color, spawn rate, ...)
             _activeSegmentList.Add(newSegment);
         }
 

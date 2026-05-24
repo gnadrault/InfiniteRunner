@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Data;
+using Effect;
 using Gameplay.Letters;
 using UnityEngine;
 using World.GameElement.Collectible;
@@ -38,7 +39,7 @@ namespace World.Segment
             _activeWords = words;
         }
 
-        public void GenerateSegmentObjects(Segment segment, PhaseState currentPhase)
+        public void GenerateSegmentObjects(Segment segment, PhaseState currentPhase, float scrollSpeed) 
         {
             foreach (SpawnPoint spawnPoint in segment.SpawnPoints)
             {
@@ -46,7 +47,7 @@ namespace World.Segment
                 switch (spawnPoint)
                 {
                     case ObstacleSpawnPoint obstacleSpawnPoint:
-                        GenerateObstacleObject(obstacleSpawnPoint, currentPhase);
+                        GenerateObstacleObject(obstacleSpawnPoint, currentPhase, scrollSpeed);
                         break;
                     case CollectibleSpawnPoint collectibleSpawnPoint:
                         GenerateCollectibleObject(collectibleSpawnPoint, currentPhase);
@@ -60,10 +61,14 @@ namespace World.Segment
             }
         }
 
-        private void GenerateObstacleObject(ObstacleSpawnPoint spawnPoint, PhaseState currentPhase)
+        private void GenerateObstacleObject(ObstacleSpawnPoint spawnPoint, PhaseState currentPhase, float scrollSpeed)
         {
             ObstacleElement obstacleElement = obstacleDatabase.GetPrefab(spawnPoint.Type, spawnPoint.Size, spawnPoint.IsMobile);
-            Instantiate(obstacleElement, spawnPoint.transform.position, Quaternion.identity, spawnPoint.transform);
+            obstacleElement = Instantiate(obstacleElement, spawnPoint.transform.position, Quaternion.identity, spawnPoint.transform);
+            if (obstacleElement.TryGetComponent(out FallingObject falling))
+            {
+                falling.Initialize(scrollSpeed);
+            }
         }
 
         private void GenerateCollectibleObject(CollectibleSpawnPoint spawnPoint, PhaseState currentPhase)
@@ -79,7 +84,6 @@ namespace World.Segment
             VirusElement prefab = virusDatabase.GetPrefab();
             Instantiate(prefab, spawnPoint.transform.position, Quaternion.identity, spawnPoint.transform);
         }
-
 
         private char GetRandomLetter()
         {

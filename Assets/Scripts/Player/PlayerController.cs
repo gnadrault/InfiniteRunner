@@ -35,7 +35,7 @@ namespace Player
         
         //Virus
         private VirusElement _currentVirusElement;
-        private bool _isBlocked = false;
+        private bool _isBlocked;
 
         private void Awake()
         {
@@ -187,7 +187,6 @@ namespace Player
         {
             OnPlayerDied?.Invoke();
             _stateMachine.ChangeState(_stateMachine.Die());
-            
         }
         
         public Vector3 GetCurrentPosition() => _transform.position;

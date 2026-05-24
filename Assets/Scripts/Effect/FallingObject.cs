@@ -4,35 +4,32 @@ namespace Effect
 {
     public class FallingObject : MonoBehaviour
     {
-        private Rigidbody _rb;
-        private float _height;
-        private bool _hasDropped = false;
+        [SerializeField] private Transform obstaclePos;
         
-        private Transform _playerPosition;
-        private float _scrollSpeed;
+        private Rigidbody _rb;
+        private bool _hasDropped;
+        private Vector3 _targetPosition;
+        private float _triggerDistance;
 
         private void Awake()
         {
             _rb = GetComponent<Rigidbody>();
-            _rb.isKinematic = false;
-            _height = transform.position.y;
+            _rb.isKinematic = true;
+            _targetPosition = Vector3.zero;
         }
 
-        private void Initalize(Transform playerPosition, float scrollSpeed)
+        public void Initialize(float scrollSpeed)
         {
-            _playerPosition = playerPosition;
-            _scrollSpeed = scrollSpeed;
+            float fallTime = Mathf.Sqrt(2 * obstaclePos.position.y / Mathf.Abs(Physics.gravity.y));
+            _triggerDistance = scrollSpeed * fallTime;
         }
 
         private void Update()
         {
             if (_hasDropped) return;
-            
-            float fallTime = Mathf.Sqrt(2 * _height / Mathf.Abs(Physics.gravity.y));
-            float triggerDistance = _scrollSpeed * fallTime;
-            float distanceToPlayer = transform.position.z - _playerPosition.position.z;
+            float distanceToPlayer = transform.position.z - _targetPosition.z;
 
-            if (distanceToPlayer <= triggerDistance)
+            if (distanceToPlayer <= _triggerDistance)
             {
                 _rb.isKinematic = false;
                 _hasDropped = true;
