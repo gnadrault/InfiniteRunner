@@ -7,6 +7,7 @@ namespace World.GameElement.Virus
     public abstract class VirusElement: Element
     {
         [SerializeField] protected VirusSolution solution;
+        [SerializeField] protected float timeReduce = 0.9f;
         
         public abstract void ApplyEffect(PlayerController player, Transform position);
         public abstract void RemoveEffect(PlayerController player);

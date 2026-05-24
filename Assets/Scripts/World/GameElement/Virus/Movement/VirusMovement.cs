@@ -1,7 +1,7 @@
 ﻿using Player;
 using UnityEngine;
 
-namespace World.GameElement.Virus.Effect
+namespace World.GameElement.Virus.Movement
 {
     public abstract class VirusMovement : MonoBehaviour
     {

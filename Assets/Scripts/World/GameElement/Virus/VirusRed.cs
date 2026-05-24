@@ -1,20 +1,24 @@
 ﻿using Effect;
 using Player;
 using UnityEngine;
+using Utils;
 
 namespace World.GameElement.Virus
 {
     public class VirusRed: VirusElement
     {
-        
         public override void ApplyEffect(PlayerController player, Transform position)
         {
+            HUD.Instance.ShowVirusPanel(solution.GetLabel());
             player.DisableMovement();
+            TimeScaleManager.Instance.SetTimeScale(timeReduce);
         }
 
         public override void RemoveEffect(PlayerController player)
         {
             player.EnableMovement();
+            HUD.Instance.HideVirusPanel();
+            TimeScaleManager.Instance.SetTimeScale(1f);
             Destroy(gameObject);
         }
 

@@ -1,16 +1,41 @@
+using System;
+using TMPro;
 using UnityEngine;
 
-public class ScoreSystem : MonoBehaviour
+namespace Gameplay
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public class ScoreSystem : MonoBehaviour
     {
+    
+        [SerializeField] private TextMeshProUGUI scoreLabel;
         
-    }
+        public static event Action<int> ScoreChanged;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        private int _score;
+
+        private void OnEnable()
+        {
+            ScoreChanged += UpdateScore;
+        }
+
+        private void OnDisable()
+        {
+            ScoreChanged -= UpdateScore;
+        }
+
+        private void UpdateScore(int point)
+        {
+            _score += point;
+        }
+
+        private void Update()
+        {
+            scoreLabel.text = _score + "pts";
+        }
+
+        public static void OnScoreChanged(int obj)
+        {
+            ScoreChanged?.Invoke(obj);
+        }
     }
 }

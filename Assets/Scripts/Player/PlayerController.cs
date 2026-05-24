@@ -132,14 +132,12 @@ namespace Player
             _currentVirusElement = virus;
             yield return new WaitForSeconds(2);
             _currentVirusElement.ApplyEffect(this, attachedPosition);
-            HUD.Instance.ShowVirusPanel(_currentVirusElement.GetLabel());
         }
         
         public void DetachVirus()
         {
             if (_currentVirusElement == null) return;
             _currentVirusElement.RemoveEffect(this);
-            HUD.Instance.HideVirusPanel();
             _currentVirusElement = null;
         }
 

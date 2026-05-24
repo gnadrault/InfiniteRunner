@@ -14,7 +14,7 @@ namespace World.Segment
         [SerializeField] private int segmentsCountPerPhase = 5;
         [SerializeField] private SegmentDatabase segmentDatabase;
         
-        //TODO Pass phases database (speed, color, spawnrate, ...)
+        //TODO Pass phases database (speed, color, spawnrate, camera, ...)
 
         private float _segmentLength;
         private float _segmentX;

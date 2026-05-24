@@ -7,6 +7,7 @@ namespace Gameplay
     public class DistanceSystem : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI distanceLabel;
+        [SerializeField] private float distanceScale = 0.2f;
         
         private SegmentManager _segmentManager;
         
@@ -19,7 +20,12 @@ namespace Gameplay
 
         private void Update()
         {
-            distance += (Time.deltaTime * _segmentManager.ScrollSpeed);
+            float oldDistance = distance;
+            distance += (Time.deltaTime * _segmentManager.ScrollSpeed * distanceScale);
+            if ((int)distance > (int)oldDistance)
+            {
+                ScoreSystem.OnScoreChanged(1);
+            }
             distanceLabel.text = (int)distance + "m";
         }
     }
