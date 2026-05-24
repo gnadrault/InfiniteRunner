@@ -21,10 +21,10 @@ namespace Data
     }
     
     [System.Serializable]
-    public struct WordData : IEquatable<WordData>
+    public class WordData : IEquatable<WordData>
     {
         public string word;
-        public WordEffect effect;
+        public World.GameElement.WordEffect.WordEffect effect;
 
         public bool Equals(WordData other)
         {
@@ -38,7 +38,7 @@ namespace Data
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(word, (int)effect);
+            return HashCode.Combine(word, effect);
         }
     }
 }

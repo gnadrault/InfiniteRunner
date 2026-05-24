@@ -1,41 +1,39 @@
-using System;
 using TMPro;
 using UnityEngine;
+using Utils;
 
 namespace Gameplay
 {
     public class ScoreSystem : MonoBehaviour
     {
-    
         [SerializeField] private TextMeshProUGUI scoreLabel;
-        
-        public static event Action<int> ScoreChanged;
 
-        private int _score;
+        private float _score;
 
         private void OnEnable()
         {
-            ScoreChanged += UpdateScore;
+            GameEvents.OnAddScorePoints += AddPoints;
+            GameEvents.OnRemovePercentPoints += RemovePercent;
         }
 
         private void OnDisable()
         {
-            ScoreChanged -= UpdateScore;
+            GameEvents.OnAddScorePoints -= AddPoints;
+            GameEvents.OnRemovePercentPoints -= RemovePercent;
         }
 
-        private void UpdateScore(int point)
+        private void AddPoints(float points)  => _score += points;
+
+        private void RemovePercent(float percent)
         {
-            _score += point;
+            _score = Mathf.RoundToInt(_score * (1 - percent));
+            print("Remove 1 percent");
         }
+        
 
         private void Update()
         {
             scoreLabel.text = _score + "pts";
-        }
-
-        public static void OnAddScore(int obj)
-        {
-            ScoreChanged?.Invoke(obj);
         }
     }
 }

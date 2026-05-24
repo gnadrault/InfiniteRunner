@@ -4,8 +4,10 @@ using Player.Data;
 using Player.State;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Utils;
 using World.GameElement.Collectible;
 using World.GameElement.Virus;
+using World.GameElement.WordEffect;
 
 namespace Player
 {
@@ -26,9 +28,6 @@ namespace Player
         [SerializeField] private Transform[] laneAnchors;
         [SerializeField] private int initLaneIndex = 1;
         
-        public static event Action<string> OnLetterCollected;
-        public static event Action OnPlayerDied;
-        
         private int _currentLaneIndex;
         private Transform _transform;
         private PlayerStateMachine _stateMachine;
@@ -36,6 +35,12 @@ namespace Player
         //Virus
         private VirusElement _currentVirusElement;
         private bool _isBlocked;
+        
+        //Bonus
+        private bool _shield;
+        
+        //Malus
+        
 
         private void Awake()
         {
@@ -151,6 +156,21 @@ namespace Player
 
         #endregion
 
+        #region Bonus
+
+        public void ApplyShield()
+        {
+            _shield = true;
+        }
+
+        public void RemoveShield()
+        {
+            _shield = false;
+        }
+        
+
+        #endregion
+
         #region Getters/Setters
 
         public void SetPositionX(float x)
@@ -176,12 +196,12 @@ namespace Player
         
         public void CollectLetter(Letter letter)
         {
-            OnLetterCollected?.Invoke(letter.Label);
+            GameEvents.OnLetterCollected?.Invoke(letter.Label);
         }
 
         public void Die()
         {
-            OnPlayerDied?.Invoke();
+            GameEvents.OnPlayerDied?.Invoke();
             _stateMachine.ChangeState(_stateMachine.Die());
         }
         
@@ -192,6 +212,7 @@ namespace Player
         public bool IsJumpButtonPressed() => jumpInput.action.IsPressed();
         public bool IsSlideButtonPressed() => slideInput.action.IsPressed();
         public bool IsPlayerInfected() => _currentVirusElement != null;
+        public bool HasShield() => _shield;
 
         #endregion
     }

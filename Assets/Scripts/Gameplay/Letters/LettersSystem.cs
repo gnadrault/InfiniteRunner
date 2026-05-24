@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 using Data;
-using Player;
 using UnityEngine;
 using Utils;
+using WordEffect = World.GameElement.WordEffect.WordEffect;
 
 namespace Gameplay.Letters
 {
@@ -24,15 +24,18 @@ namespace Gameplay.Letters
 
         private readonly List<WordData> _currentBonus = new();
         private readonly List<WordData> _currentMalus = new();
+        
+        private readonly List<WordData> _currentWordsQueue = new();
+        private WordData _currentWord;
 
         private void OnEnable()
         {
-            PlayerController.OnLetterCollected += OnLetterCollected;
+            GameEvents.OnLetterCollected += OnLetterCollected;
         }
 
         private void OnDisable()
         {
-            PlayerController.OnLetterCollected -= OnLetterCollected;
+            GameEvents.OnLetterCollected -= OnLetterCollected;
         }
 
         private void Start()
@@ -44,7 +47,7 @@ namespace Gameplay.Letters
 
         private void OnLetterCollected(string letter)
         {
-            ScoreSystem.OnAddScore(30);
+            GameEvents.OnAddScorePoints?.Invoke(30);
             
             HighlightLetters(bonusDisplays, letter, bonusHighlight);
             HighlightLetters(malusDisplays, letter, malusHighlight);
@@ -68,12 +71,10 @@ namespace Gameplay.Letters
                 if (!display.IsComplete()) continue;
 
                 if (isBonus)
-                {
-                    ScoreSystem.OnAddScore(display.CurrentWordData.word.Length * 100);
-                }
+                    GameEvents.OnAddScorePoints?.Invoke(display.CurrentWordData.word.Length * 100);
 
                 // TODO apply effect completed word => Then remove the word from current
-                // ApplyEffect(display.CurrentWord.effect); 
+                _currentWordsQueue.Add(display.CurrentWordData);
 
                 currentWords.Remove(display.CurrentWordData);
                 AssignWord(display, currentWords, isBonus);
@@ -101,6 +102,16 @@ namespace Gameplay.Letters
             List<WordData> all = new List<WordData>(_currentBonus);
             all.AddRange(_currentMalus);
             OnActiveWordsChanged?.Invoke(all.ToArray());
+        }
+
+        private void ApplyEffect(WordData wordData)
+        {
+            //wordData.effect.ApplyEffect();
+        }
+
+        private void Update()
+        {
+
         }
     }
 }

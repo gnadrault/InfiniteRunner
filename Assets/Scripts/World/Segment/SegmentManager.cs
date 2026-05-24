@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Data;
-using Player;
 using UnityEngine;
+using Utils;
 
 namespace World.Segment
 {
@@ -38,19 +38,19 @@ namespace World.Segment
             _segmentLength = firstSegment.GetComponentInChildren<Renderer>().bounds.size.z;
             _segmentX = firstSegment.transform.position.x;
             _segmentY = firstSegment.transform.position.y;
-            _currentPhaseState = PhaseState.Phase4;
+            _currentPhaseState = PhaseState.Phase1;
         }
 
         private void OnEnable()
         {
             Segment.OnChunkDestroyed += RemoveSegment;
-            PlayerController.OnPlayerDied += StopScroll;
+            GameEvents.OnPlayerDied += StopScroll;
         }
 
         private void OnDisable()
         {
             Segment.OnChunkDestroyed -= RemoveSegment;
-            PlayerController.OnPlayerDied -= StopScroll;
+            GameEvents.OnPlayerDied -= StopScroll;
         }
 
         private void AddSegment()

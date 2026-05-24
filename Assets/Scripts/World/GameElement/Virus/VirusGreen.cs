@@ -30,7 +30,6 @@ namespace World.GameElement.Virus
         }
 
         #region Solution
-
         private IEnumerator ApplyVirus()
         {
             _attachedToPlayer = true;
@@ -38,14 +37,18 @@ namespace World.GameElement.Virus
             _attachedToPlayer = false;
             _player.DetachVirus();
         }
-
         #endregion
         
         private void Update()
         {
             if (!_attachedToPlayer) return;
+            float oldTimer = _currentTimer;
             _currentTimer -= Time.deltaTime;
             _currentTimer = Mathf.Clamp(_currentTimer, 0f, duration);
+            if ((int)oldTimer > (int)_currentTimer) // Remove percent score each seconds
+            {
+                GameEvents.OnRemovePercentPoints?.Invoke(0.1f);
+            }
             HUD.Instance.UpdateVirusLabel(GetHUDLabel());
         }
 

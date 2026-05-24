@@ -13,7 +13,10 @@ namespace World.GameElement.Obstacle
         
         public override void OnPlayerCollision(PlayerController player, Transform position)
         {
-            player.Die();
+            if (player.HasShield())
+                player.RemoveShield();
+            else
+                player.Die();
         }
 
         public ObstacleSize Size => size;

@@ -1,5 +1,7 @@
+using System;
 using TMPro;
 using UnityEngine;
+using Utils;
 using World.Segment;
 
 namespace Gameplay
@@ -24,7 +26,7 @@ namespace Gameplay
             distance += (Time.deltaTime * _segmentManager.ScrollSpeed * distanceScale);
             if ((int)distance > (int)oldDistance)
             {
-                ScoreSystem.OnAddScore(1);
+                GameEvents.OnAddScorePoints?.Invoke(1);
             }
             distanceLabel.text = (int)distance + "m";
         }
