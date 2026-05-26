@@ -24,7 +24,7 @@ namespace Gameplay
             distance += (Time.deltaTime * _segmentManager.ScrollSpeed * distanceScale);
             if ((int)distance > (int)oldDistance)
             {
-                GameEvents.OnAddScorePoints?.Invoke(1);
+                GameEvents.OnNewMeter?.Invoke(distance);
             }
             distanceLabel.text = ((int)distance).ToString();
         }

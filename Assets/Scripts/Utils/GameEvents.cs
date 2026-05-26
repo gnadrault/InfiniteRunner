@@ -14,9 +14,14 @@ namespace Utils
 
         #endregion
 
-        #region Score
+        #region Gameplay
 
-        public static Action<float> OnAddScorePoints;
+        public static Action<float> OnNewMeter;
+
+        #endregion
+
+        #region Score
+        
         public static Action<float> OnRemovePercentPoints;
 
         #endregion
@@ -24,6 +29,7 @@ namespace Utils
         #region Letters
 
         public static Action<string> OnLetterCollected;
+        public static Action<int> OnWordCompleted;
 
         #endregion
 

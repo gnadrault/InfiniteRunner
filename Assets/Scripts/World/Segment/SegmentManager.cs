@@ -8,25 +8,23 @@ namespace World.Segment
     public class SegmentManager : MonoBehaviour
     {
         [Header("Settings")] [SerializeField] private int maxSegments = 5;
-        [SerializeField] private float scrollSpeed = 2f;
 
         [Header("Segments")] [SerializeField] private Segment firstSegment;
         [SerializeField] private int segmentsCountPerPhase = 5;
         [SerializeField] private SegmentDatabase segmentDatabase;
+        [SerializeField] private PhaseDatabase phasesDatabase;
         
-        //TODO Pass phases database (speed, color, spawnrate, camera, ...)
-
         private float _segmentLength;
         private float _segmentX;
         private float _segmentY;
 
         private List<Segment> _activeSegmentList;
         private List<Segment> _poolSegmentList;
-        private PhaseState _currentPhaseState;
+        private int _currentPhaseIndex;
         private SegmentBuilder _segmentBuilder;
 
-        public float ScrollSpeed => scrollSpeed;
-        public PhaseState CurrentPhaseState => _currentPhaseState;
+        public float ScrollSpeed => phasesDatabase.phases[_currentPhaseIndex].speed;
+        public PhaseState CurrentPhaseState => phasesDatabase.phases[_currentPhaseIndex].phaseState;
 
         private void Awake()
         {
@@ -39,19 +37,20 @@ namespace World.Segment
             _segmentLength = firstSegment.GetComponentInChildren<Renderer>().bounds.size.z;
             _segmentX = firstSegment.transform.position.x;
             _segmentY = firstSegment.transform.position.y;
-            _currentPhaseState = PhaseState.Phase1;
         }
 
         private void OnEnable()
         {
             Segment.OnChunkDestroyed += RemoveSegment;
             GameEvents.OnPlayerDied += StopScroll;
+            GameEvents.OnNewMeter += CheckPhase;
         }
 
         private void OnDisable()
         {
             Segment.OnChunkDestroyed -= RemoveSegment;
             GameEvents.OnPlayerDied -= StopScroll;
+            GameEvents.OnNewMeter -= CheckPhase;
         }
 
         private void AddSegment()
@@ -61,11 +60,11 @@ namespace World.Segment
 
             // Pool segment
             Segment pooledSegment =
-                segmentDatabase.GetPrefab(_currentPhaseState);
+                segmentDatabase.GetPrefab(phasesDatabase.phases[_currentPhaseIndex].phaseState);
             Segment newSegment = Instantiate(pooledSegment, spawnPos, Quaternion.identity);
 
             // Segment builder
-            _segmentBuilder.GenerateSegmentObjects(newSegment, _currentPhaseState, ScrollSpeed); // TODO: Pass the current phase info (speed, color, spawn rate, ...)
+            _segmentBuilder.GenerateSegmentObjects(newSegment, phasesDatabase.phases[_currentPhaseIndex].phaseState, ScrollSpeed); // TODO: Pass the current phase info (speed, color, spawn rate, ...)
             _activeSegmentList.Add(newSegment);
         }
 
@@ -76,7 +75,14 @@ namespace World.Segment
 
         private void StopScroll()
         {
-            scrollSpeed = 0f;
+            phasesDatabase.phases[_currentPhaseIndex].speed = 0f;
+        }
+
+        private void CheckPhase(float distance)
+        {
+            if (distance >= phasesDatabase.phases[_currentPhaseIndex].distance 
+                && _currentPhaseIndex < phasesDatabase.phases.Count - 1)
+                _currentPhaseIndex++;
         }
 
         private void Update()
@@ -88,7 +94,7 @@ namespace World.Segment
 
             foreach (Segment segment in _activeSegmentList)
             {
-                segment.Scroll(scrollSpeed * Time.deltaTime);
+                segment.Scroll(phasesDatabase.phases[_currentPhaseIndex].speed * Time.deltaTime);
             }
         }
     }

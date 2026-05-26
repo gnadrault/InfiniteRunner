@@ -12,13 +12,17 @@ namespace Gameplay
 
         private void OnEnable()
         {
-            GameEvents.OnAddScorePoints += AddPoints;
+            GameEvents.OnNewMeter += (_) => AddPoints(1);
+            GameEvents.OnLetterCollected += (_) => AddPoints(30);
+            GameEvents.OnWordCompleted += (length) => AddPoints(length * 100);
             GameEvents.OnRemovePercentPoints += RemovePercent;
         }
 
         private void OnDisable()
         {
-            GameEvents.OnAddScorePoints -= AddPoints;
+            GameEvents.OnNewMeter -= (_) => AddPoints(1);
+            GameEvents.OnLetterCollected -= (_) => AddPoints(30);
+            GameEvents.OnWordCompleted -= (length) => AddPoints(length * 100);
             GameEvents.OnRemovePercentPoints -= RemovePercent;
         }
 

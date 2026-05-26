@@ -57,8 +57,6 @@ namespace Gameplay.Letters
         
         private void OnLetterCollected(string letter)
         {
-            GameEvents.OnAddScorePoints?.Invoke(30);
-
             HighlightLetters(bonusDisplays, letter, bonusHighlightColor);
             HighlightLetters(malusDisplays, letter, malusHighlightColor);
 
@@ -87,7 +85,7 @@ namespace Gameplay.Letters
                 if (!_enqueuedWords.Add(completedWord)) continue;
 
                 if (isBonus)
-                    GameEvents.OnAddScorePoints?.Invoke(completedWord.word.Length * 100);
+                    GameEvents.OnWordCompleted?.Invoke(completedWord.word.Length);
 
                 _completedWordsQueue.Enqueue(completedWord);
             }

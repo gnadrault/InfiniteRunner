@@ -9792,7 +9792,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Gameplay.DistanceSystem
   distanceLabel: {fileID: 582970366}
-  distanceScale: 0.6
+  distanceScale: 0.2
 --- !u!114 &1855767985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9825,7 +9825,7 @@ MonoBehaviour:
   firstSegment: {fileID: 4933993261843267823}
   segmentsCountPerPhase: 5
   segmentDatabase: {fileID: 11400000, guid: a1361d3ea657ba3419e285e6a46ef473, type: 2}
-  phasesDatabase: {fileID: 11400000, guid: fd23602c190a2cd4888cb6c5287de2e3, type: 2}
+  phasesDatabase: {fileID: 0}
 --- !u!4 &1855767987
 Transform:
   m_ObjectHideFlags: 0
