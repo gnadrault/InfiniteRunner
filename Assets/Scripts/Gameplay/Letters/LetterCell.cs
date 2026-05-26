@@ -32,7 +32,9 @@ namespace Gameplay.Letters
             if (_isHighlighted)
             {
                 label.color = color;
-                label.font = highlightFont;
+                label.fontSize += 8;
+                label.outlineWidth = 0.2f;
+                label.outlineColor = color;
             }
         }
     }

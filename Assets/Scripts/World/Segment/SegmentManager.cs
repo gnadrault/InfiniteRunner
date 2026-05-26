@@ -7,13 +7,15 @@ namespace World.Segment
 {
     public class SegmentManager : MonoBehaviour
     {
+        private static readonly int EmissionColor = Shader.PropertyToID("_EmissionColor");
         [Header("Settings")] [SerializeField] private int maxSegments = 5;
 
         [Header("Segments")] [SerializeField] private Segment firstSegment;
         [SerializeField] private int segmentsCountPerPhase = 5;
         [SerializeField] private SegmentDatabase segmentDatabase;
         [SerializeField] private PhaseDatabase phasesDatabase;
-        
+        [SerializeField] private Material tronMaterial;
+
         private float _segmentLength;
         private float _segmentX;
         private float _segmentY;
@@ -37,6 +39,7 @@ namespace World.Segment
             _segmentLength = firstSegment.GetComponentInChildren<Renderer>().bounds.size.z;
             _segmentX = firstSegment.transform.position.x;
             _segmentY = firstSegment.transform.position.y;
+            ChangePhase();
         }
 
         private void OnEnable()
@@ -64,7 +67,8 @@ namespace World.Segment
             Segment newSegment = Instantiate(pooledSegment, spawnPos, Quaternion.identity);
 
             // Segment builder
-            _segmentBuilder.GenerateSegmentObjects(newSegment, phasesDatabase.phases[_currentPhaseIndex].phaseState, ScrollSpeed); // TODO: Pass the current phase info (speed, color, spawn rate, ...)
+            _segmentBuilder.GenerateSegmentObjects(newSegment, phasesDatabase.phases[_currentPhaseIndex].phaseState,
+                ScrollSpeed); // TODO: Pass the current phase info (speed, color, spawn rate, ...)
             _activeSegmentList.Add(newSegment);
         }
 
@@ -80,9 +84,19 @@ namespace World.Segment
 
         private void CheckPhase(float distance)
         {
-            if (distance >= phasesDatabase.phases[_currentPhaseIndex].distance 
+            if (distance >= phasesDatabase.phases[_currentPhaseIndex].distance
                 && _currentPhaseIndex < phasesDatabase.phases.Count - 1)
-                _currentPhaseIndex++;
+            {
+                ChangePhase(_currentPhaseIndex + 1);
+            }
+        }
+
+        private void ChangePhase(int newPhaseIndex = 0)
+        {
+            _currentPhaseIndex = newPhaseIndex;
+            tronMaterial.SetColor(EmissionColor,
+                phasesDatabase.phases[_currentPhaseIndex].phaseColor *
+                phasesDatabase.phases[_currentPhaseIndex].intensityColor);
         }
 
         private void Update()
