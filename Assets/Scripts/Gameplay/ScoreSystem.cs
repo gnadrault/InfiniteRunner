@@ -29,7 +29,7 @@ namespace Gameplay
 
         private void Update()
         {
-            scoreLabel.text = _score + "pts";
+            scoreLabel.text = ((int)_score).ToString();
         }
     }
 }

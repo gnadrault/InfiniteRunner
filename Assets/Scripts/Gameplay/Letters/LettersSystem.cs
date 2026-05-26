@@ -54,7 +54,7 @@ namespace Gameplay.Letters
             LettersDisplay display = FindDisplay(next, displays);
             currentWords.Remove(next);
             if (display)
-                FillDisplays(displays, currentWords, next.isBonus);
+                AssignWord(display, currentWords, next.isBonus);
 
             FireActiveWordsChanged();
 

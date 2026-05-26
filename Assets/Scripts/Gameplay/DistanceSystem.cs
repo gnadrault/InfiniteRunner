@@ -26,7 +26,7 @@ namespace Gameplay
             {
                 GameEvents.OnAddScorePoints?.Invoke(1);
             }
-            distanceLabel.text = (int)distance + "m";
+            distanceLabel.text = ((int)distance).ToString();
         }
     }
 }
