@@ -7,7 +7,6 @@ using UnityEngine.InputSystem;
 using Utils;
 using World.GameElement.Collectible;
 using World.GameElement.Virus;
-using World.GameElement.WordEffect;
 
 namespace Player
 {
@@ -134,6 +133,7 @@ namespace Player
         private IEnumerator WaitAndApplyVirusEffect(VirusElement virus)
         {
             _currentVirusElement = virus;
+            GameEvents.OnVirusAttached?.Invoke();
             yield return new WaitForSeconds(2);
             _currentVirusElement.ApplyEffect(this, attachedPosition);
         }
@@ -220,7 +220,7 @@ namespace Player
         public Vector3 GetCurrentLanePosition() => laneAnchors[_currentLaneIndex].position;
         public bool IsJumpButtonPressed() => jumpInput.action.IsPressed();
         public bool IsSlideButtonPressed() => slideInput.action.IsPressed();
-        public bool IsPlayerInfected() => _currentVirusElement != null;
+        public bool IsPlayerInfected() => _currentVirusElement;
         public bool HasShield() => _shield;
         public bool HasGhost() => _ghost;
 

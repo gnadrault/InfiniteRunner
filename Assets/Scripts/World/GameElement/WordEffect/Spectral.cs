@@ -9,13 +9,13 @@ namespace World.GameElement.WordEffect
     {
         public override void ApplyEffect(PlayerController playerController, MonoBehaviour runner)
         {
-            base.ApplyEffect(player, runner);
+            base.ApplyEffect(playerController, runner);
             GameEvents.OnGhostBroken += OnEffectBroken;
             player.ApplyGhost();
             StartEffectTimer();
         }
 
-        protected override void RemoveEffect()
+        public override void RemoveEffect()
         {
             if (isComplete) return;
             GameEvents.OnGhostBroken -= OnEffectBroken;

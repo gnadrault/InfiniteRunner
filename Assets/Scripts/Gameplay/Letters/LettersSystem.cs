@@ -2,8 +2,8 @@ using System;
 using System.Collections.Generic;
 using Data;
 using Player;
+using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Utils;
 using World.GameElement.WordEffect;
 
@@ -32,8 +32,17 @@ namespace Gameplay.Letters
         
         public static event Action<WordData[]> OnActiveWordsChanged;
 
-        private void OnEnable() => GameEvents.OnLetterCollected += OnLetterCollected;
-        private void OnDisable() => GameEvents.OnLetterCollected -= OnLetterCollected;
+        private void OnEnable() 
+        {
+            GameEvents.OnLetterCollected += OnLetterCollected;
+            GameEvents.OnVirusAttached += StopEffect;
+        }
+
+        private void OnDisable()
+        {
+            GameEvents.OnLetterCollected -= OnLetterCollected;
+            GameEvents.OnVirusAttached -= StopEffect;
+        }
         
         // DEBUG
         public WordEffect ActiveEffect => _activeEffect;
@@ -55,6 +64,8 @@ namespace Gameplay.Letters
 
             CheckCompletion(bonusDisplays, true);
             CheckCompletion(malusDisplays, false);
+            
+            ProcessEffectQueue();
 
             FireActiveWordsChanged();
         }
@@ -105,11 +116,13 @@ namespace Gameplay.Letters
         
         private void ProcessEffectQueue()
         {
-            if ((_activeEffect && !_activeEffect.isComplete)
-                || player.IsPlayerInfected()
-                || _completedWordsQueue.Count == 0)
-                return;
+            if (_activeEffect && _activeEffect.isComplete) 
+                _activeEffect = null;
 
+            if (_activeEffect || _completedWordsQueue.Count == 0 || player.IsPlayerInfected()) 
+                return;
+            
+            // New effect from completed word (Queue)
             WordData nextWord = _completedWordsQueue.Dequeue();
             _enqueuedWords.Remove(nextWord);
 
@@ -138,6 +151,13 @@ namespace Gameplay.Letters
             if (!newEffect) return;
             _activeEffect = newEffect;
             _activeEffect.ApplyEffect(player, this);
+        }
+        
+        private void StopEffect()
+        {
+            if (!_activeEffect) return;
+            _activeEffect.RemoveEffect();
+            _activeEffect = null;
         }
         
         /**

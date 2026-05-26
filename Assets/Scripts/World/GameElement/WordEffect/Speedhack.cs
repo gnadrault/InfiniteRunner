@@ -12,12 +12,12 @@ namespace World.GameElement.WordEffect
         
         public override void ApplyEffect(PlayerController playerController, MonoBehaviour runner)
         {
-            base.ApplyEffect(player, runner);
+            base.ApplyEffect(playerController, runner);
             TimeScaleManager.Instance.SetTimeScale(speedTimeScale);
             StartEffectTimer();
         }
 
-        protected override void RemoveEffect()
+        public override void RemoveEffect()
         {
             if (isComplete) return;
             TimeScaleManager.Instance.SetTimeScale(1f);

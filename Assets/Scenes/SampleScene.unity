@@ -9151,12 +9151,12 @@ MonoBehaviour:
   - {fileID: 1773744173}
   - {fileID: 483874016}
   - {fileID: 67451017}
-  bonusHighlight: {r: 0, g: 216, b: 255, a: 1}
+  bonusHighlightColor: {r: 0, g: 0.84705883, b: 1, a: 1}
   malusDisplays:
   - {fileID: 197473715}
   - {fileID: 1775216869}
   - {fileID: 830054520}
-  malusHighlight: {r: 204, g: 0, b: 0, a: 1}
+  malusHighlightColor: {r: 0.8, g: 0, b: 0, a: 1}
 --- !u!1 &1750870352
 GameObject:
   m_ObjectHideFlags: 0

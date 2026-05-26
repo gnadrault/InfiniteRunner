@@ -22,7 +22,7 @@ namespace World.GameElement.WordEffect
             Runner = runner;
         }
 
-        protected virtual void RemoveEffect()
+        public virtual void RemoveEffect()
         {
             isComplete = true;
         }
