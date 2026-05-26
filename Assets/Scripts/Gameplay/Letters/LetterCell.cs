@@ -7,6 +7,7 @@ namespace Gameplay.Letters
     public class LetterCell : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI label;
+        [SerializeField] private TMP_FontAsset highlightFont;
             
         private bool _isHighlighted;
         private char _character;
@@ -28,7 +29,11 @@ namespace Gameplay.Letters
         public void SetHighlight(string letter, Color color)
         {
             _isHighlighted = letter == label.text;
-            label.color = _isHighlighted ? color : Colors.Default;
+            if (_isHighlighted)
+            {
+                label.color = color;
+                label.font = highlightFont;
+            }
         }
     }
 }

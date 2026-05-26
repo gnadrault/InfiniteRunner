@@ -14,13 +14,13 @@ namespace World.Segment
 
         public List<SpawnPoint> SpawnPoints => spawnPoints;
         public PhaseState PhaseState => phaseState;
+        
+        public static event Action<Segment> OnChunkDestroyed;
 
         private void OnValidate()
         {
             spawnPoints = GetComponentsInChildren<SpawnPoint>().ToList();
         }
-
-        public static event Action<Segment> OnChunkDestroyed;
 
         public void Scroll(float speedFrame)
         {

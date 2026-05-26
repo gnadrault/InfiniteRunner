@@ -151,3 +151,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LetterCell
   label: {fileID: 8213211826883794850}
+  highlightFont: {fileID: 11400000, guid: 9d9d3e82af2a23640a6c7313f6baed01, type: 2}
