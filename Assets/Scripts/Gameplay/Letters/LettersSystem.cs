@@ -3,31 +3,41 @@ using System.Collections.Generic;
 using Data;
 using Player;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Utils;
+using World.GameElement.WordEffect;
 
 namespace Gameplay.Letters
 {
     public class LettersSystem : MonoBehaviour
     {
-        public static event Action<WordData[]> OnActiveWordsChanged;
-
         [SerializeField] private WordDatabase wordsDatabase;
         [SerializeField] private LetterCell letterCellPrefab;
         [SerializeField] private PlayerController player;
 
+        // Bonus / Malus
         [Header("Bonus")] [SerializeField] private LettersDisplay[] bonusDisplays = new LettersDisplay[3];
-        [SerializeField] private Color bonusHighlight = Colors.HighlightBonus;
+        [SerializeField] private Color bonusHighlightColor = Colors.HighlightBonus;
 
         [Header("Malus")] [SerializeField] private LettersDisplay[] malusDisplays = new LettersDisplay[3];
-        [SerializeField] private Color malusHighlight = Colors.HighlightMalus;
+        [SerializeField] private Color malusHighlightColor = Colors.HighlightMalus;
 
         private readonly List<WordData> _currentBonus = new();
         private readonly List<WordData> _currentMalus = new();
+        
+        // Completed Words + Active Effect
         private readonly Queue<WordData> _completedWordsQueue = new();
-        private World.GameElement.WordEffect.WordEffect _activeEffect;
+        private readonly HashSet<WordData> _enqueuedWords = new();
+        private WordEffect _activeEffect;
+        
+        public static event Action<WordData[]> OnActiveWordsChanged;
 
         private void OnEnable() => GameEvents.OnLetterCollected += OnLetterCollected;
         private void OnDisable() => GameEvents.OnLetterCollected -= OnLetterCollected;
+        
+        // DEBUG
+        public WordEffect ActiveEffect => _activeEffect;
+        public Queue<WordData> CompletedQueue => _completedWordsQueue;
 
         private void Start()
         {
@@ -35,48 +45,13 @@ namespace Gameplay.Letters
             FillDisplays(malusDisplays, _currentMalus, false);
             FireActiveWordsChanged();
         }
-
-        private void Update()
-        {
-            ProcessEffectQueue();
-        }
         
-        private void ProcessEffectQueue()
-        {
-            if (_activeEffect && !_activeEffect.isComplete) return;
-            if (_completedWordsQueue.Count == 0) return;
-
-            WordData next = _completedWordsQueue.Dequeue();
-
-            List<WordData> currentWords = next.isBonus ? _currentBonus : _currentMalus;
-            LettersDisplay[] displays = next.isBonus ? bonusDisplays : malusDisplays;
-
-            LettersDisplay display = FindDisplay(next, displays);
-            currentWords.Remove(next);
-            if (display)
-                AssignWord(display, currentWords, next.isBonus);
-
-            FireActiveWordsChanged();
-
-            if (!next.effect) return;
-
-            _activeEffect = next.effect;
-            _activeEffect.ApplyEffect(player, this);
-        }
-
-        private LettersDisplay FindDisplay(WordData word, LettersDisplay[] displays)
-        {
-            foreach (LettersDisplay display in displays)
-                if (display.CurrentWordData == word) return display;
-            return null;
-        }
-
         private void OnLetterCollected(string letter)
         {
             GameEvents.OnAddScorePoints?.Invoke(30);
 
-            HighlightLetters(bonusDisplays, letter, bonusHighlight);
-            HighlightLetters(malusDisplays, letter, malusHighlight);
+            HighlightLetters(bonusDisplays, letter, bonusHighlightColor);
+            HighlightLetters(malusDisplays, letter, malusHighlightColor);
 
             CheckCompletion(bonusDisplays, true);
             CheckCompletion(malusDisplays, false);
@@ -98,9 +73,11 @@ namespace Gameplay.Letters
 
                 WordData completedWord = display.CurrentWordData;
 
+                if (!_enqueuedWords.Add(completedWord)) continue;
+
                 if (isBonus)
                     GameEvents.OnAddScorePoints?.Invoke(completedWord.word.Length * 100);
-                
+
                 _completedWordsQueue.Enqueue(completedWord);
             }
         }
@@ -121,6 +98,51 @@ namespace Gameplay.Letters
             currentWords.Add(word);
         }
 
+        private void Update()
+        {
+            ProcessEffectQueue();
+        }
+        
+        private void ProcessEffectQueue()
+        {
+            if ((_activeEffect && !_activeEffect.isComplete)
+                || player.IsPlayerInfected()
+                || _completedWordsQueue.Count == 0)
+                return;
+
+            WordData nextWord = _completedWordsQueue.Dequeue();
+            _enqueuedWords.Remove(nextWord);
+
+            List<WordData> currentWords = nextWord.isBonus ? _currentBonus : _currentMalus;
+            LettersDisplay[] displays = nextWord.isBonus ? bonusDisplays : malusDisplays;
+
+            LettersDisplay display = FindDisplay(nextWord, displays);
+            currentWords.Remove(nextWord);
+            
+            if (display)
+                AssignWord(display, currentWords, nextWord.isBonus);
+
+            FireActiveWordsChanged();
+            ApplyEffect(nextWord.effect);
+        }
+        
+        private LettersDisplay FindDisplay(WordData word, LettersDisplay[] displays)
+        {
+            foreach (LettersDisplay display in displays)
+                if (display.CurrentWordData == word) return display;
+            return null;
+        }
+
+        private void ApplyEffect(WordEffect newEffect)
+        {
+            if (!newEffect) return;
+            _activeEffect = newEffect;
+            _activeEffect.ApplyEffect(player, this);
+        }
+        
+        /**
+         * Event with all current words (used to spawn specific letters)
+         */
         private void FireActiveWordsChanged()
         {
             List<WordData> all = new List<WordData>(_currentBonus);

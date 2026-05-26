@@ -26,6 +26,7 @@ namespace World.Segment
         private SegmentBuilder _segmentBuilder;
 
         public float ScrollSpeed => scrollSpeed;
+        public PhaseState CurrentPhaseState => _currentPhaseState;
 
         private void Awake()
         {
