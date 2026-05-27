@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PhaseDatabase
   m_EditorClassIdentifier: Assembly-CSharp::Data.PhaseDatabase
   phases:
-  - phaseState: 0
+  - name: 1
     rainbowColor: 0
     phaseColor: {r: 0.07450981, g: 0.7490196, b: 0.6901961, a: 1}
     intensityColor: 2
@@ -21,7 +21,12 @@ MonoBehaviour:
     speed: 20
     distance: 500
     music: {fileID: 0}
-  - phaseState: 1
+    newSegments:
+    - {fileID: 66493209559607754, guid: 483059b4e51709545ade9723710e56da, type: 3}
+    - {fileID: 66493209559607754, guid: 2e656bff70108f042ae8a6a542eb7452, type: 3}
+    virus:
+    - {fileID: 1786364590797097875, guid: 1a08c3a0cb92f6240a237030a04c5b1d, type: 3}
+  - name: 2
     rainbowColor: 0
     phaseColor: {r: 0.21960784, g: 0.08235294, b: 0.7490196, a: 1}
     intensityColor: 2
@@ -29,7 +34,13 @@ MonoBehaviour:
     speed: 26
     distance: 1500
     music: {fileID: 0}
-  - phaseState: 2
+    newSegments:
+    - {fileID: 3165486530580345660, guid: bd0d40be177bfe14295a25a1fb1d4a29, type: 3}
+    - {fileID: 3165486530580345660, guid: 719e84f78a8d04d4685fbb4670a3d75b, type: 3}
+    virus:
+    - {fileID: 1786364590797097875, guid: 1a08c3a0cb92f6240a237030a04c5b1d, type: 3}
+    - {fileID: 8340013460893703910, guid: 1a80f4b066f49eb41acfa18c19e993d1, type: 3}
+  - name: 3
     rainbowColor: 0
     phaseColor: {r: 1, g: 0.101960786, b: 0, a: 1}
     intensityColor: 2
@@ -37,11 +48,26 @@ MonoBehaviour:
     speed: 32
     distance: 3000
     music: {fileID: 0}
-  - phaseState: 3
+    newSegments:
+    - {fileID: 3165486530580345660, guid: 6db26d38cd173e147a324de5d6e28b69, type: 3}
+    - {fileID: 3165486530580345660, guid: a7b692dea84ec7646b553db1d523d25e, type: 3}
+    virus:
+    - {fileID: 1786364590797097875, guid: 1a08c3a0cb92f6240a237030a04c5b1d, type: 3}
+    - {fileID: 8340013460893703910, guid: 1a80f4b066f49eb41acfa18c19e993d1, type: 3}
+    - {fileID: -9186191132360030546, guid: 899210ec524a4d24caf90167c54613ad, type: 3}
+  - name: 4
     rainbowColor: 0
     phaseColor: {r: 1, g: 1, b: 0, a: 1}
     intensityColor: 2
     cameraAngle: 0
     speed: 40
-    distance: 0
+    distance: -1
     music: {fileID: 0}
+    newSegments:
+    - {fileID: 3165486530580345660, guid: 24ece2ccc7801214bb0ae83a6a818eba, type: 3}
+    - {fileID: 3165486530580345660, guid: 1b835d3989196b04e938f715c18d75ba, type: 3}
+    virus:
+    - {fileID: 1786364590797097875, guid: 1a08c3a0cb92f6240a237030a04c5b1d, type: 3}
+    - {fileID: 8340013460893703910, guid: 1a80f4b066f49eb41acfa18c19e993d1, type: 3}
+    - {fileID: -9186191132360030546, guid: 899210ec524a4d24caf90167c54613ad, type: 3}
+    - {fileID: -35816546029551191, guid: 3d5a24b4ceda09b47b19443886dbed74, type: 3}

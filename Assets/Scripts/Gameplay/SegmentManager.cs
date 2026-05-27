@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Data;
+using Gameplay.Segments;
 using UnityEngine;
 using Utils;
 
@@ -12,20 +13,17 @@ namespace Gameplay
         [SerializeField] private int maxSegments = 5;
 
         [Header("Segments")] 
-        [SerializeField] private Segment.Segment firstSegment;
+        [SerializeField] private Segment firstSegment;
         [SerializeField] private int segmentsCountPerPhase = 5;
 
         private float _segmentLength;
         private float _segmentX;
         private float _segmentY;
 
-        private readonly List<Segment.Segment> _activeSegmentList = new();
-        private readonly List<Segment.Segment> _poolSegmentList = new();
+        private readonly List<Segment> _activeSegmentList = new();
+        private readonly List<Segment> _poolSegmentList = new();
         private SegmentBuilder _segmentBuilder;
         private PhaseData _currentPhaseData;
-
-        public float ScrollSpeed => _currentPhaseData.speed;
-        public PhaseState CurrentPhaseState => _currentPhaseData.phaseState;
 
         private void Awake()
         {
@@ -42,40 +40,40 @@ namespace Gameplay
 
         private void OnEnable()
         {
-            Segment.Segment.OnChunkDestroyed += RemoveSegment;
+            Segment.OnSegmentDestroyed += RemoveSegment;
             GameEvents.OnPlayerDied += StopScroll;
             GameEvents.OnNewPhase += HandleNewPhase;
         }
 
         private void OnDisable()
         {
-            Segment.Segment.OnChunkDestroyed -= RemoveSegment;
+            Segment.OnSegmentDestroyed -= RemoveSegment;
             GameEvents.OnPlayerDied -= StopScroll;
             GameEvents.OnNewPhase -= HandleNewPhase;
         }
 
         private void AddSegment()
         {
-            Segment.Segment lastSegment = _activeSegmentList[^1]; // Prevent to pull same segment twice
+            Segment lastSegment = _activeSegmentList[^1]; // Prevent to pull same segment twice
             Vector3 spawnPosition =
                 new Vector3(_segmentX, _segmentY, lastSegment.transform.position.z + _segmentLength);
 
             // Pool segment
-            Segment.Segment pooledSegment = GetNextSegment(lastSegment);
-            Segment.Segment newSegment = Instantiate(pooledSegment, spawnPosition, Quaternion.identity);
+            Segment pooledSegment = GetNextSegment(lastSegment);
+            Segment newSegment = Instantiate(pooledSegment, spawnPosition, Quaternion.identity);
 
             // Segment builder
             _segmentBuilder.GenerateSegmentObjects(newSegment, _currentPhaseData);
             _activeSegmentList.Add(newSegment);
         }
 
-        private Segment.Segment GetNextSegment(Segment.Segment lastSegment)
+        private Segment GetNextSegment(Segment lastSegment)
         {
-            List<Segment.Segment> segmentsPool = _poolSegmentList.Where(s => s != lastSegment).ToList();
+            List<Segment> segmentsPool = _poolSegmentList.Where(s => s != lastSegment).ToList();
             return segmentsPool[Random.Range(0, segmentsPool.Count)];
         }
 
-        private void RemoveSegment(Segment.Segment segment)
+        private void RemoveSegment(Segment segment)
         {
             _activeSegmentList.Remove(segment);
         }
@@ -88,20 +86,16 @@ namespace Gameplay
         private void HandleNewPhase(PhaseData phaseData)
         {
             _currentPhaseData = phaseData;
-            _poolSegmentList.AddRange(phaseData.newSegments.segments);
+            _poolSegmentList.AddRange(phaseData.newSegments);
         }
 
         private void Update()
         {
             while (_activeSegmentList.Count < maxSegments)
-            {
                 AddSegment();
-            }
 
-            foreach (Segment.Segment segment in _activeSegmentList)
-            {
+            foreach (Segment segment in _activeSegmentList)
                 segment.Scroll(_currentPhaseData.speed * Time.deltaTime);
-            }
         }
     }
 }

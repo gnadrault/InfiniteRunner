@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using Gameplay.Elements.Ennemis;
+using Gameplay.Segments;
 using UnityEngine;
 
 namespace Data
@@ -7,23 +9,23 @@ namespace Data
     [CreateAssetMenu(fileName = "PhaseDatabase", menuName = "SyntaxError/PhaseDatabase")]
     public class PhaseDatabase : ScriptableObject
     {
-        [SerializeField] public List<PhaseData> phases;
+        public List<PhaseData> phases;
     }
     
     [Serializable]
     public class PhaseData
     {
-        [SerializeField] public PhaseState phaseState;
-        [SerializeField] public bool rainbowColor;
-        [SerializeField] public Color phaseColor;
-        [SerializeField] public float intensityColor;
-        [SerializeField] public float cameraAngle;
-        [SerializeField] public float speed;
-        [SerializeField] public float distance;
-        [SerializeField] public AudioClip music;
-
-        [SerializeField] public SegmentDatabase newSegments;
-        [SerializeField] public VirusDatabase virus;
+        public string name;
+        public bool rainbowColor;
+        public Color phaseColor;
+        public float intensityColor;
+        public float cameraAngle;
+        public float speed;
+        public float distance;
+        public AudioClip music;
+        
+        public List<Segment> newSegments;
+        public List<Virus> virus;
         
         public bool IsInfiniteDistance => distance <= 0f;
     }

@@ -35,15 +35,18 @@ namespace Gameplay
                 return;
             
             ChangePhase(_currentPhaseIndex + 1);
-            GameEvents.OnNewPhase?.Invoke(phasesDatabase.phases[_currentPhaseIndex]);
         }
 
         private void ChangePhase(int newPhaseIndex)
         {
             _currentPhaseIndex = newPhaseIndex;
+            GameEvents.OnNewPhase?.Invoke(phasesDatabase.phases[_currentPhaseIndex]);
+            
+            // Colors
             tronMaterial.SetColor(EmissionColor,
                 phasesDatabase.phases[_currentPhaseIndex].phaseColor *
                 phasesDatabase.phases[_currentPhaseIndex].intensityColor);
+
         }
     }
 }

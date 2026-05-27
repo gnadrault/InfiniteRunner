@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Gameplay.GameElement.WordEffect;
+using Gameplay.Elements.Effects;
 using UnityEngine;
 using Random = UnityEngine.Random;
 

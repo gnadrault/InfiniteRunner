@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
-using Gameplay.GameElement.Collectible;
-using Gameplay.GameElement.Virus;
+using Gameplay.Elements.Collectibles;
+using Gameplay.Elements.Ennemis;
 using Player.Data;
 using Player.State;
 using UnityEngine;
@@ -32,7 +32,7 @@ namespace Player
         private PlayerStateMachine _stateMachine;
         
         //Virus
-        private VirusElement _currentVirusElement;
+        private Virus currentVirus;
         private bool _isBlocked;
         
         //Bonus
@@ -125,24 +125,24 @@ namespace Player
         
         #region Virus
 
-        public void AttachVirus(VirusElement virus)
+        public void AttachVirus(Virus virus)
         {
             StartCoroutine(WaitAndApplyVirusEffect(virus));
         }
 
-        private IEnumerator WaitAndApplyVirusEffect(VirusElement virus)
+        private IEnumerator WaitAndApplyVirusEffect(Virus virus)
         {
-            _currentVirusElement = virus;
+            currentVirus = virus;
             GameEvents.OnVirusAttached?.Invoke();
             yield return new WaitForSecondsRealtime(2);
-            _currentVirusElement.ApplyEffect(this, attachedPosition);
+            currentVirus.ApplyEffect(this, attachedPosition);
         }
         
         public void DetachVirus()
         {
-            if (!_currentVirusElement) return;
-            _currentVirusElement.RemoveEffect(this);
-            _currentVirusElement = null;
+            if (!currentVirus) return;
+            currentVirus.RemoveEffect(this);
+            currentVirus = null;
         }
 
         public void DisableMovement()
@@ -220,7 +220,7 @@ namespace Player
         public Vector3 GetCurrentLanePosition() => laneAnchors[_currentLaneIndex].position;
         public bool IsJumpButtonPressed() => jumpInput.action.IsPressed();
         public bool IsSlideButtonPressed() => slideInput.action.IsPressed();
-        public bool IsPlayerInfected() => _currentVirusElement;
+        public bool IsPlayerInfected() => currentVirus;
         public bool HasShield() => _shield;
         public bool HasGhost() => _ghost;
 

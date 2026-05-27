@@ -119,6 +119,55 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &266028
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 266030}
+  - component: {fileID: 266029}
+  m_Layer: 0
+  m_Name: Debug
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &266029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 266028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ddab417f5a2412da4f112b2e5974104, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Gameplay.DebugSystem
+  textPrefab: {fileID: 3777674256326340686, guid: bc5c0839d44f6d840907298f40c05871, type: 3}
+  debugPanel: {fileID: 1613831851}
+  segmentManager: {fileID: 1855767986}
+  playerController: {fileID: 426995177}
+  lettersSystem: {fileID: 1701807689}
+--- !u!4 &266030
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 266028}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.46899, y: 0, z: 137.82858}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &12249634
 GameObject:
   m_ObjectHideFlags: 0
@@ -3239,6 +3288,52 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!1 &1163644729
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1163644731}
+  - component: {fileID: 1163644730}
+  m_Layer: 0
+  m_Name: PhaseManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1163644730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1163644729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c3eb44a043e4d85bebd2ace6edcab32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Gameplay.PhaseManager
+  phasesDatabase: {fileID: 11400000, guid: fd23602c190a2cd4888cb6c5287de2e3, type: 2}
+  tronMaterial: {fileID: 2100000, guid: 2ae57a9953092a6488d1e5e7b8a2e851, type: 2}
+--- !u!4 &1163644731
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1163644729}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.46899, y: 0, z: 137.82858}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1193823910
 GameObject:
   m_ObjectHideFlags: 0
@@ -9770,8 +9865,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1855767987}
   - component: {fileID: 1855767986}
-  - component: {fileID: 1855767984}
   - component: {fileID: 1855767985}
+  - component: {fileID: 1855767984}
   m_Layer: 0
   m_Name: SegmentManager
   m_TagString: Untagged
@@ -9807,7 +9902,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   obstacleDatabase: {fileID: 11400000, guid: d07985f687c28b042ad7b5d2f7df430b, type: 2}
   collectibleDatabase: {fileID: 11400000, guid: 40e8c6be9a35ca94ea9cfa4279662143, type: 2}
-  virusDatabase: {fileID: 11400000, guid: f24370f7879d92f49be3996611690d25, type: 2}
   activeLettersSpawnRate: 5
 --- !u!114 &1855767986
 MonoBehaviour:
@@ -9824,9 +9918,6 @@ MonoBehaviour:
   maxSegments: 5
   firstSegment: {fileID: 4933993261843267823}
   segmentsCountPerPhase: 5
-  segmentDatabase: {fileID: 11400000, guid: a1361d3ea657ba3419e285e6a46ef473, type: 2}
-  phasesDatabase: {fileID: 11400000, guid: fd23602c190a2cd4888cb6c5287de2e3, type: 2}
-  tronMaterial: {fileID: 2100000, guid: 2ae57a9953092a6488d1e5e7b8a2e851, type: 2}
 --- !u!4 &1855767987
 Transform:
   m_ObjectHideFlags: 0
@@ -9972,7 +10063,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1915460934}
   - component: {fileID: 1915460935}
-  - component: {fileID: 1915460936}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -10007,23 +10097,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 163d1ad65f2a4047a0d0565bb8f81703, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Utils.TimeScaleManager
---- !u!114 &1915460936
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1915460932}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ddab417f5a2412da4f112b2e5974104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Gameplay.DebugSystem
-  textPrefab: {fileID: 3777674256326340686, guid: bc5c0839d44f6d840907298f40c05871, type: 3}
-  debugPanel: {fileID: 1613831851}
-  segmentManager: {fileID: 1855767986}
-  playerController: {fileID: 426995177}
-  lettersSystem: {fileID: 1701807689}
 --- !u!1 &1925080181
 GameObject:
   m_ObjectHideFlags: 0
@@ -10687,10 +10760,12 @@ SceneRoots:
   - {fileID: 742615929}
   - {fileID: 1315130808}
   - {fileID: 1948845440}
+  - {fileID: 266030}
   - {fileID: 291596445}
   - {fileID: 1132900062}
   - {fileID: 1701807688}
   - {fileID: 1915460934}
+  - {fileID: 1163644731}
   - {fileID: 1855767987}
   - {fileID: 508775472}
   - {fileID: 1530522270}

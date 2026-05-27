@@ -8,7 +8,7 @@ namespace Gameplay
     public class DistanceTracker : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI distanceLabel;
-        [SerializeField] private float distanceScale = 0.2f;
+        [SerializeField] private float distanceScale = 1f;
         
         private float _distance;
         private float _speed;

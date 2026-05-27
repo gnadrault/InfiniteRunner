@@ -1,10 +1,11 @@
 using System;
 using System.Collections.Generic;
 using Data;
-using Gameplay.GameElement.Collectible;
-using Gameplay.GameElement.Obstacle;
-using Gameplay.GameElement.Virus;
-using Gameplay.Segment.Spawn;
+using Gameplay.Elements.Collectibles;
+using Gameplay.Elements.Ennemis;
+using Gameplay.Elements.Obstacles;
+using Gameplay.Segments;
+using Gameplay.Segments.Spawn;
 using Movement;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -37,7 +38,7 @@ namespace Gameplay
             _activeWords = words;
         }
 
-        public void GenerateSegmentObjects(Segment.Segment segment, PhaseData currentPhase)
+        public void GenerateSegmentObjects(Segment segment, PhaseData currentPhase)
         {
             foreach (SpawnPoint spawnPoint in segment.SpawnPoints)
             {
@@ -61,11 +62,11 @@ namespace Gameplay
 
         private void GenerateObstacleObject(ObstacleSpawnPoint spawnPoint, PhaseData currentPhase)
         {
-            ObstacleElement obstacleElement =
+            Obstacle obstacle =
                 obstacleDatabase.GetPrefab(spawnPoint.Type, spawnPoint.Size, spawnPoint.IsMobile);
-            obstacleElement = Instantiate(obstacleElement, spawnPoint.transform.position, Quaternion.identity,
+            obstacle = Instantiate(obstacle, spawnPoint.transform.position, Quaternion.identity,
                 spawnPoint.transform);
-            if (obstacleElement.TryGetComponent(out FallingObject falling))
+            if (obstacle.TryGetComponent(out FallingObject falling))
             {
                 falling.Initialize(currentPhase.speed);
             }
@@ -73,7 +74,7 @@ namespace Gameplay
 
         private void GenerateCollectibleObject(CollectibleSpawnPoint spawnPoint, PhaseData currentPhase)
         {
-            CollectibleElement element = collectibleDatabase.GetPrefab();
+            Collectible element = collectibleDatabase.GetPrefab();
             Letter letterSpawned = (Letter)Instantiate(element, spawnPoint.transform.position, Quaternion.identity,
                 spawnPoint.transform);
             letterSpawned.SetLabelText(GetRandomLetter().ToString());
@@ -81,7 +82,7 @@ namespace Gameplay
 
         private void GenerateVirusObject(VirusSpawnPoint spawnPoint, PhaseData currentPhase)
         {
-            VirusElement prefab = currentPhase.virus.GetPrefab();
+            Virus prefab = currentPhase.virus[Random.Range(0, currentPhase.virus.Count)];
             Instantiate(prefab, spawnPoint.transform.position, Quaternion.identity, spawnPoint.transform);
         }
 

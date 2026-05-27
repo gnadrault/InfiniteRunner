@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Gameplay.GameElement.Collectible;
+using Gameplay.Elements.Collectibles;
 using UnityEngine;
 
 namespace Data
@@ -8,9 +8,9 @@ namespace Data
     [CreateAssetMenu(fileName = "CollectibleDatabase", menuName = "SyntaxError/CollectibleDatabase")]
     public class CollectibleDatabase : ScriptableObject
     {
-        [SerializeField] private List<CollectibleElement> collectibles;
+        [SerializeField] private List<Collectible> collectibles;
         
-        public CollectibleElement GetPrefab()
+        public Collectible GetPrefab()
         {
             return collectibles.First();
         }

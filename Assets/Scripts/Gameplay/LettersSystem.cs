@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Data;
-using Gameplay.GameElement.WordEffect;
+using Gameplay.Elements.Effects;
 using Gameplay.Letters;
 using Player;
 using UnityEngine;

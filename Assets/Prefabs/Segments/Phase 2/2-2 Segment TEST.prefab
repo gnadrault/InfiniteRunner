@@ -1,0 +1,579 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &5506020103668609583
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5503453371662959536, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 51.673744
+      objectReference: {fileID: 0}
+    - target: {fileID: 5503453371662959536, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0000012250384
+      objectReference: {fileID: 0}
+    - target: {fileID: 5503453371662959536, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 127.04619
+      objectReference: {fileID: 0}
+    - target: {fileID: 5503453371662959536, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5503453371662959536, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5503453371662959536, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5503453371662959536, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5503453371662959536, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5503453371662959536, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5503453371662959536, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5614944108865150314, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+      propertyPath: m_Name
+      value: 2-2 Segment TEST
+      objectReference: {fileID: 0}
+    - target: {fileID: 7460002942747525395, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+      propertyPath: spawnPoints.Array.size
+      value: 44
+      objectReference: {fileID: 0}
+    - target: {fileID: 7460002942747525395, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+      propertyPath: 'spawnPoints.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8542940014525631415}
+    - target: {fileID: 7460002942747525395, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+      propertyPath: 'spawnPoints.Array.data[3]'
+      value: 
+      objectReference: {fileID: 5336668125860980918}
+    - target: {fileID: 7460002942747525395, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+      propertyPath: 'spawnPoints.Array.data[4]'
+      value: 
+      objectReference: {fileID: 1484737255731979691}
+    - target: {fileID: 7460002942747525395, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+      propertyPath: 'spawnPoints.Array.data[5]'
+      value: 
+      objectReference: {fileID: 1052891201438513049}
+    - target: {fileID: 7460002942747525395, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+      propertyPath: 'spawnPoints.Array.data[6]'
+      value: 
+      objectReference: {fileID: 3943002862395058123}
+    - target: {fileID: 7460002942747525395, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+      propertyPath: 'spawnPoints.Array.data[9]'
+      value: 
+      objectReference: {fileID: 8120967042861450299}
+    - target: {fileID: 7460002942747525395, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+      propertyPath: 'spawnPoints.Array.data[10]'
+      value: 
+      objectReference: {fileID: 5203579095817376710}
+    - target: {fileID: 7460002942747525395, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+      propertyPath: 'spawnPoints.Array.data[17]'
+      value: 
+      objectReference: {fileID: 7025094178020457712}
+    - target: {fileID: 7460002942747525395, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+      propertyPath: 'spawnPoints.Array.data[24]'
+      value: 
+      objectReference: {fileID: 1444979027665751673}
+    - target: {fileID: 7460002942747525395, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+      propertyPath: 'spawnPoints.Array.data[26]'
+      value: 
+      objectReference: {fileID: 5287419490473623531}
+    - target: {fileID: 7460002942747525395, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+      propertyPath: 'spawnPoints.Array.data[27]'
+      value: 
+      objectReference: {fileID: 8047297327815575933}
+    - target: {fileID: 7460002942747525395, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+      propertyPath: 'spawnPoints.Array.data[28]'
+      value: 
+      objectReference: {fileID: 4268172891409252695}
+    - target: {fileID: 7460002942747525395, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+      propertyPath: 'spawnPoints.Array.data[29]'
+      value: 
+      objectReference: {fileID: 2309274256769253420}
+    - target: {fileID: 7460002942747525395, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+      propertyPath: 'spawnPoints.Array.data[30]'
+      value: 
+      objectReference: {fileID: 3160141476856331539}
+    - target: {fileID: 7460002942747525395, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+      propertyPath: 'spawnPoints.Array.data[31]'
+      value: 
+      objectReference: {fileID: 8974358168953614724}
+    - target: {fileID: 7460002942747525395, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+      propertyPath: 'spawnPoints.Array.data[32]'
+      value: 
+      objectReference: {fileID: 4958650242912582855}
+    - target: {fileID: 7460002942747525395, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+      propertyPath: 'spawnPoints.Array.data[33]'
+      value: 
+      objectReference: {fileID: 8744021638061394039}
+    - target: {fileID: 7460002942747525395, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+      propertyPath: 'spawnPoints.Array.data[34]'
+      value: 
+      objectReference: {fileID: 6229920867915568580}
+    - target: {fileID: 7460002942747525395, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+      propertyPath: 'spawnPoints.Array.data[35]'
+      value: 
+      objectReference: {fileID: 3619434965494215769}
+    - target: {fileID: 7460002942747525395, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+      propertyPath: 'spawnPoints.Array.data[36]'
+      value: 
+      objectReference: {fileID: 5600531689652262723}
+    - target: {fileID: 7460002942747525395, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+      propertyPath: 'spawnPoints.Array.data[37]'
+      value: 
+      objectReference: {fileID: 3229616667537922691}
+    - target: {fileID: 7460002942747525395, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+      propertyPath: 'spawnPoints.Array.data[38]'
+      value: 
+      objectReference: {fileID: 1834564452879286066}
+    - target: {fileID: 7460002942747525395, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+      propertyPath: 'spawnPoints.Array.data[39]'
+      value: 
+      objectReference: {fileID: 2369687833178057582}
+    - target: {fileID: 7460002942747525395, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+      propertyPath: 'spawnPoints.Array.data[40]'
+      value: 
+      objectReference: {fileID: 3193110749193462155}
+    - target: {fileID: 7460002942747525395, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+      propertyPath: 'spawnPoints.Array.data[41]'
+      value: 
+      objectReference: {fileID: 6047870095868634105}
+    - target: {fileID: 7460002942747525395, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+      propertyPath: 'spawnPoints.Array.data[42]'
+      value: 
+      objectReference: {fileID: 5892118583652329728}
+    - target: {fileID: 7460002942747525395, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+      propertyPath: 'spawnPoints.Array.data[43]'
+      value: 
+      objectReference: {fileID: 3913004875844911341}
+    m_RemovedComponents:
+    - {fileID: 444928910054237616, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+    - {fileID: 5711869857427251974, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+    - {fileID: 5012645720552806214, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+    - {fileID: 4032479915398578594, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+    - {fileID: 1247444252436148406, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+    - {fileID: 3142672006897212498, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+    - {fileID: 896271333471214086, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+    - {fileID: 1434142880874961786, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+    - {fileID: 868959287707568951, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+    - {fileID: 230393923877394147, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+    - {fileID: 6684349912902446093, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3326623386477767063, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8542940014525631415}
+    - targetCorrespondingSourceObject: {fileID: 2627300780091954721, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5336668125860980918}
+    - targetCorrespondingSourceObject: {fileID: 7896570040784821089, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1484737255731979691}
+    - targetCorrespondingSourceObject: {fileID: 4314773343558637405, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1052891201438513049}
+    - targetCorrespondingSourceObject: {fileID: 8414319428298121258, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3943002862395058123}
+    - targetCorrespondingSourceObject: {fileID: 7440682688553447201, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8120967042861450299}
+    - targetCorrespondingSourceObject: {fileID: 2596633024854492944, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5203579095817376710}
+    - targetCorrespondingSourceObject: {fileID: 4128096430342093969, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7025094178020457712}
+    - targetCorrespondingSourceObject: {fileID: 2301340762495569285, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1444979027665751673}
+    - targetCorrespondingSourceObject: {fileID: 3113315730020948676, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5892118583652329728}
+  m_SourcePrefab: {fileID: 100100000, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+--- !u!114 &1834564452879286066 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6133056870983535901, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+  m_PrefabInstance: {fileID: 5506020103668609583}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb913a71ebf9497ea2a293bd78f4d5a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::World.Spawn.EmptySpawnPoint
+--- !u!114 &2309274256769253420 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7810755434133598723, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+  m_PrefabInstance: {fileID: 5506020103668609583}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb913a71ebf9497ea2a293bd78f4d5a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::World.Spawn.EmptySpawnPoint
+--- !u!114 &2369687833178057582 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7821488783319570753, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+  m_PrefabInstance: {fileID: 5506020103668609583}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb913a71ebf9497ea2a293bd78f4d5a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::World.Spawn.EmptySpawnPoint
+--- !u!1 &2449694872671299918 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7896570040784821089, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+  m_PrefabInstance: {fileID: 5506020103668609583}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1484737255731979691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2449694872671299918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 115130638a7e41b98d48d3e1ad625963, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::World.Spawn.VirusSpawnPoint
+  spawnRate: 1
+--- !u!1 &3110805810648964366 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7440682688553447201, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+  m_PrefabInstance: {fileID: 5506020103668609583}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8120967042861450299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3110805810648964366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12e70794d64c4effb73a60e5f7ded717, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::World.Spawn.CollectibleSpawnPoint
+  canBeBonusObject: 0
+--- !u!114 &3160141476856331539 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7472109441151422268, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+  m_PrefabInstance: {fileID: 5506020103668609583}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb913a71ebf9497ea2a293bd78f4d5a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::World.Spawn.EmptySpawnPoint
+--- !u!114 &3193110749193462155 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6933684505441719204, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+  m_PrefabInstance: {fileID: 5506020103668609583}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb913a71ebf9497ea2a293bd78f4d5a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::World.Spawn.EmptySpawnPoint
+--- !u!114 &3229616667537922691 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6969521787530176684, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+  m_PrefabInstance: {fileID: 5506020103668609583}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb913a71ebf9497ea2a293bd78f4d5a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::World.Spawn.EmptySpawnPoint
+--- !u!114 &3619434965494215769 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9102761040541288054, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+  m_PrefabInstance: {fileID: 5506020103668609583}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb913a71ebf9497ea2a293bd78f4d5a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::World.Spawn.EmptySpawnPoint
+--- !u!114 &3913004875844911341 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8801328000680866498, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+  m_PrefabInstance: {fileID: 5506020103668609583}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb913a71ebf9497ea2a293bd78f4d5a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::World.Spawn.EmptySpawnPoint
+--- !u!1 &4083914857180762629 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8414319428298121258, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+  m_PrefabInstance: {fileID: 5506020103668609583}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3943002862395058123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4083914857180762629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80665b306aa74818a66e18e9269dde92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Gameplay.Segments.Spawn.ObstacleSpawnPoint
+  size: 0
+  type: 0
+  isMobile: 0
+--- !u!114 &4268172891409252695 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8598155353704969080, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+  m_PrefabInstance: {fileID: 5506020103668609583}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb913a71ebf9497ea2a293bd78f4d5a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::World.Spawn.EmptySpawnPoint
+--- !u!114 &4958650242912582855 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 628808513843810024, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+  m_PrefabInstance: {fileID: 5506020103668609583}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb913a71ebf9497ea2a293bd78f4d5a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::World.Spawn.EmptySpawnPoint
+--- !u!114 &5287419490473623531 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 363067671035219396, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+  m_PrefabInstance: {fileID: 5506020103668609583}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb913a71ebf9497ea2a293bd78f4d5a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::World.Spawn.EmptySpawnPoint
+--- !u!114 &5600531689652262723 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 130681332162962796, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+  m_PrefabInstance: {fileID: 5506020103668609583}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb913a71ebf9497ea2a293bd78f4d5a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::World.Spawn.EmptySpawnPoint
+--- !u!1 &6023935201493614506 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2301340762495569285, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+  m_PrefabInstance: {fileID: 5506020103668609583}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1444979027665751673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6023935201493614506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12e70794d64c4effb73a60e5f7ded717, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::World.Spawn.CollectibleSpawnPoint
+  canBeBonusObject: 0
+--- !u!114 &6047870095868634105 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2271795341334843862, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+  m_PrefabInstance: {fileID: 5506020103668609583}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb913a71ebf9497ea2a293bd78f4d5a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::World.Spawn.EmptySpawnPoint
+--- !u!114 &6229920867915568580 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1881501997609592811, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+  m_PrefabInstance: {fileID: 5506020103668609583}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb913a71ebf9497ea2a293bd78f4d5a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::World.Spawn.EmptySpawnPoint
+--- !u!1 &7080743028806130616 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3326623386477767063, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+  m_PrefabInstance: {fileID: 5506020103668609583}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8542940014525631415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7080743028806130616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb913a71ebf9497ea2a293bd78f4d5a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::World.Spawn.EmptySpawnPoint
+--- !u!1 &7448364676911163627 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3113315730020948676, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+  m_PrefabInstance: {fileID: 5506020103668609583}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5892118583652329728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7448364676911163627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb913a71ebf9497ea2a293bd78f4d5a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::World.Spawn.EmptySpawnPoint
+--- !u!1 &7502816929978999822 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2627300780091954721, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+  m_PrefabInstance: {fileID: 5506020103668609583}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5336668125860980918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7502816929978999822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12e70794d64c4effb73a60e5f7ded717, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::World.Spawn.CollectibleSpawnPoint
+  canBeBonusObject: 0
+--- !u!1 &7521090431813399871 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2596633024854492944, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+  m_PrefabInstance: {fileID: 5506020103668609583}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5203579095817376710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7521090431813399871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 115130638a7e41b98d48d3e1ad625963, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::World.Spawn.VirusSpawnPoint
+  spawnRate: 1
+--- !u!114 &8047297327815575933 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2577446932233747282, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+  m_PrefabInstance: {fileID: 5506020103668609583}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb913a71ebf9497ea2a293bd78f4d5a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::World.Spawn.EmptySpawnPoint
+--- !u!1 &8439923583203577534 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4128096430342093969, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+  m_PrefabInstance: {fileID: 5506020103668609583}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7025094178020457712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8439923583203577534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12e70794d64c4effb73a60e5f7ded717, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::World.Spawn.CollectibleSpawnPoint
+  canBeBonusObject: 0
+--- !u!1 &8613265552157222258 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4314773343558637405, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+  m_PrefabInstance: {fileID: 5506020103668609583}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1052891201438513049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8613265552157222258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12e70794d64c4effb73a60e5f7ded717, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::World.Spawn.CollectibleSpawnPoint
+  canBeBonusObject: 0
+--- !u!114 &8744021638061394039 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3832652646828292696, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+  m_PrefabInstance: {fileID: 5506020103668609583}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb913a71ebf9497ea2a293bd78f4d5a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::World.Spawn.EmptySpawnPoint
+--- !u!114 &8974358168953614724 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3522381330749408171, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+  m_PrefabInstance: {fileID: 5506020103668609583}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb913a71ebf9497ea2a293bd78f4d5a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::World.Spawn.EmptySpawnPoint

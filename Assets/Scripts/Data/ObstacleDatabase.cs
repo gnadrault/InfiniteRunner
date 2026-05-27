@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
-using Gameplay.GameElement.Obstacle;
+using Gameplay.Elements.Obstacles;
 using UnityEngine;
 
 namespace Data
@@ -8,11 +8,11 @@ namespace Data
     [CreateAssetMenu(fileName = "ObstacleDatabase", menuName = "SyntaxError/ObstacleDatabase")]
     public class ObstacleDatabase : ScriptableObject
     {
-        [SerializeField] private List<ObstacleElement> obstacles;
+        [SerializeField] private List<Obstacle> obstacles;
 
-        public ObstacleElement GetPrefab(ObstacleType type, ObstacleSize size, bool isMobile)
+        public Obstacle GetPrefab(ObstacleType type, ObstacleSize size, bool isMobile)
         {
-            ObstacleElement obstacle = obstacles.FirstOrDefault(o => 
+            Obstacle obstacle = obstacles.FirstOrDefault(o => 
                 o.Size == size && o.Type == type && o.IsMobile == isMobile);
         
             return obstacle;

@@ -1,4 +1,4 @@
-using Gameplay.GameElement;
+using Gameplay.Elements;
 using UnityEngine;
 
 namespace Player
