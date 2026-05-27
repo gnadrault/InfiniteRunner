@@ -24,8 +24,12 @@ namespace Data
     [Serializable]
     public class WordData
     {
-        public string word;
-        public bool isBonus;
-        public WordEffect effect;
+        [SerializeField] private string word;
+        [SerializeField] private bool isBonus;
+        [SerializeField] private WordEffect effect;
+
+        public string Word => word;
+        public bool IsBonus => isBonus;
+        public WordEffect Effect => effect;
     }
 }

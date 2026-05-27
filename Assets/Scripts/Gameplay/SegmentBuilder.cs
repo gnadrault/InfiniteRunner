@@ -68,7 +68,7 @@ namespace Gameplay
                 spawnPoint.transform);
             if (obstacle.TryGetComponent(out FallingObject falling))
             {
-                falling.Initialize(currentPhase.speed);
+                falling.Initialize(currentPhase.Speed);
             }
         }
 
@@ -82,7 +82,7 @@ namespace Gameplay
 
         private void GenerateVirusObject(VirusSpawnPoint spawnPoint, PhaseData currentPhase)
         {
-            Virus prefab = currentPhase.virus[Random.Range(0, currentPhase.virus.Count)];
+            Virus prefab = currentPhase.Virus[Random.Range(0, currentPhase.Virus.Count)];
             Instantiate(prefab, spawnPoint.transform.position, Quaternion.identity, spawnPoint.transform);
         }
 
@@ -96,7 +96,7 @@ namespace Gameplay
             foreach (WordData word in _activeWords)
                 for (int i = 0; i < activeLettersSpawnRate; i++)
                 {
-                    foreach (char c in word.word)
+                    foreach (char c in word.Word)
                         pool.Add(c);
                 }
 

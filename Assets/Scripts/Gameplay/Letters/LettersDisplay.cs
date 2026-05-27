@@ -21,7 +21,7 @@ namespace Gameplay.Letters
             _letterCells.ForEach(letterCell => Destroy(letterCell.gameObject)); // Destroy all old letters cells
             _letterCells.Clear();
             
-            foreach (char letter in _currentWordData.word)
+            foreach (char letter in _currentWordData.Word)
             {
                 LetterCell letterCell = Instantiate(letterCellPrefab, transform.position, Quaternion.identity, transform);
                 letterCell.Init(letter);

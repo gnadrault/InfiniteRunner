@@ -15,17 +15,17 @@ namespace Gameplay
 
         private void OnEnable()
         {
-            GameEvents.OnNewPhase += HandleNewPhase;
+            GameEvents.OnSpeedChanged += HandleSpeedChanged;
         }
         
         private void OnDisable()
         {
-            GameEvents.OnNewPhase -= HandleNewPhase;
+            GameEvents.OnSpeedChanged -= HandleSpeedChanged;
         }
 
-        private void HandleNewPhase(PhaseData phase)
+        private void HandleSpeedChanged(float speed)
         {
-            _speed = phase.speed;
+            _speed = speed;
         }
 
         private void Update()
@@ -36,7 +36,7 @@ namespace Gameplay
             {
                 GameEvents.OnNewMeter?.Invoke(_distance);
             }
-            distanceLabel.text = ((int)_distance).ToString();
+            distanceLabel.text = $"{((int)_distance)} m";
         }
     }
 }

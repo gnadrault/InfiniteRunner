@@ -24,6 +24,7 @@ namespace Gameplay
         private readonly List<Segment> _poolSegmentList = new();
         private SegmentBuilder _segmentBuilder;
         private PhaseData _currentPhaseData;
+        private float _speed;
 
         private void Awake()
         {
@@ -80,13 +81,15 @@ namespace Gameplay
 
         private void StopScroll()
         {
-            _currentPhaseData.speed = 0f;
+            _speed = 0f;
         }
 
         private void HandleNewPhase(PhaseData phaseData)
         {
             _currentPhaseData = phaseData;
-            _poolSegmentList.AddRange(phaseData.newSegments);
+            _speed = phaseData.Speed;
+            GameEvents.OnSpeedChanged?.Invoke(_speed);
+            _poolSegmentList.AddRange(phaseData.NewSegments);
         }
 
         private void Update()
@@ -95,7 +98,7 @@ namespace Gameplay
                 AddSegment();
 
             foreach (Segment segment in _activeSegmentList)
-                segment.Scroll(_currentPhaseData.speed * Time.deltaTime);
+                segment.Scroll(_speed * Time.deltaTime);
         }
     }
 }

@@ -85,7 +85,7 @@ namespace Gameplay
                 if (!_enqueuedWords.Add(completedWord)) continue;
 
                 if (isBonus)
-                    GameEvents.OnWordCompleted?.Invoke(completedWord.word.Length);
+                    GameEvents.OnWordCompleted?.Invoke(completedWord.Word.Length);
 
                 _completedWordsQueue.Enqueue(completedWord);
             }
@@ -124,17 +124,17 @@ namespace Gameplay
             WordData nextWord = _completedWordsQueue.Dequeue();
             _enqueuedWords.Remove(nextWord);
 
-            List<WordData> currentWords = nextWord.isBonus ? _currentBonus : _currentMalus;
-            LettersDisplay[] displays = nextWord.isBonus ? bonusDisplays : malusDisplays;
+            List<WordData> currentWords = nextWord.IsBonus ? _currentBonus : _currentMalus;
+            LettersDisplay[] displays = nextWord.IsBonus ? bonusDisplays : malusDisplays;
 
             LettersDisplay display = FindDisplay(nextWord, displays);
             currentWords.Remove(nextWord);
             
             if (display)
-                AssignWord(display, currentWords, nextWord.isBonus);
+                AssignWord(display, currentWords, nextWord.IsBonus);
 
             FireActiveWordsChanged();
-            ApplyEffect(nextWord.effect);
+            ApplyEffect(nextWord.Effect);
         }
         
         private LettersDisplay FindDisplay(WordData word, LettersDisplay[] displays)

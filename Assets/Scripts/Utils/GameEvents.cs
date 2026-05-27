@@ -18,6 +18,7 @@ namespace Utils
         #region Gameplay
 
         public static Action<float> OnNewMeter;
+        public static Action<float> OnSpeedChanged;
         public static Action<PhaseData> OnNewPhase;
 
         #endregion

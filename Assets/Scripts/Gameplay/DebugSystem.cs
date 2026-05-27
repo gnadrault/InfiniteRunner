@@ -28,17 +28,23 @@ namespace Gameplay
         private void OnEnable()
         {
             GameEvents.OnNewPhase += HandleNewPhase;
+            GameEvents.OnSpeedChanged += HandleSpeedChanged;
         }
-        
+
         private void OnDisable()
         {
             GameEvents.OnNewPhase -= HandleNewPhase;
+            GameEvents.OnSpeedChanged -= HandleSpeedChanged;
         }
 
         private void HandleNewPhase(PhaseData phaseData)
         {
-            _phaseTxt.text = "Phase: " + phaseData.name;
-            _speedTxt.text = "Speed: " + phaseData.speed.ToString("F2");
+            _phaseTxt.text = "Phase: " + phaseData.Name;
+        }
+        
+        private void HandleSpeedChanged(float speed)
+        {
+            _speedTxt.text = "Speed: " + speed.ToString("F2");
         }
 
         private void Start()
@@ -60,7 +66,7 @@ namespace Gameplay
 
             foreach (WordData item in lettersSystem.CompletedQueue)
             {
-                builder.AppendLine(item.word + " - " + item.effect.name);
+                builder.AppendLine(item.Word + " - " + item.Effect.name);
             }
 
             _queueText.text = builder.ToString();
