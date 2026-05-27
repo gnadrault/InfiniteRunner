@@ -79,7 +79,7 @@ namespace Player.State
             }
 
             float t = _elapsedTime / _slideSettings.timeFlattenWait;
-            return EasingFunctions.EaseOutQuint(Mathf.Clamp01(t));
+            return TweenUtils.EaseOutQuint(Mathf.Clamp01(t));
         }
 
         private float UpdateSlide()
@@ -99,7 +99,7 @@ namespace Player.State
             _recoverElapsedTime += Time.deltaTime;
 
             float t = _recoverElapsedTime / _slideSettings.timeToRecover;
-            return EasingFunctions.EaseInQuint(Mathf.Clamp01(t));
+            return TweenUtils.EaseInQuint(Mathf.Clamp01(t));
         }
 
         public void Exit()

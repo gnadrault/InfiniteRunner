@@ -36,7 +36,7 @@ MonoBehaviour:
     cameraSettings:
       position: {x: 0, y: 5, z: -15}
       rotation: {x: 9, y: 0, z: 0}
-      fov: 30
+      fov: 28
     speed: 26
     distance: 1500
     music: {fileID: 0}
@@ -53,7 +53,7 @@ MonoBehaviour:
     cameraSettings:
       position: {x: 0, y: 5, z: -15}
       rotation: {x: 9, y: 0, z: 0}
-      fov: 35
+      fov: 30
     speed: 32
     distance: 3000
     music: {fileID: 0}
@@ -71,7 +71,7 @@ MonoBehaviour:
     cameraSettings:
       position: {x: 0, y: 5, z: -15}
       rotation: {x: 9, y: 0, z: 0}
-      fov: 40
+      fov: 32
     speed: 40
     distance: -1
     music: {fileID: 0}

@@ -3319,6 +3319,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Gameplay.PhaseManager
   phasesDatabase: {fileID: 11400000, guid: fd23602c190a2cd4888cb6c5287de2e3, type: 2}
   tronMaterial: {fileID: 2100000, guid: 2ae57a9953092a6488d1e5e7b8a2e851, type: 2}
+  speedTransition: 2
 --- !u!4 &1163644731
 Transform:
   m_ObjectHideFlags: 0
@@ -9915,7 +9916,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5a1be9f07dc2474288cfa7019e1dc98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChunkManager
-  maxSegments: 7
+  numSegments: 7
   firstSegment: {fileID: 4933993261843267823}
   segmentsCountPerPhase: 5
 --- !u!4 &1855767987

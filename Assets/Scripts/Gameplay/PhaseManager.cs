@@ -1,4 +1,3 @@
-using System;
 using Data;
 using UnityEngine;
 using Utils;
@@ -8,10 +7,11 @@ namespace Gameplay
     public class PhaseManager : MonoBehaviour
     {
         private static readonly int EmissionColor = Shader.PropertyToID("_EmissionColor");
-        
+
         [SerializeField] private PhaseDatabase phasesDatabase;
         [SerializeField] private Material tronMaterial;
-        
+        [SerializeField] private float speedTransition = 2f;
+
         private int _currentPhaseIndex;
         private Camera _mainCamera;
 
@@ -23,6 +23,7 @@ namespace Gameplay
         private void Start()
         {
             ChangePhase(0);
+            TimeScaleManager.Instance.SetTimeScale(1f);
         }
 
         private void OnEnable()
@@ -40,7 +41,7 @@ namespace Gameplay
             PhaseData currentPhase = phasesDatabase.phases[_currentPhaseIndex];
             if (distance < currentPhase.distance || currentPhase.IsInfiniteDistance)
                 return;
-            
+
             ChangePhase(_currentPhaseIndex + 1);
         }
 
@@ -48,23 +49,30 @@ namespace Gameplay
         {
             _currentPhaseIndex = newPhaseIndex;
             GameEvents.OnNewPhase?.Invoke(phasesDatabase.phases[_currentPhaseIndex]);
-            
+
             UpdateColors();
             UpdateCamera();
         }
 
         private void UpdateColors()
         {
-            tronMaterial.SetColor(EmissionColor,
-                phasesDatabase.phases[_currentPhaseIndex].phaseColor *
-                phasesDatabase.phases[_currentPhaseIndex].intensityColor);
+            Color initialColor = tronMaterial.GetColor(EmissionColor);
+            Color targetColor = phasesDatabase.phases[_currentPhaseIndex].phaseColor;
+            float intensity = phasesDatabase.phases[_currentPhaseIndex].intensityColor;
+            StartCoroutine(TweenUtils.Transition(t =>
+                    tronMaterial.SetColor(EmissionColor, Color.Lerp(initialColor, targetColor * intensity, t)),
+                speedTransition
+            ));
         }
-        
+
         private void UpdateCamera()
         {
-            _mainCamera.transform.position = phasesDatabase.phases[_currentPhaseIndex].cameraSettings.position;
-            _mainCamera.transform.rotation = Quaternion.Euler(phasesDatabase.phases[_currentPhaseIndex].cameraSettings.rotation);
-            _mainCamera.fieldOfView = phasesDatabase.phases[_currentPhaseIndex].cameraSettings.fov;
+            float initialFOV = _mainCamera.fieldOfView;
+            float targetFOV = phasesDatabase.phases[_currentPhaseIndex].cameraSettings.fov;
+            StartCoroutine(TweenUtils.Transition(t =>
+                    _mainCamera.fieldOfView = Mathf.Lerp(initialFOV, targetFOV, t),
+                speedTransition
+            ));
         }
     }
 }

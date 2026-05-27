@@ -30,7 +30,7 @@ namespace Player.State
             _elapsedTime += Time.deltaTime;
             
             float t = _elapsedTime / _laneSettings.laneChangeDuration;
-            float moveFactor = EasingFunctions.EaseOutQuint(Mathf.Clamp01(t));
+            float moveFactor = TweenUtils.EaseOutQuint(Mathf.Clamp01(t));
             float newX = Mathf.Lerp(_startX, _targetX, moveFactor);
             _playerController.SetPositionX(newX);
         }

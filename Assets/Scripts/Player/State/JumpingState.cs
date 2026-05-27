@@ -81,7 +81,7 @@ namespace Player.State
             }
 
             float t = _elapsedTime / _jumpSettings.timeToApex;
-            return EasingFunctions.EaseOutQuint(Mathf.Clamp01(t));
+            return TweenUtils.EaseOutQuint(Mathf.Clamp01(t));
         }
 
         private float UpdateApex()
@@ -102,7 +102,7 @@ namespace Player.State
             _descentElapsedTime += Time.deltaTime;
 
             float t = _descentElapsedTime / _jumpSettings.timeDescent;
-            return EasingFunctions.EaseInQuint(Mathf.Clamp01(t));
+            return TweenUtils.EaseInQuint(Mathf.Clamp01(t));
         }
 
         public void Exit()
