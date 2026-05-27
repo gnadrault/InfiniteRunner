@@ -10,7 +10,7 @@ namespace Gameplay
     public class SegmentManager : MonoBehaviour
     {
         [Header("Settings")] 
-        [SerializeField] private int maxSegments = 5;
+        [SerializeField] private int numSegments = 7;
 
         [Header("Segments")] 
         [SerializeField] private Segment firstSegment;
@@ -91,7 +91,7 @@ namespace Gameplay
 
         private void Update()
         {
-            while (_activeSegmentList.Count < maxSegments)
+            while (_activeSegmentList.Count < numSegments)
                 AddSegment();
 
             foreach (Segment segment in _activeSegmentList)

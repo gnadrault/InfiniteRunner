@@ -1,3 +1,4 @@
+using System;
 using Data;
 using UnityEngine;
 using Utils;
@@ -12,6 +13,12 @@ namespace Gameplay
         [SerializeField] private Material tronMaterial;
         
         private int _currentPhaseIndex;
+        private Camera _mainCamera;
+
+        private void Awake()
+        {
+            _mainCamera = Camera.main;
+        }
 
         private void Start()
         {
@@ -42,11 +49,22 @@ namespace Gameplay
             _currentPhaseIndex = newPhaseIndex;
             GameEvents.OnNewPhase?.Invoke(phasesDatabase.phases[_currentPhaseIndex]);
             
-            // Colors
+            UpdateColors();
+            UpdateCamera();
+        }
+
+        private void UpdateColors()
+        {
             tronMaterial.SetColor(EmissionColor,
                 phasesDatabase.phases[_currentPhaseIndex].phaseColor *
                 phasesDatabase.phases[_currentPhaseIndex].intensityColor);
-
+        }
+        
+        private void UpdateCamera()
+        {
+            _mainCamera.transform.position = phasesDatabase.phases[_currentPhaseIndex].cameraSettings.position;
+            _mainCamera.transform.rotation = Quaternion.Euler(phasesDatabase.phases[_currentPhaseIndex].cameraSettings.rotation);
+            _mainCamera.fieldOfView = phasesDatabase.phases[_currentPhaseIndex].cameraSettings.fov;
         }
     }
 }

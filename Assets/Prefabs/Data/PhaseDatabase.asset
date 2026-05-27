@@ -17,7 +17,10 @@ MonoBehaviour:
     rainbowColor: 0
     phaseColor: {r: 0.07450981, g: 0.7490196, b: 0.6901961, a: 1}
     intensityColor: 2
-    cameraAngle: 0
+    cameraSettings:
+      position: {x: 0, y: 5, z: -15}
+      rotation: {x: 9, y: 0, z: 0}
+      fov: 25
     speed: 20
     distance: 500
     music: {fileID: 0}
@@ -30,7 +33,10 @@ MonoBehaviour:
     rainbowColor: 0
     phaseColor: {r: 0.21960784, g: 0.08235294, b: 0.7490196, a: 1}
     intensityColor: 2
-    cameraAngle: 0
+    cameraSettings:
+      position: {x: 0, y: 5, z: -15}
+      rotation: {x: 9, y: 0, z: 0}
+      fov: 30
     speed: 26
     distance: 1500
     music: {fileID: 0}
@@ -44,7 +50,10 @@ MonoBehaviour:
     rainbowColor: 0
     phaseColor: {r: 1, g: 0.101960786, b: 0, a: 1}
     intensityColor: 2
-    cameraAngle: 0
+    cameraSettings:
+      position: {x: 0, y: 5, z: -15}
+      rotation: {x: 9, y: 0, z: 0}
+      fov: 35
     speed: 32
     distance: 3000
     music: {fileID: 0}
@@ -59,7 +68,10 @@ MonoBehaviour:
     rainbowColor: 0
     phaseColor: {r: 1, g: 1, b: 0, a: 1}
     intensityColor: 2
-    cameraAngle: 0
+    cameraSettings:
+      position: {x: 0, y: 5, z: -15}
+      rotation: {x: 9, y: 0, z: 0}
+      fov: 40
     speed: 40
     distance: -1
     music: {fileID: 0}
