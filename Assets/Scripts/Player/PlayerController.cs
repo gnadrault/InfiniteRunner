@@ -1,12 +1,12 @@
 using System;
 using System.Collections;
+using Gameplay.GameElement.Collectible;
+using Gameplay.GameElement.Virus;
 using Player.Data;
 using Player.State;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Utils;
-using World.GameElement.Collectible;
-using World.GameElement.Virus;
 
 namespace Player
 {
@@ -134,7 +134,7 @@ namespace Player
         {
             _currentVirusElement = virus;
             GameEvents.OnVirusAttached?.Invoke();
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSecondsRealtime(2);
             _currentVirusElement.ApplyEffect(this, attachedPosition);
         }
         

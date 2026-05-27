@@ -1,10 +1,10 @@
 using System.Text;
 using Data;
 using Gameplay.Letters;
+using Gameplay.Segment;
 using Player;
 using TMPro;
 using UnityEngine;
-using World.Segment;
 
 
 namespace Gameplay

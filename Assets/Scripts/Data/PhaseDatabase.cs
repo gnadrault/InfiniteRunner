@@ -8,8 +8,6 @@ namespace Data
     public class PhaseDatabase : ScriptableObject
     {
         [SerializeField] public List<PhaseData> phases;
-        
-        // TODO Check if last phase => infinite
     }
     
     [Serializable]
@@ -23,5 +21,10 @@ namespace Data
         [SerializeField] public float speed;
         [SerializeField] public float distance;
         [SerializeField] public AudioClip music;
+
+        [SerializeField] public SegmentDatabase newSegments;
+        [SerializeField] public VirusDatabase virus;
+        
+        public bool IsInfiniteDistance => distance <= 0f;
     }
 }

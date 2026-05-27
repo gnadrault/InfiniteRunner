@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Gameplay.GameElement.WordEffect;
 using UnityEngine;
-using World.GameElement.WordEffect;
 using Random = UnityEngine.Random;
 
 namespace Data

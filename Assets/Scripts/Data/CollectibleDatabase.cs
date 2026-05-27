@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Gameplay.GameElement.Collectible;
 using UnityEngine;
-using World.GameElement.Collectible;
 
 namespace Data
 {

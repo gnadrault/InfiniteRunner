@@ -1,4 +1,5 @@
 ﻿using System;
+using Data;
 
 namespace Utils
 {
@@ -17,6 +18,7 @@ namespace Utils
         #region Gameplay
 
         public static Action<float> OnNewMeter;
+        public static Action<PhaseData> OnNewPhase;
 
         #endregion
 
