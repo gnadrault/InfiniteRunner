@@ -40,7 +40,6 @@ namespace Player
         private bool _ghost;
         
         //Malus
-        
 
         private void Awake()
         {

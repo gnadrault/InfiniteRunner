@@ -31,12 +31,6 @@ namespace Gameplay.Elements.Ennemis
         }
         
         #region Solution
-
-        private void OnDisable()
-        {
-            spamKey.action.started -= OnKeyPressed;
-        }
-
         private void OnKeyPressed(InputAction.CallbackContext ctx)
         {
             if (_player == null) return;
@@ -60,6 +54,11 @@ namespace Gameplay.Elements.Ennemis
         private string GetHUDLabel()
         {
             return $"{spamKey.action.name} x{(requiredPressed - _currentPressedCount)}";
+        }
+        
+        private void OnDisable()
+        {
+            spamKey.action.started -= OnKeyPressed;
         }
         #endregion
     }

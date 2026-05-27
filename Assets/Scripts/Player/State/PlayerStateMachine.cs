@@ -6,11 +6,11 @@ namespace Player.State
 {
     public class PlayerStateMachine
     {
-        private IPlayerState _lane;
-        private IPlayerState _jump;
-        private IPlayerState _idle;
-        private IPlayerState _slide;
-        private IPlayerState _die;
+        private readonly IPlayerState _lane;
+        private readonly IPlayerState _jump;
+        private readonly IPlayerState _idle;
+        private readonly IPlayerState _slide;
+        private readonly IPlayerState _die;
 
         private IPlayerState _currentState;
 
@@ -52,7 +52,7 @@ namespace Player.State
                     ChangeState(Idle());
                     break;
                 case DieState:
-                    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().name); // TODO Change to GameOver Menu
                     break;
             }
         }

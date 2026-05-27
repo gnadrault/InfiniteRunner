@@ -32,7 +32,7 @@ MonoBehaviour:
     - {fileID: 1786364590797097875, guid: 1a08c3a0cb92f6240a237030a04c5b1d, type: 3}
   - name: 2
     rainbowColor: 0
-    phaseColor: {r: 0.6448346, g: 0.36862743, b: 1, a: 1}
+    phaseColor: {r: 0.37256625, g: 0.23691694, b: 0.7610062, a: 1}
     intensityColor: 4
     cameraSettings:
       position: {x: 0, y: 4.3, z: -15}

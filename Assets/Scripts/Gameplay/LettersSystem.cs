@@ -16,10 +16,12 @@ namespace Gameplay
         [SerializeField] private PlayerController player;
 
         // Bonus / Malus
-        [Header("Bonus")] [SerializeField] private LettersDisplay[] bonusDisplays = new LettersDisplay[3];
+        [Header("Bonus")] 
+        [SerializeField] private LettersDisplay[] bonusDisplays = new LettersDisplay[3];
         [SerializeField] private Color bonusHighlightColor = Colors.HighlightBonus;
 
-        [Header("Malus")] [SerializeField] private LettersDisplay[] malusDisplays = new LettersDisplay[3];
+        [Header("Malus")] 
+        [SerializeField] private LettersDisplay[] malusDisplays = new LettersDisplay[3];
         [SerializeField] private Color malusHighlightColor = Colors.HighlightMalus;
 
         private readonly List<WordData> _currentBonus = new();
@@ -59,12 +61,9 @@ namespace Gameplay
         {
             HighlightLetters(bonusDisplays, letter, bonusHighlightColor);
             HighlightLetters(malusDisplays, letter, malusHighlightColor);
-
             CheckCompletion(bonusDisplays, true);
             CheckCompletion(malusDisplays, false);
-            
             ProcessEffectQueue();
-
             FireActiveWordsChanged();
         }
 
@@ -78,11 +77,13 @@ namespace Gameplay
         {
             foreach (LettersDisplay display in displays)
             {
-                if (!display.IsComplete()) continue;
+                if (!display.IsComplete()) 
+                    continue;
 
                 WordData completedWord = display.CurrentWordData;
 
-                if (!_enqueuedWords.Add(completedWord)) continue;
+                if (!_enqueuedWords.Add(completedWord))
+                    continue;
 
                 if (isBonus)
                     GameEvents.OnWordCompleted?.Invoke(completedWord.Word.Length);
@@ -132,8 +133,7 @@ namespace Gameplay
             
             if (display)
                 AssignWord(display, currentWords, nextWord.IsBonus);
-
-            FireActiveWordsChanged();
+            
             ApplyEffect(nextWord.Effect);
         }
         

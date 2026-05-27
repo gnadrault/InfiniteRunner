@@ -58,7 +58,6 @@ namespace Gameplay
 
         private void UpdateMaterialColor()
         {
-            // Material
             Color initialColor = tronMaterial.GetColor(EmissionColor);
             Color targetColor = phasesDatabase.phases[_currentPhaseIndex].PhaseColor;
             float intensity = phasesDatabase.phases[_currentPhaseIndex].IntensityColor;
