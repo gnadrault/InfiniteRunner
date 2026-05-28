@@ -2,6 +2,7 @@
 using UI;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Utils;
 
 namespace Gameplay.Elements.Enemies
 {
@@ -18,12 +19,14 @@ namespace Gameplay.Elements.Enemies
             _currentPressedCount = 0;
             spamKey.action.started += OnKeyPressed;
             player.DisableMovement();
+            GameEvents.OnGameFeelProfile?.Invoke(gameFeelProfile);
             HUD.Instance.ShowVirusPanel(GetHUDLabel());
         }
 
         public override void RemoveEffect(PlayerController player)
         {
             player.EnableMovement();
+            GameEvents.OnGameFeelEnd?.Invoke();
             HUD.Instance.HideVirusPanel();
             Destroy(gameObject);
         }

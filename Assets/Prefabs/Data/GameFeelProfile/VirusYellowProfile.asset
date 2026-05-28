@@ -10,21 +10,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d8f3705f28d343d69fcb554047c54927, type: 3}
-  m_Name: VirusGreenProfile2
+  m_Name: VirusYellowProfile
   m_EditorClassIdentifier: Assembly-CSharp::Feedback.Data.GameFeelProfile
   vignette:
-    enabled: 1
-    color: {r: 0.98217714, g: 1, b: 0, a: 1}
+    enabled: 0
+    color: {r: 1, g: 0, b: 0, a: 1}
     intensity: 0.3
     smoothness: 0.2
-    pulse: 0
+    pulse: 1
     pulseSpeed: 2
   score:
-    enabled: 1
+    enabled: 0
     shake: 1
     shakeIntensity: 3
     colorOverride: 0
     color: {r: 1, g: 0, b: 0, a: 1}
+  obscureScreen:
+    enabled: 1
+    scatter: 0.6
+    dirtTexture: {fileID: 2800000, guid: dffef66376be4fa480fb02b19edbe903, type: 3}
+    dirtIntensity: 165
   border:
     enabled: 0
     color: {r: 1, g: 0, b: 0, a: 1}

@@ -8,6 +8,7 @@ namespace Feedback.Data
     {
         [SerializeField] private VignetteSection vignette;
         [SerializeField] private ScoreSection score;
+        [SerializeField] private ObscureScreenSection obscureScreen;
         [SerializeField] private BorderSection border;
         [SerializeField] private GlowSection glow;
         
@@ -17,6 +18,7 @@ namespace Feedback.Data
         public ScoreSection Score => score;
         public BorderSection Border => border;
         public GlowSection Glow => glow;
+        public ObscureScreenSection ObscureScreen => obscureScreen;
     }
     
     [System.Serializable]
@@ -38,6 +40,15 @@ namespace Feedback.Data
         public float shakeIntensity = 3f;
         public bool colorOverride;
         public Color color = Color.red;
+    }
+    
+    [System.Serializable]
+    public class ObscureScreenSection
+    {
+        public bool enabled;
+        public float scatter = 0.6f;
+        public Texture dirtTexture;
+        public float dirtIntensity = 165f;
     }
 
     [System.Serializable]

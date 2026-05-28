@@ -62,7 +62,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 9cc2003a829c0b142bb584f0c01550c2, type: 2}
     - target: {fileID: 7579398550601574980, guid: 13a23ed67c4ee3642868f4d562221c53, type: 3}
       propertyPath: m_Name
-      value: Virus-Blue (Root)
+      value: Virus (Blue)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -89,3 +89,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d3e89e9edb645ae8abf03c216b85559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::World.GameElement.Virus.BlueVirus
+  gameFeelProfile: {fileID: 11400000, guid: 5d69d3abcfbf5604db34870cae6d7a7d, type: 2}
+  timeReduce: 0.9
+  duration: 5
