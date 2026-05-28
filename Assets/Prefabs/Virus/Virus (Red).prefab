@@ -93,9 +93,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::World.GameElement.Virus.RedVirus
   gameFeelProfile: {fileID: 11400000, guid: 71f59eeb4dda9414f9bb697db395d312, type: 2}
-  timeReduce: 0.9
   spamKey: {fileID: 3161682069650093083, guid: 0eae3734640624049a0c62a5acdfe144, type: 3}
-  requiredPressed: 10
+  requiredPressed: 4
 --- !u!114 &9216990374291788481
 MonoBehaviour:
   m_ObjectHideFlags: 0

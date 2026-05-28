@@ -17,14 +17,13 @@ namespace Gameplay.Elements.Enemies
         {
             _player = player;
             _currentTimer = duration;
-            HUD.Instance.ShowVirusPanel(GetHUDLabel());
+            AlertHUD.Instance.ShowPanelTimed(AlertHUD.PanelType.Virus, textMessage, duration);
             GameEvents.OnGameFeelProfile?.Invoke(gameFeelProfile);
             StartCoroutine(ApplyVirus());
         }
 
         public override void RemoveEffect(PlayerController player)
         {
-            HUD.Instance.HideVirusPanel();
             GameEvents.OnGameFeelEnd?.Invoke();
             Destroy(gameObject);
         }
@@ -49,14 +48,6 @@ namespace Gameplay.Elements.Enemies
             {
                 GameEvents.OnRemovePercentPoints?.Invoke(0.1f);
             }
-            HUD.Instance.UpdateVirusLabel(GetHUDLabel());
-        }
-
-        private string GetHUDLabel()
-        {
-            int seconds = Mathf.FloorToInt(_currentTimer);
-            int milliseconds = Mathf.FloorToInt((_currentTimer - seconds) * 100);
-            return $"{seconds:D2}:{milliseconds:D2}";
         }
     }
 }

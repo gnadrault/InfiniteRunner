@@ -25,7 +25,7 @@ namespace Feedback
         private void OnDisable()
         {
             GameEvents.OnGameFeelProfile -= ApplyEffect;
-            GameEvents.OnGameFeelEnd += ResetToAmbient;
+            GameEvents.OnGameFeelEnd -= ResetToAmbient;
         }
 
         private void Awake()

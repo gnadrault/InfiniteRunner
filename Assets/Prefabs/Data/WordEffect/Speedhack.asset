@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e34340841ae4981bb1519f1a9ef1d7d, type: 3}
   m_Name: Speedhack
   m_EditorClassIdentifier: Assembly-CSharp::World.GameElement.WordEffect.Speedhack
+  effectName: Speedhack
+  panelType: 2
   duration: 10
-  isComplete: 0
+  isComplete: 1
+  speedTimeScale: 1.2

@@ -9,7 +9,8 @@ namespace Gameplay.Elements.Enemies
     public abstract class Virus : Element
     {
         [SerializeField] protected GameFeelProfile gameFeelProfile;
-        [SerializeField] protected float timeReduce = 0.9f;
+        
+        protected readonly string textMessage = "INFECTED!";
 
         public abstract void ApplyEffect(PlayerController player, Transform position);
         public abstract void RemoveEffect(PlayerController player);

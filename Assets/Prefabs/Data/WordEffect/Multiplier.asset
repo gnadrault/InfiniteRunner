@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1375ed1f8f4a62b9eaee86a1cdb14e, type: 3}
   m_Name: Multiplier
   m_EditorClassIdentifier: Assembly-CSharp::World.GameElement.WordEffect.Multiplier
+  effectName: Bingo
+  panelType: 1
   duration: 10
   isComplete: 0

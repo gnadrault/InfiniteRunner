@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bec4ed603404d2fa2870cb286ff8229, type: 3}
   m_Name: Slow
   m_EditorClassIdentifier: Assembly-CSharp::World.GameElement.WordEffect.Slow
+  effectName: Slow
+  panelType: 1
   duration: 10
-  isComplete: 0
+  isComplete: 1
+  speedTimeScale: 0.5

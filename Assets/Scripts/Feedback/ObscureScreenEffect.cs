@@ -23,7 +23,7 @@ namespace Feedback
         private void OnDisable()
         {
             GameEvents.OnGameFeelProfile -= ApplyEffect;
-            GameEvents.OnGameFeelEnd += ResetToAmbient;
+            GameEvents.OnGameFeelEnd -= ResetToAmbient;
         }
 
         private void Awake()
@@ -35,9 +35,8 @@ namespace Feedback
         {
             if (!profile || !profile.ObscureScreen.enabled) return;
             ObscureScreenSection data = profile.ObscureScreen;
-            
             _bloom.dirtTexture.value = data.dirtTexture;
-            StartCoroutine(TweenUtils.Transition(t =>
+            _routine = StartCoroutine(TweenUtils.Transition(t =>
                     _bloom.dirtIntensity.value = Mathf.Lerp(0f, data.dirtIntensity, t),
                 transitionDuration
             ));
@@ -45,6 +44,7 @@ namespace Feedback
 
         public void ResetToAmbient()
         {
+            if (_routine == null) return;
             StartCoroutine(TweenUtils.Transition(t =>
                     _bloom.dirtIntensity.value = Mathf.Lerp(_bloom.dirtIntensity.value, 0f, t),
                 transitionDuration

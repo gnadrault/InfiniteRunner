@@ -126,7 +126,9 @@ namespace Player
 
         public void AttachVirus(Virus virus)
         {
-            StartCoroutine(WaitAndApplyVirusEffect(virus));
+            currentVirus = virus;
+            GameEvents.OnVirusAttached?.Invoke();
+            currentVirus.ApplyEffect(this, attachedPosition);
         }
 
         private IEnumerator WaitAndApplyVirusEffect(Virus virus)

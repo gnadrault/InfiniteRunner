@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a48636f97984897a3fe76512b85941b, type: 3}
   m_Name: Shield
   m_EditorClassIdentifier: Assembly-CSharp::World.GameElement.WordEffect.Shield
-  isDone: 0
+  effectName: Shield
+  panelType: 1
+  duration: 10
+  isComplete: 0

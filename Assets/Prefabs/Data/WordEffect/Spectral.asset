@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff1dc5045bec4ecebdcaf792d893540b, type: 3}
   m_Name: Spectral
   m_EditorClassIdentifier: Assembly-CSharp::World.GameElement.WordEffect.Spectral
-  isDone: 0
+  effectName: Ghost
+  panelType: 1
+  duration: 10
+  isComplete: 0

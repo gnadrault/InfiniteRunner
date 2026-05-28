@@ -1,17 +1,19 @@
 using System.Collections;
 using Player;
+using UI;
 using UnityEngine;
 
 namespace Gameplay.Elements.Effects
 {
     public abstract class WordEffect : ScriptableObject
     {
-        
+        [SerializeField] protected string effectName;
+        [SerializeField] protected AlertHUD.PanelType panelType;
         [SerializeField] private float duration = 10f;
         [HideInInspector] public bool isComplete;
         
         protected PlayerController player;
-        private Coroutine timerCoroutine;
+        private Coroutine _timerCoroutine;
 
         private MonoBehaviour Runner { get; set; }
 
@@ -29,7 +31,8 @@ namespace Gameplay.Elements.Effects
 
         protected void StartEffectTimer()
         {
-            timerCoroutine = Runner.StartCoroutine(EffectTimer());
+            AlertHUD.Instance.ShowPanelTimed(panelType, effectName, duration);
+            _timerCoroutine = Runner.StartCoroutine(EffectTimer());
         }
 
         private IEnumerator EffectTimer()
@@ -40,8 +43,8 @@ namespace Gameplay.Elements.Effects
         
         protected void OnEffectBroken()
         {
-            if (timerCoroutine != null)
-                Runner.StopCoroutine(timerCoroutine);
+            if (_timerCoroutine != null)
+                Runner.StopCoroutine(_timerCoroutine);
             RemoveEffect();
         }
     }

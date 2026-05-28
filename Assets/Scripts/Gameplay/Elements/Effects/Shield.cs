@@ -1,4 +1,5 @@
 using Player;
+using UI;
 using UnityEngine;
 using Utils;
 
@@ -7,6 +8,7 @@ namespace Gameplay.Elements.Effects
     [CreateAssetMenu(fileName = "Shield", menuName = "SyntaxError/Effects/Shield")]
     public class Shield : WordEffect
     {
+        
         public override void ApplyEffect(PlayerController playerController, MonoBehaviour runner)
         {
             base.ApplyEffect(playerController, runner);

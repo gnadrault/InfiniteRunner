@@ -19,15 +19,14 @@ namespace Gameplay.Elements.Enemies
             _currentPressedCount = 0;
             spamKey.action.started += OnKeyPressed;
             player.DisableMovement();
+            AlertHUD.Instance.ShowPanelText(AlertHUD.PanelType.Virus, textMessage, GetHUDLabel());
             GameEvents.OnGameFeelProfile?.Invoke(gameFeelProfile);
-            HUD.Instance.ShowVirusPanel(GetHUDLabel());
         }
 
         public override void RemoveEffect(PlayerController player)
         {
             player.EnableMovement();
             GameEvents.OnGameFeelEnd?.Invoke();
-            HUD.Instance.HideVirusPanel();
             Destroy(gameObject);
         }
         
@@ -36,6 +35,7 @@ namespace Gameplay.Elements.Enemies
         {
             if (_player == null) return;
             _currentPressedCount++;
+            AlertHUD.Instance.UpdatePanelText(GetHUDLabel());
             OnCheckSolution();
         }
         
@@ -45,10 +45,6 @@ namespace Gameplay.Elements.Enemies
             {
                 spamKey.action.started -= OnKeyPressed;
                 _player.DetachVirus();
-            }
-            else
-            {
-                HUD.Instance.UpdateVirusLabel(GetHUDLabel());
             }
         }
         

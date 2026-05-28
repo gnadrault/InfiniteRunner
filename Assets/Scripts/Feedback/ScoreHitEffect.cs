@@ -15,7 +15,7 @@ namespace Feedback
         private Vector3 _initialPos;
         private Color _initialColor;
         private Coroutine _routine;
-        
+
         private void OnEnable()
         {
             GameEvents.OnGameFeelProfile += ApplyEffect;
@@ -25,7 +25,7 @@ namespace Feedback
         private void OnDisable()
         {
             GameEvents.OnGameFeelProfile -= ApplyEffect;
-            GameEvents.OnGameFeelEnd += ResetToAmbient;
+            GameEvents.OnGameFeelEnd -= ResetToAmbient;
         }
 
         private void Awake()
@@ -37,7 +37,7 @@ namespace Feedback
         public void ApplyEffect(GameFeelProfile profile)
         {
             if (!profile || !profile.Score.enabled) return;
-            
+
             StopCurrent();
             _routine = StartCoroutine(PulseRoutine(profile.Score));
         }
@@ -48,7 +48,7 @@ namespace Feedback
             label.transform.localPosition = _initialPos;
             label.color = _initialColor;
         }
-        
+
         private IEnumerator PulseRoutine(ScoreSection scoreProfil)
         {
             while (true)
@@ -61,10 +61,10 @@ namespace Feedback
         private IEnumerator SingleHit(ScoreSection scoreProfil)
         {
             float elapsed = 0f;
-            
+
             _initialPos = label.transform.localPosition;
             _initialColor = label.color;
-            
+
             while (elapsed < hitDuration)
             {
                 elapsed += Time.deltaTime;
@@ -78,7 +78,7 @@ namespace Feedback
             label.transform.localPosition = _initialPos;
             label.color = _initialColor;
         }
-        
+
         private void StopCurrent()
         {
             if (_routine == null) return;

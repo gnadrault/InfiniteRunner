@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eabb988544242caa5064fa62f477f78, type: 3}
   m_Name: Stroboscope
   m_EditorClassIdentifier: Assembly-CSharp::World.GameElement.WordEffect.Stroboscope
+  effectName: Stroboscope
+  panelType: 2
   duration: 10
   isComplete: 0

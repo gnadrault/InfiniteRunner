@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57cf54e803a640c086a8842a8a4a17e4, type: 3}
   m_Name: Freeze
   m_EditorClassIdentifier: Assembly-CSharp::World.GameElement.WordEffect.Freeze
-  isDone: 0
+  effectName: Freeze
+  panelType: 2
+  duration: 10
+  isComplete: 0
