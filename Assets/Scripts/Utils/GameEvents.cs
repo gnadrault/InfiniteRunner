@@ -1,5 +1,6 @@
 ﻿using System;
 using Data;
+using Feedback.Data;
 
 namespace Utils
 {
@@ -18,6 +19,11 @@ namespace Utils
         public static Action<float> OnSpeedChanged;
         public static Action<PhaseData> OnNewPhase;
         #endregion
+        
+        #region Effects
+        public static Action<GameFeelProfile> OnGameFeelProfile;
+        public static Action OnGameFeelEnd;
+        #endregion
 
         #region Score
         public static Action<float> OnRemovePercentPoints;
@@ -28,7 +34,7 @@ namespace Utils
         public static Action<int> OnWordCompleted;
         #endregion
 
-        #region Effects
+        #region Malus/Bonus
         public static Action OnShieldBroken;
         public static Action OnGhostBroken;
         #endregion

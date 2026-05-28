@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using Data;
 using Gameplay.Elements.Collectibles;
-using Gameplay.Elements.Ennemis;
+using Gameplay.Elements.Enemies;
 using Gameplay.Elements.Obstacles;
 using Gameplay.Segments;
 using Gameplay.Segments.Spawn;

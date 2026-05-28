@@ -1,24 +1,26 @@
 using Data;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 using Utils;
 
 namespace Gameplay
 {
     public class PhaseManager : MonoBehaviour
     {
-        private static readonly int EmissionColor = Shader.PropertyToID("_EmissionColor");
-
+        [SerializeField] private Volume globalVolume;
         [SerializeField] private PhaseDatabase phasesDatabase;
-        [SerializeField] private Material tronMaterial;
         [SerializeField] private ParticleSystem envParticles;
         [SerializeField] private float speedTransition = 2f;
 
         private int _currentPhaseIndex;
         private Camera _mainCamera;
+        private Bloom _bloom;
 
         private void Awake()
         {
             _mainCamera = Camera.main;
+            globalVolume.profile.TryGet(out _bloom);
         }
 
         private void Start()
@@ -51,18 +53,18 @@ namespace Gameplay
             _currentPhaseIndex = newPhaseIndex;
             GameEvents.OnNewPhase?.Invoke(phasesDatabase.phases[_currentPhaseIndex]);
 
-            UpdateMaterialColor();
+            UpdatePhaseColor();
             UpdateParticles();
             UpdateCamera();
         }
 
-        private void UpdateMaterialColor()
+        private void UpdatePhaseColor()
         {
-            Color initialColor = tronMaterial.GetColor(EmissionColor);
+            Color initialColor = _bloom.tint.value;
             Color targetColor = phasesDatabase.phases[_currentPhaseIndex].PhaseColor;
             float intensity = phasesDatabase.phases[_currentPhaseIndex].IntensityColor;
             StartCoroutine(TweenUtils.Transition(t =>
-                    tronMaterial.SetColor(EmissionColor, Color.Lerp(initialColor, targetColor * intensity, t)),
+                _bloom.tint.value = Color.Lerp(initialColor, targetColor * intensity, t),
                 speedTransition
             ));
         }

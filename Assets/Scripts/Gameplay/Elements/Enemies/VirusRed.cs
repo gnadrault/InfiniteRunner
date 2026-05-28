@@ -3,7 +3,7 @@ using UI;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Gameplay.Elements.Ennemis
+namespace Gameplay.Elements.Enemies
 {
     public class VirusRed: Virus
     {
@@ -18,14 +18,12 @@ namespace Gameplay.Elements.Ennemis
             _currentPressedCount = 0;
             spamKey.action.started += OnKeyPressed;
             player.DisableMovement();
-            TimeScaleManager.Instance.SetTimeScale(timeReduce);
             HUD.Instance.ShowVirusPanel(GetHUDLabel());
         }
 
         public override void RemoveEffect(PlayerController player)
         {
             player.EnableMovement();
-            TimeScaleManager.Instance.SetTimeScale(1f);
             HUD.Instance.HideVirusPanel();
             Destroy(gameObject);
         }

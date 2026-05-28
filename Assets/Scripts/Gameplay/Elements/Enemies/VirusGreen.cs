@@ -4,7 +4,7 @@ using UI;
 using UnityEngine;
 using Utils;
 
-namespace Gameplay.Elements.Ennemis
+namespace Gameplay.Elements.Enemies
 {
     public class VirusGreen: Virus
     {
@@ -17,15 +17,15 @@ namespace Gameplay.Elements.Ennemis
         {
             _player = player;
             _currentTimer = duration;
-            TimeScaleManager.Instance.SetTimeScale(timeReduce);
             HUD.Instance.ShowVirusPanel(GetHUDLabel());
+            GameEvents.OnGameFeelProfile?.Invoke(gameFeelProfile);
             StartCoroutine(ApplyVirus());
         }
 
         public override void RemoveEffect(PlayerController player)
         {
-            TimeScaleManager.Instance.SetTimeScale(1f);
             HUD.Instance.HideVirusPanel();
+            GameEvents.OnGameFeelEnd?.Invoke();
             Destroy(gameObject);
         }
 

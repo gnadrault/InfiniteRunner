@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Gameplay.Elements.Ennemis;
+using Gameplay.Elements.Enemies;
 using Gameplay.Segments;
 using UnityEngine;
 

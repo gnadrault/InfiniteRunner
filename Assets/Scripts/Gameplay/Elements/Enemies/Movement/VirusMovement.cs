@@ -1,9 +1,9 @@
 ﻿using Player;
 using UnityEngine;
 
-namespace Gameplay.Elements.Ennemis.Solution
+namespace Gameplay.Elements.Enemies.Movement
 {
-    public abstract class VirusSolution: MonoBehaviour
+    public abstract class VirusMovement : MonoBehaviour
     {
         public abstract void OnAttached(PlayerController player);
     }

@@ -3,7 +3,7 @@ using UI;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Gameplay.Elements.Ennemis.Solution
+namespace Gameplay.Elements.Enemies.Solution
 {
     public class SolutionSpamKey : VirusSolution
     {

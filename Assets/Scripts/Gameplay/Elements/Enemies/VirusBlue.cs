@@ -2,7 +2,7 @@
 using Player;
 using UnityEngine;
 
-namespace Gameplay.Elements.Ennemis
+namespace Gameplay.Elements.Enemies
 {
     public class VirusBlue: Virus
     {
@@ -13,12 +13,10 @@ namespace Gameplay.Elements.Ennemis
         {
             _player = player;
             StartCoroutine(ApplyVirus());
-            TimeScaleManager.Instance.SetTimeScale(timeReduce);
         }
 
         public override void RemoveEffect(PlayerController player)
         {
-            TimeScaleManager.Instance.SetTimeScale(1f);
             Destroy(gameObject);
         }
 

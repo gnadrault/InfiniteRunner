@@ -2,23 +2,32 @@
 using Player;
 using UnityEngine;
 
-namespace Gameplay.Elements.Ennemis.Solution
+namespace Gameplay.Elements.Enemies
 {
-    public class SolutionTime : VirusSolution
+    public class VirusYellow: Virus
     {
         [SerializeField] private int duration = 5;
         private PlayerController _player;
-
-        public override void OnAttached(PlayerController player)
+        
+        public override void ApplyEffect(PlayerController player, Transform position)
         {
             _player = player;
             StartCoroutine(ApplyVirus());
         }
+
+        public override void RemoveEffect(PlayerController player)
+        {
+            Destroy(gameObject);
+        }
+
+        #region Solution
 
         private IEnumerator ApplyVirus()
         {
             yield return new WaitForSecondsRealtime(duration);
             _player.DetachVirus();
         }
+
+        #endregion
     }
 }

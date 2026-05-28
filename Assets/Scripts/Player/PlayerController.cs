@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 using Gameplay.Elements.Collectibles;
-using Gameplay.Elements.Ennemis;
+using Gameplay.Elements.Enemies;
 using Player.Data;
 using Player.State;
 using UnityEngine;

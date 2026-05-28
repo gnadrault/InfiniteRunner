@@ -1,12 +1,14 @@
-﻿using Movement;
+﻿using Feedback.Data;
+using Movement;
 using Player;
 using UnityEngine;
 using Utils;
 
-namespace Gameplay.Elements.Ennemis
+namespace Gameplay.Elements.Enemies
 {
     public abstract class Virus : Element
     {
+        [SerializeField] protected GameFeelProfile gameFeelProfile;
         [SerializeField] protected float timeReduce = 0.9f;
 
         public abstract void ApplyEffect(PlayerController player, Transform position);

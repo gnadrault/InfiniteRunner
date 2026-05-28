@@ -15,7 +15,7 @@ MonoBehaviour:
   phases:
   - name: 1
     rainbowColor: 0
-    phaseColor: {r: 0, g: 0.9607843, b: 1, a: 1}
+    phaseColor: {r: 0.11372549, g: 0.39215687, b: 0.88235295, a: 1}
     intensityColor: 4
     cameraSettings:
       position: {x: 0, y: 4, z: -15}
