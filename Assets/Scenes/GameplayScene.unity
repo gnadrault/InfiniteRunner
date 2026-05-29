@@ -150,7 +150,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Gameplay.DebugSystem
   textPrefab: {fileID: 3777674256326340686, guid: bc5c0839d44f6d840907298f40c05871, type: 3}
   debugPanel: {fileID: 1613831851}
-  segmentManager: {fileID: 1855767986}
+  segmentManager: {fileID: 0}
   playerController: {fileID: 426995177}
   lettersSystem: {fileID: 1701807689}
 --- !u!4 &266030
@@ -4294,6 +4294,84 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1203236997}
   m_CullTransparentMesh: 1
+--- !u!1 &1220931090
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1220931094}
+  - component: {fileID: 1220931093}
+  - component: {fileID: 1220931092}
+  - component: {fileID: 1220931091}
+  m_Layer: 0
+  m_Name: SegmentManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1220931091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1220931090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 996d0a83f651e414eab6fdf24cb5e9a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Gameplay.DistanceSystem
+  distanceLabel: {fileID: 582970366}
+  distanceScale: 1
+--- !u!114 &1220931092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1220931090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f02b434a211a974385beb81fa173d5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  obstacleDatabase: {fileID: 11400000, guid: d07985f687c28b042ad7b5d2f7df430b, type: 2}
+  collectibleDatabase: {fileID: 11400000, guid: 40e8c6be9a35ca94ea9cfa4279662143, type: 2}
+  activeLettersSpawnRate: 5
+--- !u!114 &1220931093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1220931090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5a1be9f07dc2474288cfa7019e1dc98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChunkManager
+  numSegments: 7
+  firstSegment: {fileID: 4933993261843267823}
+  segmentsCountPerPhase: 5
+--- !u!4 &1220931094
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1220931090}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.43974, y: -0, z: -0.87631}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1230432086
 GameObject:
   m_ObjectHideFlags: 0
@@ -11349,17 +11427,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1851087995}
   m_CullTransparentMesh: 1
---- !u!114 &1855767986 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 154652164225819844, guid: d92fff00e88ad1b4bb44be198f61d118, type: 3}
-  m_PrefabInstance: {fileID: 4933993261843267821}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5a1be9f07dc2474288cfa7019e1dc98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ChunkManager
 --- !u!1 &1874158211
 GameObject:
   m_ObjectHideFlags: 0
@@ -12389,10 +12456,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1530522270}
     m_Modifications:
-    - target: {fileID: 8453518196732685992, guid: d92fff00e88ad1b4bb44be198f61d118, type: 3}
-      propertyPath: distanceLabel
-      value: 
-      objectReference: {fileID: 582970366}
     - target: {fileID: 8828127986605048800, guid: d92fff00e88ad1b4bb44be198f61d118, type: 3}
       propertyPath: m_Name
       value: Segment (Empty)
@@ -12447,6 +12510,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8867508386635619642, guid: d92fff00e88ad1b4bb44be198f61d118, type: 3}
   m_PrefabInstance: {fileID: 4933993261843267821}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4933993261843267823 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5830128989704216473, guid: d92fff00e88ad1b4bb44be198f61d118, type: 3}
+  m_PrefabInstance: {fileID: 4933993261843267821}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 247c863e8f244762868ed372bd30d4eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::World.Chunk
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -12463,6 +12537,7 @@ SceneRoots:
   - {fileID: 1701807688}
   - {fileID: 1915460934}
   - {fileID: 1163644731}
+  - {fileID: 1220931094}
   - {fileID: 508775472}
   - {fileID: 1530522270}
   - {fileID: 742615929}

@@ -21,7 +21,7 @@ namespace Gameplay
         [Header("Settings")] 
         [SerializeField] private int activeLettersSpawnRate = 3;
 
-        private WordData[] _activeWords;
+        private WordData[] _activeWords = Array.Empty<WordData>();
 
         private void OnEnable()
         {
@@ -92,14 +92,13 @@ namespace Gameplay
 
             for (char c = 'A'; c <= 'Z'; c++)
                 pool.Add(c);
-
+            
             foreach (WordData word in _activeWords)
                 for (int i = 0; i < activeLettersSpawnRate; i++)
                 {
                     foreach (char c in word.Word)
                         pool.Add(c);
                 }
-
             return pool[Random.Range(0, pool.Count)];
         }
     }
