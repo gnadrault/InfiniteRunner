@@ -1,6 +1,7 @@
 ﻿using Player.Data;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Utils;
 
 namespace Player.State
 {
@@ -69,7 +70,7 @@ namespace Player.State
                     ChangeState(Idle());
                     break;
                 case DieState:
-                    SceneManager.LoadScene(SceneManager.GetActiveScene().name); // TODO Change to GameOver Menu
+                    GameEvents.OnEndGame?.Invoke();
                     break;
             }
         }
