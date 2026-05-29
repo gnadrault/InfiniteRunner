@@ -87,7 +87,7 @@ namespace UI
             {
                 if (!panel.panel.activeSelf || panel.remainingTime < 0) continue;
 
-                panel.remainingTime -= Time.unscaledDeltaTime;
+                panel.remainingTime -= Time.deltaTime;
                 panel.actionLabel.text = GetTimer(panel.remainingTime);
                 
                 if (panel.remainingTime <= 0f)

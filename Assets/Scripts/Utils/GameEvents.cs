@@ -1,4 +1,5 @@
 ﻿using System;
+using Core;
 using Data;
 using Feedback.Data;
 
@@ -18,6 +19,7 @@ namespace Utils
         public static Action<float> OnNewMeter;
         public static Action<float> OnSpeedChanged;
         public static Action<PhaseData> OnNewPhase;
+        public static Action<GameState> OnGameStateChanged;
         #endregion
         
         #region Effects

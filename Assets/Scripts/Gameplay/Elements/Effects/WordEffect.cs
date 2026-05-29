@@ -38,7 +38,7 @@ namespace Gameplay.Elements.Effects
 
         private IEnumerator EffectTimer()
         {
-            yield return new WaitForSecondsRealtime(duration);
+            yield return new WaitForSeconds(duration);
             RemoveEffect();
         }
         

@@ -174,7 +174,7 @@ namespace Player
         {
             currentVirus = virus;
             GameEvents.OnVirusAttached?.Invoke();
-            yield return new WaitForSecondsRealtime(2);
+            yield return new WaitForSeconds(2);
             currentVirus.ApplyEffect(this, attachedPosition);
         }
         

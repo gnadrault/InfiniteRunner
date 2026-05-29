@@ -162,7 +162,7 @@
                     "name": "Submit",
                     "type": "Button",
                     "id": "d878a8c2-7e54-4964-a615-cd486fb62541",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -171,7 +171,7 @@
                     "name": "Cancel",
                     "type": "Button",
                     "id": "110aa4e8-4649-4aea-9190-84b0db1fc796",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -508,7 +508,7 @@
                 {
                     "name": "",
                     "id": "e3b8f809-c276-42a1-a9bb-1591a98b1c2a",
-                    "path": "*/{Submit}",
+                    "path": "<Keyboard>/enter",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse;Gamepad;Touch;Joystick;XR",
@@ -519,7 +519,7 @@
                 {
                     "name": "",
                     "id": "68aef14f-4e8e-4fea-b0b4-f3fb37a0f7d0",
-                    "path": "*/{Cancel}",
+                    "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse;Gamepad;Touch;Joystick;XR",

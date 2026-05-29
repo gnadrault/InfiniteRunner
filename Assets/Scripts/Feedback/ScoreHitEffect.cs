@@ -54,7 +54,7 @@ namespace Feedback
             while (true)
             {
                 yield return SingleHit(scoreProfil);
-                yield return new WaitForSecondsRealtime(1f - hitDuration);
+                yield return new WaitForSeconds(1f - hitDuration);
             }
         }
 

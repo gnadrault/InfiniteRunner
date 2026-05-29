@@ -33,7 +33,7 @@ namespace Gameplay.Elements.Enemies
         private IEnumerator ApplyVirus()
         {
             _attachedToPlayer = true;
-            yield return new WaitForSecondsRealtime(duration);
+            yield return new WaitForSeconds(duration);
             _attachedToPlayer = false;
             _player.DetachVirus();
         }
