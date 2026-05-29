@@ -13,9 +13,11 @@ namespace Player.State
         private readonly IPlayerState _die;
 
         private IPlayerState _currentState;
+        private readonly ParticleSystem _trailsParticles;
 
         public PlayerStateMachine(PlayerController playerController, PlayerSettings playerSettings)
         {
+            _trailsParticles = playerSettings.idle.trailsParticles;
             _idle = new IdleState();
             _die = new DieState(playerController, playerSettings.die);
             _jump = new JumpingState(playerController, playerSettings.jump);
@@ -38,7 +40,22 @@ namespace Player.State
         public void UpdateState()
         {
             CheckStateTransitions();
+            ApplyTrailsParticles();
             _currentState.UpdateState();
+        }
+
+        private void ApplyTrailsParticles()
+        {
+            if (_currentState is IdleState or SlideState)
+            {
+                if (!_trailsParticles.isPlaying)
+                    _trailsParticles.Play();
+            }
+            else
+            {
+                if (_trailsParticles.isPlaying)
+                    _trailsParticles.Stop();
+            }
         }
 
         private void CheckStateTransitions()

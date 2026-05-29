@@ -73,6 +73,14 @@ namespace UI
             }
         }
 
+        public void ForceHidePanels()
+        {
+            foreach (var panel in panels)
+            {
+                panel.panel.SetActive(false);
+            }
+        }
+
         private void Update()
         {
             foreach (var panel in panels)

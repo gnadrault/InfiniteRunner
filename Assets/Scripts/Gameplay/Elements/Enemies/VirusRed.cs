@@ -27,6 +27,7 @@ namespace Gameplay.Elements.Enemies
         {
             player.EnableMovement();
             GameEvents.OnGameFeelEnd?.Invoke();
+            AlertHUD.Instance.ForceHidePanels();
             Destroy(gameObject);
         }
         

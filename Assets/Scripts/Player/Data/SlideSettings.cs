@@ -1,4 +1,6 @@
 ﻿
+using UnityEngine;
+
 namespace Player.Data
 {
     [System.Serializable]

@@ -25,6 +25,7 @@ namespace Gameplay.Elements.Enemies
         public override void RemoveEffect(PlayerController player)
         {
             GameEvents.OnGameFeelEnd?.Invoke();
+            AlertHUD.Instance.ForceHidePanels();
             Destroy(gameObject);
         }
 

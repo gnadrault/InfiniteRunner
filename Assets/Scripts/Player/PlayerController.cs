@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using Gameplay.Elements.Collectibles;
 using Gameplay.Elements.Enemies;
 using Player.Data;
@@ -27,24 +28,38 @@ namespace Player
         [SerializeField] private Transform[] laneAnchors;
         [SerializeField] private int initLaneIndex = 1;
         
+        [Header("Effects")]
+        [SerializeField] private GameObject shieldEffect;
+        
         private int _currentLaneIndex;
         private Transform _transform;
         private PlayerStateMachine _stateMachine;
+        private MaterialPropertyBlock _matPropertyBlock;
+        
+        private Renderer[] _renderers;
+        private static readonly int BaseColor = Shader.PropertyToID("_BaseColor");
         
         //Virus
         private Virus currentVirus;
         private bool _isBlocked;
         
-        //Bonus
+        //Bonus / Malus States
         private bool _shield;
         private bool _ghost;
-        
-        //Malus
+        private bool _freeze;
+        private bool _invert;
+        private bool _multiplier;
+
+        private int _countLeft;
+        private int _countRight;
+        private int _countJump;
 
         private void Awake()
         {
             _transform = transform;
             _currentLaneIndex = initLaneIndex;
+            _renderers = meshGameObject.GetComponentsInChildren<Renderer>();
+            _matPropertyBlock =  new MaterialPropertyBlock();
             _stateMachine = new PlayerStateMachine(this, playerSettings);
         }
 
@@ -73,18 +88,42 @@ namespace Player
         private void OnLeftInput(InputAction.CallbackContext obj)
         {
             if (_isBlocked) return;
+            if (_freeze)
+            {
+                _countLeft++;
+                if (_countLeft < 2) return;
+                _countLeft = 0;
+            } else if (_invert)
+            {
+                OnRightInput(obj);
+            }
             TryChangingLane(_currentLaneIndex - 1);
         }
 
         private void OnRightInput(InputAction.CallbackContext obj)
         {
             if (_isBlocked) return;
+            if (_freeze)
+            {
+                _countRight++;
+                if (_countRight < 2) return;
+                _countRight = 0;
+            } else if (_invert)
+            {
+                OnLeftInput(obj);
+            }
             TryChangingLane(_currentLaneIndex + 1);
         }
 
         private void OnJumpInput(InputAction.CallbackContext obj)
         {
             if (_isBlocked) return;
+            if (_freeze)
+            {
+                _countJump++;
+                if (_countJump < 2) return;
+                _countJump = 0;
+            }
             TryJumping();
         }
         
@@ -158,26 +197,63 @@ namespace Player
 
         #endregion
 
-        #region Bonus
+        #region Bonus / Malus
 
         public void ApplyShield()
         {
             _shield = true;
+            shieldEffect.SetActive(_shield);
         }
 
         public void RemoveShield()
         {
             _shield = false;
+            shieldEffect.SetActive(_shield);
         }
 
         public void ApplyGhost()
         {
             _ghost = true;
+            Colors.SetTransparency(_renderers, _matPropertyBlock, BaseColor, 0.1f);
         }
 
         public void RemoveGhost()
         {
             _ghost = false;
+            Colors.SetTransparency(_renderers, _matPropertyBlock, BaseColor, 1f);
+        }
+        
+        public void ApplyFreeze()
+        {
+            _countLeft = 0;
+            _countRight = 0;
+            _countJump = 0;
+            _freeze = true;
+        }
+
+        public void RemoveFreeze()
+        {
+            _freeze = false;
+        }
+        
+        public void ApplyInvert()
+        {
+            _invert = true;
+        }
+
+        public void RemoveInvert()
+        {
+            _invert = false;
+        }
+        
+        public void ApplyMultiplier()
+        {
+            _multiplier = true;
+        }
+
+        public void RemoveMultiplier()
+        {
+            _multiplier = false;
         }
         #endregion
 

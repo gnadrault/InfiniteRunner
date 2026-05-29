@@ -27,6 +27,7 @@ namespace Gameplay.Elements.Effects
         public virtual void RemoveEffect()
         {
             isComplete = true;
+            AlertHUD.Instance.ForceHidePanels();
         }
 
         protected void StartEffectTimer()

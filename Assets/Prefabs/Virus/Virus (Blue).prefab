@@ -90,5 +90,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::World.GameElement.Virus.BlueVirus
   gameFeelProfile: {fileID: 11400000, guid: 5d69d3abcfbf5604db34870cae6d7a7d, type: 2}
-  timeReduce: 0.9
   duration: 5
+  wordsDatabase: {fileID: 11400000, guid: dc3528170bf3b594ca6b7845aa395f8b, type: 2}
