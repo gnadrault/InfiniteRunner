@@ -20,6 +20,7 @@ namespace Utils
         public static Action<float> OnSpeedChanged;
         public static Action<PhaseData> OnNewPhase;
         public static Action<GameState> OnGameStateChanged;
+        public static Action<EndScoreData> OnEndMenu;
         public static Action OnEndGame;
         #endregion
         

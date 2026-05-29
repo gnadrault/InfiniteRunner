@@ -9,6 +9,7 @@ namespace Gameplay.Elements.Enemies
     public class VirusGreen: Virus
     {
         [SerializeField] private float duration = 5f;
+        [SerializeField] private float percentScoreDamage = 1f;
         private PlayerController _player;
         private float _currentTimer;
         private bool _attachedToPlayer;
@@ -47,7 +48,7 @@ namespace Gameplay.Elements.Enemies
             _currentTimer = Mathf.Clamp(_currentTimer, 0f, duration);
             if ((int)oldTimer > (int)_currentTimer) // Remove percent score each seconds
             {
-                GameEvents.OnRemovePercentPoints?.Invoke(0.1f);
+                GameEvents.OnRemovePercentPoints?.Invoke(percentScoreDamage/100);
             }
         }
     }

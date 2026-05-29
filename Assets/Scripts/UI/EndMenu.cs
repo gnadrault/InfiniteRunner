@@ -1,5 +1,7 @@
 using System;
+using Data;
 using Gameplay;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Utils;
@@ -8,22 +10,28 @@ namespace UI
 {
     public class EndMenu : MonoBehaviour
     {
-        [SerializeField] private InputActionReference pauseAction;
+        [SerializeField] private TextMeshProUGUI newHighScoreText;
+        [SerializeField] private TextMeshProUGUI simpleScoreText;
+        [SerializeField] private TextMeshProUGUI scoreText;
         [SerializeField] private GameObject endCanvas;
 
         private void OnEnable()
         {
-            GameEvents.OnEndGame += EndGame;
+            GameEvents.OnEndMenu += EndGame;
         }
         
         private void OnDisable()
         {
-            GameEvents.OnEndGame -= EndGame;
+            GameEvents.OnEndMenu -= EndGame;
         }
 
-        private void EndGame()
+        private void EndGame(EndScoreData endScore)
         {
             TimeScaleManager.Instance.SetTimeScale(0f);
+            scoreText.text = endScore.score.ToString();
+            newHighScoreText.enabled = endScore.isNewHighScore;
+            simpleScoreText.enabled = !endScore.isNewHighScore;
+            print(endScore.isNewHighScore);
             endCanvas.SetActive(true);
         }
     }

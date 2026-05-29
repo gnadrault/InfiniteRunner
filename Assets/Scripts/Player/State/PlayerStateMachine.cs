@@ -15,6 +15,7 @@ namespace Player.State
 
         private IPlayerState _currentState;
         private readonly ParticleSystem _trailsParticles;
+        private bool _hasAlreadyEndGame;
 
         public PlayerStateMachine(PlayerController playerController, PlayerSettings playerSettings)
         {
@@ -70,7 +71,11 @@ namespace Player.State
                     ChangeState(Idle());
                     break;
                 case DieState:
-                    GameEvents.OnEndGame?.Invoke();
+                    if (!_hasAlreadyEndGame)
+                    {
+                        GameEvents.OnEndGame?.Invoke();
+                        _hasAlreadyEndGame = true;
+                    }
                     break;
             }
         }
