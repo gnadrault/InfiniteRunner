@@ -73,7 +73,7 @@ PrefabInstance:
       addedObject: {fileID: -35816546029551191}
     - targetCorrespondingSourceObject: {fileID: 7579398550601574980, guid: 13a23ed67c4ee3642868f4d562221c53, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 9216990374291788481}
+      addedObject: {fileID: 4092157549222582798}
   m_SourcePrefab: {fileID: 100100000, guid: 13a23ed67c4ee3642868f4d562221c53, type: 3}
 --- !u!1 &7552491089988493126 stripped
 GameObject:
@@ -95,7 +95,7 @@ MonoBehaviour:
   gameFeelProfile: {fileID: 11400000, guid: 71f59eeb4dda9414f9bb697db395d312, type: 2}
   spamKey: {fileID: 3161682069650093083, guid: 0eae3734640624049a0c62a5acdfe144, type: 3}
   requiredPressed: 4
---- !u!114 &9216990374291788481
+--- !u!114 &4092157549222582798
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -104,9 +104,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 7552491089988493126}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0af2cd8e22d4a959ecce766ae9fdf65, type: 3}
+  m_Script: {fileID: 11500000, guid: 3dee52bffd474bd69f4e73460b7f8447, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Effect.MoveHorizontal
+  m_EditorClassIdentifier: Assembly-CSharp::Movement.FollowPlayerHorizontal
   speed: 2
   leftLaneX: -4
   rightLaneX: 4

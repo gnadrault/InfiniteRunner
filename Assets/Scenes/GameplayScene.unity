@@ -14062,6 +14062,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player (Root)
       objectReference: {fileID: 0}
+    - target: {fileID: 7305124773151762212, guid: 7b7fe22e7203a55459925ca643d3dac9, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 8027669263008946748, guid: 7b7fe22e7203a55459925ca643d3dac9, type: 3}
       propertyPath: 'laneAnchors.Array.data[0]'
       value: 
