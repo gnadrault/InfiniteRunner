@@ -57,7 +57,7 @@ namespace Gameplay
             FireActiveWordsChanged();
         }
         
-        private void OnLetterCollected(string letter)
+        private void OnLetterCollected(string letter, bool multiplier)
         {
             HighlightLetters(bonusDisplays, letter, bonusHighlightColor);
             HighlightLetters(malusDisplays, letter, malusHighlightColor);

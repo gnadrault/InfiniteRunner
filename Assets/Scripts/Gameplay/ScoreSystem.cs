@@ -13,10 +13,6 @@ namespace Gameplay
         [SerializeField] private TextMeshProUGUI bestScoreLabel;
 
         private float _score;
-        
-        private void OnNewMeter(float _) => AddPoints(1);
-        private void OnLetterCollected(string _) => AddPoints(30);
-        private void OnWordCompleted(int length) => AddPoints(length * 100);
 
         private void Start()
         {
@@ -40,6 +36,10 @@ namespace Gameplay
             GameEvents.OnRemovePercentPoints -= RemovePercent;
             GameEvents.OnEndGame -= SaveScore;
         }
+        
+        private void OnNewMeter(float _) => AddPoints(1);
+        private void OnLetterCollected(string _, bool multiplier) => AddPoints(30 * (multiplier ? 2 : 1));
+        private void OnWordCompleted(int length) => AddPoints(length * 100);
 
         private void AddPoints(float points)  => _score += points;
 

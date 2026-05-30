@@ -30,6 +30,7 @@ namespace Player
         
         [Header("Effects")]
         [SerializeField] private GameObject shieldEffect;
+        [SerializeField] private GameObject magnetEffect;
         
         private int _currentLaneIndex;
         private Transform _transform;
@@ -49,6 +50,7 @@ namespace Player
         private bool _freeze;
         private bool _invert;
         private bool _multiplier;
+        private bool _magnet;
 
         private int _countLeft;
         private int _countRight;
@@ -255,6 +257,18 @@ namespace Player
         {
             _multiplier = false;
         }
+        
+        public void ApplyMagnet()
+        {
+            _magnet = true;
+            magnetEffect.SetActive(_magnet);
+        }
+
+        public void RemoveMagnet()
+        {
+            _magnet = false;
+            magnetEffect.SetActive(_magnet);
+        }
         #endregion
 
         #region Getters/Setters
@@ -282,7 +296,7 @@ namespace Player
         
         public void CollectLetter(Letter letter)
         {
-            GameEvents.OnLetterCollected?.Invoke(letter.Label);
+            GameEvents.OnLetterCollected?.Invoke(letter.Label, _multiplier);
         }
 
         public void Die()
@@ -300,6 +314,7 @@ namespace Player
         public bool IsPlayerInfected() => currentVirus;
         public bool HasShield() => _shield;
         public bool HasGhost() => _ghost;
+        public bool HasMagnet() => _magnet;
 
         #endregion
     }

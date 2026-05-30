@@ -34,7 +34,7 @@ namespace Utils
         #endregion
 
         #region Letters
-        public static Action<string> OnLetterCollected;
+        public static Action<string, bool> OnLetterCollected;
         public static Action<int> OnWordCompleted;
         #endregion
 
