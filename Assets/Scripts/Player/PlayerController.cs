@@ -49,7 +49,7 @@ namespace Player
         private bool _ghost;
         private bool _freeze;
         private bool _invert;
-        private float _multiplier;
+        private float _multiplier = 1f;
         private bool _magnet;
 
         private int _countLeft;
@@ -89,6 +89,7 @@ namespace Player
 
         private void OnLeftInput(InputAction.CallbackContext obj)
         {
+            int nextLaneIndex = _currentLaneIndex - 1;
             if (_isBlocked) return;
             if (_freeze)
             {
@@ -97,13 +98,14 @@ namespace Player
                 _countLeft = 0;
             } else if (_invert)
             {
-                OnRightInput(obj);
+                nextLaneIndex = _currentLaneIndex + 1;
             }
-            TryChangingLane(_currentLaneIndex - 1);
+            TryChangingLane(nextLaneIndex);
         }
 
         private void OnRightInput(InputAction.CallbackContext obj)
         {
+            int nextLaneIndex = _currentLaneIndex + 1;
             if (_isBlocked) return;
             if (_freeze)
             {
@@ -112,9 +114,9 @@ namespace Player
                 _countRight = 0;
             } else if (_invert)
             {
-                OnLeftInput(obj);
+                nextLaneIndex =  _currentLaneIndex - 1;
             }
-            TryChangingLane(_currentLaneIndex + 1);
+            TryChangingLane(nextLaneIndex);
         }
 
         private void OnJumpInput(InputAction.CallbackContext obj)
@@ -169,14 +171,6 @@ namespace Player
         {
             currentVirus = virus;
             GameEvents.OnVirusAttached?.Invoke();
-            currentVirus.ApplyEffect(this, attachedPosition);
-        }
-
-        private IEnumerator WaitAndApplyVirusEffect(Virus virus)
-        {
-            currentVirus = virus;
-            GameEvents.OnVirusAttached?.Invoke();
-            yield return new WaitForSeconds(2);
             currentVirus.ApplyEffect(this, attachedPosition);
         }
         

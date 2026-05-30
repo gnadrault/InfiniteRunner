@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Data
 {
     [Serializable]
-    public class VariableValuePoint
+    public class ValuePoint
     {
         private enum Mode { Fixed, Random }
 
