@@ -35,11 +35,11 @@ namespace Utils
 
         #region Score
         public static Action<float> OnRemovePercentPoints;
+        public static Action<float> OnAddScorePoints;
         #endregion
 
         #region Letters
-        public static Action<string, bool> OnLetterCollected;
-        public static Action<int> OnWordCompleted;
+        public static Action<string> OnLetterCollected;
         #endregion
 
         #region Malus/Bonus

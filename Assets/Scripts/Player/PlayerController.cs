@@ -49,7 +49,7 @@ namespace Player
         private bool _ghost;
         private bool _freeze;
         private bool _invert;
-        private bool _multiplier;
+        private float _multiplier;
         private bool _magnet;
 
         private int _countLeft;
@@ -248,14 +248,14 @@ namespace Player
             _invert = false;
         }
         
-        public void ApplyMultiplier()
+        public void ApplyMultiplier(float multiplierFactor)
         {
-            _multiplier = true;
+            _multiplier = multiplierFactor;
         }
 
         public void RemoveMultiplier()
         {
-            _multiplier = false;
+            _multiplier = 1;
         }
         
         public void ApplyMagnet()
@@ -296,7 +296,13 @@ namespace Player
         
         public void CollectLetter(Letter letter)
         {
-            GameEvents.OnLetterCollected?.Invoke(letter.Label, _multiplier);
+            GameEvents.OnLetterCollected?.Invoke(letter.Label);
+            CollectLoot(letter.Point);
+        }
+
+        public void CollectLoot(float point)
+        {
+            GameEvents.OnAddScorePoints?.Invoke(point * _multiplier);
         }
 
         public void Die()

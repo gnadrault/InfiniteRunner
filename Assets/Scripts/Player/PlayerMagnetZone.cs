@@ -20,10 +20,10 @@ namespace Player
         /// <param name="other"></param>
         private void OnTriggerEnter(Collider other)
         {
-            Letter letter = other.GetComponentInParent<Letter>();
-            if (letter != null)
+            Collectible collectible = other.GetComponentInParent<Collectible>();
+            if (collectible != null)
             {
-                letter.ActivateMagnet(_playerController.transform, magnetForce);
+                collectible.ActivateMagnet(_playerController.transform, magnetForce);
             }
         }
     }

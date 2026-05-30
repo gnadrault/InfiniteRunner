@@ -22,8 +22,7 @@ namespace Gameplay
         private void OnEnable()
         {
             GameEvents.OnNewMeter += OnNewMeter;
-            GameEvents.OnLetterCollected += OnLetterCollected;
-            GameEvents.OnWordCompleted += OnWordCompleted;
+            GameEvents.OnAddScorePoints += OnAddScorePoints;
             GameEvents.OnRemovePercentPoints += RemovePercent;
             GameEvents.OnEndGame += SaveScore;
         }
@@ -31,17 +30,15 @@ namespace Gameplay
         private void OnDisable()
         {
             GameEvents.OnNewMeter -= OnNewMeter;
-            GameEvents.OnLetterCollected -= OnLetterCollected;
-            GameEvents.OnWordCompleted -= OnWordCompleted;
+            GameEvents.OnAddScorePoints -= OnAddScorePoints;
             GameEvents.OnRemovePercentPoints -= RemovePercent;
             GameEvents.OnEndGame -= SaveScore;
         }
-        
-        private void OnNewMeter(float _) => AddPoints(1);
-        private void OnLetterCollected(string _, bool multiplier) => AddPoints(30 * (multiplier ? 2 : 1));
-        private void OnWordCompleted(int length) => AddPoints(length * 100);
 
-        private void AddPoints(float points)  => _score += points;
+        private void OnNewMeter(float _) => AddPoints(1);
+        private void OnAddScorePoints(float point) => AddPoints(point);
+
+        private void AddPoints(float points) => _score += points;
 
         private void RemovePercent(float percent) => _score = Mathf.RoundToInt(_score * (1 - percent));
 
@@ -51,7 +48,7 @@ namespace Gameplay
             bool newHighScore = ScoreSave.AddScore((int)_score);
             GameEvents.OnEndMenu?.Invoke(new EndScoreData((int)_score, newHighScore));
         }
-        
+
 
         private void Update()
         {

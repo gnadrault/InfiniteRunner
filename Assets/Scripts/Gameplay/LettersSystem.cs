@@ -57,7 +57,7 @@ namespace Gameplay
             FireActiveWordsChanged();
         }
         
-        private void OnLetterCollected(string letter, bool multiplier)
+        private void OnLetterCollected(string letter)
         {
             HighlightLetters(bonusDisplays, letter, bonusHighlightColor);
             HighlightLetters(malusDisplays, letter, malusHighlightColor);
@@ -86,7 +86,7 @@ namespace Gameplay
                     continue;
 
                 if (isBonus)
-                    GameEvents.OnWordCompleted?.Invoke(completedWord.Word.Length);
+                    GameEvents.OnAddScorePoints?.Invoke(completedWord.Word.Length * 100);
 
                 _completedWordsQueue.Enqueue(completedWord);
             }
