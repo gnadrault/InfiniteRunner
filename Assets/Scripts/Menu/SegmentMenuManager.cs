@@ -1,10 +1,8 @@
 using System.Collections.Generic;
-using System.Linq;
-using Data;
 using Gameplay.Segments;
 using UnityEngine;
 
-namespace Gameplay
+namespace Menu
 {
     public class SegmentMenuManager : MonoBehaviour
     {
@@ -13,8 +11,7 @@ namespace Gameplay
 
         [Header("Segments")] 
         [SerializeField] private Segment firstSegment;
-        [SerializeField] private Segment defaultSegment;
-        [SerializeField] private int segmentsCountPerPhase = 5;
+        [SerializeField] private Segment emptySegmentPrefab;
         [SerializeField] private float speed = 30f;
 
         private float _segmentLength;
@@ -22,12 +19,6 @@ namespace Gameplay
         private float _segmentY;
 
         private readonly List<Segment> _activeSegmentList = new();
-        private SegmentBuilder _segmentBuilder;
-
-        private void Awake()
-        {
-            _segmentBuilder = GetComponent<SegmentBuilder>();
-        }
 
         private void Start()
         {
@@ -50,14 +41,10 @@ namespace Gameplay
         private void AddSegment()
         {
             Segment lastSegment = _activeSegmentList[^1];
-            Vector3 spawnPosition =
-                new Vector3(_segmentX, _segmentY, lastSegment.transform.position.z + _segmentLength);
-
-            // Pool segment
-            Segment newSegment = Instantiate(defaultSegment, spawnPosition, Quaternion.identity);
-
-            // Segment builder
-            _segmentBuilder.GenerateSegmentObjects(newSegment, null);
+            Vector3 spawnPosition = new Vector3(_segmentX, _segmentY, lastSegment.transform.position.z + _segmentLength);
+            
+            Segment newSegment = Instantiate(emptySegmentPrefab, spawnPosition, Quaternion.identity);
+            
             _activeSegmentList.Add(newSegment);
         }
 
