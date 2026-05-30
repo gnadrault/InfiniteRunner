@@ -132,6 +132,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1624155776574502842, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5503453371662959536, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 41.84698
@@ -239,7 +243,7 @@ PrefabInstance:
     - target: {fileID: 7460002942747525395, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
       propertyPath: 'spawnPoints.Array.data[17]'
       value: 
-      objectReference: {fileID: 2805039294352754442}
+      objectReference: {fileID: 8311252807103862951}
     - target: {fileID: 7460002942747525395, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
       propertyPath: 'spawnPoints.Array.data[18]'
       value: 
@@ -358,6 +362,7 @@ PrefabInstance:
     - {fileID: 744450716797062716, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
     - {fileID: 5265000081776794309, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
     - {fileID: 628808513843810024, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+    - {fileID: 4721736680413589459, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
     m_RemovedGameObjects:
     - {fileID: 2473302887676985883, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
     - {fileID: 6844122784589977228, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
@@ -393,6 +398,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4128096430342093969, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7179708212951471159}
+    - targetCorrespondingSourceObject: {fileID: 7602292064787489780, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8311252807103862951}
     - targetCorrespondingSourceObject: {fileID: 2301340762495569285, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 285697228013219961}
@@ -423,7 +431,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12e70794d64c4effb73a60e5f7ded717, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::World.Spawn.CollectibleSpawnPoint
-  canBeBonusObject: 0
 --- !u!114 &61143758753703909 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7472109441151422268, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
@@ -525,6 +532,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb913a71ebf9497ea2a293bd78f4d5a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::World.Spawn.EmptySpawnPoint
+--- !u!1 &1075162138118359853 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7602292064787489780, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
+  m_PrefabInstance: {fileID: 7452184278052595929}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8311252807103862951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1075162138118359853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b0849f317144e519c7738b05b644e0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Gameplay.Segments.Spawn.BonusSpawnPoint
+  isElevated: 1
 --- !u!114 &1169161992152701857 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8598155353704969080, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
@@ -591,17 +616,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb913a71ebf9497ea2a293bd78f4d5a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::World.Spawn.EmptySpawnPoint
---- !u!114 &2805039294352754442 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4721736680413589459, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
-  m_PrefabInstance: {fileID: 7452184278052595929}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb913a71ebf9497ea2a293bd78f4d5a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::World.Spawn.EmptySpawnPoint
 --- !u!114 &3636521067258668484 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6133056870983535901, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
@@ -652,7 +666,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12e70794d64c4effb73a60e5f7ded717, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::World.Spawn.CollectibleSpawnPoint
-  canBeBonusObject: 0
 --- !u!1 &4855564176771477449 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2596633024854492944, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
@@ -788,7 +801,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12e70794d64c4effb73a60e5f7ded717, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::World.Spawn.CollectibleSpawnPoint
-  canBeBonusObject: 0
 --- !u!1 &6783137692349256776 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4128096430342093969, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
@@ -806,7 +818,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12e70794d64c4effb73a60e5f7ded717, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::World.Spawn.CollectibleSpawnPoint
-  canBeBonusObject: 0
 --- !u!114 &6869339642073081811 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4053158422128168714, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
@@ -907,7 +918,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12e70794d64c4effb73a60e5f7ded717, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::World.Spawn.CollectibleSpawnPoint
-  canBeBonusObject: 0
 --- !u!114 &8713466705587075343 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2271795341334843862, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}

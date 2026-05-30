@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd9f8799ab824e29830fe5a572920bb3, type: 3}
+  m_Name: CollectibleDatabase
+  m_EditorClassIdentifier: Assembly-CSharp::Gameplay.Data.CollectibleDatabase
+  letterLootPrefab: {fileID: 7114961241968849724, guid: 59e0584963e46ff4586f0fc3263dcb78, type: 3}
+  groundedBonusLoots:
+  - {fileID: 5746703058182746570, guid: aa6f5559f180d4843a6ea5eec5261bd6, type: 3}
+  - {fileID: 4024533044314856834, guid: e09ac7863d447f54d95a097547daf915, type: 3}
+  - {fileID: 1421155249477134411, guid: 7d7a0017446ba7144b807109f335e930, type: 3}
+  - {fileID: 8054395703505207666, guid: c15f7fb0975aefe4291dde1642ddbf51, type: 3}
+  - {fileID: 4833396655839220779, guid: ee41bff3370fad44894d479c645f890c, type: 3}
+  - {fileID: 1186204824872258124, guid: 4036f2d6e974be542b190196a175dd30, type: 3}
+  elevatedBonusLoots:
+  - {fileID: 5746703058182746570, guid: aa6f5559f180d4843a6ea5eec5261bd6, type: 3}
+  - {fileID: 1186204824872258124, guid: 4036f2d6e974be542b190196a175dd30, type: 3}
+  - {fileID: 4024533044314856834, guid: e09ac7863d447f54d95a097547daf915, type: 3}
+  - {fileID: 4833396655839220779, guid: ee41bff3370fad44894d479c645f890c, type: 3}

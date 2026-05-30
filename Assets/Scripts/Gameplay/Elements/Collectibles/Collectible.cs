@@ -1,16 +1,17 @@
-﻿using UnityEngine;
+﻿using Data;
+using UnityEngine;
 
 namespace Gameplay.Elements.Collectibles
 {
     public abstract class Collectible : Element
     {
-        [SerializeField] private float point;
+        [SerializeField] private VariableValuePoint point;
 
         private bool _magnetActivated;
         private float _magnetForce;
         private Transform _targetPosition;
 
-        public float Point => point;
+        public int Point => point.Value;
 
         public void ActivateMagnet(Transform position, float magnetForce)
         {

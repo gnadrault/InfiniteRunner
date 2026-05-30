@@ -263,6 +263,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2932600141323587406}
+  - component: {fileID: 1857395565758103749}
   m_Layer: 0
   m_Name: Loot (Root)
   m_TagString: Untagged
@@ -286,3 +287,16 @@ Transform:
   - {fileID: 1545617325030495289}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1857395565758103749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2781083128286894102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2132691efb2e4d838129aa59fcd7cbb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Gameplay.Elements.Collectibles.Loot
+  point: 0

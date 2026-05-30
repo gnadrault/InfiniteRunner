@@ -29,5 +29,5 @@ MonoBehaviour:
     dirtIntensity: 165
   stroboscope:
     enabled: 1
-    invisibleTime: 1.5
+    invisibleTime: 0.2
     visibleTime: 0.5

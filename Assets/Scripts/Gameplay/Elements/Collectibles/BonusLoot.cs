@@ -3,8 +3,9 @@ using UnityEngine;
 
 namespace Gameplay.Elements.Collectibles
 {
-    public class Loot : Collectible
+    public class BonusLoot : Collectible
     {
+        
         public override void OnPlayerCollision(PlayerController player, Transform position)
         {
             player.CollectLoot(Point);

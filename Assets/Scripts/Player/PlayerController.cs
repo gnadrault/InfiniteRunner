@@ -294,10 +294,10 @@ namespace Player
             _transform.localScale = scale;
         }
         
-        public void CollectLetter(Letter letter)
+        public void CollectLetter(LetterLoot letterLoot)
         {
-            GameEvents.OnLetterCollected?.Invoke(letter.Label);
-            CollectLoot(letter.Point);
+            GameEvents.OnLetterCollected?.Invoke(letterLoot.Label);
+            CollectLoot(letterLoot.Point);
         }
 
         public void CollectLoot(float point)

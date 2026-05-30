@@ -186,6 +186,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b50c7232cef48eea21c792a18a1a941, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::World.GameElement.Letter
+  point:
+    mode: 0
+    fixedValue: 30
+    min: 0
+    max: 0
   label: {fileID: 6390024561610990979}
 --- !u!1 &8936267637454583357
 GameObject:

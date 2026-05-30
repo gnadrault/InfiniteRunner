@@ -23,7 +23,8 @@ namespace Gameplay
         private float _segmentY;
 
         private readonly List<Segment> _activeSegmentList = new();
-        private readonly List<Segment> _poolSegmentList = new();
+        private readonly List<Segment> _poolSegmentPrefabList = new();
+        private Segment _lastSegmentPrefab;
         private SegmentBuilder _segmentBuilder;
         private PhaseData _currentPhaseData;
         private float _speed;
@@ -59,16 +60,16 @@ namespace Gameplay
             GameEvents.OnStroboscopeEffectStart -= HandleStartStroboscope;
             GameEvents.OnStroboscopeEffectEnd -= HandleEndStroboscope;
         }
-        
+
         private void HandleStartStroboscope(GameFeelProfile profile)
         {
             if (!profile || !profile.Stroboscope.enabled) return;
             StroboscopeSection data = profile.Stroboscope;
-            
+
             StopCurrent();
             _blinkRoutine = StartCoroutine(BlinkRoutine(data));
         }
-        
+
         private void HandleEndStroboscope()
         {
             ResetToAmbient();
@@ -82,15 +83,15 @@ namespace Gameplay
                 yield return BlinkSegments(false, data.invisibleTime);
             }
         }
-        
+
         private IEnumerator BlinkSegments(bool active, float time)
         {
             foreach (Segment segment in _activeSegmentList)
                 segment.ToggleBlink(active);
-                
+
             yield return new WaitForSeconds(time);
         }
-        
+
         public void ResetToAmbient()
         {
             StopCurrent();
@@ -107,23 +108,25 @@ namespace Gameplay
 
         private void AddSegment()
         {
-            Segment lastSegment = _activeSegmentList[^1]; // Prevent to pull same segment twice
+            Segment lastSegment = _activeSegmentList[^1];
             Vector3 spawnPosition =
                 new Vector3(_segmentX, _segmentY, lastSegment.transform.position.z + _segmentLength);
 
             // Pool segment
-            Segment pooledSegment = GetNextSegment(lastSegment);
-            Segment newSegment = Instantiate(pooledSegment, spawnPosition, Quaternion.identity);
+            Segment pooledSegmentPrefab = GetNextSegmentPrefab();
+            Segment newSegment = Instantiate(pooledSegmentPrefab, spawnPosition, Quaternion.identity);
 
             // Segment builder
             _segmentBuilder.GenerateSegmentObjects(newSegment, _currentPhaseData);
             _activeSegmentList.Add(newSegment);
         }
 
-        private Segment GetNextSegment(Segment lastSegment)
+        private Segment GetNextSegmentPrefab()
         {
-            List<Segment> segmentsPool = _poolSegmentList.Where(s => s != lastSegment).ToList();
-            return segmentsPool[Random.Range(0, segmentsPool.Count)];
+            List<Segment> segmentsPool = _poolSegmentPrefabList.Where(s => s != _lastSegmentPrefab).ToList();
+            Segment segment = segmentsPool[Random.Range(0, segmentsPool.Count)];
+            _lastSegmentPrefab = segment;
+            return segment;
         }
 
         private void RemoveSegment(Segment segment)
@@ -141,7 +144,7 @@ namespace Gameplay
             _currentPhaseData = phaseData;
             _speed = phaseData.Speed;
             GameEvents.OnSpeedChanged?.Invoke(_speed);
-            _poolSegmentList.AddRange(phaseData.NewSegments);
+            _poolSegmentPrefabList.AddRange(phaseData.NewSegments);
         }
 
         private void Update()
