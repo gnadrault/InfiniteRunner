@@ -28,13 +28,13 @@ MonoBehaviour:
   malusWords:
   - word: OVERLOAD
     isBonus: 0
-    effect: {fileID: 11400000, guid: 1ac632d64702fe0428b6e83e9a181e42, type: 2}
+    effect: {fileID: 11400000, guid: 3cb02b77cc81e5c41b60e78cd3c1d4ba, type: 2}
   - word: HACKED
     isBonus: 0
-    effect: {fileID: 11400000, guid: 1ac632d64702fe0428b6e83e9a181e42, type: 2}
+    effect: {fileID: 11400000, guid: 3cb02b77cc81e5c41b60e78cd3c1d4ba, type: 2}
   - word: HOCKESD
     isBonus: 0
-    effect: {fileID: 11400000, guid: 1ac632d64702fe0428b6e83e9a181e42, type: 2}
+    effect: {fileID: 11400000, guid: 3cb02b77cc81e5c41b60e78cd3c1d4ba, type: 2}
   - word: FAST
     isBonus: 0
-    effect: {fileID: 11400000, guid: 1ac632d64702fe0428b6e83e9a181e42, type: 2}
+    effect: {fileID: 11400000, guid: 3cb02b77cc81e5c41b60e78cd3c1d4ba, type: 2}

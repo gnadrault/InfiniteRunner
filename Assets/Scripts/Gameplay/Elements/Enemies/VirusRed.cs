@@ -20,7 +20,7 @@ namespace Gameplay.Elements.Enemies
             spamKey.action.started += OnKeyPressed;
             player.DisableMovement();
             AlertHUD.Instance.ShowPanelText(AlertHUD.PanelType.Virus, textMessage, GetHUDLabel());
-            GameEvents.OnGameFeelProfile?.Invoke(gameFeelProfile);
+            GameEvents.OnGameFeelProfileStart?.Invoke(gameFeelProfile);
         }
 
         public override void RemoveEffect(PlayerController player)

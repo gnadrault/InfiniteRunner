@@ -496,6 +496,7 @@ MonoBehaviour:
   - {fileID: 2271795341334843862}
   - {fileID: 230393923877394147}
   - {fileID: 8801328000680866498}
+  segmentMesh: {fileID: 4520435876884446640}
 --- !u!1 &7918984482799035168
 GameObject:
   m_ObjectHideFlags: 0

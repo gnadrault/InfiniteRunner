@@ -1,6 +1,8 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Data;
+using Feedback.Data;
 using Gameplay.Segments;
 using UnityEngine;
 using Utils;
@@ -25,6 +27,7 @@ namespace Gameplay
         private SegmentBuilder _segmentBuilder;
         private PhaseData _currentPhaseData;
         private float _speed;
+        private Coroutine _blinkRoutine;
 
         private void Awake()
         {
@@ -41,16 +44,65 @@ namespace Gameplay
 
         private void OnEnable()
         {
-            Segment.OnSegmentDestroyed += RemoveSegment;
+            GameEvents.OnSegmentDestroyed += RemoveSegment;
             GameEvents.OnPlayerDied += StopScroll;
             GameEvents.OnNewPhase += HandleNewPhase;
+            GameEvents.OnStroboscopeEffectStart += HandleStartStroboscope;
+            GameEvents.OnStroboscopeEffectEnd += HandleEndStroboscope;
         }
 
         private void OnDisable()
         {
-            Segment.OnSegmentDestroyed -= RemoveSegment;
+            GameEvents.OnSegmentDestroyed -= RemoveSegment;
             GameEvents.OnPlayerDied -= StopScroll;
             GameEvents.OnNewPhase -= HandleNewPhase;
+            GameEvents.OnStroboscopeEffectStart -= HandleStartStroboscope;
+            GameEvents.OnStroboscopeEffectEnd -= HandleEndStroboscope;
+        }
+        
+        private void HandleStartStroboscope(GameFeelProfile profile)
+        {
+            if (!profile || !profile.Stroboscope.enabled) return;
+            StroboscopeSection data = profile.Stroboscope;
+            
+            StopCurrent();
+            _blinkRoutine = StartCoroutine(BlinkRoutine(data));
+        }
+        
+        private void HandleEndStroboscope()
+        {
+            ResetToAmbient();
+        }
+
+        private IEnumerator BlinkRoutine(StroboscopeSection data)
+        {
+            while (true)
+            {
+                yield return BlinkSegments(true, data.visibleTime);
+                yield return BlinkSegments(false, data.invisibleTime);
+            }
+        }
+        
+        private IEnumerator BlinkSegments(bool active, float time)
+        {
+            foreach (Segment segment in _activeSegmentList)
+                segment.ToggleBlink(active);
+                
+            yield return new WaitForSeconds(time);
+        }
+        
+        public void ResetToAmbient()
+        {
+            StopCurrent();
+            foreach (Segment segment in _activeSegmentList)
+                segment.ToggleBlink(true);
+        }
+
+        private void StopCurrent()
+        {
+            if (_blinkRoutine == null) return;
+            StopCoroutine(_blinkRoutine);
+            _blinkRoutine = null;
         }
 
         private void AddSegment()

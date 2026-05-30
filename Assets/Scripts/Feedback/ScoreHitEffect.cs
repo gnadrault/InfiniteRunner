@@ -18,13 +18,13 @@ namespace Feedback
 
         private void OnEnable()
         {
-            GameEvents.OnGameFeelProfile += ApplyEffect;
+            GameEvents.OnGameFeelProfileStart += ApplyEffect;
             GameEvents.OnGameFeelEnd += ResetToAmbient;
         }
 
         private void OnDisable()
         {
-            GameEvents.OnGameFeelProfile -= ApplyEffect;
+            GameEvents.OnGameFeelProfileStart -= ApplyEffect;
             GameEvents.OnGameFeelEnd -= ResetToAmbient;
         }
 

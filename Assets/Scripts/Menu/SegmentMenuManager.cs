@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Gameplay.Segments;
 using UnityEngine;
+using Utils;
 
 namespace Menu
 {
@@ -30,12 +31,12 @@ namespace Menu
 
         private void OnEnable()
         {
-            Segment.OnSegmentDestroyed += RemoveSegment;
+            GameEvents.OnSegmentDestroyed += RemoveSegment;
         }
 
         private void OnDisable()
         {
-            Segment.OnSegmentDestroyed -= RemoveSegment;
+            GameEvents.OnSegmentDestroyed -= RemoveSegment;
         }
 
         private void AddSegment()

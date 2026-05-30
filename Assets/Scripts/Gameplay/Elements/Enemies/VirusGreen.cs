@@ -19,7 +19,7 @@ namespace Gameplay.Elements.Enemies
             _player = player;
             _currentTimer = duration;
             AlertHUD.Instance.ShowPanelTimed(AlertHUD.PanelType.Virus, textMessage, duration);
-            GameEvents.OnGameFeelProfile?.Invoke(gameFeelProfile);
+            GameEvents.OnGameFeelProfileStart?.Invoke(gameFeelProfile);
             StartCoroutine(ApplyVirus());
         }
 

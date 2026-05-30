@@ -31,7 +31,6 @@ namespace UI
             scoreText.text = endScore.score.ToString();
             newHighScoreText.enabled = endScore.isNewHighScore;
             simpleScoreText.enabled = !endScore.isNewHighScore;
-            print(endScore.isNewHighScore);
             endCanvas.SetActive(true);
         }
     }

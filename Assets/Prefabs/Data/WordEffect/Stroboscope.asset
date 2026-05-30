@@ -16,3 +16,4 @@ MonoBehaviour:
   panelType: 2
   duration: 10
   isComplete: 0
+  gameFeelProfile: {fileID: 11400000, guid: 481a87d37dba1bb479de2488d1278e4c, type: 2}

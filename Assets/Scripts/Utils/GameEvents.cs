@@ -2,6 +2,7 @@
 using Core;
 using Data;
 using Feedback.Data;
+using Gameplay.Segments;
 
 namespace Utils
 {
@@ -18,6 +19,7 @@ namespace Utils
         #region Gameplay
         public static Action<float> OnNewMeter;
         public static Action<float> OnSpeedChanged;
+        public static Action<Segment> OnSegmentDestroyed;
         public static Action<PhaseData> OnNewPhase;
         public static Action<GameState> OnGameStateChanged;
         public static Action<EndScoreData> OnEndMenu;
@@ -25,8 +27,10 @@ namespace Utils
         #endregion
         
         #region Effects
-        public static Action<GameFeelProfile> OnGameFeelProfile;
+        public static Action<GameFeelProfile> OnGameFeelProfileStart;
         public static Action OnGameFeelEnd;
+        public static Action<GameFeelProfile> OnStroboscopeEffectStart;
+        public static Action OnStroboscopeEffectEnd;
         #endregion
 
         #region Score

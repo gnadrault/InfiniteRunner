@@ -18,13 +18,13 @@ namespace Feedback
 
         private void OnEnable()
         {
-            GameEvents.OnGameFeelProfile += ApplyEffect;
+            GameEvents.OnGameFeelProfileStart += ApplyEffect;
             GameEvents.OnGameFeelEnd += ResetToAmbient;
         }
 
         private void OnDisable()
         {
-            GameEvents.OnGameFeelProfile -= ApplyEffect;
+            GameEvents.OnGameFeelProfileStart -= ApplyEffect;
             GameEvents.OnGameFeelEnd -= ResetToAmbient;
         }
 
@@ -43,12 +43,6 @@ namespace Feedback
             _routine = data.pulse
                 ? StartCoroutine(PulseRoutine(data))
                 : StartCoroutine(FadeTo(data.color, data.intensity));
-        }
-
-        public void ResetToAmbient()
-        {
-            StopCurrent();
-            _routine = StartCoroutine(FadeTo(_vignette.color.value, 0f));
         }
 
         private IEnumerator FadeTo(Color targetColor, float targetIntensity)
@@ -80,6 +74,12 @@ namespace Feedback
                 _vignette.intensity.value = Mathf.Lerp(0f, data.intensity, t);
                 yield return null;
             }
+        }
+        
+        public void ResetToAmbient()
+        {
+            StopCurrent();
+            _routine = StartCoroutine(FadeTo(_vignette.color.value, 0f));
         }
 
         private void StopCurrent()
