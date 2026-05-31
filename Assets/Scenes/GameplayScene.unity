@@ -2402,7 +2402,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8027669263008946748, guid: 7b7fe22e7203a55459925ca643d3dac9, type: 3}
   m_PrefabInstance: {fileID: 3842720388287070925}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1085434224}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7e6885ad4e6a43038f33d2f596320460, type: 3}
@@ -4641,6 +4641,33 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7000745944186049706, guid: dc94c8b71129fb543bac2bc4a7fdb478, type: 3}
   m_PrefabInstance: {fileID: 1072994233}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1085434224 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7305124773151762212, guid: 7b7fe22e7203a55459925ca643d3dac9, type: 3}
+  m_PrefabInstance: {fileID: 3842720388287070925}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1085434227
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1085434224}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2b18852206200734d87a1b6d2f3ad3e8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1097158909
 GameObject:
   m_ObjectHideFlags: 0
@@ -11691,7 +11718,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Gameplay.Letters.LettersSystem
   wordsDatabase: {fileID: 11400000, guid: 03debf9990383cc4e8022818068c5be8, type: 2}
   letterCellPrefab: {fileID: 832339328629178229, guid: 82273e491a0e55c41be591a5df4b3f6a, type: 3}
-  player: {fileID: 426995177}
   wordEffectRunner: {fileID: 1701807690}
   bonusDisplays:
   - {fileID: 1773744173}
@@ -14492,7 +14518,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7305124773151762212, guid: 7b7fe22e7203a55459925ca643d3dac9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1085434227}
   m_SourcePrefab: {fileID: 100100000, guid: 7b7fe22e7203a55459925ca643d3dac9, type: 3}
 --- !u!1001 &4933993261843267821
 PrefabInstance:
