@@ -1,0 +1,67 @@
+﻿using System.Collections;
+using Core;
+using Data;
+using Gameplay;
+using Gameplay.Segments;
+using UnityEngine;
+using Utils;
+
+namespace Feedback
+{
+    public class StroboscopeEffect : GameBehavior, IGameFeelEffect
+    {
+        [SerializeField] private SegmentManager segmentManager;
+        
+        private Coroutine _blinkRoutine;
+        
+        private void OnEnable()
+        {
+            GameEvents.OnStroboscopeEffectStart += ApplyEffect;
+            GameEvents.OnStroboscopeEffectEnd += ResetToAmbient;
+        }
+
+        private void OnDisable()
+        {
+            GameEvents.OnStroboscopeEffectStart -= ApplyEffect;
+            GameEvents.OnStroboscopeEffectEnd -= ResetToAmbient;
+        }
+
+        public void ApplyEffect(GameFeelProfile profile)
+        {
+            if (!profile || !profile.Stroboscope.enabled) return;
+
+            StopCurrent();
+            _blinkRoutine = StartCoroutine(BlinkRoutine(profile.Stroboscope));
+        }
+        
+        public void ResetToAmbient()
+        {
+            StopCurrent();
+            SetAllSegments(true);
+        }
+        
+        private IEnumerator BlinkRoutine(StroboscopeSection data)
+        {
+            while (true)
+            {
+                SetAllSegments(true);
+                yield return new WaitForSeconds(data.visibleTime);
+                SetAllSegments(false);
+                yield return new WaitForSeconds(data.invisibleTime);
+            }
+        }
+        
+        private void SetAllSegments(bool visible)
+        {
+            foreach (Segment segment in segmentManager.ActiveSegments)
+                segment.ToggleBlink(visible);
+        }
+
+        private void StopCurrent()
+        {
+            if (_blinkRoutine == null) return;
+            StopCoroutine(_blinkRoutine);
+            _blinkRoutine = null;
+        }
+    }
+}

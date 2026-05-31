@@ -236,7 +236,7 @@ namespace Player
             ResetFreezeCount();
             _freeze = true;
         }
-        
+
         private void ResetFreezeCount()
         {
             _countLeft = 0;
