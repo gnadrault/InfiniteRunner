@@ -46,5 +46,8 @@ namespace Utils
         public static Action OnShieldBroken;
         public static Action OnGhostBroken;
         #endregion
+        
+        public static Action OnPause;
+        public static Action OnResume;
     }
 }

@@ -6,18 +6,13 @@ namespace Gameplay.Elements.Collectibles
 {
     public abstract class Collectible : Element
     {
-        [SerializeField] private ValuePoint point;
+        [SerializeField] private FloatValue point;
 
         private bool _magnetActivated;
         private float _magnetForce;
         private Transform _targetPosition;
 
-        public int Point => point.Value;
-
-        private void Awake()
-        {
-            print("Collectible Awake : " + point.Value);
-        }
+        public int Point => (int)point.Value;
 
         public void ActivateMagnet(Transform position, float magnetForce)
         {

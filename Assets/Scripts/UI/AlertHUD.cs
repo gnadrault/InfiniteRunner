@@ -1,10 +1,11 @@
 using System;
+using Core;
 using TMPro;
 using UnityEngine;
 
 namespace UI
 {
-    public class AlertHUD : MonoBehaviour
+    public class AlertHUD : GameBehavior
     {
         public static AlertHUD Instance;
         
@@ -81,13 +82,13 @@ namespace UI
             }
         }
 
-        private void Update()
+        protected override void GameplayUpdate()
         {
             foreach (var panel in panels)
             {
                 if (!panel.panel.activeSelf || panel.remainingTime < 0) continue;
 
-                panel.remainingTime -= Time.deltaTime;
+                panel.remainingTime -= Time.unscaledDeltaTime;
                 panel.actionLabel.text = GetTimer(panel.remainingTime);
                 
                 if (panel.remainingTime <= 0f)
@@ -97,7 +98,7 @@ namespace UI
                 }
             }
         }
-        
+
         private string GetTimer(float currentTimer)
         {
             int seconds = Mathf.FloorToInt(currentTimer);

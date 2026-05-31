@@ -33,12 +33,12 @@ namespace Gameplay.Elements.Effects
         protected void StartEffectTimer()
         {
             AlertHUD.Instance.ShowPanelTimed(panelType, effectName, duration);
-            _timerCoroutine = Runner.StartCoroutine(EffectTimer());
+            _timerCoroutine = Runner.StartCoroutine(EffectTimer(duration));
         }
 
-        private IEnumerator EffectTimer()
+        private IEnumerator EffectTimer(float effectDuration)
         {
-            yield return new WaitForSeconds(duration);
+            yield return new WaitForSecondsRealtime(effectDuration);
             RemoveEffect();
         }
         

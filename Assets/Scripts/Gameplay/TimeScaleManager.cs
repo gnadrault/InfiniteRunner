@@ -3,11 +3,11 @@
 namespace Gameplay
 {
     public class TimeScaleManager : MonoBehaviour
-
     {
         public static TimeScaleManager Instance;
+        private float _initTimeScale;
 
-        void Awake()
+        private void Awake()
         {
             if (Instance == null)
                 Instance = this;
@@ -15,47 +15,15 @@ namespace Gameplay
                 Destroy(this);
         }
 
-
-        private bool AllowTimeModification()
-        {
-            return true;
-        }
-
-
         public void SetTimeScale(float scale)
         {
-            if (!AllowTimeModification())
-                return;
-
+            _initTimeScale = Time.timeScale;
             Time.timeScale = scale;
         }
-
-        /*private void OnEnable()
+        
+        public void ResetTimeScale()
         {
-            GameEvents.OnGameStateChanged += HandleState;
+            Time.timeScale = _initTimeScale;
         }
-
-        private void OnDisable()
-        {
-            GameEvents.OnGameStateChanged -= HandleState;
-        }
-
-        /// <summary>
-        /// Handle the timeScale according to the new game state received
-        /// </summary>
-        /// <param name="state"></param>
-        private void HandleState(GameState state)
-        {
-            switch (state)
-            {
-                case GameState.Gameplay:
-                    Time.timeScale = 1f;
-                    break;
-                case GameState.Pause:
-                case GameState.End:
-                    Time.timeScale = 0f;
-                    break;
-            }
-        }*/
     }
 }

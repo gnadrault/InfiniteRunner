@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using Gameplay.Elements.Collectibles;
 using Gameplay.Elements.Enemies;
 using Player.Data;

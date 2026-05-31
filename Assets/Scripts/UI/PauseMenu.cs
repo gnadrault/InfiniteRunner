@@ -1,6 +1,7 @@
 using Gameplay;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Utils;
 
 namespace UI
 {
@@ -31,6 +32,7 @@ namespace UI
         public void Pause()
         {
             _isPaused = true;
+            GameEvents.OnPause?.Invoke();
             TimeScaleManager.Instance.SetTimeScale(0f);
             pauseCanvas.SetActive(true);
         }
@@ -38,6 +40,7 @@ namespace UI
         public void Resume()
         {
             _isPaused = false;
+            GameEvents.OnResume?.Invoke();
             TimeScaleManager.Instance.SetTimeScale(1f);
             pauseCanvas.SetActive(false);
         }

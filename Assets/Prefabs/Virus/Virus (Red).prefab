@@ -107,6 +107,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dee52bffd474bd69f4e73460b7f8447, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Movement.FollowPlayerHorizontal
-  speed: 2
+  speed:
+    fixedValue: 0
+    min: 2
+    max: 4
   leftLaneX: -4
   rightLaneX: 4
