@@ -13,7 +13,7 @@ namespace Gameplay.Elements.Enemies
         [SerializeField] private WordDatabase wordsDatabase;
         
         private WordEffect _activeEffect;
-        private EffectTimer _timer;
+        private EffectTimer _activeTimer;
         
         protected override void OnApply()
         {
@@ -29,21 +29,25 @@ namespace Gameplay.Elements.Enemies
         public void Register(WordEffect wordEffect, float effectDuration)
         {
             _activeEffect = wordEffect;
-            _timer = new EffectTimer(effectDuration);
+            _activeTimer = new EffectTimer(effectDuration);
+        }
+
+        public void Stop()
+        {
+            if (!_activeEffect) return;
+            _activeEffect.RemoveEffect();
+            _activeTimer = null;
+            PlayerController.Instance.DetachVirus();
         }
 
         protected override void GameplayUpdate()
         {
-            if (_timer == null) return;
-            _timer.Tick(Time.unscaledDeltaTime);
-            AlertPanelUI.Instance.SetActionText(StringFormat.FormatTimer(_timer.Remaining));
+            if (_activeTimer == null) return;
+            _activeTimer.Tick(Time.unscaledDeltaTime);
+            AlertPanelUI.Instance.SetActionText(StringFormat.FormatTimer(_activeTimer.Remaining));
 
-            if (_timer.IsDone)
-            {
-                _activeEffect.RemoveEffect();
-                PlayerController.Instance.DetachVirus();
-                _timer = null;
-            }
+            if (_activeTimer.IsDone)
+                Stop();
         }
     }
 }

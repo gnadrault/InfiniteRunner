@@ -40,7 +40,7 @@ namespace UI
 
         public void SetActionText(string customText)
         {
-            if (_panelDisplayed == null || !_panelDisplayed.panelContainer.activeSelf) return;
+            if (_panelDisplayed == null) return;
             _panelDisplayed.actionLabel.text = customText;
         }
 

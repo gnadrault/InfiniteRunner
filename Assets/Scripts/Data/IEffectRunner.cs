@@ -5,5 +5,7 @@ namespace Data
     public interface IEffectRunner
     {
         void Register(WordEffect wordEffect, float duration);
+
+        void Stop();
     }
 }

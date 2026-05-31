@@ -17,6 +17,13 @@ namespace Gameplay
             _activeEffect = wordEffect;
             _activeTimer = new EffectTimer(duration);
         }
+        
+        public void Stop()
+        {
+            if (!_activeEffect) return;
+            _activeEffect.RemoveEffect();
+            Clear();
+        }
 
         protected override void GameplayUpdate()
         {
@@ -25,10 +32,13 @@ namespace Gameplay
             AlertPanelUI.Instance.SetActionText(StringFormat.FormatTimer(_activeTimer.Remaining));
 
             if (_activeTimer.IsDone)
-            {
-                _activeEffect.RemoveEffect();
-                _activeTimer = null;
-            }
+                Stop();
+        }
+        
+        private void Clear()
+        {
+            _activeEffect = null;
+            _activeTimer = null;
         }
     }
 }

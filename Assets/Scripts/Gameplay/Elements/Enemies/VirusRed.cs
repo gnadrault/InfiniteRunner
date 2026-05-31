@@ -12,11 +12,13 @@ namespace Gameplay.Elements.Enemies
         [SerializeField] private InputActionReference spamKey;
         [SerializeField] private int requiredPressed = 10;
         
+        private bool _active;
         private int _count;
         
         protected override void OnApply()
         {
             _count = 0;
+            _active = true;
             spamKey.action.started += OnKeyPressed;
             PlayerController.Instance.DisableMovement();
             GameEvents.OnGameFeelProfileStart?.Invoke(gameFeelProfile);
@@ -25,6 +27,7 @@ namespace Gameplay.Elements.Enemies
 
         protected override void OnRemove()
         {
+            _active = false;
             PlayerController.Instance.EnableMovement();
             GameEvents.OnGameFeelEnd?.Invoke();
             AlertPanelUI.Instance.HideActivePanel();
@@ -33,6 +36,7 @@ namespace Gameplay.Elements.Enemies
         
         private void OnKeyPressed(InputAction.CallbackContext ctx)
         {
+            if (!_active) return;
             _count++;
             AlertPanelUI.Instance.SetActionText(GetActionText()); 
             

@@ -24,18 +24,22 @@ namespace Player
             Slide
         }
 
-        [Header("Input")] [SerializeField] private InputActionReference leftInput;
+        [Header("Input")] 
+        [SerializeField] private InputActionReference leftInput;
         [SerializeField] private InputActionReference rightInput;
         [SerializeField] private InputActionReference jumpInput;
         [SerializeField] private InputActionReference slideInput;
 
-        [Header("Settings")] [SerializeField] private PlayerSettings playerSettings;
+        [Header("Settings")] 
+        [SerializeField] private PlayerSettings playerSettings;
         [SerializeField] private GameObject meshGameObject;
 
-        [Header("Lanes")] [SerializeField] private Transform[] laneAnchors;
+        [Header("Lanes")] 
+        [SerializeField] private Transform[] laneAnchors;
         [SerializeField] private int initLaneIndex = 1;
 
-        [Header("Effects")] [SerializeField] private GameObject shieldEffect;
+        [Header("Effects")] 
+        [SerializeField] private GameObject shieldEffect;
         [SerializeField] private GameObject magnetEffect;
 
         private Renderer[] _renderers;
@@ -53,7 +57,6 @@ namespace Player
         private bool _ghost;
         private bool _freeze;
         private bool _invert;
-        private bool _magnet;
         private float _delayTime;
         private float _multiplier = 1f;
 
@@ -66,22 +69,24 @@ namespace Player
         private void OnRightInput(InputAction.CallbackContext _) => HandleIntent(MoveIntent.Right);
         private void OnJumpInput(InputAction.CallbackContext _) => HandleIntent(MoveIntent.Jump);
         private void OnSlideInput(InputAction.CallbackContext _) => HandleIntent(MoveIntent.Slide);
-        
+
         private void Awake()
         {
             if (Instance == null)
+            {
                 Instance = this;
+                _transform = transform;
+                _currentLaneIndex = initLaneIndex;
+                _renderers = meshGameObject.GetComponentsInChildren<Renderer>();
+                _matPropertyBlock = new MaterialPropertyBlock();
+                _stateMachine = new PlayerStateMachine(playerSettings);
+            }
             else
                 Destroy(this);
         }
 
         private void Start()
         {
-            _transform = transform;
-            _currentLaneIndex = initLaneIndex;
-            _renderers = meshGameObject.GetComponentsInChildren<Renderer>();
-            _matPropertyBlock = new MaterialPropertyBlock();
-            _stateMachine = new PlayerStateMachine(playerSettings);
             _transform.position = laneAnchors[_currentLaneIndex].position;
             _stateMachine.Start();
         }
@@ -276,14 +281,12 @@ namespace Player
 
         public void ApplyMagnet()
         {
-            _magnet = true;
-            magnetEffect.SetActive(_magnet);
+            magnetEffect.SetActive(true);
         }
 
         public void RemoveMagnet()
         {
-            _magnet = false;
-            magnetEffect.SetActive(_magnet);
+            magnetEffect.SetActive(false);
         }
 
         public void ApplyDelay(float delay)
@@ -347,7 +350,6 @@ namespace Player
         public bool IsPlayerInfected() => currentVirus;
         public bool HasShield() => _shield;
         public bool HasGhost() => _ghost;
-        public bool HasMagnet() => _magnet;
 
         #endregion
     }

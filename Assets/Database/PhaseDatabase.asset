@@ -30,7 +30,6 @@ MonoBehaviour:
     - {fileID: 66493209559607754, guid: f7671948253eea648b9c3870194d4407, type: 3}
     virus:
     - {fileID: 1786364590797097875, guid: 1a08c3a0cb92f6240a237030a04c5b1d, type: 3}
-    - {fileID: -35816546029551191, guid: 3d5a24b4ceda09b47b19443886dbed74, type: 3}
   - name: 2
     rainbowColor: 0
     phaseColor: {r: 0.37256625, g: 0.23691694, b: 0.7610062, a: 1}

@@ -118,8 +118,7 @@ namespace Gameplay
         
         private void StopEffect()
         {
-            if (!_activeEffect) return;
-            _activeEffect.RemoveEffect();
+            wordEffectRunner.Stop();
             _activeEffect = null;
         }
         

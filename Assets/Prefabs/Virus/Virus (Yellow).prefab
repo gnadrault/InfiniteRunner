@@ -96,4 +96,4 @@ MonoBehaviour:
   gameFeelProfile: {fileID: 11400000, guid: 893be00fe04292741aa73018d34db421, type: 2}
   alertTitleText: INFECTED!
   duration: 5
-  delay: 0.5
+  delay: 0.2
