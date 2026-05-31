@@ -1,10 +1,7 @@
-using System;
 using Core;
 using Data;
-using Gameplay;
 using TMPro;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using Utils;
 
 namespace UI
@@ -18,21 +15,27 @@ namespace UI
 
         private void OnEnable()
         {
-            GameEvents.OnEndMenu += EndGame;
+            GameEvents.OnGameOver += OnGameOver;
+            GameEvents.OnGameStateChanged += HandleState;
         }
         
         private void OnDisable()
         {
-            GameEvents.OnEndMenu -= EndGame;
+            GameEvents.OnGameOver -= OnGameOver;
+            GameEvents.OnGameStateChanged -= HandleState;
         }
 
-        private void EndGame(EndScoreData endScore)
+        private void OnGameOver(EndScoreData endScore)
         {
-            TimeManager.Instance.SetTimeScale(0f);
             scoreText.text = endScore.score.ToString();
             newHighScoreText.enabled = endScore.isNewHighScore;
             simpleScoreText.enabled = !endScore.isNewHighScore;
-            endCanvas.SetActive(true);
+            GameStateManager.Instance.SetState(GameState.GameOver);
+        }
+        
+        private void HandleState(GameState state)
+        {
+            endCanvas.SetActive(state == GameState.GameOver);
         }
     }
 }

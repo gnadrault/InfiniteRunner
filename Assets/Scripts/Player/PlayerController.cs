@@ -90,6 +90,7 @@ namespace Player
 
         private void OnLeftInput(InputAction.CallbackContext obj)
         {
+            if (GameStateManager.Instance.State != GameState.Gameplay) return;
             int nextLaneIndex = _currentLaneIndex - 1;
             if (_isBlocked) return;
             if (_freeze)
@@ -109,6 +110,7 @@ namespace Player
 
         private void OnRightInput(InputAction.CallbackContext obj)
         {
+            if (GameStateManager.Instance.State != GameState.Gameplay) return;
             int nextLaneIndex = _currentLaneIndex + 1;
             if (_isBlocked) return;
             if (_freeze)
@@ -128,6 +130,7 @@ namespace Player
 
         private void OnJumpInput(InputAction.CallbackContext obj)
         {
+            if (GameStateManager.Instance.State != GameState.Gameplay) return;
             if (_isBlocked) return;
             if (_freeze)
             {
@@ -143,6 +146,7 @@ namespace Player
         
         private void OnSlideInput(InputAction.CallbackContext obj)
         {
+            if (GameStateManager.Instance.State != GameState.Gameplay) return;
             if (_isBlocked) return;
             if (_delay)
             {

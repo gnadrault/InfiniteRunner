@@ -13,12 +13,12 @@ namespace Effects
         
         protected override void OnApply()
         {
-            TimeManager.Instance.SetTimeScale(speedTimeScale);
+            TimeManager.Instance.SetGameplayTimeScale(speedTimeScale);
         }
 
         protected override void OnRemove()
         {
-            TimeManager.Instance.SetTimeScale(1f);
+            TimeManager.Instance.SetGameplayTimeScale(1f);
         }
     }
 }

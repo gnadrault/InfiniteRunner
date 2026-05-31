@@ -3621,7 +3621,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6994386600768924380, guid: cbd578f20b944d94e972b8a173e15d11, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6994386600768924380, guid: cbd578f20b944d94e972b8a173e15d11, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -3629,7 +3629,7 @@ PrefabInstance:
       objectReference: {fileID: 291596446}
     - target: {fileID: 6994386600768924380, guid: cbd578f20b944d94e972b8a173e15d11, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: TogglePause
+      value: Resume
       objectReference: {fileID: 0}
     - target: {fileID: 6994386600768924380, guid: cbd578f20b944d94e972b8a173e15d11, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -13201,9 +13201,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1915460932}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f86d1178aa3f2904694d3f5f5ed6ef0e, type: 3}
+  m_Script: {fileID: 11500000, guid: 393c58642920469da2bc3e8c4fdcda7f, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Core.GameManager
+  m_EditorClassIdentifier: Assembly-CSharp::Core.GameStateManager
 --- !u!1 &1925080181
 GameObject:
   m_ObjectHideFlags: 0

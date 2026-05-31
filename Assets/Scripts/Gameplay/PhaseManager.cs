@@ -27,7 +27,7 @@ namespace Gameplay
         private void Start()
         {
             ChangePhase(0);
-            TimeManager.Instance.SetTimeScale(1f);
+            TimeManager.Instance.SetGameplayTimeScale(1f);
         }
 
         private void OnEnable()

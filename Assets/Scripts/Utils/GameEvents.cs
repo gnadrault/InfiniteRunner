@@ -21,7 +21,7 @@ namespace Utils
         public static Action<Segment> OnSegmentDestroyed;
         public static Action<PhaseData> OnNewPhase;
         public static Action<GameState> OnGameStateChanged;
-        public static Action<EndScoreData> OnEndMenu;
+        public static Action<EndScoreData> OnGameOver;
         public static Action OnEndGame;
         #endregion
         

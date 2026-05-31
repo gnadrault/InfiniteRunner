@@ -45,7 +45,7 @@ namespace Gameplay
         private void SaveScore()
         {
             bool newHighScore = ScoreSave.AddScore((int)_score);
-            GameEvents.OnEndMenu?.Invoke(new EndScoreData((int)_score, newHighScore));
+            GameEvents.OnGameOver?.Invoke(new EndScoreData((int)_score, newHighScore));
         }
         
         protected override void GameplayUpdate()

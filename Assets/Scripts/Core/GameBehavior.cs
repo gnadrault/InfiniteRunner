@@ -8,7 +8,7 @@ namespace Core
         private void Update()
         {
             AlwaysUpdate();
-            if (TimeManager.IsPaused) return;
+            if (GameStateManager.Instance.State != GameState.Gameplay) return;
             GameplayUpdate();
         }
         
