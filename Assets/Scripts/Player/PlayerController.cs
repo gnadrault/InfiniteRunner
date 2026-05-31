@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using Core;
 using Gameplay.Elements.Collectibles;
@@ -12,57 +13,65 @@ namespace Player
 {
     public class PlayerController : GameBehavior
     {
-        [Header("Input")]
-        [SerializeField] private InputActionReference leftInput;
+        private static readonly int BaseColor = Shader.PropertyToID("_BaseColor");
+
+        private enum MoveIntent
+        {
+            Left,
+            Right,
+            Jump,
+            Slide
+        }
+
+        [Header("Input")] [SerializeField] private InputActionReference leftInput;
         [SerializeField] private InputActionReference rightInput;
         [SerializeField] private InputActionReference jumpInput;
         [SerializeField] private InputActionReference slideInput;
-        
-        [Header("Settings")]
-        [SerializeField] private PlayerSettings playerSettings;
+
+        [Header("Settings")] [SerializeField] private PlayerSettings playerSettings;
         [SerializeField] private GameObject meshGameObject;
-        
-        [Header("Lanes")]
-        [SerializeField] private Transform[] laneAnchors;
+
+        [Header("Lanes")] [SerializeField] private Transform[] laneAnchors;
         [SerializeField] private int initLaneIndex = 1;
-        
-        [Header("Effects")]
-        [SerializeField] private GameObject shieldEffect;
+
+        [Header("Effects")] [SerializeField] private GameObject shieldEffect;
         [SerializeField] private GameObject magnetEffect;
-        
+
+        private Renderer[] _renderers;
         private int _currentLaneIndex;
         private Transform _transform;
         private PlayerStateMachine _stateMachine;
         private MaterialPropertyBlock _matPropertyBlock;
-        
-        private Renderer[] _renderers;
-        private static readonly int BaseColor = Shader.PropertyToID("_BaseColor");
-        
+
         //Virus
         private Virus currentVirus;
         private bool _isBlocked;
-        
+
         //Bonus / Malus States
         private bool _shield;
         private bool _ghost;
         private bool _freeze;
         private bool _invert;
-        private float _multiplier = 1f;
         private bool _magnet;
-        private bool _delay;
         private float _delayTime;
+        private float _multiplier = 1f;
 
+        // Freeze count
         private int _countLeft;
         private int _countRight;
         private int _countJump;
 
+        private void OnLeftInput(InputAction.CallbackContext _) => HandleIntent(MoveIntent.Left);
+        private void OnRightInput(InputAction.CallbackContext _) => HandleIntent(MoveIntent.Right);
+        private void OnJumpInput(InputAction.CallbackContext _) => HandleIntent(MoveIntent.Jump);
+        private void OnSlideInput(InputAction.CallbackContext _) => HandleIntent(MoveIntent.Slide);
 
         private void Awake()
         {
             _transform = transform;
             _currentLaneIndex = initLaneIndex;
             _renderers = meshGameObject.GetComponentsInChildren<Renderer>();
-            _matPropertyBlock =  new MaterialPropertyBlock();
+            _matPropertyBlock = new MaterialPropertyBlock();
             _stateMachine = new PlayerStateMachine(this, playerSettings);
         }
 
@@ -71,7 +80,7 @@ namespace Player
             _transform.position = laneAnchors[_currentLaneIndex].position;
             _stateMachine.Start();
         }
-        
+
         private void OnEnable()
         {
             leftInput.action.started += OnLeftInput;
@@ -88,73 +97,58 @@ namespace Player
             slideInput.action.started -= OnSlideInput;
         }
 
-        private void OnLeftInput(InputAction.CallbackContext obj)
+        private void HandleIntent(MoveIntent intent)
         {
-            if (GameStateManager.Instance.State != GameState.Gameplay) return;
-            int nextLaneIndex = _currentLaneIndex - 1;
             if (_isBlocked) return;
-            if (_freeze)
-            {
-                _countLeft++;
-                if (_countLeft < 2) return;
-                _countLeft = 0;
-            } else if (_invert)
-            {
-                nextLaneIndex = _currentLaneIndex + 1;
-            } else if (_delay)
-            {
-                StartCoroutine(DelayedExecute(_delayTime));
-            }
-            TryChangingLane(nextLaneIndex);
+            if (_freeze && !ShouldPassFreeze(intent)) return;
+            if (_invert) intent = Invert(intent);
+            StartCoroutine(ExecuteIntent(intent));
         }
 
-        private void OnRightInput(InputAction.CallbackContext obj)
+        private IEnumerator ExecuteIntent(MoveIntent intent)
         {
-            if (GameStateManager.Instance.State != GameState.Gameplay) return;
-            int nextLaneIndex = _currentLaneIndex + 1;
-            if (_isBlocked) return;
-            if (_freeze)
-            {
-                _countRight++;
-                if (_countRight < 2) return;
-                _countRight = 0;
-            } else if (_invert)
-            {
-                nextLaneIndex =  _currentLaneIndex - 1;
-            } else if (_delay)
-            {
-                StartCoroutine(DelayedExecute(_delayTime));
-            }
-            TryChangingLane(nextLaneIndex);
+            yield return new WaitForSeconds(_delayTime);
+            Action move = Execute(intent);
+            move();
         }
 
-        private void OnJumpInput(InputAction.CallbackContext obj)
+        private Action Execute(MoveIntent intent)
         {
-            if (GameStateManager.Instance.State != GameState.Gameplay) return;
-            if (_isBlocked) return;
-            if (_freeze)
+            return intent switch
             {
-                _countJump++;
-                if (_countJump < 2) return;
-                _countJump = 0;
-            } else if (_delay)
-            {
-                StartCoroutine(DelayedExecute(_delayTime));
-            }
-            TryJumping();
+                MoveIntent.Left => () => TryChangingLane(_currentLaneIndex - 1),
+                MoveIntent.Right => () => TryChangingLane(_currentLaneIndex + 1),
+                MoveIntent.Jump => TryJumping,
+                MoveIntent.Slide => TrySlide,
+                _ => throw new ArgumentOutOfRangeException(nameof(intent), intent, null)
+            };
         }
-        
-        private void OnSlideInput(InputAction.CallbackContext obj)
+
+        private bool ShouldPassFreeze(MoveIntent intent)
         {
-            if (GameStateManager.Instance.State != GameState.Gameplay) return;
-            if (_isBlocked) return;
-            if (_delay)
+            int count = intent switch
             {
-                StartCoroutine(DelayedExecute(_delayTime));
-            }
-            TrySlide();
+                MoveIntent.Left => ++_countLeft,
+                MoveIntent.Right => ++_countRight,
+                MoveIntent.Jump => ++_countJump,
+                _ => 2
+            };
+
+            if (count < 2) return false;
+            ResetFreezeCount();
+            return true;
         }
-        
+
+        private MoveIntent Invert(MoveIntent intent)
+        {
+            return intent switch
+            {
+                MoveIntent.Left => MoveIntent.Right,
+                MoveIntent.Right => MoveIntent.Left,
+                _ => intent
+            };
+        }
+
         private void TryChangingLane(int newLaneIndex)
         {
             if (!_stateMachine.CanChangeLane()) return;
@@ -191,7 +185,7 @@ namespace Player
             GameEvents.OnVirusAttached?.Invoke();
             currentVirus.ApplyVirusEffect(this);
         }
-        
+
         public void DetachVirus()
         {
             if (!currentVirus) return;
@@ -236,20 +230,25 @@ namespace Player
             _ghost = false;
             Colors.SetTransparency(_renderers, _matPropertyBlock, BaseColor, 1f);
         }
-        
+
         public void ApplyFreeze()
+        {
+            ResetFreezeCount();
+            _freeze = true;
+        }
+        
+        private void ResetFreezeCount()
         {
             _countLeft = 0;
             _countRight = 0;
             _countJump = 0;
-            _freeze = true;
         }
 
         public void RemoveFreeze()
         {
             _freeze = false;
         }
-        
+
         public void ApplyInvert()
         {
             _invert = true;
@@ -259,7 +258,7 @@ namespace Player
         {
             _invert = false;
         }
-        
+
         public void ApplyMultiplier(float multiplierFactor)
         {
             _multiplier = multiplierFactor;
@@ -269,7 +268,7 @@ namespace Player
         {
             _multiplier = 1;
         }
-        
+
         public void ApplyMagnet()
         {
             _magnet = true;
@@ -281,22 +280,17 @@ namespace Player
             _magnet = false;
             magnetEffect.SetActive(_magnet);
         }
-        
+
         public void ApplyDelay(float delay)
         {
             _delayTime = delay;
-            _delay = true;
         }
 
         public void RemoveDelay()
         {
-            _delay = false;
+            _delayTime = 0f;
         }
-        
-        private IEnumerator DelayedExecute(float delay)
-        {
-            yield return new WaitForSeconds(delay);
-        }
+
         #endregion
 
         #region Getters/Setters
@@ -307,7 +301,7 @@ namespace Player
             position.x = x;
             _transform.position = position;
         }
-        
+
         public void SetPositionY(float y)
         {
             Vector3 position = _transform.position;
@@ -321,7 +315,7 @@ namespace Player
             scale.y = y;
             _transform.localScale = scale;
         }
-        
+
         public void CollectLetter(LetterLoot letterLoot)
         {
             GameEvents.OnLetterCollected?.Invoke(letterLoot.Label);
@@ -338,7 +332,7 @@ namespace Player
             GameEvents.OnPlayerDied?.Invoke();
             _stateMachine.ChangeState(_stateMachine.Die());
         }
-        
+
         public Vector3 GetCurrentPosition() => _transform.position;
         public Vector3 GetCurrentScale() => _transform.localScale;
         public GameObject GetMeshObject() => meshGameObject;
