@@ -1,8 +1,9 @@
+using Core;
 using UnityEngine;
 
 namespace Movement
 {
-    public class MoveRotate : MonoBehaviour
+    public class MoveRotate : GameBehavior
     {
         [SerializeField] private float rotateRange = 20f;
         [SerializeField] private float speed = 2f;
@@ -14,7 +15,7 @@ namespace Movement
             _startRotation = transform.rotation;
         }
 
-        private void Update()
+        protected override void GameplayUpdate()
         {
             float angle = Mathf.Sin(Time.time * speed) * rotateRange;
             transform.rotation = _startRotation * Quaternion.Euler(0f, 0f, angle);

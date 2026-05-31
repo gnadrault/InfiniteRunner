@@ -31,7 +31,7 @@ namespace Gameplay.Elements.Enemies
             Destroy(gameObject);
         }
         
-        private void Update()
+        protected override void GameplayUpdate()
         {
             if (!_active) return;
             _timer.Tick(Time.unscaledDeltaTime);

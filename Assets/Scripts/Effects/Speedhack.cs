@@ -1,8 +1,8 @@
-using Player;
-using UI;
+using Core;
+using Gameplay;
 using UnityEngine;
 
-namespace Gameplay.Elements.Effects
+namespace Effects
 {
     [CreateAssetMenu(fileName = "Speedhack", menuName = "SyntaxError/Effects/Speedhack")]
     public class Speedhack : WordEffect
@@ -13,12 +13,12 @@ namespace Gameplay.Elements.Effects
         
         protected override void OnApply()
         {
-            TimeScaleManager.Instance.SetTimeScale(speedTimeScale);
+            TimeManager.Instance.SetTimeScale(speedTimeScale);
         }
 
         protected override void OnRemove()
         {
-            TimeScaleManager.Instance.SetTimeScale(1f);
+            TimeManager.Instance.SetTimeScale(1f);
         }
     }
 }

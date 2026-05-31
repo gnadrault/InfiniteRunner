@@ -1,4 +1,5 @@
 using System;
+using Core;
 using Data;
 using Gameplay.Elements.Collectibles;
 using Gameplay.Elements.Enemies;
@@ -11,13 +12,13 @@ using Random = UnityEngine.Random;
 
 namespace Gameplay
 {
-    public class SegmentBuilder : MonoBehaviour
+    public class SegmentBuilder : GameBehavior
     {
         [Header("Databases")] 
         [SerializeField] private ObstacleDatabase obstacleDatabase;
         [SerializeField] private CollectibleDatabase collectibleDatabase;
 
-        [Header("Settings")] 
+        [Header("Settings")]
         [SerializeField] private int activeLettersSpawnRate = 3;
 
         

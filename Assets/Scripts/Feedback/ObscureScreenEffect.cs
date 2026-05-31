@@ -1,4 +1,5 @@
-﻿using Feedback.Data;
+﻿using Core;
+using Data;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
@@ -6,7 +7,7 @@ using Utils;
 
 namespace Feedback
 {
-    public class ObscureScreenEffect : MonoBehaviour, IGameFeelEffect
+    public class ObscureScreenEffect : GameBehavior, IGameFeelEffect
     {
         [SerializeField] private Volume globalVolume;
         [SerializeField] private float transitionDuration = 0.4f;

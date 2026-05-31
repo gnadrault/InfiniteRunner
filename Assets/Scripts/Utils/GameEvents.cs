@@ -1,7 +1,6 @@
 ﻿using System;
 using Core;
 using Data;
-using Feedback.Data;
 using Gameplay.Segments;
 
 namespace Utils
@@ -46,8 +45,5 @@ namespace Utils
         public static Action OnShieldBroken;
         public static Action OnGhostBroken;
         #endregion
-        
-        public static Action OnPause;
-        public static Action OnResume;
     }
 }

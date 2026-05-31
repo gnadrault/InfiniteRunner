@@ -1,5 +1,6 @@
 using System.Collections;
-using Feedback.Data;
+using Core;
+using Data;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
@@ -7,7 +8,7 @@ using Utils;
 
 namespace Feedback
 {
-    public class VignetteEffect : MonoBehaviour, IGameFeelEffect
+    public class VignetteEffect : GameBehavior, IGameFeelEffect
     {
         [SerializeField] private float hitDuration = 1f;
         [SerializeField] private Volume globalVolume;

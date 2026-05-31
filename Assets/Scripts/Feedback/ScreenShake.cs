@@ -1,8 +1,9 @@
+using Core;
 using UnityEngine;
 
 namespace Feedback
 {
-    public class ScreenShake : MonoBehaviour
+    public class ScreenShake : GameBehavior
     {
         public float shakeAmount = 0.05f;
 

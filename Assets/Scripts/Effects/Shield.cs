@@ -1,9 +1,7 @@
-using Player;
-using UI;
 using UnityEngine;
 using Utils;
 
-namespace Gameplay.Elements.Effects
+namespace Effects
 {
     [CreateAssetMenu(fileName = "Shield", menuName = "SyntaxError/Effects/Shield")]
     public class Shield : WordEffect

@@ -1,9 +1,10 @@
+using Core;
 using Data;
 using UnityEngine;
 
 namespace Movement
 {
-    public class FollowPlayerHorizontal : MonoBehaviour
+    public class FollowPlayerHorizontal : GameBehavior
     {
         [SerializeField] private FloatValue speed;
         [SerializeField] private float leftLaneX = -4;
@@ -18,7 +19,7 @@ namespace Movement
             _speed = speed.Value;
         }
         
-        private void Update()
+        protected override void GameplayUpdate()
         {
             if (!_player) return;
 

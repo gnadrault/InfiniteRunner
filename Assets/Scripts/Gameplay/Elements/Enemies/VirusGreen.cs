@@ -32,7 +32,7 @@ namespace Gameplay.Elements.Enemies
             Destroy(gameObject);
         }
         
-        public void Update()
+        protected override void GameplayUpdate()
         {
             if (!_active) return;
             _timer.Tick(Time.unscaledDeltaTime);

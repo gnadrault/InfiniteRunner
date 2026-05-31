@@ -1,8 +1,9 @@
+using Core;
 using UnityEngine;
 
 namespace Audio
 {
-    public class AudioManager : MonoBehaviour
+    public class AudioManager : GameBehavior
     {
         public static AudioManager Instance;
 

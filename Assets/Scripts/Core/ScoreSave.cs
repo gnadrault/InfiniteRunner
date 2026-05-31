@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Core
 {
-    public class ScoreSave : MonoBehaviour
+    public class ScoreSave : GameBehavior
     {
         
         private static string FilePath => Path.Combine(Application.persistentDataPath, "scores.json");

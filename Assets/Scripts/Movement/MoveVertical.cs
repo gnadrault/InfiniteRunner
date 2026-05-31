@@ -1,8 +1,9 @@
+using Core;
 using UnityEngine;
 
 namespace Movement
 {
-    public class MoveVertical : MonoBehaviour
+    public class MoveVertical : GameBehavior
     {
         [SerializeField] private float speed = 1f;
         [SerializeField] private float height = 5f;
@@ -15,7 +16,7 @@ namespace Movement
             _initPosition = transform.position;
         }
 
-        private void Update()
+        protected override void GameplayUpdate()
         {
             Vector3 position = transform.position;
             position.y += _direction.y * speed * Time.deltaTime;

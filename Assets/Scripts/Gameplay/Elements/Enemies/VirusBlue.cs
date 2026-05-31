@@ -1,5 +1,5 @@
 ﻿using Data;
-using Gameplay.Elements.Effects;
+using Effects;
 using UI;
 using UnityEngine;
 using Utils;
@@ -31,7 +31,7 @@ namespace Gameplay.Elements.Enemies
             _timer = new EffectTimer(effectDuration);
         }
 
-        private void Update()
+        protected override void GameplayUpdate()
         {
             if (_timer == null) return;
             _timer.Tick(Time.unscaledDeltaTime);

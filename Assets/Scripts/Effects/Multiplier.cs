@@ -1,7 +1,6 @@
-using Player;
 using UnityEngine;
 
-namespace Gameplay.Elements.Effects
+namespace Effects
 {
     [CreateAssetMenu(fileName = "Multiplier", menuName = "SyntaxError/Effects/Multiplier")]
     public class Multiplier : WordEffect

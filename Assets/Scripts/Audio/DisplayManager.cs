@@ -1,9 +1,10 @@
+using Core;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace Audio
 {
-    public class DisplayManager : MonoBehaviour
+    public class DisplayManager : GameBehavior
     {
         [SerializeField] private Toggle fullscreenToggle;
 

@@ -1,7 +1,7 @@
 using UnityEngine;
 using Utils;
 
-namespace Gameplay.Elements.Effects
+namespace Effects
 {
     [CreateAssetMenu(fileName = "Spectral", menuName = "SyntaxError/Effects/Spectral")]
     public class Spectral : WordEffect

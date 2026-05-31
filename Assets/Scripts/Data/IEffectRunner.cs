@@ -1,4 +1,4 @@
-﻿using Gameplay.Elements.Effects;
+﻿using Effects;
 
 namespace Data
 {

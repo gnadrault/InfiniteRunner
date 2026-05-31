@@ -1,4 +1,5 @@
 using System;
+using Core;
 using Data;
 using Gameplay;
 using TMPro;
@@ -8,7 +9,7 @@ using Utils;
 
 namespace UI
 {
-    public class EndMenuUI : MonoBehaviour
+    public class EndMenuUI : GameBehavior
     {
         [SerializeField] private TextMeshProUGUI newHighScoreText;
         [SerializeField] private TextMeshProUGUI simpleScoreText;
@@ -27,7 +28,7 @@ namespace UI
 
         private void EndGame(EndScoreData endScore)
         {
-            TimeScaleManager.Instance.SetTimeScale(0f);
+            TimeManager.Instance.SetTimeScale(0f);
             scoreText.text = endScore.score.ToString();
             newHighScoreText.enabled = endScore.isNewHighScore;
             simpleScoreText.enabled = !endScore.isNewHighScore;

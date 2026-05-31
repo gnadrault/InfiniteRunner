@@ -1,5 +1,6 @@
 using System;
 using System.Text;
+using Core;
 using Data;
 using Gameplay.Letters;
 using Player;
@@ -10,7 +11,7 @@ using Utils;
 
 namespace Gameplay
 {
-    public class DebugSystem : MonoBehaviour
+    public class DebugSystem : GameBehavior
     {
         [SerializeField] private TextMeshProUGUI textPrefab;
         [SerializeField] private GameObject debugPanel;
@@ -57,7 +58,7 @@ namespace Gameplay
             _queueText = Instantiate(textPrefab, debugPanel.transform);
         }
 
-        private void Update()
+        protected override void AlwaysUpdate()
         {
             _timescaleTxt.text = "Timescale: " + Time.timeScale.ToString("F2");
             _virusTxt.text = "Infected: " + playerController.IsPlayerInfected();

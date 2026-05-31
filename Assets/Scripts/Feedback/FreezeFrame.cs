@@ -1,9 +1,10 @@
 using System.Collections;
+using Core;
 using UnityEngine;
 
 namespace Feedback
 {
-    public class FreezeFrame : MonoBehaviour
+    public class FreezeFrame : GameBehavior
     {
         public static FreezeFrame instance;
 

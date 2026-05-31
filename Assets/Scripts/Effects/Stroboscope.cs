@@ -1,9 +1,8 @@
-using Feedback.Data;
-using Player;
+using Data;
 using UnityEngine;
 using Utils;
 
-namespace Gameplay.Elements.Effects
+namespace Effects
 {
     [CreateAssetMenu(fileName = "Stroboscope", menuName = "SyntaxError/Effects/Stroboscope")]
     public class Stroboscope : WordEffect

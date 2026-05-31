@@ -1,7 +1,6 @@
-using Player;
 using UnityEngine;
 
-namespace Gameplay.Elements.Effects
+namespace Effects
 {
     [CreateAssetMenu(fileName = "Reverse", menuName = "SyntaxError/Effects/Reverse")]
     public class Reverse : WordEffect

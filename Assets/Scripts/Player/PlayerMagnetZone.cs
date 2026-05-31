@@ -1,9 +1,10 @@
+using Core;
 using Gameplay.Elements.Collectibles;
 using UnityEngine;
 
 namespace Player
 {
-    public class PlayerMagnetZone : MonoBehaviour
+    public class PlayerMagnetZone : GameBehavior
     {
         [SerializeField] private float magnetForce = 50f;
 

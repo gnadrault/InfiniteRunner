@@ -1,5 +1,6 @@
 using System.Collections;
-using Feedback.Data;
+using Core;
+using Data;
 using TMPro;
 using UnityEngine;
 using Utils;
@@ -7,7 +8,7 @@ using Random = UnityEngine.Random;
 
 namespace Feedback
 {
-    public class ScoreHitEffect : MonoBehaviour, IGameFeelEffect
+    public class ScoreHitEffect : GameBehavior, IGameFeelEffect
     {
         [SerializeField] private TextMeshProUGUI label;
         [SerializeField] private float hitDuration = 0.4f;

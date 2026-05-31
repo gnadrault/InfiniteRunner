@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Core;
 using Gameplay.Elements.Obstacles;
 using Gameplay.Segments.Spawn;
 using UnityEngine;
@@ -7,7 +8,7 @@ using Utils;
 
 namespace Gameplay.Segments
 {
-    public class Segment : MonoBehaviour
+    public class Segment : GameBehavior
     {
         [SerializeField] private List<SpawnPoint> spawnPoints;
         [SerializeField] private GameObject segmentMesh;

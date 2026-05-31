@@ -1,6 +1,7 @@
 using System.Collections.Generic;
+using Core;
 using Data;
-using Gameplay.Elements.Effects;
+using Effects;
 using Gameplay.Letters;
 using Player;
 using UnityEngine;
@@ -8,7 +9,7 @@ using Utils;
 
 namespace Gameplay
 {
-    public class LettersSystem : MonoBehaviour
+    public class LettersSystem : GameBehavior
     {
         [SerializeField] private WordDatabase wordsDatabase;
         [SerializeField] private LetterCell letterCellPrefab;
@@ -104,7 +105,7 @@ namespace Gameplay
             currentWords.Add(word);
         }
 
-        private void Update()
+        protected override void GameplayUpdate()
         {
             ProcessEffectQueue();
         }

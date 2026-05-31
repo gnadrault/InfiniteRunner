@@ -1,10 +1,11 @@
 using Core;
 using Data;
+using Effects;
 using UI;
 using UnityEngine;
 using Utils;
 
-namespace Gameplay.Elements.Effects
+namespace Gameplay
 {
     public class WordEffectRunner : GameBehavior, IEffectRunner
     {

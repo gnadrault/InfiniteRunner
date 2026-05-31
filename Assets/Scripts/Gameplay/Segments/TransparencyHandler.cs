@@ -1,9 +1,10 @@
+using Core;
 using Gameplay.Elements.Obstacles;
 using UnityEngine;
 
 namespace Gameplay.Segments
 {
-    public class TransparencyHandler : MonoBehaviour
+    public class TransparencyHandler : GameBehavior
     {
         private void OnTriggerEnter(Collider other)
         {

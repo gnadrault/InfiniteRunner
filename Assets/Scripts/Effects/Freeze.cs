@@ -1,7 +1,6 @@
-using Player;
 using UnityEngine;
 
-namespace Gameplay.Elements.Effects
+namespace Effects
 {
     [CreateAssetMenu(fileName = "Freeze", menuName = "SyntaxError/Effects/Freeze")]
     public class Freeze : WordEffect

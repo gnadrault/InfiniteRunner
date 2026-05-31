@@ -1,11 +1,11 @@
+using Core;
 using UnityEngine;
 
 namespace Gameplay.Segments.Spawn
 {
-    public abstract class SpawnPoint : MonoBehaviour
+    public abstract class SpawnPoint : GameBehavior
     {
         protected const float GroundHeight = 0f;
         protected const float ElevatedHeight = 2f;
-        
     }
 }

@@ -1,3 +1,4 @@
+using Core;
 using Gameplay;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -5,12 +6,10 @@ using Utils;
 
 namespace UI
 {
-    public class PauseMenuUI : MonoBehaviour
+    public class PauseMenuUI : GameBehavior
     {
         [SerializeField] private InputActionReference pauseAction;
         [SerializeField] private GameObject pauseCanvas;
-
-        private bool _isPaused;
 
         private void OnEnable()
         {
@@ -24,25 +23,13 @@ namespace UI
 
         private void OnPausePressed(InputAction.CallbackContext obj)
         {
-            if (_isPaused) Resume();
-            else Pause();
+            TogglePause(!TimeManager.IsPaused);
         }
-
-
-        public void Pause()
+        
+        public void TogglePause(bool requestPause)
         {
-            _isPaused = true;
-            GameEvents.OnPause?.Invoke();
-            TimeScaleManager.Instance.SetTimeScale(0f);
-            pauseCanvas.SetActive(true);
-        }
-
-        public void Resume()
-        {
-            _isPaused = false;
-            GameEvents.OnResume?.Invoke();
-            TimeScaleManager.Instance.SetTimeScale(1f);
-            pauseCanvas.SetActive(false);
+            TimeManager.Instance.SetPaused(requestPause);
+            pauseCanvas.SetActive(requestPause);
         }
     }
 }

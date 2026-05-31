@@ -1,9 +1,10 @@
 using System.Collections;
+using Core;
 using UnityEngine;
 
 namespace Feedback
 {
-    public class SlowMotion : MonoBehaviour
+    public class SlowMotion : GameBehavior
     {
         public float slowTime = 0.2f;
         private bool isSlowed = false;

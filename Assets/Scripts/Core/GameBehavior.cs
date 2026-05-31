@@ -1,31 +1,14 @@
-﻿using UnityEngine;
-using Utils;
+﻿using Gameplay;
+using UnityEngine;
 
 namespace Core
 {
     public abstract class GameBehavior : MonoBehaviour
     {
-        private bool _isPaused;
-
-        private void OnEnable()
-        {
-            GameEvents.OnPause += HandlePause;
-            GameEvents.OnResume += HandleResume;
-        }
-        
-        private void OnDisable()
-        {
-            GameEvents.OnPause -= HandlePause;
-            GameEvents.OnResume -= HandleResume;
-        }
-
-        private void HandlePause() => _isPaused = true;
-        private void HandleResume() => _isPaused = false;
-
         private void Update()
         {
             AlwaysUpdate();
-            if (_isPaused) return;
+            if (TimeManager.IsPaused) return;
             GameplayUpdate();
         }
         

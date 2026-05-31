@@ -1,9 +1,10 @@
+using Core;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace UI
 {
-    public class UIFunction : MonoBehaviour
+    public class UIFunction : GameBehavior
     {
 
         public void StartGame()

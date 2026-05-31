@@ -1,11 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Core;
 using Data;
 using UnityEngine;
 
 namespace Gameplay.Letters
 {
-    public class LettersDisplay : MonoBehaviour
+    public class LettersDisplay : GameBehavior
     {
         private WordData _currentWordData;
         private readonly List<LetterCell> _letterCells = new();

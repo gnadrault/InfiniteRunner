@@ -1,11 +1,12 @@
 using System.Collections.Generic;
+using Core;
 using Gameplay.Segments;
 using UnityEngine;
 using Utils;
 
 namespace Menu
 {
-    public class SegmentMenuManager : MonoBehaviour
+    public class SegmentMenuManager : GameBehavior
     {
          [Header("Settings")] 
         [SerializeField] private int numSegments = 7;
@@ -54,7 +55,7 @@ namespace Menu
             _activeSegmentList.Remove(segment);
         }
 
-        private void Update()
+        protected override void GameplayUpdate()
         {
             while (_activeSegmentList.Count < numSegments)
                 AddSegment();

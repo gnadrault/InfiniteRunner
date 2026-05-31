@@ -1,4 +1,4 @@
-﻿using Feedback.Data;
+﻿using Data;
 
 namespace Feedback
 {

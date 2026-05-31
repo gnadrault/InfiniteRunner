@@ -1,9 +1,10 @@
+using Core;
 using Gameplay.Elements;
 using UnityEngine;
 
 namespace Player
 {
-    public class PlayerCollision : MonoBehaviour
+    public class PlayerCollision : GameBehavior
     {
         [SerializeField] private Transform attachedPlayerPosition;
         

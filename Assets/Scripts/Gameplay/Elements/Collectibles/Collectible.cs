@@ -21,7 +21,7 @@ namespace Gameplay.Elements.Collectibles
             _magnetActivated = true;
         }
 
-        private void Update()
+        protected override void GameplayUpdate()
         {
             if (_magnetActivated)
             {

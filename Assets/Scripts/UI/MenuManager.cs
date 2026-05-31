@@ -1,8 +1,9 @@
-﻿using UnityEngine;
+﻿using Core;
+using UnityEngine;
 
 namespace UI
 {
-    public class MenuManager : MonoBehaviour
+    public class MenuManager : GameBehavior
     {
         
         [SerializeField] private GameObject scoresMenu;

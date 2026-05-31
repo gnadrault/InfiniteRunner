@@ -4,7 +4,7 @@ using UI;
 using UnityEngine;
 using Utils;
 
-namespace Gameplay.Elements.Effects
+namespace Effects
 {
     public abstract class WordEffect : ScriptableObject
     {

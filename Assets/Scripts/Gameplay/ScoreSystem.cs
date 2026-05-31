@@ -7,7 +7,7 @@ using Utils;
 
 namespace Gameplay
 {
-    public class ScoreSystem : MonoBehaviour
+    public class ScoreSystem : GameBehavior
     {
         [SerializeField] private TextMeshProUGUI scoreLabel;
         [SerializeField] private TextMeshProUGUI bestScoreLabel;
@@ -41,16 +41,14 @@ namespace Gameplay
         private void AddPoints(float points) => _score += points;
 
         private void RemovePercent(float percent) => _score = Mathf.RoundToInt(_score * (1 - percent));
-
-
+        
         private void SaveScore()
         {
             bool newHighScore = ScoreSave.AddScore((int)_score);
             GameEvents.OnEndMenu?.Invoke(new EndScoreData((int)_score, newHighScore));
         }
-
-
-        private void Update()
+        
+        protected override void GameplayUpdate()
         {
             scoreLabel.text = ((int)_score).ToString();
         }

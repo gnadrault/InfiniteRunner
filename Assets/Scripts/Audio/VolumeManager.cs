@@ -1,11 +1,12 @@
 using System;
+using Core;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace Audio
 {
-    public class VolumeManager : MonoBehaviour
+    public class VolumeManager : GameBehavior
     {
         [SerializeField] private Slider musicSlider;
         [SerializeField] private Slider sfxSlider;

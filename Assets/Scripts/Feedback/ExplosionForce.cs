@@ -1,8 +1,9 @@
+using Core;
 using UnityEngine;
 
 namespace Feedback
 {
-    public class ExplosionForce : MonoBehaviour
+    public class ExplosionForce : GameBehavior
     {
         public float explosionForce = 50f;
 

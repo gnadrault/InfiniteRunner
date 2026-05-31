@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace UI
 {
-    public class LeaderBoardUI : MonoBehaviour
+    public class LeaderBoardUI : GameBehavior
     {
         [SerializeField] private Transform parent;
         [SerializeField] private GameObject scoreLinePrefab;

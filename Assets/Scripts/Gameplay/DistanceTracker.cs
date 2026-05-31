@@ -1,3 +1,4 @@
+using Core;
 using Data;
 using TMPro;
 using UnityEngine;
@@ -5,7 +6,7 @@ using Utils;
 
 namespace Gameplay
 {
-    public class DistanceTracker : MonoBehaviour
+    public class DistanceTracker : GameBehavior
     {
         [SerializeField] private TextMeshProUGUI distanceLabel;
         [SerializeField] private float distanceScale = 1f;
@@ -28,7 +29,7 @@ namespace Gameplay
             _speed = speed;
         }
 
-        private void Update()
+        protected override void GameplayUpdate()
         {
             float oldDistance = _distance;
             _distance += (Time.deltaTime * _speed * distanceScale);

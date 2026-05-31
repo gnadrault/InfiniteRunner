@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 
-namespace Gameplay
+namespace Core
 {
-    public class TimeScaleManager : MonoBehaviour
+    public class TimeManager : GameBehavior
     {
-        public static TimeScaleManager Instance;
+        public static TimeManager Instance;
         private float _initTimeScale;
+        
+        public static bool IsPaused { get; private set; }
 
         private void Awake()
         {
@@ -24,6 +26,12 @@ namespace Gameplay
         public void ResetTimeScale()
         {
             Time.timeScale = _initTimeScale;
+        }
+
+        public void SetPaused(bool paused)
+        {
+            IsPaused = paused;
+            Time.timeScale = paused ? 0f : 1f;
         }
     }
 }

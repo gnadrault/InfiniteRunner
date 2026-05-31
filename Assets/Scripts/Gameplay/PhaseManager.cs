@@ -1,3 +1,4 @@
+using Core;
 using Data;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -6,7 +7,7 @@ using Utils;
 
 namespace Gameplay
 {
-    public class PhaseManager : MonoBehaviour
+    public class PhaseManager : GameBehavior
     {
         [SerializeField] private Volume globalVolume;
         [SerializeField] private PhaseDatabase phasesDatabase;
@@ -26,7 +27,7 @@ namespace Gameplay
         private void Start()
         {
             ChangePhase(0);
-            TimeScaleManager.Instance.SetTimeScale(1f);
+            TimeManager.Instance.SetTimeScale(1f);
         }
 
         private void OnEnable()

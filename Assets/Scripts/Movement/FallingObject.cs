@@ -1,8 +1,9 @@
+using Core;
 using UnityEngine;
 
 namespace Movement
 {
-    public class FallingObject : MonoBehaviour
+    public class FallingObject : GameBehavior
     {
         [SerializeField] private Transform obstaclePos;
         [SerializeField] private float heightDestroyObject = -50;
@@ -25,7 +26,7 @@ namespace Movement
             _triggerDistance = scrollSpeed * fallTime;
         }
 
-        private void Update()
+        protected override void GameplayUpdate()
         {
             if (transform.position.y <= heightDestroyObject)
             {

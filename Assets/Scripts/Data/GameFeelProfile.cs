@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Feedback.Data
+namespace Data
 {
     [CreateAssetMenu(fileName = "GameFeelProfile", menuName = "SyntaxError/GameFeelProfile")]
     public class GameFeelProfile  : ScriptableObject

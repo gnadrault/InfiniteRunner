@@ -1,19 +1,16 @@
+using Core;
 using TMPro;
 using UnityEngine;
-using Utils;
 
 namespace Gameplay.Letters
 {
-    public class LetterCell : MonoBehaviour
+    public class LetterCell : GameBehavior
     {
         [SerializeField] private TextMeshProUGUI label;
         [SerializeField] private TMP_FontAsset highlightFont;
-            
-        private bool _isHighlighted;
-        private char _character;
         
+        private bool _isHighlighted;
         public bool IsHighlighted => _isHighlighted;
-        public char Character => _character;
         
         private void OnValidate()
         {
@@ -22,7 +19,6 @@ namespace Gameplay.Letters
         
         public void Init(char letter)
         {
-            _character = letter;
             label.text = letter.ToString();
         }
 

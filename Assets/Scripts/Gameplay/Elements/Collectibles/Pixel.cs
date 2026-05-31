@@ -1,10 +1,10 @@
-﻿using System;
+﻿using Core;
+using UnityEngine;
+using Random = UnityEngine.Random;
 
-namespace Data
+namespace Gameplay.Elements.Collectibles
 {
-    using UnityEngine;
-
-    public class Pixel : MonoBehaviour
+    public class Pixel : GameBehavior
     {
         [SerializeField] private Renderer pixelRenderer;
         

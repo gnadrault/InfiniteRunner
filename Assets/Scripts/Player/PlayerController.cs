@@ -1,4 +1,5 @@
 using System.Collections;
+using Core;
 using Gameplay.Elements.Collectibles;
 using Gameplay.Elements.Enemies;
 using Player.Data;
@@ -9,7 +10,7 @@ using Utils;
 
 namespace Player
 {
-    public class PlayerController : MonoBehaviour
+    public class PlayerController : GameBehavior
     {
         [Header("Input")]
         [SerializeField] private InputActionReference leftInput;
@@ -173,11 +174,11 @@ namespace Player
             _stateMachine.ChangeState(_stateMachine.Sliding());
         }
 
-        public void Update()
+        protected override void GameplayUpdate()
         {
             _stateMachine.UpdateState();
         }
-        
+
         #region Virus
 
         public void AttachVirus(Virus virus)

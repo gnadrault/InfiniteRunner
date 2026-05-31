@@ -1,6 +1,5 @@
 ﻿using Player.Data;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using Utils;
 
 namespace Player.State

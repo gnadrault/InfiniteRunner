@@ -1,8 +1,9 @@
+using Core;
 using UnityEngine;
 
 namespace Movement
 {
-    public class MoveHorizontal : MonoBehaviour
+    public class MoveHorizontal : GameBehavior
     {
         [SerializeField] private float speed = 2f;
         [SerializeField] private float leftLaneX = -4;
@@ -15,7 +16,7 @@ namespace Movement
             _direction = Random.value < 0.5f ? Vector3.left : Vector3.right;
         }
 
-        private void Update()
+        protected override void GameplayUpdate()
         {
             Vector3 position = transform.position;
             position.x += _direction.x * speed * Time.deltaTime;
@@ -26,13 +27,9 @@ namespace Movement
         private void CheckDirection()
         {
             if (transform.position.x >= rightLaneX)
-            {
                 _direction = Vector3.left;
-            }
             else if (transform.position.x <= leftLaneX)
-            {
                 _direction = Vector3.right;
-            }
         }
     }
 }

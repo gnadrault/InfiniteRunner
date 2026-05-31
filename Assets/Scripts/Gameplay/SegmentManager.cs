@@ -1,15 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Core;
 using Data;
-using Feedback.Data;
 using Gameplay.Segments;
 using UnityEngine;
 using Utils;
 
 namespace Gameplay
 {
-    public class SegmentManager : MonoBehaviour
+    public class SegmentManager : GameBehavior
     {
         [Header("Settings")] 
         [SerializeField] private int numSegments = 7;
@@ -147,7 +147,7 @@ namespace Gameplay
             _poolSegmentPrefabList.AddRange(phaseData.NewSegments);
         }
 
-        private void Update()
+        protected override void GameplayUpdate()
         {
             while (_activeSegmentList.Count < numSegments)
                 AddSegment();
