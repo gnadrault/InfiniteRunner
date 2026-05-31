@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using Data;
 using Gameplay.Elements.Effects;
@@ -14,6 +13,7 @@ namespace Gameplay
         [SerializeField] private WordDatabase wordsDatabase;
         [SerializeField] private LetterCell letterCellPrefab;
         [SerializeField] private PlayerController player;
+        [SerializeField] private WordEffectRunner wordEffectRunner;
 
         // Bonus / Malus
         [Header("Bonus")] 
@@ -31,8 +31,6 @@ namespace Gameplay
         private readonly Queue<WordData> _completedWordsQueue = new();
         private readonly HashSet<WordData> _enqueuedWords = new();
         private WordEffect _activeEffect;
-        
-        public static event Action<WordData[]> OnActiveWordsChanged;
 
         private void OnEnable() 
         {
@@ -54,7 +52,6 @@ namespace Gameplay
         {
             FillDisplays(bonusDisplays, _currentBonus, true);
             FillDisplays(malusDisplays, _currentMalus, false);
-            FireActiveWordsChanged();
         }
         
         private void OnLetterCollected(string letter)
@@ -64,7 +61,6 @@ namespace Gameplay
             CheckCompletion(bonusDisplays, true);
             CheckCompletion(malusDisplays, false);
             ProcessEffectQueue();
-            FireActiveWordsChanged();
         }
 
         private void HighlightLetters(LettersDisplay[] displays, string letter, Color color)
@@ -115,7 +111,7 @@ namespace Gameplay
         
         private void ProcessEffectQueue()
         {
-            if (_activeEffect && _activeEffect.isComplete) 
+            if (_activeEffect && _activeEffect.IsComplete) 
                 _activeEffect = null;
 
             if (_activeEffect || _completedWordsQueue.Count == 0 || player.IsPlayerInfected()) 
@@ -148,7 +144,7 @@ namespace Gameplay
         {
             if (!newEffect) return;
             _activeEffect = newEffect;
-            _activeEffect.ApplyEffect(player, this);
+            _activeEffect.ApplyEffect(player, wordEffectRunner);
         }
         
         private void StopEffect()
@@ -156,16 +152,6 @@ namespace Gameplay
             if (!_activeEffect) return;
             _activeEffect.RemoveEffect();
             _activeEffect = null;
-        }
-        
-        /**
-         * Event with all current words (used to spawn specific letters)
-         */
-        private void FireActiveWordsChanged()
-        {
-            List<WordData> all = new List<WordData>(_currentBonus);
-            all.AddRange(_currentMalus);
-            OnActiveWordsChanged?.Invoke(all.ToArray());
         }
     }
 }

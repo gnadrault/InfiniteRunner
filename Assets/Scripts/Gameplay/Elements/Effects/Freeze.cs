@@ -6,18 +6,16 @@ namespace Gameplay.Elements.Effects
     [CreateAssetMenu(fileName = "Freeze", menuName = "SyntaxError/Effects/Freeze")]
     public class Freeze : WordEffect
     {
-        public override void ApplyEffect(PlayerController playerController, MonoBehaviour runner)
+        protected override bool IsBonus => true;
+        
+        protected override void OnApply()
         {
-            base.ApplyEffect(playerController, runner);
             player.ApplyFreeze();
-            StartEffectTimer();
         }
 
-        public override void RemoveEffect()
+        protected override void OnRemove()
         {
-            if (isComplete) return;
             player.RemoveFreeze();
-            base.RemoveEffect();
         }
     }
 }

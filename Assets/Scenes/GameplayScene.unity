@@ -1454,22 +1454,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f117377685b2cf24f8e1f132d798b7bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HUD
-  panels:
+  alertPanels:
   - type: 0
-    panel: {fileID: 1927200980}
+    panelContainer: {fileID: 1927200980}
     textLabel: {fileID: 1722165978}
     actionLabel: {fileID: 1507061199}
-    remainingTime: 0
   - type: 1
-    panel: {fileID: 1747634769}
+    panelContainer: {fileID: 1747634769}
     textLabel: {fileID: 3208475}
     actionLabel: {fileID: 440563625}
-    remainingTime: 0
   - type: 2
-    panel: {fileID: 479214399}
+    panelContainer: {fileID: 479214399}
     textLabel: {fileID: 937710711}
     actionLabel: {fileID: 1506693452}
-    remainingTime: 0
 --- !u!4 &291596445
 Transform:
   m_ObjectHideFlags: 0
@@ -11635,6 +11632,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1701807688}
   - component: {fileID: 1701807689}
+  - component: {fileID: 1701807690}
   m_Layer: 0
   m_Name: LettersSystem
   m_TagString: Untagged
@@ -11672,6 +11670,7 @@ MonoBehaviour:
   wordsDatabase: {fileID: 11400000, guid: 03debf9990383cc4e8022818068c5be8, type: 2}
   letterCellPrefab: {fileID: 832339328629178229, guid: 82273e491a0e55c41be591a5df4b3f6a, type: 3}
   player: {fileID: 426995177}
+  wordEffectRunner: {fileID: 1701807690}
   bonusDisplays:
   - {fileID: 1773744173}
   - {fileID: 483874016}
@@ -11680,6 +11679,18 @@ MonoBehaviour:
   - {fileID: 197473715}
   - {fileID: 1775216869}
   malusHighlightColor: {r: 0.8, g: 0, b: 0, a: 1}
+--- !u!114 &1701807690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1701807687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b12235d2012447688e4140f4e1fa242a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Gameplay.Elements.Effects.WordEffectRunner
 --- !u!1 &1722165976
 GameObject:
   m_ObjectHideFlags: 0

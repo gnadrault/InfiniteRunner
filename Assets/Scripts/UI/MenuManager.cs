@@ -29,6 +29,5 @@ namespace UI
             optionsMenu.SetActive(false);
             creditsMenu.SetActive(true);
         }
-        
     }
 }

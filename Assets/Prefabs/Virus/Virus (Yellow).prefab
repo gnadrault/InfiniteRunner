@@ -94,5 +94,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::World.GameElement.Virus.YellowVirus
   gameFeelProfile: {fileID: 11400000, guid: 893be00fe04292741aa73018d34db421, type: 2}
-  timeReduce: 0.9
+  alertTitleText: INFECTED!
   duration: 5
+  delay: 0.5

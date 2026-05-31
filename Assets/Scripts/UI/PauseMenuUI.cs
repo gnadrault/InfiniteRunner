@@ -5,7 +5,7 @@ using Utils;
 
 namespace UI
 {
-    public class PauseMenu : MonoBehaviour
+    public class PauseMenuUI : MonoBehaviour
     {
         [SerializeField] private InputActionReference pauseAction;
         [SerializeField] private GameObject pauseCanvas;

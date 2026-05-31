@@ -19,6 +19,12 @@ namespace Data
             List<WordData> availableWords = words.Where(w => !exceptWords.Contains(w)).ToList();
             return availableWords[Random.Range(0, availableWords.Count)];
         }
+
+        public WordData GetRandomWord(bool isBonus)
+        {
+            List<WordData> words = isBonus ? bonusWords : malusWords;
+            return words[Random.Range(0, words.Count)];
+        }
     }
     
     [Serializable]

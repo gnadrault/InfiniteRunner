@@ -1,36 +1,48 @@
-﻿using System.Collections.Generic;
-using Data;
-using Player;
+﻿using Data;
+using Gameplay.Elements.Effects;
 using UI;
 using UnityEngine;
+using Utils;
 
 namespace Gameplay.Elements.Enemies
 {
-    public class VirusBlue: Virus
+    public class VirusBlue: Virus, IEffectRunner
     {
         [SerializeField] private int duration = 5;
         [SerializeField] private WordDatabase wordsDatabase;
         
-        private PlayerController _player;
-        private WordData _malusWord;
+        private WordEffect _activeEffect;
+        private EffectTimer _timer;
         
-        public override void ApplyEffect(PlayerController player, Transform position)
+        protected override void OnApply()
         {
-            _player = player;
-            _malusWord = wordsDatabase.GetRandomWordExcept(new List<WordData>(), false);
-            _malusWord.Effect.ApplyEffect(_player, this);
+            WordData word = wordsDatabase.GetRandomWord(false);
+            word.Effect.ApplyEffect(player, this);
         }
 
-        public override void RemoveEffect(PlayerController player)
+        protected override void OnRemove()
         {
-            AlertHUD.Instance.ForceHidePanels();
             Destroy(gameObject);
+        }
+
+        public void Register(WordEffect wordEffect, float effectDuration)
+        {
+            _activeEffect = wordEffect;
+            _timer = new EffectTimer(effectDuration);
         }
 
         private void Update()
         {
-            if (_malusWord != null && _malusWord.Effect.isComplete)
-                _player.DetachVirus();
+            if (_timer == null) return;
+            _timer.Tick(Time.unscaledDeltaTime);
+            AlertPanelUI.Instance.SetActionText(StringFormat.FormatTimer(_timer.Remaining));
+
+            if (_timer.IsDone)
+            {
+                _activeEffect.RemoveEffect();
+                player.DetachVirus();
+                _timer = null;
+            }
         }
     }
 }

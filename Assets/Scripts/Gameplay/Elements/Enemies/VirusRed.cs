@@ -1,4 +1,4 @@
-﻿using Player;
+﻿using Data;
 using UI;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -10,54 +10,38 @@ namespace Gameplay.Elements.Enemies
     {
         [SerializeField] private InputActionReference spamKey;
         [SerializeField] private int requiredPressed = 10;
-        private int _currentPressedCount;
-        private PlayerController _player;
         
-        public override void ApplyEffect(PlayerController player, Transform position)
+        private int _count;
+        
+        protected override void OnApply()
         {
-            _player = player;
-            _currentPressedCount = 0;
+            _count = 0;
             spamKey.action.started += OnKeyPressed;
             player.DisableMovement();
-            AlertHUD.Instance.ShowPanelText(AlertHUD.PanelType.Virus, textMessage, GetHUDLabel());
             GameEvents.OnGameFeelProfileStart?.Invoke(gameFeelProfile);
+            AlertPanelUI.Instance.ShowPanel(AlertPanelType.Virus, alertTitleText, GetActionText());
         }
 
-        public override void RemoveEffect(PlayerController player)
+        protected override void OnRemove()
         {
             player.EnableMovement();
             GameEvents.OnGameFeelEnd?.Invoke();
-            AlertHUD.Instance.ForceHidePanels();
+            AlertPanelUI.Instance.HideActivePanel();
             Destroy(gameObject);
         }
         
-        #region Solution
         private void OnKeyPressed(InputAction.CallbackContext ctx)
         {
-            if (_player == null) return;
-            _currentPressedCount++;
-            AlertHUD.Instance.UpdatePanelText(GetHUDLabel());
-            OnCheckSolution();
-        }
-        
-        private void OnCheckSolution()
-        {
-            if (_currentPressedCount >= requiredPressed)
-            {
-                spamKey.action.started -= OnKeyPressed;
-                _player.DetachVirus();
-            }
-        }
-        
-        private string GetHUDLabel()
-        {
-            return $"{spamKey.action.name} x{(requiredPressed - _currentPressedCount)}";
-        }
-        
-        private void OnDisable()
-        {
+            if (player == null) return;
+            _count++;
+            AlertPanelUI.Instance.SetActionText(GetActionText()); 
+            
+            if (_count < requiredPressed) return;
             spamKey.action.started -= OnKeyPressed;
+            player.DetachVirus();
         }
-        #endregion
+        
+        private string GetActionText() => $"{spamKey.action.name} x{(requiredPressed - _count)}";
+        private void OnDisable() => spamKey.action.started -= OnKeyPressed;
     }
 }

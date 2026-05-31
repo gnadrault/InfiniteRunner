@@ -1,5 +1,3 @@
-using Player;
-using UI;
 using UnityEngine;
 using Utils;
 
@@ -8,20 +6,18 @@ namespace Gameplay.Elements.Effects
     [CreateAssetMenu(fileName = "Spectral", menuName = "SyntaxError/Effects/Spectral")]
     public class Spectral : WordEffect
     {
-        public override void ApplyEffect(PlayerController playerController, MonoBehaviour runner)
+        protected override bool IsBonus => true;
+        
+        protected override void OnApply()
         {
-            base.ApplyEffect(playerController, runner);
-            GameEvents.OnGhostBroken += OnEffectBroken;
+            GameEvents.OnGhostBroken += RemoveEffect;
             player.ApplyGhost();
-            StartEffectTimer();
         }
 
-        public override void RemoveEffect()
+        protected override void OnRemove()
         {
-            if (isComplete) return;
-            GameEvents.OnGhostBroken -= OnEffectBroken;
+            GameEvents.OnGhostBroken -= RemoveEffect;
             player.RemoveGhost();
-            base.RemoveEffect();
         }
     }
 }

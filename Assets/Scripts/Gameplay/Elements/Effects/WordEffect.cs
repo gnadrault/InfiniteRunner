@@ -1,52 +1,42 @@
-using System.Collections;
+using Data;
 using Player;
 using UI;
 using UnityEngine;
+using Utils;
 
 namespace Gameplay.Elements.Effects
 {
     public abstract class WordEffect : ScriptableObject
     {
         [SerializeField] protected string effectName;
-        [SerializeField] protected AlertHUD.PanelType panelType;
         [SerializeField] private float duration = 10f;
-        [HideInInspector] public bool isComplete;
-        
+        protected abstract bool IsBonus { get; }
+        public bool IsComplete { get; private set; }
+
         protected PlayerController player;
-        private Coroutine _timerCoroutine;
 
-        private MonoBehaviour Runner { get; set; }
+        private IEffectRunner Runner { get; set; }
 
-        public virtual void ApplyEffect(PlayerController playerController, MonoBehaviour runner)
+        public void ApplyEffect(PlayerController playerController, IEffectRunner runner)
         {
-            isComplete = false;
+            IsComplete = false;
             player = playerController;
             Runner = runner;
+            Runner.Register(this, duration);
+            OnApply();
+            
+            AlertPanelType alertPanel = IsBonus ? AlertPanelType.Bonus : AlertPanelType.Malus;
+            AlertPanelUI.Instance.ShowPanel(alertPanel, name, StringFormat.FormatTimer(duration));
         }
 
-        public virtual void RemoveEffect()
+        public void RemoveEffect()
         {
-            isComplete = true;
-            AlertHUD.Instance.ForceHidePanels();
+            IsComplete = true;
+            OnRemove();
+            AlertPanelUI.Instance.HideActivePanel();
         }
 
-        protected void StartEffectTimer()
-        {
-            AlertHUD.Instance.ShowPanelTimed(panelType, effectName, duration);
-            _timerCoroutine = Runner.StartCoroutine(EffectTimer(duration));
-        }
-
-        private IEnumerator EffectTimer(float effectDuration)
-        {
-            yield return new WaitForSecondsRealtime(effectDuration);
-            RemoveEffect();
-        }
-        
-        protected void OnEffectBroken()
-        {
-            if (_timerCoroutine != null)
-                Runner.StopCoroutine(_timerCoroutine);
-            RemoveEffect();
-        }
+        protected abstract void OnApply();
+        protected abstract void OnRemove();
     }
 }

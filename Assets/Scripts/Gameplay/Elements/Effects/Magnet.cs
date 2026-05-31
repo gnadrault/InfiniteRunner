@@ -1,4 +1,3 @@
-using Player;
 using UnityEngine;
 
 namespace Gameplay.Elements.Effects
@@ -6,18 +5,16 @@ namespace Gameplay.Elements.Effects
     [CreateAssetMenu(fileName = "Magnet", menuName = "SyntaxError/Effects/Magnet")]
     public class Magnet : WordEffect
     {
-        public override void ApplyEffect(PlayerController playerController, MonoBehaviour runner)
+        protected override bool IsBonus => true;
+        
+        protected override void OnApply()
         {
-            base.ApplyEffect(playerController, runner);
             player.ApplyMagnet();
-            StartEffectTimer();
         }
 
-        public override void RemoveEffect()
+        protected override void OnRemove()
         {
-            if (isComplete) return;
             player.RemoveMagnet();
-            base.RemoveEffect();
         }
     }
 }

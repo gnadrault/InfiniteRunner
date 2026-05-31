@@ -1,3 +1,4 @@
+using System.Collections;
 using Gameplay.Elements.Collectibles;
 using Gameplay.Elements.Enemies;
 using Player.Data;
@@ -18,7 +19,6 @@ namespace Player
         
         [Header("Settings")]
         [SerializeField] private PlayerSettings playerSettings;
-        [SerializeField] private Transform attachedPosition;
         [SerializeField] private GameObject meshGameObject;
         
         [Header("Lanes")]
@@ -48,10 +48,13 @@ namespace Player
         private bool _invert;
         private float _multiplier = 1f;
         private bool _magnet;
+        private bool _delay;
+        private float _delayTime;
 
         private int _countLeft;
         private int _countRight;
         private int _countJump;
+
 
         private void Awake()
         {
@@ -96,6 +99,9 @@ namespace Player
             } else if (_invert)
             {
                 nextLaneIndex = _currentLaneIndex + 1;
+            } else if (_delay)
+            {
+                StartCoroutine(DelayedExecute(_delayTime));
             }
             TryChangingLane(nextLaneIndex);
         }
@@ -112,6 +118,9 @@ namespace Player
             } else if (_invert)
             {
                 nextLaneIndex =  _currentLaneIndex - 1;
+            } else if (_delay)
+            {
+                StartCoroutine(DelayedExecute(_delayTime));
             }
             TryChangingLane(nextLaneIndex);
         }
@@ -124,6 +133,9 @@ namespace Player
                 _countJump++;
                 if (_countJump < 2) return;
                 _countJump = 0;
+            } else if (_delay)
+            {
+                StartCoroutine(DelayedExecute(_delayTime));
             }
             TryJumping();
         }
@@ -131,6 +143,10 @@ namespace Player
         private void OnSlideInput(InputAction.CallbackContext obj)
         {
             if (_isBlocked) return;
+            if (_delay)
+            {
+                StartCoroutine(DelayedExecute(_delayTime));
+            }
             TrySlide();
         }
         
@@ -168,13 +184,13 @@ namespace Player
         {
             currentVirus = virus;
             GameEvents.OnVirusAttached?.Invoke();
-            currentVirus.ApplyEffect(this, attachedPosition);
+            currentVirus.ApplyVirusEffect(this);
         }
         
         public void DetachVirus()
         {
             if (!currentVirus) return;
-            currentVirus.RemoveEffect(this);
+            currentVirus.RemoveVirusEffect();
             currentVirus = null;
         }
 
@@ -259,6 +275,22 @@ namespace Player
         {
             _magnet = false;
             magnetEffect.SetActive(_magnet);
+        }
+        
+        public void ApplyDelay(float delay)
+        {
+            _delayTime = delay;
+            _delay = true;
+        }
+
+        public void RemoveDelay()
+        {
+            _delay = false;
+        }
+        
+        private IEnumerator DelayedExecute(float delay)
+        {
+            yield return new WaitForSeconds(delay);
         }
         #endregion
 

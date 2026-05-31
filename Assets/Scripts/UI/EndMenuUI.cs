@@ -8,7 +8,7 @@ using Utils;
 
 namespace UI
 {
-    public class EndMenu : MonoBehaviour
+    public class EndMenuUI : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI newHighScoreText;
         [SerializeField] private TextMeshProUGUI simpleScoreText;

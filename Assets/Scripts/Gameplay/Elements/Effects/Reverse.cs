@@ -6,18 +6,16 @@ namespace Gameplay.Elements.Effects
     [CreateAssetMenu(fileName = "Reverse", menuName = "SyntaxError/Effects/Reverse")]
     public class Reverse : WordEffect
     {
-        public override void ApplyEffect(PlayerController playerController, MonoBehaviour runner)
+        protected override bool IsBonus => false;
+        
+        protected override void OnApply()
         {
-            base.ApplyEffect(playerController, runner);
             player.ApplyInvert();
-            StartEffectTimer();
         }
 
-        public override void RemoveEffect()
+        protected override void OnRemove()
         {
-            if (isComplete) return;
             player.RemoveInvert();
-            base.RemoveEffect();
         }
     }
 }

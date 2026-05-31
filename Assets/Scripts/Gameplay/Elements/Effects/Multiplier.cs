@@ -7,19 +7,17 @@ namespace Gameplay.Elements.Effects
     public class Multiplier : WordEffect
     {
         [SerializeField] private float multiplierFactor = 2f;
+
+        protected override bool IsBonus => true;
         
-        public override void ApplyEffect(PlayerController playerController, MonoBehaviour runner)
+        protected override void OnApply()
         {
-            base.ApplyEffect(playerController, runner);
             player.ApplyMultiplier(multiplierFactor);
-            StartEffectTimer();
         }
 
-        public override void RemoveEffect()
+        protected override void OnRemove()
         {
-            if (isComplete) return;
             player.RemoveMultiplier();
-            base.RemoveEffect();
         }
     }
 }

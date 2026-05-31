@@ -8,19 +8,17 @@ namespace Gameplay.Elements.Effects
     public class Slow : WordEffect
     {
         [SerializeField] private float speedTimeScale = 0.5f;
+
+        protected override bool IsBonus => true;
         
-        public override void ApplyEffect(PlayerController playerController, MonoBehaviour runner)
+        protected override void OnApply()
         {
-            base.ApplyEffect(playerController, runner);
             TimeScaleManager.Instance.SetTimeScale(speedTimeScale);
-            StartEffectTimer();
         }
 
-        public override void RemoveEffect()
+        protected override void OnRemove()
         {
-            if (isComplete) return;
             TimeScaleManager.Instance.SetTimeScale(1f);
-            base.RemoveEffect();
         }
     }
 }

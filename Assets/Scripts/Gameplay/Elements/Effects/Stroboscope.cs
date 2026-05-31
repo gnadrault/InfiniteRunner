@@ -9,19 +9,17 @@ namespace Gameplay.Elements.Effects
     public class Stroboscope : WordEffect
     {
         [SerializeField] protected GameFeelProfile gameFeelProfile;
-        
-        public override void ApplyEffect(PlayerController playerController, MonoBehaviour runner)
+
+        protected override bool IsBonus => false;
+
+        protected override void OnApply()
         {
-            base.ApplyEffect(playerController, runner);
             GameEvents.OnStroboscopeEffectStart?.Invoke(gameFeelProfile);
-            StartEffectTimer();
         }
 
-        public override void RemoveEffect()
+        protected override void OnRemove()
         {
-            if (isComplete) return;
             GameEvents.OnStroboscopeEffectEnd?.Invoke();
-            base.RemoveEffect();
         }
     }
 }

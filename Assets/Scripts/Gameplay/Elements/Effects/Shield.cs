@@ -8,21 +8,18 @@ namespace Gameplay.Elements.Effects
     [CreateAssetMenu(fileName = "Shield", menuName = "SyntaxError/Effects/Shield")]
     public class Shield : WordEffect
     {
+        protected override bool IsBonus => true;
         
-        public override void ApplyEffect(PlayerController playerController, MonoBehaviour runner)
+        protected override void OnApply()
         {
-            base.ApplyEffect(playerController, runner);
-            GameEvents.OnShieldBroken += OnEffectBroken;
+            GameEvents.OnShieldBroken += RemoveEffect;
             player.ApplyShield();
-            StartEffectTimer();
         }
 
-        public override void RemoveEffect()
+        protected override void OnRemove()
         {
-            if (isComplete) return;
-            GameEvents.OnShieldBroken -= OnEffectBroken;
+            GameEvents.OnShieldBroken -= RemoveEffect;
             player.RemoveShield();
-            base.RemoveEffect();
         }
     }
 }

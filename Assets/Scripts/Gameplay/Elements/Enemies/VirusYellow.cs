@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using Player;
+﻿using Data;
 using UI;
 using UnityEngine;
 using Utils;
@@ -8,44 +7,38 @@ namespace Gameplay.Elements.Enemies
 {
     public class VirusYellow: Virus
     {
-        [SerializeField] private float duration = 5f;
-        private PlayerController _player;
-        private float _currentTimer;
-        private bool _attachedToPlayer;
+        [SerializeField] private float duration = 3f;
+        [SerializeField] private float delay = 0.5f;
         
-        public override void ApplyEffect(PlayerController player, Transform position)
+        private EffectTimer _timer;
+        private bool _active;
+        
+        protected override void OnApply()
         {
-            _player = player;
-            _currentTimer = duration;
-            AlertHUD.Instance.ShowPanelTimed(AlertHUD.PanelType.Virus, textMessage, duration);
+            _timer = new EffectTimer(duration);
+            _active = true;
+            player.ApplyDelay(delay);
             GameEvents.OnGameFeelProfileStart?.Invoke(gameFeelProfile);
-            StartCoroutine(ApplyVirus());
+            AlertPanelUI.Instance.ShowPanel(AlertPanelType.Virus, alertTitleText, StringFormat.FormatTimer(duration));
         }
 
-        public override void RemoveEffect(PlayerController player)
+        protected override void OnRemove()
         {
+            _active = false;
+            player.RemoveDelay();
             GameEvents.OnGameFeelEnd?.Invoke();
-            AlertHUD.Instance.ForceHidePanels();
+            AlertPanelUI.Instance.HideActivePanel();
             Destroy(gameObject);
         }
-
-        #region Solution
-
-        private IEnumerator ApplyVirus()
-        {
-            _attachedToPlayer = true;
-            yield return new WaitForSeconds(duration);
-            _attachedToPlayer = false;
-            _player.DetachVirus();
-        }
-
-        #endregion
         
         private void Update()
         {
-            if (!_attachedToPlayer) return;
-            _currentTimer -= Time.deltaTime;
-            _currentTimer = Mathf.Clamp(_currentTimer, 0f, duration);
+            if (!_active) return;
+            _timer.Tick(Time.unscaledDeltaTime);
+            AlertPanelUI.Instance.SetActionText(StringFormat.FormatTimer(_timer.Remaining));
+            
+            if (_timer.IsDone)
+                player.DetachVirus();
         }
     }
 }
