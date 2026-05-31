@@ -15,6 +15,7 @@ namespace Player
     {
         public static PlayerController Instance;
         private static readonly int BaseColor = Shader.PropertyToID("_BaseColor");
+        private static readonly int Glow = Animator.StringToHash("Player_Glow");
 
         private enum MoveIntent
         {
@@ -41,6 +42,7 @@ namespace Player
         [Header("Effects")] 
         [SerializeField] private GameObject shieldEffect;
         [SerializeField] private GameObject magnetEffect;
+        [SerializeField] private Animator animator;
 
         private Renderer[] _renderers;
         private int _currentLaneIndex;
@@ -333,6 +335,7 @@ namespace Player
         public void CollectLoot(float point)
         {
             GameEvents.OnAddScorePoints?.Invoke(point * _multiplier);
+            animator.Play(Glow, 0, 0f);
         }
 
         public void Die()

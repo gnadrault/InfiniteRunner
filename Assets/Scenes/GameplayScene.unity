@@ -150,7 +150,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Gameplay.DebugSystem
   textPrefab: {fileID: 3777674256326340686, guid: bc5c0839d44f6d840907298f40c05871, type: 3}
   debugPanel: {fileID: 1613831851}
-  segmentManager: {fileID: 0}
+  segmentManager: {fileID: 1220931093}
   playerController: {fileID: 426995177}
   lettersSystem: {fileID: 1701807689}
 --- !u!4 &266030
@@ -14455,6 +14455,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1530522270}
     m_Modifications:
+    - target: {fileID: 5219695481782848782, guid: 7b7fe22e7203a55459925ca643d3dac9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5947770543537869395, guid: 7b7fe22e7203a55459925ca643d3dac9, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7305124773151762212, guid: 7b7fe22e7203a55459925ca643d3dac9, type: 3}
       propertyPath: m_Name
       value: Player (Root)
@@ -14463,6 +14471,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8027669263008946748, guid: 7b7fe22e7203a55459925ca643d3dac9, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1085434227}
     - target: {fileID: 8027669263008946748, guid: 7b7fe22e7203a55459925ca643d3dac9, type: 3}
       propertyPath: 'laneAnchors.Array.data[0]'
       value: 
