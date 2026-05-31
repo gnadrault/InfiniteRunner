@@ -1,4 +1,5 @@
 ﻿using Data;
+using Player;
 using UI;
 using UnityEngine;
 using Utils;
@@ -46,7 +47,7 @@ namespace Gameplay.Elements.Enemies
             }
             
             if (_timer.IsDone) 
-                player.DetachVirus();
+                PlayerController.Instance.DetachVirus();
         }
     }
 }

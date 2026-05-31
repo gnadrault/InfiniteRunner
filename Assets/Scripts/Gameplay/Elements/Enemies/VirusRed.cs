@@ -1,4 +1,5 @@
 ﻿using Data;
+using Player;
 using UI;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -17,14 +18,14 @@ namespace Gameplay.Elements.Enemies
         {
             _count = 0;
             spamKey.action.started += OnKeyPressed;
-            player.DisableMovement();
+            PlayerController.Instance.DisableMovement();
             GameEvents.OnGameFeelProfileStart?.Invoke(gameFeelProfile);
             AlertPanelUI.Instance.ShowPanel(AlertPanelType.Virus, alertTitleText, GetActionText());
         }
 
         protected override void OnRemove()
         {
-            player.EnableMovement();
+            PlayerController.Instance.EnableMovement();
             GameEvents.OnGameFeelEnd?.Invoke();
             AlertPanelUI.Instance.HideActivePanel();
             Destroy(gameObject);
@@ -32,13 +33,12 @@ namespace Gameplay.Elements.Enemies
         
         private void OnKeyPressed(InputAction.CallbackContext ctx)
         {
-            if (player == null) return;
             _count++;
             AlertPanelUI.Instance.SetActionText(GetActionText()); 
             
             if (_count < requiredPressed) return;
             spamKey.action.started -= OnKeyPressed;
-            player.DetachVirus();
+            PlayerController.Instance.DetachVirus();
         }
         
         private string GetActionText() => $"{spamKey.action.name} x{(requiredPressed - _count)}";

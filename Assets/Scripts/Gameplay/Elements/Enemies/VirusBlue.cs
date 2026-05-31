@@ -1,5 +1,6 @@
 ﻿using Data;
 using Effects;
+using Player;
 using UI;
 using UnityEngine;
 using Utils;
@@ -17,7 +18,7 @@ namespace Gameplay.Elements.Enemies
         protected override void OnApply()
         {
             WordData word = wordsDatabase.GetRandomWord(false);
-            word.Effect.ApplyEffect(player, this);
+            word.Effect.ApplyEffect(this);
         }
 
         protected override void OnRemove()
@@ -40,7 +41,7 @@ namespace Gameplay.Elements.Enemies
             if (_timer.IsDone)
             {
                 _activeEffect.RemoveEffect();
-                player.DetachVirus();
+                PlayerController.Instance.DetachVirus();
                 _timer = null;
             }
         }

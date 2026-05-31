@@ -13,7 +13,6 @@ namespace Gameplay
     {
         [SerializeField] private WordDatabase wordsDatabase;
         [SerializeField] private LetterCell letterCellPrefab;
-        [SerializeField] private PlayerController player;
         [SerializeField] private WordEffectRunner wordEffectRunner;
 
         // Bonus / Malus
@@ -30,7 +29,6 @@ namespace Gameplay
         
         // Completed Words + Active Effect
         private readonly Queue<WordData> _completedWordsQueue = new();
-        private readonly HashSet<WordData> _enqueuedWords = new();
         private WordEffect _activeEffect;
 
         private void OnEnable() 
@@ -61,7 +59,6 @@ namespace Gameplay
             HighlightLetters(malusDisplays, letter, malusHighlightColor);
             CheckCompletion(bonusDisplays, true);
             CheckCompletion(malusDisplays, false);
-            ProcessEffectQueue();
         }
 
         private void HighlightLetters(LettersDisplay[] displays, string letter, Color color)
@@ -78,8 +75,8 @@ namespace Gameplay
                     continue;
 
                 WordData completedWord = display.CurrentWordData;
-
-                if (!_enqueuedWords.Add(completedWord))
+                
+                if (_completedWordsQueue.Contains(completedWord))
                     continue;
 
                 if (isBonus)
@@ -104,35 +101,6 @@ namespace Gameplay
             display.SetWord(word, letterCellPrefab);
             currentWords.Add(word);
         }
-
-        protected override void GameplayUpdate()
-        {
-            ProcessEffectQueue();
-        }
-        
-        private void ProcessEffectQueue()
-        {
-            if (_activeEffect && _activeEffect.IsComplete) 
-                _activeEffect = null;
-
-            if (_activeEffect || _completedWordsQueue.Count == 0 || player.IsPlayerInfected()) 
-                return;
-            
-            // New effect from completed word (Queue)
-            WordData nextWord = _completedWordsQueue.Dequeue();
-            _enqueuedWords.Remove(nextWord);
-
-            List<WordData> currentWords = nextWord.IsBonus ? _currentBonus : _currentMalus;
-            LettersDisplay[] displays = nextWord.IsBonus ? bonusDisplays : malusDisplays;
-
-            LettersDisplay display = FindDisplay(nextWord, displays);
-            currentWords.Remove(nextWord);
-            
-            if (display)
-                AssignWord(display, currentWords, nextWord.IsBonus);
-            
-            ApplyEffect(nextWord.Effect);
-        }
         
         private LettersDisplay FindDisplay(WordData word, LettersDisplay[] displays)
         {
@@ -145,7 +113,7 @@ namespace Gameplay
         {
             if (!newEffect) return;
             _activeEffect = newEffect;
-            _activeEffect.ApplyEffect(player, wordEffectRunner);
+            _activeEffect.ApplyEffect(wordEffectRunner);
         }
         
         private void StopEffect()
@@ -153,6 +121,27 @@ namespace Gameplay
             if (!_activeEffect) return;
             _activeEffect.RemoveEffect();
             _activeEffect = null;
+        }
+        
+        protected override void GameplayUpdate()
+        {
+            if (_activeEffect && _activeEffect.IsComplete) 
+                _activeEffect = null;
+
+            if (_activeEffect || _completedWordsQueue.Count == 0 || PlayerController.Instance.IsPlayerInfected()) 
+                return;
+            
+            WordData nextWord = _completedWordsQueue.Dequeue();
+
+            List<WordData> currentWords = nextWord.IsBonus ? _currentBonus : _currentMalus;
+            LettersDisplay[] displays = nextWord.IsBonus ? bonusDisplays : malusDisplays;
+            LettersDisplay display = FindDisplay(nextWord, displays);
+            currentWords.Remove(nextWord);
+            
+            if (display)
+                AssignWord(display, currentWords, nextWord.IsBonus);
+            
+            ApplyEffect(nextWord.Effect);
         }
     }
 }

@@ -19,9 +19,9 @@ namespace Gameplay.Elements.Collectibles
             label.text = GetRandomLetter().ToString();
         }
 
-        public override void OnPlayerCollision(PlayerController player, Transform position)
+        public override void OnPlayerCollision(Transform position)
         {
-            player.CollectLetter(this);
+            PlayerController.Instance.CollectLetter(this);
             Destroy(gameObject);
         }
         

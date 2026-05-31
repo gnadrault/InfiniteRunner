@@ -1,3 +1,4 @@
+using Player;
 using UnityEngine;
 
 namespace Effects
@@ -9,12 +10,12 @@ namespace Effects
         
         protected override void OnApply()
         {
-            player.ApplyFreeze();
+            PlayerController.Instance.ApplyFreeze();
         }
 
         protected override void OnRemove()
         {
-            player.RemoveFreeze();
+            PlayerController.Instance.RemoveFreeze();
         }
     }
 }

@@ -7,18 +7,11 @@ namespace Player
     public class PlayerCollision : GameBehavior
     {
         [SerializeField] private Transform attachedPlayerPosition;
-        
-        private PlayerController _playerController;
-
-        private void Awake()
-        {
-            _playerController = GetComponentInParent<PlayerController>();
-        }
 
         private void OnTriggerEnter(Collider other)
         {
             var element = other.GetComponentInParent<Element>();
-            element?.OnPlayerCollision(_playerController, attachedPlayerPosition);
+            element?.OnPlayerCollision(attachedPlayerPosition);
         }
     }
 }

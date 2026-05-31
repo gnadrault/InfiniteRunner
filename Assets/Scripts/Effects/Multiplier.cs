@@ -1,3 +1,4 @@
+using Player;
 using UnityEngine;
 
 namespace Effects
@@ -11,12 +12,12 @@ namespace Effects
         
         protected override void OnApply()
         {
-            player.ApplyMultiplier(multiplierFactor);
+            PlayerController.Instance.ApplyMultiplier(multiplierFactor);
         }
 
         protected override void OnRemove()
         {
-            player.RemoveMultiplier();
+            PlayerController.Instance.RemoveMultiplier();
         }
     }
 }

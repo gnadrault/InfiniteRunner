@@ -16,14 +16,14 @@ namespace Player.State
         private readonly ParticleSystem _trailsParticles;
         private bool _hasAlreadyEndGame;
 
-        public PlayerStateMachine(PlayerController playerController, PlayerSettings playerSettings)
+        public PlayerStateMachine(PlayerSettings playerSettings)
         {
             _trailsParticles = playerSettings.idle.trailsParticles;
             _idle = new IdleState();
-            _die = new DieState(playerController, playerSettings.die);
-            _jump = new JumpingState(playerController, playerSettings.jump);
-            _lane = new LaneChangingState(playerController, playerSettings.changeLane);
-            _slide = new SlideState(playerController, playerSettings.slide);
+            _die = new DieState(playerSettings.die);
+            _jump = new JumpingState(playerSettings.jump);
+            _lane = new LaneChangingState(playerSettings.changeLane);
+            _slide = new SlideState(playerSettings.slide);
         }
 
         public void Start()

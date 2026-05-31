@@ -23,12 +23,12 @@ namespace Gameplay.Elements.Obstacles
             _matPropertyBlock =  new MaterialPropertyBlock();
         }
         
-        public override void OnPlayerCollision(PlayerController player, Transform position)
+        public override void OnPlayerCollision(Transform position)
         {
-            if (player.HasGhost())
+            if (PlayerController.Instance.HasGhost())
                 GameEvents.OnGhostBroken?.Invoke();
             else
-                player.Die();
+                PlayerController.Instance.Die();
         }
         
         public void OnTransparencyCollision()

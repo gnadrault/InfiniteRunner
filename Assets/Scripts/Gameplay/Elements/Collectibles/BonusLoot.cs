@@ -6,9 +6,9 @@ namespace Gameplay.Elements.Collectibles
     public class BonusLoot : Collectible
     {
         
-        public override void OnPlayerCollision(PlayerController player, Transform position)
+        public override void OnPlayerCollision(Transform position)
         {
-            player.CollectLoot(Point);
+            PlayerController.Instance.CollectLoot(Point);
             Destroy(gameObject);
         }
     }

@@ -4,7 +4,6 @@ namespace Player.State
 {
     public class IdleState : IPlayerState
     {
-        private readonly PlayerController _playerController;
         private readonly IdleSettings _idleSettings;
 
         public void Enter()

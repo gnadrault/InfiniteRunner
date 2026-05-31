@@ -4,12 +4,10 @@ namespace Player.State
 {
     public class DieState : IPlayerState
     {
-        private readonly PlayerController _playerController;
         private readonly DieSettings _dieSettings;
         
-        public DieState(PlayerController playerController, DieSettings dieSettings)
+        public DieState(DieSettings dieSettings)
         {
-            _playerController = playerController;
             _dieSettings = dieSettings;
             
             // Update death particles duration
@@ -19,7 +17,7 @@ namespace Player.State
         
         public void Enter()
         {
-            _playerController.GetMeshObject().SetActive(false);
+            PlayerController.Instance.GetMeshObject().SetActive(false);
             _dieSettings.deathParticles.Play();
         }
 

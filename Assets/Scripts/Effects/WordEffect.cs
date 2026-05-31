@@ -12,15 +12,11 @@ namespace Effects
         [SerializeField] private float duration = 10f;
         protected abstract bool IsBonus { get; }
         public bool IsComplete { get; private set; }
-
-        protected PlayerController player;
-
         private IEffectRunner Runner { get; set; }
 
-        public void ApplyEffect(PlayerController playerController, IEffectRunner runner)
+        public void ApplyEffect(IEffectRunner runner)
         {
             IsComplete = false;
-            player = playerController;
             Runner = runner;
             Runner.Register(this, duration);
             OnApply();

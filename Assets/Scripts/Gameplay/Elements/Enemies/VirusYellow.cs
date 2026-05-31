@@ -1,4 +1,5 @@
 ﻿using Data;
+using Player;
 using UI;
 using UnityEngine;
 using Utils;
@@ -17,7 +18,7 @@ namespace Gameplay.Elements.Enemies
         {
             _timer = new EffectTimer(duration);
             _active = true;
-            player.ApplyDelay(delay);
+            PlayerController.Instance.ApplyDelay(delay);
             GameEvents.OnGameFeelProfileStart?.Invoke(gameFeelProfile);
             AlertPanelUI.Instance.ShowPanel(AlertPanelType.Virus, alertTitleText, StringFormat.FormatTimer(duration));
         }
@@ -25,7 +26,7 @@ namespace Gameplay.Elements.Enemies
         protected override void OnRemove()
         {
             _active = false;
-            player.RemoveDelay();
+            PlayerController.Instance.RemoveDelay();
             GameEvents.OnGameFeelEnd?.Invoke();
             AlertPanelUI.Instance.HideActivePanel();
             Destroy(gameObject);
@@ -38,7 +39,7 @@ namespace Gameplay.Elements.Enemies
             AlertPanelUI.Instance.SetActionText(StringFormat.FormatTimer(_timer.Remaining));
             
             if (_timer.IsDone)
-                player.DetachVirus();
+                PlayerController.Instance.DetachVirus();
         }
     }
 }

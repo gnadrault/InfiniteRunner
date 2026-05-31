@@ -7,6 +7,6 @@ namespace Gameplay.Elements
 {
     public abstract class Element : GameBehavior
     {
-        public abstract void OnPlayerCollision(PlayerController player, Transform position);
+        public abstract void OnPlayerCollision(Transform position);
     }
 }

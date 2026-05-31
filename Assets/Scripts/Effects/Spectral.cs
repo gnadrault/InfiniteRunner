@@ -1,3 +1,4 @@
+using Player;
 using UnityEngine;
 using Utils;
 
@@ -11,13 +12,13 @@ namespace Effects
         protected override void OnApply()
         {
             GameEvents.OnGhostBroken += RemoveEffect;
-            player.ApplyGhost();
+            PlayerController.Instance.ApplyGhost();
         }
 
         protected override void OnRemove()
         {
             GameEvents.OnGhostBroken -= RemoveEffect;
-            player.RemoveGhost();
+            PlayerController.Instance.RemoveGhost();
         }
     }
 }

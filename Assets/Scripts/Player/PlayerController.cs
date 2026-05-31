@@ -13,6 +13,7 @@ namespace Player
 {
     public class PlayerController : GameBehavior
     {
+        public static PlayerController Instance;
         private static readonly int BaseColor = Shader.PropertyToID("_BaseColor");
 
         private enum MoveIntent
@@ -65,18 +66,22 @@ namespace Player
         private void OnRightInput(InputAction.CallbackContext _) => HandleIntent(MoveIntent.Right);
         private void OnJumpInput(InputAction.CallbackContext _) => HandleIntent(MoveIntent.Jump);
         private void OnSlideInput(InputAction.CallbackContext _) => HandleIntent(MoveIntent.Slide);
-
+        
         private void Awake()
+        {
+            if (Instance == null)
+                Instance = this;
+            else
+                Destroy(this);
+        }
+
+        private void Start()
         {
             _transform = transform;
             _currentLaneIndex = initLaneIndex;
             _renderers = meshGameObject.GetComponentsInChildren<Renderer>();
             _matPropertyBlock = new MaterialPropertyBlock();
-            _stateMachine = new PlayerStateMachine(this, playerSettings);
-        }
-
-        private void Start()
-        {
+            _stateMachine = new PlayerStateMachine(playerSettings);
             _transform.position = laneAnchors[_currentLaneIndex].position;
             _stateMachine.Start();
         }
@@ -183,7 +188,7 @@ namespace Player
         {
             currentVirus = virus;
             GameEvents.OnVirusAttached?.Invoke();
-            currentVirus.ApplyVirusEffect(this);
+            currentVirus.ApplyVirusEffect();
         }
 
         public void DetachVirus()

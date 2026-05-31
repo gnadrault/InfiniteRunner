@@ -6,7 +6,6 @@ namespace Player.State
 {
     public class JumpingState : IPlayerState
     {
-        private readonly PlayerController _playerController;
         private readonly JumpSettings _jumpSettings;
         
         private enum JumpPhase
@@ -26,9 +25,8 @@ namespace Player.State
         private float _shortApexEndTime;
         private float _longApexEndTime;
 
-        public JumpingState(PlayerController playerController, JumpSettings jumpSettings)
+        public JumpingState(JumpSettings jumpSettings)
         {
-            _playerController = playerController;
             _jumpSettings = jumpSettings;
         }
 
@@ -37,7 +35,7 @@ namespace Player.State
             _currentPhase = JumpPhase.Ascending;
             _elapsedTime = 0f;
             _descentElapsedTime = 0f;
-            _startY = _playerController.GetCurrentPosition().y;
+            _startY = PlayerController.Instance.GetCurrentPosition().y;
 
             // Calculate phase timing
             _apexStartTime = _jumpSettings.timeToApex;
@@ -69,7 +67,7 @@ namespace Player.State
             }
 
             float newY = _startY +  _jumpSettings.jumpHeight * heightFactor;
-            _playerController.SetPositionY(newY);
+            PlayerController.Instance.SetPositionY(newY);
         }
         
         private float UpdateAscending()
@@ -88,7 +86,7 @@ namespace Player.State
         {
             bool shortApexExpired = _elapsedTime >= _shortApexEndTime;
             bool longApexExpired = _elapsedTime >= _longApexEndTime;
-            bool jumpButtonHeld = _playerController.IsJumpButtonPressed();
+            bool jumpButtonHeld = PlayerController.Instance.IsJumpButtonPressed();
 
             if ((shortApexExpired && !jumpButtonHeld) || longApexExpired) // Waiting in apex (short or long)
             {

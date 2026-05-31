@@ -6,7 +6,6 @@ namespace Player.State
 {
     public class SlideState : IPlayerState
     {
-        private readonly PlayerController _playerController;
         private readonly SlideSettings _slideSettings;
         
         private enum SlidePhase
@@ -25,9 +24,8 @@ namespace Player.State
         private float _slideStartTime;
         private float _shortSlideEndTime;
 
-        public SlideState(PlayerController playerController, SlideSettings slideSettings)
+        public SlideState(SlideSettings slideSettings)
         {
-            _playerController = playerController;
             _slideSettings = slideSettings;
         }
 
@@ -36,7 +34,7 @@ namespace Player.State
             _currentPhase = SlidePhase.Flatten;
             _elapsedTime = 0f;
             _recoverElapsedTime = 0f;
-            _startScaleY = _playerController.GetCurrentScale().y;
+            _startScaleY = PlayerController.Instance.GetCurrentScale().y;
 
             // Calculate phase timing
             _slideStartTime = _slideSettings.timeToFlatten;
@@ -67,7 +65,7 @@ namespace Player.State
             }
 
             float newY = _slideSettings.slideShrinkHeight * shrinkFactor;
-            _playerController.SetScaleY(newY);
+            PlayerController.Instance.SetScaleY(newY);
         }
         
         private float UpdateFlatten()
@@ -85,7 +83,7 @@ namespace Player.State
         private float UpdateSlide()
         {
             bool shortApexExpired = _elapsedTime >= _shortSlideEndTime;
-            bool slideButtonHeld = _playerController.IsSlideButtonPressed();
+            bool slideButtonHeld = PlayerController.Instance.IsSlideButtonPressed();
 
             if (shortApexExpired && !slideButtonHeld) // Waiting in slide
             {
@@ -104,7 +102,7 @@ namespace Player.State
 
         public void Exit()
         {
-            _playerController.SetScaleY(_startScaleY);
+            PlayerController.Instance.SetScaleY(_startScaleY);
         }
 
         public bool IsDone()

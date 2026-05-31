@@ -10,24 +10,22 @@ namespace Gameplay.Elements.Enemies
     {
         [SerializeField] protected GameFeelProfile gameFeelProfile;
         [SerializeField] protected string alertTitleText = "INFECTED!";
-        protected PlayerController player;
 
-        public override void OnPlayerCollision(PlayerController playerController, Transform position)
+        public override void OnPlayerCollision(Transform position)
         {
-            if (playerController.IsPlayerInfected()) return;
-            if (playerController.HasShield())
+            if (PlayerController.Instance.IsPlayerInfected()) return;
+            if (PlayerController.Instance.HasShield())
             {
                 GameEvents.OnShieldBroken?.Invoke();
                 Destroy(gameObject);
                 return;
             }
-            AttachVisually(playerController.transform, position);
-            playerController.AttachVirus(this);
+            AttachVisually(PlayerController.Instance.transform, position);
+            PlayerController.Instance.AttachVirus(this);
         }
 
-        public void ApplyVirusEffect(PlayerController playerController)
+        public void ApplyVirusEffect()
         {
-            player = playerController;
             OnApply();
         }
         

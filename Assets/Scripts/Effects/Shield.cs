@@ -1,3 +1,4 @@
+using Player;
 using UnityEngine;
 using Utils;
 
@@ -11,13 +12,13 @@ namespace Effects
         protected override void OnApply()
         {
             GameEvents.OnShieldBroken += RemoveEffect;
-            player.ApplyShield();
+            PlayerController.Instance.ApplyShield();
         }
 
         protected override void OnRemove()
         {
             GameEvents.OnShieldBroken -= RemoveEffect;
-            player.RemoveShield();
+            PlayerController.Instance.RemoveShield();
         }
     }
 }
