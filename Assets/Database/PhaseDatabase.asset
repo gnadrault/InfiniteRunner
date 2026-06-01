@@ -13,6 +13,29 @@ MonoBehaviour:
   m_Name: PhaseDatabase
   m_EditorClassIdentifier: Assembly-CSharp::Data.PhaseDatabase
   phases:
+  - name: 4
+    rainbowColor: 0
+    phaseColor: {r: 1, g: 0.9019608, b: 0, a: 1}
+    intensityColor: 3
+    cameraSettings:
+      position: {x: 0, y: 5, z: -15}
+      rotation: {x: 9, y: 0, z: 0}
+      fov: 32
+    speed: 40
+    speedParticles: 38
+    distance: -1
+    music: {fileID: 0}
+    newSegments:
+    - {fileID: 66493209559607754, guid: 8eef716d8b41bbd40ab256dacc20e1b4, type: 3}
+    - {fileID: 66493209559607754, guid: 1d249127f8335bf4095d0606fe6c97d7, type: 3}
+    - {fileID: 66493209559607754, guid: 75a893f16383d1b4b9abb33c171a8126, type: 3}
+    - {fileID: 66493209559607754, guid: 0060e3b6727f1244d918e5efde521fa5, type: 3}
+    - {fileID: 66493209559607754, guid: 762699aaa1d570d44b91a944aeeb8ba7, type: 3}
+    virus:
+    - {fileID: 1786364590797097875, guid: 1a08c3a0cb92f6240a237030a04c5b1d, type: 3}
+    - {fileID: 8340013460893703910, guid: 1a80f4b066f49eb41acfa18c19e993d1, type: 3}
+    - {fileID: -9186191132360030546, guid: 899210ec524a4d24caf90167c54613ad, type: 3}
+    - {fileID: -35816546029551191, guid: 3d5a24b4ceda09b47b19443886dbed74, type: 3}
   - name: 1
     rainbowColor: 0
     phaseColor: {r: 0.11372549, g: 0.39215687, b: 0.88235295, a: 1}
@@ -26,8 +49,11 @@ MonoBehaviour:
     distance: 500
     music: {fileID: 0}
     newSegments:
-    - {fileID: 66493209559607754, guid: 483059b4e51709545ade9723710e56da, type: 3}
-    - {fileID: 66493209559607754, guid: f7671948253eea648b9c3870194d4407, type: 3}
+    - {fileID: 66493209559607754, guid: a5d23111f4004b84d9a3d5d50132ba7a, type: 3}
+    - {fileID: 66493209559607754, guid: aa999fe22a298a7498011f0e1754a97a, type: 3}
+    - {fileID: 66493209559607754, guid: 2d06e99d78421994c89b57310f3820bd, type: 3}
+    - {fileID: 66493209559607754, guid: ac13a03549549e445a8cf4d1853b798f, type: 3}
+    - {fileID: 66493209559607754, guid: 0a9d278554ce23644b238e0f6a04984b, type: 3}
     virus:
     - {fileID: 1786364590797097875, guid: 1a08c3a0cb92f6240a237030a04c5b1d, type: 3}
   - name: 2
@@ -43,8 +69,11 @@ MonoBehaviour:
     distance: 1500
     music: {fileID: 0}
     newSegments:
-    - {fileID: 3165486530580345660, guid: bd0d40be177bfe14295a25a1fb1d4a29, type: 3}
-    - {fileID: 3165486530580345660, guid: 719e84f78a8d04d4685fbb4670a3d75b, type: 3}
+    - {fileID: 66493209559607754, guid: d74066cfa1162a04a9a99c38b78455a3, type: 3}
+    - {fileID: 66493209559607754, guid: 0928c3dc0be302a479835bdca08d9cfc, type: 3}
+    - {fileID: 66493209559607754, guid: 43d0836ec44682741b80961b31d968c2, type: 3}
+    - {fileID: 66493209559607754, guid: 3a1fbfa3d209bf04bb8e1c73d17888cc, type: 3}
+    - {fileID: 66493209559607754, guid: 6c9019afade73c94e968b2711746c970, type: 3}
     virus:
     - {fileID: 1786364590797097875, guid: 1a08c3a0cb92f6240a237030a04c5b1d, type: 3}
     - {fileID: 8340013460893703910, guid: 1a80f4b066f49eb41acfa18c19e993d1, type: 3}
@@ -61,29 +90,12 @@ MonoBehaviour:
     distance: 3000
     music: {fileID: 0}
     newSegments:
-    - {fileID: 3165486530580345660, guid: 6db26d38cd173e147a324de5d6e28b69, type: 3}
-    - {fileID: 3165486530580345660, guid: a7b692dea84ec7646b553db1d523d25e, type: 3}
+    - {fileID: 66493209559607754, guid: 56723af8db1d64f42877bfdc0e3c297c, type: 3}
+    - {fileID: 66493209559607754, guid: 6fcec30491123ba46920d29d4564af23, type: 3}
+    - {fileID: 66493209559607754, guid: 5a29c4735c64d8d4692cba3d62678eb9, type: 3}
+    - {fileID: 66493209559607754, guid: 2368165136d58a244a32988db295e483, type: 3}
+    - {fileID: 66493209559607754, guid: 3a6a8efe2f1ed9e4c98ee380121bc956, type: 3}
     virus:
     - {fileID: 1786364590797097875, guid: 1a08c3a0cb92f6240a237030a04c5b1d, type: 3}
     - {fileID: 8340013460893703910, guid: 1a80f4b066f49eb41acfa18c19e993d1, type: 3}
     - {fileID: -9186191132360030546, guid: 899210ec524a4d24caf90167c54613ad, type: 3}
-  - name: 4
-    rainbowColor: 0
-    phaseColor: {r: 1, g: 0.9019608, b: 0, a: 1}
-    intensityColor: 3
-    cameraSettings:
-      position: {x: 0, y: 5, z: -15}
-      rotation: {x: 9, y: 0, z: 0}
-      fov: 32
-    speed: 40
-    speedParticles: 38
-    distance: -1
-    music: {fileID: 0}
-    newSegments:
-    - {fileID: 3165486530580345660, guid: 24ece2ccc7801214bb0ae83a6a818eba, type: 3}
-    - {fileID: 3165486530580345660, guid: 1b835d3989196b04e938f715c18d75ba, type: 3}
-    virus:
-    - {fileID: 1786364590797097875, guid: 1a08c3a0cb92f6240a237030a04c5b1d, type: 3}
-    - {fileID: 8340013460893703910, guid: 1a80f4b066f49eb41acfa18c19e993d1, type: 3}
-    - {fileID: -9186191132360030546, guid: 899210ec524a4d24caf90167c54613ad, type: 3}
-    - {fileID: -35816546029551191, guid: 3d5a24b4ceda09b47b19443886dbed74, type: 3}
