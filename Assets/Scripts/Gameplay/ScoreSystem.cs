@@ -16,7 +16,11 @@ namespace Gameplay
 
         private void Start()
         {
-            bestScoreLabel.text = $"High score : {ScoreSave.Load().entries[0].score.ToString()}";
+            ScoreData data = ScoreSave.Load();
+            if (data != null && data.entries.Count > 0)
+                bestScoreLabel.text = $"High score : {ScoreSave.Load().entries[0].score.ToString()}";
+            else
+                bestScoreLabel.text = "";
         }
 
         private void OnEnable()

@@ -15,7 +15,7 @@ MonoBehaviour:
   sounds:
   - type: 0
     clip: {fileID: 8300000, guid: 092d2f735ee626145b7709a5c1df521e, type: 3}
-    volume: 1
+    volume: 0.3
   - type: 1
     clip: {fileID: 8300000, guid: 80e59eb9a000899408f94d85009659b6, type: 3}
     volume: 1
@@ -27,10 +27,10 @@ MonoBehaviour:
     volume: 1
   - type: 2
     clip: {fileID: 8300000, guid: 5d8d45938e8feb444b8d1d06bb779f6a, type: 3}
-    volume: 1
+    volume: 0.6
   - type: 4
     clip: {fileID: 8300000, guid: ef0114ea6ad27f54e8ffca48697002e5, type: 3}
-    volume: 1
+    volume: 0.6
   - type: 8
     clip: {fileID: 8300000, guid: 2066aeef0b5b70349aa29f67fdef0d2d, type: 3}
     volume: 1

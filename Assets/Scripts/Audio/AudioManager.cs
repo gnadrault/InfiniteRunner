@@ -62,6 +62,7 @@ namespace Audio
             SfxVolume = volume;
             sfxOneShotSource.volume = volume;
             sfxLoopSource.volume = volume;
+            sfxLettersSource.volume = volume;
             PlayerPrefs.SetFloat(VolumeSfxPlayerPref, volume);
         }
 
