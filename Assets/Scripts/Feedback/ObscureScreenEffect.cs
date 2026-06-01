@@ -47,7 +47,7 @@ namespace Feedback
         {
             if (_routine == null) return;
             StartCoroutine(TweenUtils.Transition(t =>
-                    _bloom.dirtIntensity.value = Mathf.Lerp(_bloom.dirtIntensity.value, 0f, t),
+                    _bloom.dirtIntensity.value = Mathf.Lerp(_bloom.dirtIntensity.value, 0.001f, t),
                 transitionDuration
             ));
         }

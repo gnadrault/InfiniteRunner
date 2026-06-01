@@ -48,7 +48,6 @@ namespace Feedback
 
         private IEnumerator FadeTo(Color targetColor, float targetIntensity)
         {
-            _vignette.active = true;
             _vignette.color.value = targetColor;
 
             float startIntensity = _vignette.intensity.value;
@@ -58,21 +57,17 @@ namespace Feedback
                 transitionDuration
             );
 
-            if (Mathf.Approximately(targetIntensity, 0f))
-                _vignette.active = false;
-
             _routine = null;
         }
 
         private IEnumerator PulseRoutine(VignetteSection data)
         {
-            _vignette.active = true;
             _vignette.color.value = data.color;
             
             while (true)
             {
                 float t = Mathf.PingPong(Time.time * data.pulseSpeed, 1f);
-                _vignette.intensity.value = Mathf.Lerp(0f, data.intensity, t);
+                _vignette.intensity.value = Mathf.Lerp(0.001f, data.intensity, t);
                 yield return null;
             }
         }
@@ -80,7 +75,7 @@ namespace Feedback
         public void ResetToAmbient()
         {
             StopCurrent();
-            _routine = StartCoroutine(FadeTo(_vignette.color.value, 0f));
+            _routine = StartCoroutine(FadeTo(_vignette.color.value, 0.001f));
         }
 
         private void StopCurrent()
