@@ -14,105 +14,71 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Data.WordDatabase
   bonusWords:
   - word: SLOW
-    isBonus: 1
     effect: {fileID: 11400000, guid: d26d1b2cc4895eb4aa3bd94a2949d042, type: 2}
   - word: LAG
-    isBonus: 1
     effect: {fileID: 11400000, guid: d26d1b2cc4895eb4aa3bd94a2949d042, type: 2}
   - word: DELAY
-    isBonus: 1
     effect: {fileID: 11400000, guid: d26d1b2cc4895eb4aa3bd94a2949d042, type: 2}
-  - word: FREEZE
-    isBonus: 1
+  - word: WAIT
     effect: {fileID: 11400000, guid: d26d1b2cc4895eb4aa3bd94a2949d042, type: 2}
   - word: SHIELD
-    isBonus: 1
     effect: {fileID: 11400000, guid: 444cd6cc4727e024ea5ba5efdec28df3, type: 2}
   - word: GUARD
-    isBonus: 1
     effect: {fileID: 11400000, guid: 444cd6cc4727e024ea5ba5efdec28df3, type: 2}
   - word: DEFEND
-    isBonus: 1
     effect: {fileID: 11400000, guid: 444cd6cc4727e024ea5ba5efdec28df3, type: 2}
   - word: PROTECT
-    isBonus: 1
     effect: {fileID: 11400000, guid: 444cd6cc4727e024ea5ba5efdec28df3, type: 2}
   - word: FIREWALL
-    isBonus: 1
     effect: {fileID: 11400000, guid: 444cd6cc4727e024ea5ba5efdec28df3, type: 2}
   - word: GHOST
-    isBonus: 1
     effect: {fileID: 11400000, guid: 6ee28d776c57a10438c92db761305da8, type: 2}
   - word: SAFE
-    isBonus: 1
     effect: {fileID: 11400000, guid: 6ee28d776c57a10438c92db761305da8, type: 2}
   - word: CLEAR
-    isBonus: 1
     effect: {fileID: 11400000, guid: 6ee28d776c57a10438c92db761305da8, type: 2}
   - word: SYNC
-    isBonus: 1
     effect: {fileID: 11400000, guid: e50b6e68a540ec941b2424de4076ee7e, type: 2}
   - word: LINK
-    isBonus: 1
     effect: {fileID: 11400000, guid: e50b6e68a540ec941b2424de4076ee7e, type: 2}
   - word: MERGE
-    isBonus: 1
     effect: {fileID: 11400000, guid: e50b6e68a540ec941b2424de4076ee7e, type: 2}
   - word: BOOST
-    isBonus: 1
     effect: {fileID: 11400000, guid: 5fac3e0cf26d8904f833ee8ad3240185, type: 2}
   - word: POWER
-    isBonus: 1
     effect: {fileID: 11400000, guid: 5fac3e0cf26d8904f833ee8ad3240185, type: 2}
   - word: CHARGE
-    isBonus: 1
     effect: {fileID: 11400000, guid: 5fac3e0cf26d8904f833ee8ad3240185, type: 2}
   - word: AMP
-    isBonus: 1
     effect: {fileID: 11400000, guid: 5fac3e0cf26d8904f833ee8ad3240185, type: 2}
   malusWords:
   - word: SPEEDHACK
-    isBonus: 0
     effect: {fileID: 11400000, guid: 1ac632d64702fe0428b6e83e9a181e42, type: 2}
   - word: OVERLOAD
-    isBonus: 0
     effect: {fileID: 11400000, guid: 1ac632d64702fe0428b6e83e9a181e42, type: 2}
   - word: CHAOS
-    isBonus: 0
     effect: {fileID: 11400000, guid: 1ac632d64702fe0428b6e83e9a181e42, type: 2}
   - word: BUGGED
-    isBonus: 0
     effect: {fileID: 11400000, guid: bd55dc80822b54c409e415cf62d931bf, type: 2}
   - word: GLITCH
-    isBonus: 0
     effect: {fileID: 11400000, guid: bd55dc80822b54c409e415cf62d931bf, type: 2}
   - word: STALL
-    isBonus: 0
     effect: {fileID: 11400000, guid: bd55dc80822b54c409e415cf62d931bf, type: 2}
   - word: LOCK
-    isBonus: 0
     effect: {fileID: 11400000, guid: bd55dc80822b54c409e415cf62d931bf, type: 2}
   - word: JAM
-    isBonus: 0
     effect: {fileID: 11400000, guid: bd55dc80822b54c409e415cf62d931bf, type: 2}
   - word: REVERSE
-    isBonus: 0
     effect: {fileID: 11400000, guid: 57f23338e4469824589b2ab44168ab7f, type: 2}
   - word: DESYNC
-    isBonus: 0
     effect: {fileID: 11400000, guid: 57f23338e4469824589b2ab44168ab7f, type: 2}
   - word: CORRUPT
-    isBonus: 0
     effect: {fileID: 11400000, guid: 57f23338e4469824589b2ab44168ab7f, type: 2}
   - word: OVERFLOW
-    isBonus: 0
     effect: {fileID: 11400000, guid: 3cb02b77cc81e5c41b60e78cd3c1d4ba, type: 2}
   - word: NOISE
-    isBonus: 0
     effect: {fileID: 11400000, guid: 3cb02b77cc81e5c41b60e78cd3c1d4ba, type: 2}
   - word: FRAGMENT
-    isBonus: 0
     effect: {fileID: 11400000, guid: 3cb02b77cc81e5c41b60e78cd3c1d4ba, type: 2}
   - word: CRASH
-    isBonus: 0
     effect: {fileID: 11400000, guid: 3cb02b77cc81e5c41b60e78cd3c1d4ba, type: 2}
