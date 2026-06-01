@@ -1,11 +1,12 @@
-﻿using UnityEngine;
+﻿using Audio;
+using UnityEngine;
 
 namespace Core
 {
     public class TimeManager : GameBehavior
     {
         public static TimeManager Instance;
-        private float _gameplayTimeScale;
+        private float _gameplayTimeScale = 1f;
         private bool _isPaused;
 
         private void Awake()
@@ -31,6 +32,7 @@ namespace Core
         private void ApplyTimeScale()
         {
             Time.timeScale = _isPaused ? 0f : _gameplayTimeScale;
+            AudioManager.Instance.SetMusicPitch(Time.timeScale);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Data;
+﻿using Audio;
+using Data;
 using Player;
 using UI;
 using UnityEngine;
@@ -23,6 +24,7 @@ namespace Gameplay.Elements.Enemies
             
             GameEvents.OnGameFeelProfileStart?.Invoke(gameFeelProfile);
             AlertPanelUI.Instance.ShowPanel(AlertPanelType.Virus, alertTitleText, StringFormat.FormatTimer(duration));
+            AudioManager.Instance.PlayOneShot(SfxType.AlertGreenVoice);
         }
         
         protected override void OnRemove()

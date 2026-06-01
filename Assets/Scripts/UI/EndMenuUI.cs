@@ -1,3 +1,4 @@
+using Audio;
 using Core;
 using Data;
 using TMPro;
@@ -30,6 +31,7 @@ namespace UI
             scoreText.text = endScore.score.ToString();
             newHighScoreText.enabled = endScore.isNewHighScore;
             simpleScoreText.enabled = !endScore.isNewHighScore;
+            AudioManager.Instance.PlayOneShot(endScore.isNewHighScore ? SfxType.BestHighScore : SfxType.GameOver);
             GameStateManager.Instance.SetState(GameState.GameOver);
         }
         

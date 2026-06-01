@@ -1,3 +1,4 @@
+using Audio;
 using Data;
 using Player;
 using UI;
@@ -23,6 +24,7 @@ namespace Effects
             
             AlertPanelType alertPanel = IsBonus ? AlertPanelType.Bonus : AlertPanelType.Malus;
             AlertPanelUI.Instance.ShowPanel(alertPanel, name, StringFormat.FormatTimer(duration));
+            AudioManager.Instance.PlayOneShot(IsBonus ? SfxType.BonusActivate : SfxType.MalusActivate);
         }
 
         public void RemoveEffect()

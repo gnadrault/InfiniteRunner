@@ -1,4 +1,5 @@
-﻿using Data;
+﻿using Audio;
+using Data;
 using Player;
 using UI;
 using UnityEngine;
@@ -23,6 +24,7 @@ namespace Gameplay.Elements.Enemies
             PlayerController.Instance.DisableMovement();
             GameEvents.OnGameFeelProfileStart?.Invoke(gameFeelProfile);
             AlertPanelUI.Instance.ShowPanel(AlertPanelType.Virus, alertTitleText, GetActionText());
+            AudioManager.Instance.PlayOneShot(SfxType.AlertRedVoice);
         }
 
         protected override void OnRemove()

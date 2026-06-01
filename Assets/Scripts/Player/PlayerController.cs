@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
+using Audio;
 using Core;
+using Data;
 using Gameplay.Elements.Collectibles;
 using Gameplay.Elements.Enemies;
 using Player.Data;
@@ -25,22 +27,18 @@ namespace Player
             Slide
         }
 
-        [Header("Input")] 
-        [SerializeField] private InputActionReference leftInput;
+        [Header("Input")] [SerializeField] private InputActionReference leftInput;
         [SerializeField] private InputActionReference rightInput;
         [SerializeField] private InputActionReference jumpInput;
         [SerializeField] private InputActionReference slideInput;
 
-        [Header("Settings")] 
-        [SerializeField] private PlayerSettings playerSettings;
+        [Header("Settings")] [SerializeField] private PlayerSettings playerSettings;
         [SerializeField] private GameObject meshGameObject;
 
-        [Header("Lanes")] 
-        [SerializeField] private Transform[] laneAnchors;
+        [Header("Lanes")] [SerializeField] private Transform[] laneAnchors;
         [SerializeField] private int initLaneIndex = 1;
 
-        [Header("Effects")] 
-        [SerializeField] private GameObject shieldEffect;
+        [Header("Effects")] [SerializeField] private GameObject shieldEffect;
         [SerializeField] private GameObject magnetEffect;
         [SerializeField] private Animator animator;
 
@@ -196,6 +194,7 @@ namespace Player
             currentVirus = virus;
             GameEvents.OnVirusAttached?.Invoke();
             currentVirus.ApplyVirusEffect();
+            AudioManager.Instance.PlayLoop(SfxType.VirusAttach);
         }
 
         public void DetachVirus()
@@ -203,6 +202,7 @@ namespace Player
             if (!currentVirus) return;
             currentVirus.RemoveVirusEffect();
             currentVirus = null;
+            AudioManager.Instance.StopLoop(SfxType.VirusAttach);
         }
 
         public void DisableMovement()
@@ -284,11 +284,13 @@ namespace Player
         public void ApplyMagnet()
         {
             magnetEffect.SetActive(true);
+            AudioManager.Instance.PlayLoop(SfxType.Magnet);
         }
 
         public void RemoveMagnet()
         {
             magnetEffect.SetActive(false);
+            AudioManager.Instance.StopLoop(SfxType.Magnet);
         }
 
         public void ApplyDelay(float delay)
@@ -329,19 +331,26 @@ namespace Player
         public void CollectLetter(LetterLoot letterLoot)
         {
             GameEvents.OnLetterCollected?.Invoke(letterLoot.Label);
-            CollectLoot(letterLoot.Point);
+            GameEvents.OnAddScorePoints?.Invoke(letterLoot.Point * _multiplier);
+            animator.Play(Glow, 0, 0f);
+            if (_multiplier > 1)
+                AudioManager.Instance.PlayOneShot(SfxType.BonusCollect);
+            else
+                AudioManager.Instance.PlayLetterSound(letterLoot.Label);
         }
 
         public void CollectLoot(float point)
         {
             GameEvents.OnAddScorePoints?.Invoke(point * _multiplier);
             animator.Play(Glow, 0, 0f);
+            AudioManager.Instance.PlayOneShot(_multiplier > 1 ? SfxType.BonusCollect : SfxType.LetterCollect);
         }
 
         public void Die()
         {
             GameEvents.OnPlayerDied?.Invoke();
             _stateMachine.ChangeState(_stateMachine.Die());
+            AudioManager.Instance.StopAll();
         }
 
         public Vector3 GetCurrentPosition() => _transform.position;

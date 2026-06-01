@@ -1,4 +1,3 @@
-using System;
 using Core;
 using TMPro;
 using UnityEngine;
@@ -15,6 +14,9 @@ namespace Audio
 
         private void Start()
         {
+            musicSlider.value = AudioManager.Instance.MusicVolume * 100f;
+            sfxSlider.value = AudioManager.Instance.SfxVolume * 100f;
+            
             OnSfxChanged(musicSlider.value);
             OnMusicChanged(musicSlider.value);
         }
@@ -22,11 +24,13 @@ namespace Audio
         public void OnMusicChanged(float value)
         {
             musicValue.text = value.ToString("F0");
+            AudioManager.Instance.SetMusicVolume(value/100f);
         }
         
         public void OnSfxChanged(float value)
         {
             sfxValue.text = value.ToString("F0");
+            AudioManager.Instance.SetSfxVolume(value/100f);
         }
     }
 }

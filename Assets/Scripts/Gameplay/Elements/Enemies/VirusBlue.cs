@@ -1,4 +1,5 @@
-﻿using Data;
+﻿using Audio;
+using Data;
 using Effects;
 using Player;
 using UI;
@@ -19,6 +20,7 @@ namespace Gameplay.Elements.Enemies
         {
             WordData word = wordsDatabase.GetRandomWord(false);
             word.Effect.ApplyEffect(this);
+            AudioManager.Instance.PlayOneShot(SfxType.AlertBlueVoice);
         }
 
         protected override void OnRemove()
