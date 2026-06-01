@@ -7,7 +7,7 @@ namespace Effects
     [CreateAssetMenu(fileName = "Spectral", menuName = "SyntaxError/Effects/Spectral")]
     public class Spectral : WordEffect
     {
-        protected override bool IsBonus => true;
+        public override bool IsBonus => true;
         
         protected override void OnApply()
         {

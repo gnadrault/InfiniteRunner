@@ -9,7 +9,7 @@ namespace Effects
     {
         [SerializeField] protected GameFeelProfile gameFeelProfile;
 
-        protected override bool IsBonus => false;
+        public override bool IsBonus => false;
 
         protected override void OnApply()
         {

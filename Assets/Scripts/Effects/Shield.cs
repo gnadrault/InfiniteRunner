@@ -7,7 +7,7 @@ namespace Effects
     [CreateAssetMenu(fileName = "Shield", menuName = "SyntaxError/Effects/Shield")]
     public class Shield : WordEffect
     {
-        protected override bool IsBonus => true;
+        public override bool IsBonus => true;
         
         protected override void OnApply()
         {

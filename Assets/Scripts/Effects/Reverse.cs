@@ -6,7 +6,7 @@ namespace Effects
     [CreateAssetMenu(fileName = "Reverse", menuName = "SyntaxError/Effects/Reverse")]
     public class Reverse : WordEffect
     {
-        protected override bool IsBonus => false;
+        public override bool IsBonus => false;
         
         protected override void OnApply()
         {

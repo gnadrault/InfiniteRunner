@@ -10,8 +10,6 @@ namespace Feedback
 {
     public class StroboscopeEffect : GameBehavior, IGameFeelEffect
     {
-        [SerializeField] private SegmentManager segmentManager;
-        
         private Coroutine _blinkRoutine;
         
         private void OnEnable()
@@ -53,7 +51,7 @@ namespace Feedback
         
         private void SetAllSegments(bool visible)
         {
-            foreach (Segment segment in segmentManager.ActiveSegments)
+            foreach (Segment segment in SegmentManager.Instance.ActiveSegments)
                 segment.ToggleBlink(visible);
         }
 

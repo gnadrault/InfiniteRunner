@@ -10,6 +10,8 @@ namespace Gameplay
 {
     public class SegmentManager : GameBehavior
     {
+        public static SegmentManager Instance;
+        
         [Header("Settings")] 
         [SerializeField] private int numSegments = 7;
 
@@ -29,10 +31,18 @@ namespace Gameplay
         private float _speed;
         
         public IReadOnlyList<Segment> ActiveSegments => _activeSegmentList;
+        public float Speed => _speed;
 
+        
         private void Awake()
         {
-            _segmentBuilder = GetComponent<SegmentBuilder>();
+            if (Instance == null)
+            {
+                Instance = this;
+                _segmentBuilder = GetComponent<SegmentBuilder>();
+            }
+            else
+                Destroy(this);
         }
 
         private void Start()

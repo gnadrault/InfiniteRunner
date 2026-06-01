@@ -9,7 +9,7 @@ namespace Effects
     {
         [SerializeField] private float speedTimeScale = 0.5f;
 
-        protected override bool IsBonus => true;
+        public override bool IsBonus => true;
         
         protected override void OnApply()
         {

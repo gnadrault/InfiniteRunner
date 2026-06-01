@@ -97,8 +97,8 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5282468833573100779}
   serializedVersion: 5
-  m_Mass: 0.5
-  m_LinearDamping: 0
+  m_Mass: 0.1
+  m_LinearDamping: 0.2
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -129,3 +129,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Effect.FallingObject
   obstaclePos: {fileID: 2245315473547427092}
+  heightDestroyObject: -50
+  triggerOffset: 5

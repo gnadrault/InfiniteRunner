@@ -10,10 +10,6 @@ namespace Gameplay.Elements.Obstacles
     {
         private static readonly int BaseColor = Shader.PropertyToID("_BaseColor");
         
-        [SerializeField] private ObstacleSize size;
-        [SerializeField] private ObstacleType type;
-        [SerializeField] private bool isMobile;
-        
         private Renderer[] _renderers;
         private MaterialPropertyBlock _matPropertyBlock;
         
@@ -35,9 +31,5 @@ namespace Gameplay.Elements.Obstacles
         {
             Colors.SetTransparency(_renderers, _matPropertyBlock, BaseColor, 0.3f);
         }
-
-        public ObstacleSize Size => size;
-        public ObstacleType Type => type;
-        public bool IsMobile => isMobile;
     }
 }

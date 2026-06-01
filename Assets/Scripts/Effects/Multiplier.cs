@@ -8,7 +8,7 @@ namespace Effects
     {
         [SerializeField] private float multiplierFactor = 2f;
 
-        protected override bool IsBonus => true;
+        public override bool IsBonus => true;
         
         protected override void OnApply()
         {

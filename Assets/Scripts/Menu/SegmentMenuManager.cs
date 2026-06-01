@@ -13,7 +13,7 @@ namespace Menu
 
         [Header("Segments")] 
         [SerializeField] private Segment firstSegment;
-        [SerializeField] private Segment emptySegmentPrefab;
+        [SerializeField] private Segment fakeSegmentPrefab;
         [SerializeField] private float speed = 30f;
 
         private float _segmentLength;
@@ -45,7 +45,7 @@ namespace Menu
             Segment lastSegment = _activeSegmentList[^1];
             Vector3 spawnPosition = new Vector3(_segmentX, _segmentY, lastSegment.transform.position.z + _segmentLength);
             
-            Segment newSegment = Instantiate(emptySegmentPrefab, spawnPosition, Quaternion.identity);
+            Segment newSegment = Instantiate(fakeSegmentPrefab, spawnPosition, Quaternion.identity);
             
             _activeSegmentList.Add(newSegment);
         }

@@ -31,11 +31,9 @@ namespace Data
     public class WordData
     {
         [SerializeField] private string word;
-        [SerializeField] private bool isBonus;
         [SerializeField] private WordEffect effect;
 
         public string Word => word;
-        public bool IsBonus => isBonus;
         public WordEffect Effect => effect;
     }
 }

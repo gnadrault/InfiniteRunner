@@ -347,9 +347,10 @@ GameObject:
   - component: {fileID: 8027669263008946748}
   - component: {fileID: 3921688716679344208}
   - component: {fileID: 4604326112350434207}
+  - component: {fileID: 5208927404088763716}
   m_Layer: 0
   m_Name: Player (Root)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -405,7 +406,6 @@ MonoBehaviour:
       timeToFlatten: 0
       timeFlattenWait: 0.2
       timeToRecover: 0
-  attachedPosition: {fileID: 3257485898367713107}
   meshGameObject: {fileID: 302136635186517319}
   laneAnchors:
   - {fileID: 0}
@@ -414,6 +414,7 @@ MonoBehaviour:
   initLaneIndex: 1
   shieldEffect: {fileID: 5219695481782848782}
   magnetEffect: {fileID: 6454962796869983358}
+  animator: {fileID: 5208927404088763716}
 --- !u!114 &3921688716679344208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -471,6 +472,28 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!95 &5208927404088763716
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7305124773151762212}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2b18852206200734d87a1b6d2f3ad3e8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7865080354461777237
 GameObject:
   m_ObjectHideFlags: 0

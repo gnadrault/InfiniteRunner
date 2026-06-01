@@ -1,4 +1,5 @@
 using Core;
+using Gameplay;
 using UnityEngine;
 
 namespace Movement
@@ -7,6 +8,7 @@ namespace Movement
     {
         [SerializeField] private Transform obstaclePos;
         [SerializeField] private float heightDestroyObject = -50;
+        [SerializeField] private float triggerOffset = 5f;
         
         private Rigidbody _rb;
         private bool _hasDropped;
@@ -20,10 +22,10 @@ namespace Movement
             _targetPosition = Vector3.zero;
         }
 
-        public void Initialize(float scrollSpeed)
+        public void Start()
         {
             float fallTime = Mathf.Sqrt(2 * obstaclePos.position.y / Mathf.Abs(Physics.gravity.y));
-            _triggerDistance = scrollSpeed * fallTime;
+            _triggerDistance = SegmentManager.Instance.Speed * fallTime + triggerOffset;
         }
 
         protected override void GameplayUpdate()

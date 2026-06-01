@@ -134,15 +134,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5503453371662959536, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -144.26067
+      value: -1.8089908
       objectReference: {fileID: 0}
     - target: {fileID: 5503453371662959536, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.0000016143767
+      value: 0.0000040982777
       objectReference: {fileID: 0}
     - target: {fileID: 5503453371662959536, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -229.3967
+      value: -71.13015
       objectReference: {fileID: 0}
     - target: {fileID: 5503453371662959536, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -203,7 +203,7 @@ PrefabInstance:
     - target: {fileID: 7460002942747525395, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
       propertyPath: 'spawnPoints.Array.data[8]'
       value: 
-      objectReference: {fileID: 7122540945321807224}
+      objectReference: {fileID: 3257523919674944570}
     - target: {fileID: 7460002942747525395, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
       propertyPath: 'spawnPoints.Array.data[9]'
       value: 
@@ -274,7 +274,7 @@ PrefabInstance:
       addedObject: {fileID: 4255925687431900141}
     - targetCorrespondingSourceObject: {fileID: 1169115354656604973, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7122540945321807224}
+      addedObject: {fileID: 3257523919674944570}
     - targetCorrespondingSourceObject: {fileID: 7440682688553447201, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4199160293941468839}
@@ -493,7 +493,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1169115354656604973, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}
   m_PrefabInstance: {fileID: 7452184278052595929}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7122540945321807224
+--- !u!114 &3257523919674944570
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -502,9 +502,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 8598200886072732660}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12e70794d64c4effb73a60e5f7ded717, type: 3}
+  m_Script: {fileID: 11500000, guid: fb913a71ebf9497ea2a293bd78f4d5a1, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Gameplay.Segments.Spawn.LetterSpawnPoint
+  m_EditorClassIdentifier: Assembly-CSharp::Gameplay.Segments.Spawn.EmptySpawnPoint
 --- !u!1 &8690675304412194140 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2301340762495569285, guid: d43d8781e72b83b4e828ca28fd8571f4, type: 3}

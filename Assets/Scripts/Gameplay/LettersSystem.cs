@@ -132,13 +132,13 @@ namespace Gameplay
             
             WordData nextWord = _completedWordsQueue.Dequeue();
 
-            List<WordData> currentWords = nextWord.IsBonus ? _currentBonus : _currentMalus;
-            LettersDisplay[] displays = nextWord.IsBonus ? bonusDisplays : malusDisplays;
+            List<WordData> currentWords = nextWord.Effect.IsBonus ? _currentBonus : _currentMalus;
+            LettersDisplay[] displays = nextWord.Effect.IsBonus ? bonusDisplays : malusDisplays;
             LettersDisplay display = FindDisplay(nextWord, displays);
             currentWords.Remove(nextWord);
             
             if (display)
-                AssignWord(display, currentWords, nextWord.IsBonus);
+                AssignWord(display, currentWords, nextWord.Effect.IsBonus);
             
             ApplyEffect(nextWord.Effect);
         }

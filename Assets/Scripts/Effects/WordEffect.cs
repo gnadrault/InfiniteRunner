@@ -11,7 +11,7 @@ namespace Effects
     {
         [SerializeField] protected string effectName;
         [SerializeField] private float duration = 10f;
-        protected abstract bool IsBonus { get; }
+        public abstract bool IsBonus { get; }
         public bool IsComplete { get; private set; }
         private IEffectRunner Runner { get; set; }
 

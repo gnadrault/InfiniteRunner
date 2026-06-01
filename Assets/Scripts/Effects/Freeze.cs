@@ -6,7 +6,7 @@ namespace Effects
     [CreateAssetMenu(fileName = "Freeze", menuName = "SyntaxError/Effects/Freeze")]
     public class Freeze : WordEffect
     {
-        protected override bool IsBonus => true;
+        public override bool IsBonus => false;
         
         protected override void OnApply()
         {
