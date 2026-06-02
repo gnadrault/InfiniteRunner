@@ -70,12 +70,12 @@ namespace Player.State
         /// </summary>
         private void CheckStateTransitions()
         {
-            if (_currentState is IdleState || !_currentState.IsDone()) return;
+            if (!_currentState.IsDone()) return;
             switch (_currentState)
             {
-                case JumpingState: 
                 case SlideState:
                 case LaneChangingState:
+                case JumpingState:
                     ChangeState(Idle());
                     break;
                 case DieState:
@@ -86,6 +86,8 @@ namespace Player.State
                     }
                     break;
             }
+            if (CanSlide() && PlayerController.Instance.IsSlideButtonPressed())
+                ChangeState(Sliding());
         }
 
         public IPlayerState Idle() => _idle;
