@@ -2,7 +2,7 @@
 using Gameplay.Elements.Collectibles;
 using UnityEngine;
 
-namespace Data
+namespace Data.Database
 {
     /// <summary>
     /// Database for all collectibles, bonus (grounded + elevated) and letter

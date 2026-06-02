@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Data
+namespace Data.Database
 {
     /// <summary>
     /// Game feel profiles to apply for virus, word effects

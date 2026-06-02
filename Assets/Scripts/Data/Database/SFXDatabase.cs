@@ -1,25 +1,8 @@
 ﻿using System.Linq;
 using UnityEngine;
 
-namespace Data
+namespace Data.Database
 {
-    public enum SfxType
-    {
-        LetterCollect,
-        BonusCollect,
-        VirusAttach,
-        ShieldBreak,
-        Magnet,
-        BonusActivate,
-        MalusActivate,
-        GameOver,
-        BestHighScore,
-        AlertRedVoice,
-        AlertBlueVoice,
-        AlertYellowVoice,
-        AlertGreenVoice,
-    }
-    
     /// <summary>
     /// SFX Database
     /// </summary>
@@ -38,4 +21,22 @@ namespace Data
 
         public SfxEntry Get(SfxType type) => sounds.FirstOrDefault(x => x.type == type);
     }
+    
+    public enum SfxType
+    {
+        LetterCollect,
+        BonusCollect,
+        VirusAttach,
+        ShieldBreak,
+        Magnet,
+        BonusActivate,
+        MalusActivate,
+        GameOver,
+        BestHighScore,
+        AlertRedVoice,
+        AlertBlueVoice,
+        AlertYellowVoice,
+        AlertGreenVoice,
+    }
+
 }

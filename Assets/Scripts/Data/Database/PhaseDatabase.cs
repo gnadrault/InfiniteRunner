@@ -4,10 +4,10 @@ using Gameplay.Elements.Enemies;
 using Gameplay.Segments;
 using UnityEngine;
 
-namespace Data
+namespace Data.Database
 {
     /// <summary>
-    /// Phases database
+    /// Phases Database with phase settings, segments pool and virus 
     /// </summary>
     [CreateAssetMenu(fileName = "PhaseDatabase", menuName = "SyntaxError/PhaseDatabase")]
     public class PhaseDatabase : ScriptableObject

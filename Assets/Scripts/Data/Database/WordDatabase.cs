@@ -5,7 +5,7 @@ using Effects;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Data
+namespace Data.Database
 {
     /// <summary>
     /// Words effects Database

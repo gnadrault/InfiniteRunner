@@ -2,6 +2,7 @@
 using System.Linq;
 using Core;
 using Data;
+using Data.Database;
 using UnityEngine;
 
 namespace Gameplay.Letters
