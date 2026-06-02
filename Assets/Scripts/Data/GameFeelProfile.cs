@@ -9,8 +9,6 @@ namespace Data
         [SerializeField] private ScoreSection score;
         [SerializeField] private ObscureScreenSection obscureScreen;
         [SerializeField] private StroboscopeSection stroboscope;
-        
-        // TODO Screen shake
 
         public VignetteSection Vignette => vignette;
         public ScoreSection Score => score;
