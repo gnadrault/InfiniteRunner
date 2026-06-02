@@ -12,6 +12,11 @@
 /[Uu]ser[Ss]ettings/
 *.log
 
+Game_linux.x86_64
+/Game_linux_Data/
+/Builds/
+/Builds_Web/
+
 # By default unity supports Blender asset imports, *.blend1 blender files do not need to be commited to version control.
 *.blend1
 *.blend1.meta
