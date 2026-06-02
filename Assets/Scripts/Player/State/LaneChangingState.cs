@@ -4,6 +4,9 @@ using Utils;
 
 namespace Player.State
 {
+    /// <summary>
+    /// Manage the player changing lane state
+    /// </summary>
     public class LaneChangingState : IPlayerState
     {
         private readonly ChangeLaneSettings _laneSettings;

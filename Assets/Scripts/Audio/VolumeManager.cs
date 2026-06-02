@@ -5,8 +5,12 @@ using UnityEngine.UI;
 
 namespace Audio
 {
+    /// <summary>
+    /// Manage the sound volume options
+    /// </summary>
     public class VolumeManager : GameBehavior
     {
+        [Header("References")]
         [SerializeField] private Slider musicSlider;
         [SerializeField] private Slider sfxSlider;
         [SerializeField] private TextMeshProUGUI musicValue;

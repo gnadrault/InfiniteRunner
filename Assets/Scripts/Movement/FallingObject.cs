@@ -4,8 +4,12 @@ using UnityEngine;
 
 namespace Movement
 {
+    /// <summary>
+    /// Script for falling game objects
+    /// </summary>
     public class FallingObject : GameBehavior
     {
+        [Header("Settings")]
         [SerializeField] private Transform obstaclePos;
         [SerializeField] private float heightDestroyObject = -50;
         [SerializeField] private float triggerOffset = 5f;
@@ -22,6 +26,10 @@ namespace Movement
             _targetPosition = Vector3.zero;
         }
 
+        /// <summary>
+        /// Initialize the distance trigger to fall using the current player position, the current speed
+        /// An trigger offset can be applied
+        /// </summary>
         public void Start()
         {
             float fallTime = Mathf.Sqrt(2 * obstaclePos.position.y / Mathf.Abs(Physics.gravity.y));
@@ -38,7 +46,7 @@ namespace Movement
             if (_hasDropped) return;
             float distanceToPlayer = transform.position.z - _targetPosition.z;
 
-            if (distanceToPlayer <= _triggerDistance)
+            if (distanceToPlayer <= _triggerDistance) // Fall object
             {
                 _rb.isKinematic = false;
                 _hasDropped = true;

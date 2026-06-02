@@ -13,6 +13,9 @@ using Utils;
 
 namespace Player
 {
+    /// <summary>
+    /// Manage the player controller, movements and bonus/malus/virus states
+    /// </summary>
     public class PlayerController : GameBehavior
     {
         public static PlayerController Instance;
@@ -70,6 +73,10 @@ namespace Player
         private void OnJumpInput(InputAction.CallbackContext _) => HandleIntent(MoveIntent.Jump);
         private void OnSlideInput(InputAction.CallbackContext _) => HandleIntent(MoveIntent.Slide);
 
+        /// <summary>
+        /// Singleton instance
+        /// Initialize player state machine and positions
+        /// </summary>
         private void Awake()
         {
             if (Instance == null)
@@ -107,6 +114,10 @@ namespace Player
             slideInput.action.started -= OnSlideInput;
         }
 
+        /// <summary>
+        /// Handle player intent movements
+        /// </summary>
+        /// <param name="intent"></param>
         private void HandleIntent(MoveIntent intent)
         {
             if (_isBlocked) return;
@@ -122,6 +133,12 @@ namespace Player
             move();
         }
 
+        /// <summary>
+        /// Execute the intended movement (Slide, Jump, Left, Right)
+        /// </summary>
+        /// <param name="intent"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         private Action Execute(MoveIntent intent)
         {
             return intent switch
@@ -134,6 +151,11 @@ namespace Player
             };
         }
 
+        /// <summary>
+        /// Check if double inputs for freeze state
+        /// </summary>
+        /// <param name="intent"></param>
+        /// <returns></returns>
         private bool ShouldPassFreeze(MoveIntent intent)
         {
             int count = intent switch
@@ -149,6 +171,11 @@ namespace Player
             return true;
         }
 
+        /// <summary>
+        /// Invert player movement (Left -> <- Right) 
+        /// </summary>
+        /// <param name="intent"></param>
+        /// <returns></returns>
         private MoveIntent Invert(MoveIntent intent)
         {
             return intent switch
@@ -159,6 +186,10 @@ namespace Player
             };
         }
 
+        /// <summary>
+        /// Try to move the player to the new lane
+        /// </summary>
+        /// <param name="newLaneIndex"></param>
         private void TryChangingLane(int newLaneIndex)
         {
             if (!_stateMachine.CanChangeLane()) return;
@@ -170,12 +201,18 @@ namespace Player
             }
         }
 
+        /// <summary>
+        /// Try to jump the player
+        /// </summary>
         private void TryJumping()
         {
             if (!_stateMachine.CanJump()) return;
             _stateMachine.ChangeState(_stateMachine.Jumping());
         }
 
+        /// <summary>
+        /// Try to slide the player
+        /// </summary>
         private void TrySlide()
         {
             if (!_stateMachine.CanSlide()) return;
@@ -189,6 +226,10 @@ namespace Player
 
         #region Virus
 
+        /// <summary>
+        /// Attach the virus to the player
+        /// </summary>
+        /// <param name="virus"></param>
         public void AttachVirus(Virus virus)
         {
             currentVirus = virus;
@@ -197,6 +238,9 @@ namespace Player
             AudioManager.Instance.PlayLoop(SfxType.VirusAttach);
         }
 
+        /// <summary>
+        /// Detach the virus to the player
+        /// </summary>
         public void DetachVirus()
         {
             if (!currentVirus) return;
@@ -249,6 +293,9 @@ namespace Player
             _freeze = true;
         }
 
+        /// <summary>
+        /// Reset movements counts to 0 for freeze state
+        /// </summary>
         private void ResetFreezeCount()
         {
             _countLeft = 0;
@@ -281,12 +328,18 @@ namespace Player
             _multiplier = 1;
         }
 
+        /// <summary>
+        /// Activate the Magnet game object on the Player Controller
+        /// </summary>
         public void ApplyMagnet()
         {
             magnetEffect.SetActive(true);
             AudioManager.Instance.PlayLoop(SfxType.Magnet);
         }
 
+        /// <summary>
+        /// Desactivate the Magnet game object on the Player Controller
+        /// </summary>
         public void RemoveMagnet()
         {
             magnetEffect.SetActive(false);
@@ -328,6 +381,10 @@ namespace Player
             _transform.localScale = scale;
         }
 
+        /// <summary>
+        /// Manage the letter collected by the player
+        /// </summary>
+        /// <param name="letterLoot"></param>
         public void CollectLetter(LetterLoot letterLoot)
         {
             GameEvents.OnLetterCollected?.Invoke(letterLoot.Label);
@@ -339,6 +396,10 @@ namespace Player
                 AudioManager.Instance.PlayLetterSound(letterLoot.Label);
         }
 
+        /// <summary>
+        /// Manage the bonus object collected by the player
+        /// </summary>
+        /// <param name="point"></param>
         public void CollectLoot(float point)
         {
             GameEvents.OnAddScorePoints?.Invoke(point * _multiplier);
@@ -346,6 +407,9 @@ namespace Player
             AudioManager.Instance.PlayOneShot(_multiplier > 1 ? SfxType.BonusCollect : SfxType.LetterCollect);
         }
 
+        /// <summary>
+        /// Manager the player death
+        /// </summary>
         public void Die()
         {
             GameEvents.OnPlayerDied?.Invoke();

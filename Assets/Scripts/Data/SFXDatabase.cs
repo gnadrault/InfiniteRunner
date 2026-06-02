@@ -20,6 +20,9 @@ namespace Data
         AlertGreenVoice,
     }
     
+    /// <summary>
+    /// SFX Database
+    /// </summary>
     [CreateAssetMenu(fileName = "SfxDatabase", menuName = "SyntaxError/Audio/SfxDatabase")]
     public class SfxDatabase : ScriptableObject
     {

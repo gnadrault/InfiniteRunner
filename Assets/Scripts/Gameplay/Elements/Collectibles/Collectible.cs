@@ -1,11 +1,14 @@
-﻿using System;
-using Data;
+﻿using Data;
 using UnityEngine;
 
 namespace Gameplay.Elements.Collectibles
 {
+    /// <summary>
+    /// Abstract class for collectible types game objects
+    /// </summary>
     public abstract class Collectible : Element
     {
+        [Header("Settings")]
         [SerializeField] private FloatValue point;
 
         private bool _magnetActivated;

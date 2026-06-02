@@ -2,6 +2,9 @@ using Player.Data;
 
 namespace Player.State
 {
+    /// <summary>
+    /// Manage the player idle state
+    /// </summary>
     public class IdleState : IPlayerState
     {
         private readonly IdleSettings _idleSettings;

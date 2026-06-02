@@ -9,6 +9,9 @@ using Random = UnityEngine.Random;
 
 namespace Gameplay
 {
+    /// <summary>
+    /// Segment builder, generate all objects on segment depending on spawners
+    /// </summary>
     public class SegmentBuilder : GameBehavior
     {
         [Header("Databases")] 
@@ -38,18 +41,33 @@ namespace Gameplay
             }
         }
         
+        /// <summary>
+        /// Instantiate new random letter on the spawn point position
+        /// </summary>
+        /// <param name="spawnPoint"></param>
+        /// <param name="currentPhase"></param>
         private void GenerateLetterObject(LetterSpawnPoint spawnPoint, PhaseData currentPhase)
         {
             Collectible element = collectibleDatabase.GetLetterLoot();
             Instantiate(element, spawnPoint.transform.position, Quaternion.identity, spawnPoint.transform);
         }
 
+        /// <summary>
+        /// Instantiate new random bonus object on the spawn point position
+        /// </summary>
+        /// <param name="spawnPoint"></param>
+        /// <param name="currentPhase"></param>
         private void GenerateBonusObject(BonusSpawnPoint spawnPoint, PhaseData currentPhase)
         {
             Collectible element = collectibleDatabase.GetBonusLoot(spawnPoint.IsElevated);
             Instantiate(element, spawnPoint.transform.position, Quaternion.identity, spawnPoint.transform);
         }
 
+        /// <summary>
+        /// Instantiate new virus on the spawn point position 
+        /// </summary>
+        /// <param name="spawnPoint"></param>
+        /// <param name="currentPhase"></param>
         private void GenerateVirusObject(VirusSpawnPoint spawnPoint, PhaseData currentPhase)
         {
             Virus prefab = currentPhase.Virus[Random.Range(0, currentPhase.Virus.Count)];

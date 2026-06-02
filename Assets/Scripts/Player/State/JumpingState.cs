@@ -4,6 +4,9 @@ using Utils;
 
 namespace Player.State
 {
+    /// <summary>
+    /// Manage the player jumping state
+    /// </summary>
     public class JumpingState : IPlayerState
     {
         private readonly JumpSettings _jumpSettings;

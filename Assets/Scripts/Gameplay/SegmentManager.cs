@@ -8,6 +8,9 @@ using Utils;
 
 namespace Gameplay
 {
+    /// <summary>
+    /// Manage segments, spawn, scroll
+    /// </summary>
     public class SegmentManager : GameBehavior
     {
         public static SegmentManager Instance;
@@ -23,9 +26,9 @@ namespace Gameplay
         private float _segmentX;
         private float _segmentY;
 
-        private readonly List<Segment> _activeSegmentList = new();
-        private readonly List<Segment> _poolSegmentPrefabList = new();
-        private Segment _lastSegmentPrefab;
+        private readonly List<Segment> _activeSegmentList = new(); // Current active segments
+        private readonly List<Segment> _poolSegmentPrefabList = new(); // Pool of segments
+        private Segment _lastSegmentPrefab; // Last segment, prevent to use it twice directly
         private SegmentBuilder _segmentBuilder;
         private PhaseData _currentPhaseData;
         private float _speed;
@@ -33,7 +36,10 @@ namespace Gameplay
         public IReadOnlyList<Segment> ActiveSegments => _activeSegmentList;
         public float Speed => _speed;
 
-        
+        /// <summary>
+        /// Singleton instance
+        /// Initialize the Segment Builder
+        /// </summary>
         private void Awake()
         {
             if (Instance == null)
@@ -45,6 +51,10 @@ namespace Gameplay
                 Destroy(this);
         }
 
+        /// <summary>
+        /// Add the first empty segment to the active segments list
+        /// Store segments positions for next segments
+        /// </summary>
         private void Start()
         {
             _activeSegmentList.Add(firstSegment);
@@ -53,6 +63,9 @@ namespace Gameplay
             _segmentY = firstSegment.transform.position.y;
         }
 
+        /// <summary>
+        /// Subscribe to segments destroyed, player death, new phase events
+        /// </summary>
         private void OnEnable()
         {
             GameEvents.OnSegmentDestroyed += RemoveSegment;
@@ -67,6 +80,12 @@ namespace Gameplay
             GameEvents.OnNewPhase -= HandleNewPhase;
         }
 
+        /// <summary>
+        /// Add a new segment to the active segments list
+        /// 1. Get prefab (not same as last segment)
+        /// 2. Segment builder build the new segment
+        /// 3. Add it to the active segments list
+        /// </summary>
         private void AddSegment()
         {
             Segment lastSegment = _activeSegmentList[^1];
@@ -82,6 +101,10 @@ namespace Gameplay
             _activeSegmentList.Add(newSegment);
         }
 
+        /// <summary>
+        /// Pool the next segment prefab
+        /// </summary>
+        /// <returns></returns>
         private Segment GetNextSegmentPrefab()
         {
             List<Segment> segmentsPool = _poolSegmentPrefabList.Where(s => s != _lastSegmentPrefab).ToList();
@@ -90,16 +113,29 @@ namespace Gameplay
             return segment;
         }
 
+        /// <summary>
+        /// Remove the destroyed segment to the active segments list
+        /// </summary>
+        /// <param name="segment"></param>
         private void RemoveSegment(Segment segment)
         {
             _activeSegmentList.Remove(segment);
         }
 
+        /// <summary>
+        /// Stop to scroll segments (player death)
+        /// </summary>
         private void StopScroll()
         {
             _speed = 0f;
         }
 
+        /// <summary>
+        /// Handle when a new phase is triggered
+        /// Increase speed
+        /// Add new pool segments
+        /// </summary>
+        /// <param name="phaseData"></param>
         private void HandleNewPhase(PhaseData phaseData)
         {
             _currentPhaseData = phaseData;
@@ -110,10 +146,10 @@ namespace Gameplay
 
         protected override void GameplayUpdate()
         {
-            while (_activeSegmentList.Count < numSegments)
+            while (_activeSegmentList.Count < numSegments) // Always keep minimum number of segments (1 destoyed = 1 created)
                 AddSegment();
 
-            foreach (Segment segment in _activeSegmentList)
+            foreach (Segment segment in _activeSegmentList) // Scroll all segments with the same speed
                 segment.Scroll(_speed * Time.deltaTime);
         }
     }

@@ -2,9 +2,13 @@
 
 namespace Data
 {
+    /// <summary>
+    /// Game feel profiles to apply for virus, word effects
+    /// </summary>
     [CreateAssetMenu(fileName = "GameFeelProfile", menuName = "SyntaxError/GameFeelProfile")]
     public class GameFeelProfile  : ScriptableObject
     {
+        [Header("References")]
         [SerializeField] private VignetteSection vignette;
         [SerializeField] private ScoreSection score;
         [SerializeField] private ObscureScreenSection obscureScreen;

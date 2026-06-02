@@ -1,11 +1,9 @@
-using Data;
 using Player;
 using UnityEngine;
 using Utils;
 
 namespace Gameplay.Elements.Obstacles
 {
-    [System.Serializable]
     public class Obstacle : Element
     {
         private static readonly int BaseColor = Shader.PropertyToID("_BaseColor");

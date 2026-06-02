@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace Gameplay.Elements.Collectibles
 {
+    /// <summary>
+    /// Bonus loot game object
+    /// </summary>
     public class BonusLoot : Collectible
     {
         

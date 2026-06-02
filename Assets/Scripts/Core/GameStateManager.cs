@@ -3,6 +3,9 @@ using Utils;
 
 namespace Core
 {
+    /// <summary>
+    /// Manage the global game state
+    /// </summary>
     public class GameStateManager : GameBehavior
     {
         public static GameStateManager Instance;

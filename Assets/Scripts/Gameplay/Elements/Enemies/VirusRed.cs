@@ -8,8 +8,13 @@ using Utils;
 
 namespace Gameplay.Elements.Enemies
 {
+    /// <summary>
+    /// Red virus game object
+    /// Block player movements => need to spam key
+    /// </summary>
     public class VirusRed: Virus
     {
+        [Header("Settings")]
         [SerializeField] private InputActionReference spamKey;
         [SerializeField] private int requiredPressed = 10;
         

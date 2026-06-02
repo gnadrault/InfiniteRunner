@@ -7,6 +7,9 @@ using Utils;
 
 namespace Gameplay
 {
+    /// <summary>
+    /// Manage the player score
+    /// </summary>
     public class ScoreSystem : GameBehavior
     {
         [SerializeField] private TextMeshProUGUI scoreLabel;
@@ -14,6 +17,10 @@ namespace Gameplay
 
         private float _score;
 
+        /// <summary>
+        /// Load and display the highest score
+        /// No score => the text field is empty
+        /// </summary>
         private void Start()
         {
             ScoreData data = ScoreSave.Load();
@@ -39,13 +46,16 @@ namespace Gameplay
             GameEvents.OnEndGame -= SaveScore;
         }
 
-        private void OnNewMeter(float _) => AddPoints(1);
+        private void OnNewMeter(float _) => AddPoints(1); // On new distinct meter => add point
         private void OnAddScorePoints(float point) => AddPoints(point);
 
-        private void AddPoints(float points) => _score += points;
+        private void AddPoints(float points) => _score += points; // Add points to the current score
 
-        private void RemovePercent(float percent) => _score = Mathf.RoundToInt(_score * (1 - percent));
+        private void RemovePercent(float percent) => _score = Mathf.RoundToInt(_score * (1 - percent)); // Remove the score percent to the current score
         
+        /// <summary>
+        /// Save the current score
+        /// </summary>
         private void SaveScore()
         {
             bool newHighScore = ScoreSave.AddScore((int)_score);
@@ -54,7 +64,7 @@ namespace Gameplay
         
         protected override void GameplayUpdate()
         {
-            scoreLabel.text = ((int)_score).ToString();
+            scoreLabel.text = ((int)_score).ToString(); // Display the current score display
         }
     }
 }

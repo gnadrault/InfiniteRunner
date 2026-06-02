@@ -3,8 +3,12 @@ using UnityEngine;
 
 namespace Movement
 {
+    /// <summary>
+    /// Script to rotate the game object
+    /// </summary>
     public class MoveRotate : GameBehavior
     {
+        [Header("Settings")]
         [SerializeField] private float rotateRange = 20f;
         [SerializeField] private float speed = 2f;
         

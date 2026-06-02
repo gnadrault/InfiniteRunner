@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace Gameplay.Segments
 {
+    /// <summary>
+    /// Script to make obstacles transparent on collision with the current game object
+    /// </summary>
     public class TransparencyHandler : GameBehavior
     {
         private void OnTriggerEnter(Collider other)

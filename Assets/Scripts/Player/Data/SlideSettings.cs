@@ -1,7 +1,4 @@
-﻿
-using UnityEngine;
-
-namespace Player.Data
+﻿namespace Player.Data
 {
     [System.Serializable]
     public class SlideSettings

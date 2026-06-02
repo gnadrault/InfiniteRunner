@@ -5,8 +5,12 @@ using UnityEngine;
 
 namespace Movement
 {
+    /// <summary>
+    /// Script to game object following the player horizontally
+    /// </summary>
     public class FollowPlayerHorizontal : GameBehavior
     {
+        [Header("Settings")]
         [SerializeField] private FloatValue speed;
         [SerializeField] private float leftLaneX = -4;
         [SerializeField] private float rightLaneX = 4;

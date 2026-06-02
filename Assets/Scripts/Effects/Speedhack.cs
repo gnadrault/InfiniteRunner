@@ -1,5 +1,4 @@
 using Core;
-using Gameplay;
 using UnityEngine;
 
 namespace Effects
@@ -7,6 +6,7 @@ namespace Effects
     [CreateAssetMenu(fileName = "Speedhack", menuName = "SyntaxError/Effects/Speedhack")]
     public class Speedhack : WordEffect
     {
+        [Header("Settings")]
         [SerializeField] private float speedTimeScale = 1.2f;
 
         public override bool IsBonus => false;

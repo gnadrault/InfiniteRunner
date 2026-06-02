@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace Data
 {
+    /// <summary>
+    /// Wrapper for save score, score with date
+    /// </summary>
     [Serializable]
     public class ScoreSaveData
     {
@@ -15,7 +18,6 @@ namespace Data
             date = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
         }
     }
-    
     [Serializable]
     public class ScoreData
     {

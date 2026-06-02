@@ -6,6 +6,7 @@ namespace Effects
     [CreateAssetMenu(fileName = "Multiplier", menuName = "SyntaxError/Effects/Multiplier")]
     public class Multiplier : WordEffect
     {
+        [Header("Settings")]
         [SerializeField] private float multiplierFactor = 2f;
 
         public override bool IsBonus => true;

@@ -4,10 +4,14 @@ using UnityEngine;
 
 namespace UI
 {
+    /// <summary>
+    /// Manage the Alert Panel message text and timer
+    /// </summary>
     public class AlertPanelUI : GameBehavior
     {
         public static AlertPanelUI Instance;
         
+        [Header("Settings")]
         [SerializeField] private AlertStatusPanel[] alertPanels;
         
         private AlertStatusPanel _panelDisplayed;
@@ -20,6 +24,12 @@ namespace UI
                 Destroy(this);
         }
 
+        /// <summary>
+        /// Display the alert panel depending on the AlertPanelType
+        /// </summary>
+        /// <param name="type"></param>
+        /// <param name="textLabel"></param>
+        /// <param name="action"></param>
         public void ShowPanel(AlertPanelType type, string textLabel, string action)
         {
             foreach (var alertPanel in alertPanels)

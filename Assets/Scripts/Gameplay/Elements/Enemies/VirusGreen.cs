@@ -7,8 +7,13 @@ using Utils;
 
 namespace Gameplay.Elements.Enemies
 {
+    /// <summary>
+    /// Green virus game object
+    /// Remove percent on the score
+    /// </summary>
     public class VirusGreen: Virus
     {
+        [Header("Settings")]
         [SerializeField] private float duration = 5f;
         [SerializeField] private float percentScoreDamage = 1f;
         

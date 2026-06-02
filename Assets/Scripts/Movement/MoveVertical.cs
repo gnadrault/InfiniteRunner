@@ -3,8 +3,12 @@ using UnityEngine;
 
 namespace Movement
 {
+    /// <summary>
+    /// Script to move vertically the game object
+    /// </summary>
     public class MoveVertical : GameBehavior
     {
+        [Header("Settings")]
         [SerializeField] private float speed = 1f;
         [SerializeField] private float height = 5f;
 

@@ -1,9 +1,11 @@
-using System;
 using Core;
 using UnityEngine;
 
 namespace Gameplay.Segments
 {
+    /// <summary>
+    /// Script to destroy segments on collision with the current game object
+    /// </summary>
     public class SegmentDestoy : GameBehavior
     {
         private void OnTriggerEnter(Collider other)

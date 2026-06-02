@@ -6,6 +6,9 @@ using UnityEngine;
 
 namespace Gameplay.Letters
 {
+    /// <summary>
+    /// Manage the word letters of bonus/malus
+    /// </summary>
     public class LettersDisplay : GameBehavior
     {
         private WordData _currentWordData;

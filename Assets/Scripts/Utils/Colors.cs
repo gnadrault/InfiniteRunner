@@ -2,6 +2,9 @@
 
 namespace Utils
 {
+    /// <summary>
+    /// Utility class for colors
+    /// </summary>
     public static class Colors
     {
         public static readonly Color HighlightBonus = new(0f, 216f / 255f, 1f);

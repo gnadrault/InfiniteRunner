@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace Data
 {
+    /// <summary>
+    /// Wrapper for float values, min-max or fixed value
+    /// </summary>
     [Serializable]
     public class FloatValue
     {

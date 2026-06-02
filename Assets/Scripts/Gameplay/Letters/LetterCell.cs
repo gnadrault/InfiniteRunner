@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace Gameplay.Letters
 {
+    /// <summary>
+    /// Manage the letter cell to be collected
+    /// </summary>
     public class LetterCell : GameBehavior
     {
         [SerializeField] private TextMeshProUGUI label;

@@ -1,5 +1,8 @@
 ﻿namespace Data
 {
+    /// <summary>
+    /// Wrapper for the effects timer
+    /// </summary>
     public class EffectTimer
     {
         public float Remaining { get; private set; }

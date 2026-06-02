@@ -7,9 +7,13 @@ using Random = UnityEngine.Random;
 
 namespace Data
 {
+    /// <summary>
+    /// Words effects Database
+    /// </summary>
     [CreateAssetMenu(fileName = "WordDatabase", menuName = "SyntaxError/WordDatabase")]
     public class WordDatabase : ScriptableObject
     {
+        [Header("References")]
         [SerializeField] private List<WordData> bonusWords;
         [SerializeField] private List<WordData> malusWords;
 

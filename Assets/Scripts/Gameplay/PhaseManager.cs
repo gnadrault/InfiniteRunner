@@ -7,26 +7,34 @@ using Utils;
 
 namespace Gameplay
 {
+    /// <summary>
+    /// Manage Gameplay Phases
+    /// </summary>
     public class PhaseManager : GameBehavior
     {
-        [SerializeField] private Volume globalVolume;
+        [Header("Database")]
         [SerializeField] private PhaseDatabase phasesDatabase;
+        
+        [Header("References")]
+        [SerializeField] private Volume globalVolume;
         [SerializeField] private ParticleSystem envParticles;
+        
+        [Header("Settings")]
         [SerializeField] private float speedTransition = 2f;
 
         private int _currentPhaseIndex;
         private Camera _mainCamera;
         private Bloom _bloom;
-
+        
         private void Awake()
         {
             _mainCamera = Camera.main;
-            globalVolume.profile.TryGet(out _bloom);
+            globalVolume.profile.TryGet(out _bloom); // Get the bloom component to update the bloom tint on new phase
         }
 
         private void Start()
         {
-            ChangePhase(0);
+            ChangePhase(0); // Initialize to the first phase
             TimeManager.Instance.SetGameplayTimeScale(1f);
         }
 
@@ -40,6 +48,10 @@ namespace Gameplay
             GameEvents.OnNewMeter -= CheckPhase;
         }
 
+        /// <summary>
+        /// Check distance conditions to change phase
+        /// </summary>
+        /// <param name="distance"></param>
         private void CheckPhase(float distance)
         {
             PhaseData currentPhase = phasesDatabase.phases[_currentPhaseIndex];
@@ -49,6 +61,10 @@ namespace Gameplay
             ChangePhase(_currentPhaseIndex + 1);
         }
 
+        /// <summary>
+        /// Change to the new phase
+        /// </summary>
+        /// <param name="newPhaseIndex"></param>
         private void ChangePhase(int newPhaseIndex)
         {
             _currentPhaseIndex = newPhaseIndex;
@@ -59,6 +75,9 @@ namespace Gameplay
             UpdateCamera();
         }
 
+        /// <summary>
+        /// Update the color on new phase settings
+        /// </summary>
         private void UpdatePhaseColor()
         {
             Color initialColor = _bloom.tint.value;
@@ -70,6 +89,9 @@ namespace Gameplay
             ));
         }
 
+        /// <summary>
+        /// Update the scrolling particules color and speed on new phase settings
+        /// </summary>
         private void UpdateParticles()
         {
             // Color
@@ -91,6 +113,9 @@ namespace Gameplay
             }, speedTransition));
         }
 
+        /// <summary>
+        /// Update camera position on new phase settings
+        /// </summary>
         private void UpdateCamera()
         {
             Vector3 initialCameraPosition = _mainCamera.transform.position;

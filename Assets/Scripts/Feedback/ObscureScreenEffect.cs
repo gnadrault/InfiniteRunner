@@ -7,9 +7,15 @@ using Utils;
 
 namespace Feedback
 {
+    /// <summary>
+    /// Game effect to obscure the screen
+    /// </summary>
     public class ObscureScreenEffect : GameBehavior, IGameFeelEffect
     {
+        [Header("References")]
         [SerializeField] private Volume globalVolume;
+        
+        [Header("Settings")]
         [SerializeField] private float transitionDuration = 0.4f;
 
         private Bloom _bloom;

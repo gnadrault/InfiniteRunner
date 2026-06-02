@@ -4,6 +4,9 @@ using Utils;
 
 namespace Player.State
 {
+    /// <summary>
+    /// The player state machine for change line, slide, jump, die states
+    /// </summary>
     public class PlayerStateMachine
     {
         private readonly IPlayerState _lane;
@@ -45,6 +48,9 @@ namespace Player.State
             _currentState.UpdateState();
         }
 
+        /// <summary>
+        /// Manage the player trails particules
+        /// </summary>
         private void ApplyTrailsParticles()
         {
             if (_currentState is IdleState or SlideState)
@@ -59,6 +65,9 @@ namespace Player.State
             }
         }
 
+        /// <summary>
+        /// Manage states transitions based on conditions
+        /// </summary>
         private void CheckStateTransitions()
         {
             if (_currentState is IdleState || !_currentState.IsDone()) return;

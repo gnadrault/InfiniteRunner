@@ -6,8 +6,12 @@ using Utils;
 
 namespace UI
 {
+    /// <summary>
+    /// Manage the pause menu
+    /// </summary>
     public class PauseMenuUI : GameBehavior
     {
+        [Header("Settings")]
         [SerializeField] private InputActionReference pauseAction;
         [SerializeField] private GameObject pauseCanvas;
 
@@ -23,6 +27,11 @@ namespace UI
             GameEvents.OnGameStateChanged -= HandleState;
         }
 
+        /// <summary>
+        /// Update pause state
+        /// Check if not dead to pause/resume
+        /// </summary>
+        /// <param name="obj"></param>
         private void OnPausePressed(InputAction.CallbackContext obj)
         {
             GameState current = GameStateManager.Instance.State;

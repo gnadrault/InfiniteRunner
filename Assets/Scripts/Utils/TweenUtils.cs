@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace Utils
 {
+    /// <summary>
+    /// Utility class for transitions
+    /// </summary>
     public static class TweenUtils
     {
         public static IEnumerator Transition(Action<float> onUpdate, float duration)

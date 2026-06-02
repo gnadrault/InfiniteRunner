@@ -3,9 +3,13 @@ using UnityEngine;
 
 namespace UI
 {
+    
+    /// <summary>
+    /// Manage menus display in the main menu (scores, options, credits)
+    /// </summary>
     public class MenuManager : GameBehavior
     {
-        
+        [Header("Settings")]
         [SerializeField] private GameObject scoresMenu;
         [SerializeField] private GameObject optionsMenu;
         [SerializeField] private GameObject creditsMenu;

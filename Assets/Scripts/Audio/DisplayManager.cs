@@ -4,8 +4,12 @@ using UnityEngine.UI;
 
 namespace Audio
 {
+    /// <summary>
+    /// Manage the display settings
+    /// </summary>
     public class DisplayManager : GameBehavior
     {
+        [Header("References")]
         [SerializeField] private Toggle fullscreenToggle;
 
         private void Start()

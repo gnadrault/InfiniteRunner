@@ -4,9 +4,13 @@ using UnityEngine;
 
 namespace Data
 {
+    /// <summary>
+    /// Database for all collectibles, bonus (grounded + elevated) and letter
+    /// </summary>
     [CreateAssetMenu(fileName = "CollectibleDatabase", menuName = "SyntaxError/CollectibleDatabase")]
     public class CollectibleDatabase : ScriptableObject
     {
+        [Header("References")]
         [SerializeField] private LetterLoot letterLootPrefab;
         [SerializeField] private List<Collectible> groundedBonusLoots;
         [SerializeField] private List<Collectible> elevatedBonusLoots;

@@ -8,10 +8,17 @@ using Utils;
 
 namespace Gameplay.Elements.Enemies
 {
+    /// <summary>
+    /// Blue virus game object
+    /// Apply a random malus
+    /// </summary>
     public class VirusBlue: Virus, IEffectRunner
     {
-        [SerializeField] private int duration = 5;
+        [Header("Database")]
         [SerializeField] private WordDatabase wordsDatabase;
+        
+        [Header("Settings")]
+        [SerializeField] private int duration = 5;
         
         private WordEffect _activeEffect;
         private EffectTimer _activeTimer;

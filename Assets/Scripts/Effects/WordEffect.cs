@@ -7,14 +7,22 @@ using Utils;
 
 namespace Effects
 {
+    /// <summary>
+    /// Abstract scriptable objects for word effects
+    /// </summary>
     public abstract class WordEffect : ScriptableObject
     {
+        [Header("Settings")]
         [SerializeField] protected string effectName;
         [SerializeField] private float duration = 10f;
         public abstract bool IsBonus { get; }
         public bool IsComplete { get; private set; }
         private IEffectRunner Runner { get; set; }
 
+        /// <summary>
+        /// Apply the word effect
+        /// </summary>
+        /// <param name="runner"></param>
         public void ApplyEffect(IEffectRunner runner)
         {
             IsComplete = false;
@@ -27,6 +35,9 @@ namespace Effects
             AudioManager.Instance.PlayOneShot(IsBonus ? SfxType.BonusActivate : SfxType.MalusActivate);
         }
 
+        /// <summary>
+        /// Remove the word effect
+        /// </summary>
         public void RemoveEffect()
         {
             IsComplete = true;

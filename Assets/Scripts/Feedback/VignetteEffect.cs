@@ -8,10 +8,16 @@ using Utils;
 
 namespace Feedback
 {
+    /// <summary>
+    /// Game effect add pulse or fixed vignette around the screen
+    /// </summary>
     public class VignetteEffect : GameBehavior, IGameFeelEffect
     {
-        [SerializeField] private float hitDuration = 1f;
+        [Header("References")]
         [SerializeField] private Volume globalVolume;
+        
+        [Header("Settings")]
+        [SerializeField] private float hitDuration = 1f;
         [SerializeField] private float transitionDuration = 0.4f;
         
         private Vignette _vignette;

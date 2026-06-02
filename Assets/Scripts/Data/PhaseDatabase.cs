@@ -6,6 +6,9 @@ using UnityEngine;
 
 namespace Data
 {
+    /// <summary>
+    /// Phases database
+    /// </summary>
     [CreateAssetMenu(fileName = "PhaseDatabase", menuName = "SyntaxError/PhaseDatabase")]
     public class PhaseDatabase : ScriptableObject
     {

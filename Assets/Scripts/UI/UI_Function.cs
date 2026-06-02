@@ -1,10 +1,12 @@
-using Audio;
 using Core;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace UI
 {
+    /// <summary>
+    /// Fonctions used in menus to change scenes or quit the application
+    /// </summary>
     public class UIFunction : GameBehavior
     {
 

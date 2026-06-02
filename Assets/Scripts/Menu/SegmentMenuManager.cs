@@ -6,9 +6,12 @@ using Utils;
 
 namespace Menu
 {
+    /// <summary>
+    /// Manage the segments spawner, scroller only for the main menu
+    /// </summary>
     public class SegmentMenuManager : GameBehavior
     {
-         [Header("Settings")] 
+        [Header("Settings")] 
         [SerializeField] private int numSegments = 7;
 
         [Header("Segments")] 

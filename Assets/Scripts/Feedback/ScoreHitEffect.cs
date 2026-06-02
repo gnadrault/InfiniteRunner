@@ -8,9 +8,15 @@ using Random = UnityEngine.Random;
 
 namespace Feedback
 {
+    /// <summary>
+    /// Game effect shake and hit the text label
+    /// </summary>
     public class ScoreHitEffect : GameBehavior, IGameFeelEffect
     {
+        [Header("References")]
         [SerializeField] private TextMeshProUGUI label;
+        
+        [Header("Settings")]
         [SerializeField] private float hitDuration = 0.4f;
 
         private Vector3 _initialPos;

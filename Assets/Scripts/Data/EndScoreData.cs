@@ -2,6 +2,9 @@
 
 namespace Data
 {
+    /// <summary>
+    /// Wrapper for the score and high score status
+    /// </summary>
     [Serializable]
     public class EndScoreData
     {

@@ -3,8 +3,12 @@ using UnityEngine;
 
 namespace Movement
 {
+    /// <summary>
+    /// Script to move horizontally the game object
+    /// </summary>
     public class MoveHorizontal : GameBehavior
     {
+        [Header("Settings")]
         [SerializeField] private float speed = 2f;
         [SerializeField] private float leftLaneX = -4;
         [SerializeField] private float rightLaneX = 4;

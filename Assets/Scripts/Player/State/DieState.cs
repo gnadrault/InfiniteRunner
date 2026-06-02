@@ -2,6 +2,9 @@
 
 namespace Player.State
 {
+    /// <summary>
+    /// Manage the player die state
+    /// </summary>
     public class DieState : IPlayerState
     {
         private readonly DieSettings _dieSettings;

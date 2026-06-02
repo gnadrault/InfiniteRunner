@@ -7,8 +7,13 @@ using Utils;
 
 namespace Gameplay.Elements.Enemies
 {
+    /// <summary>
+    /// Yellow virus game object
+    /// Obstructed screen and add lag inputs
+    /// </summary>
     public class VirusYellow: Virus
     {
+        [Header("Settings")]
         [SerializeField] private float duration = 3f;
         [SerializeField] private float delay = 0.5f;
         

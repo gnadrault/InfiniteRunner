@@ -84,7 +84,8 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 09b463fa64eed6b49a4d495b7dbd6dea, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1857395565758103749, guid: 22d69dfb75741744fa689708a3d33ae7, type: 3}
     m_RemovedGameObjects:
     - {fileID: 1207406763672892629, guid: 22d69dfb75741744fa689708a3d33ae7, type: 3}
     m_AddedGameObjects: []
@@ -145,4 +146,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3d70ec287bd43dfb74893e3632e0b30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Data.Pixel
+  point:
+    fixedValue: 0
+    min: 20
+    max: 100
   pixelRenderer: {fileID: 1298045136345183030}

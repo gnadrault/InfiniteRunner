@@ -1,14 +1,19 @@
 using Core;
-using Data;
 using TMPro;
 using UnityEngine;
 using Utils;
 
 namespace Gameplay
 {
+    /// <summary>
+    /// Manage the distance of the gameplay
+    /// </summary>
     public class DistanceTracker : GameBehavior
     {
+        [Header("References")]
         [SerializeField] private TextMeshProUGUI distanceLabel;
+        
+        [Header("Settings")]
         [SerializeField] private float distanceScale = 1f;
         
         private float _distance;
@@ -23,7 +28,7 @@ namespace Gameplay
         {
             GameEvents.OnSpeedChanged -= HandleSpeedChanged;
         }
-
+        
         private void HandleSpeedChanged(float speed)
         {
             _speed = speed;
@@ -35,9 +40,9 @@ namespace Gameplay
             _distance += (Time.deltaTime * _speed * distanceScale);
             if ((int)_distance > (int)oldDistance)
             {
-                GameEvents.OnNewMeter?.Invoke(_distance);
+                GameEvents.OnNewMeter?.Invoke(_distance); // Notify on new distinct meter
             }
-            distanceLabel.text = $"{((int)_distance)} m";
+            distanceLabel.text = $"{((int)_distance)} m"; // Update the distance display text
         }
     }
 }

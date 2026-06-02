@@ -1,8 +1,10 @@
-﻿using Gameplay;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Core
 {
+    /// <summary>
+    /// Custom MonoBehavior to manage updates order and pause/resume gameplay 
+    /// </summary>
     public abstract class GameBehavior : MonoBehaviour
     {
         private void Update()

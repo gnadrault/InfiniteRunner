@@ -7,8 +7,12 @@ using Utils;
 
 namespace UI
 {
+    /// <summary>
+    /// Manage the End/GameOver menu
+    /// </summary>
     public class EndMenuUI : GameBehavior
     {
+        [Header("Settings")]
         [SerializeField] private TextMeshProUGUI newHighScoreText;
         [SerializeField] private TextMeshProUGUI simpleScoreText;
         [SerializeField] private TextMeshProUGUI scoreText;
@@ -26,6 +30,11 @@ namespace UI
             GameEvents.OnGameStateChanged -= HandleState;
         }
 
+        /// <summary>
+        /// Manage when game is over
+        /// Set the final score on the end menu
+        /// </summary>
+        /// <param name="endScore"></param>
         private void OnGameOver(EndScoreData endScore)
         {
             scoreText.text = endScore.score.ToString();

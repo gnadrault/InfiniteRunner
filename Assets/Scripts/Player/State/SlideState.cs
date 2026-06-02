@@ -4,6 +4,9 @@ using Utils;
 
 namespace Player.State
 {
+    /// <summary>
+    /// Manage the player slide state
+    /// </summary>
     public class SlideState : IPlayerState
     {
         private readonly SlideSettings _slideSettings;
@@ -42,10 +45,10 @@ namespace Player.State
         }
         
         /// <summary>
-        /// Jump is separated into 3 phases:
-        /// 1. Ascending: Jump up to apex
-        /// 2. Apex: Wait at peak (duration depends on button press)
-        /// 3. Descending: Fall down
+        /// Slide is separated into 3 phases:
+        /// 1. Flatten
+        /// 2. Slide: Wait
+        /// 3. Recover: Release
         /// </summary>
         public void UpdateState()
         {

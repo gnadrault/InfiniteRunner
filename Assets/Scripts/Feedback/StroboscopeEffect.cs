@@ -8,6 +8,9 @@ using Utils;
 
 namespace Feedback
 {
+    /// <summary>
+    /// Game effect stroboscope to the segments and obstacles
+    /// </summary>
     public class StroboscopeEffect : GameBehavior, IGameFeelEffect
     {
         private Coroutine _blinkRoutine;

@@ -5,11 +5,21 @@ using UnityEngine;
 
 namespace Core
 {
+    /// <summary>
+    /// Save and Load scores
+    /// </summary>
     public class ScoreSave : GameBehavior
     {
         
         private static string FilePath => Path.Combine(Application.persistentDataPath, "scores.json");
 
+        /// <summary>
+        /// Add a new score to the current saved file
+        /// Order by descending
+        /// Write to the file
+        /// </summary>
+        /// <param name="score"></param>
+        /// <returns></returns>
         public static bool AddScore(int score)
         {
             ScoreData data = Load();
@@ -26,6 +36,10 @@ namespace Core
             return isNewBest;
         }
 
+        /// <summary>
+        /// Load saved scores from file
+        /// </summary>
+        /// <returns></returns>
         public static ScoreData Load()
         {
             if (!File.Exists(FilePath))

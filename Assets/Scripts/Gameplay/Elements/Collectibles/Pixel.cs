@@ -1,11 +1,14 @@
-﻿using Core;
-using UnityEngine;
+﻿using UnityEngine;
 using Random = UnityEngine.Random;
 
 namespace Gameplay.Elements.Collectibles
 {
-    public class Pixel : GameBehavior
+    /// <summary>
+    /// Pixel loot game object
+    /// </summary>
+    public class Pixel : BonusLoot
     {
+        [Header("References")]
         [SerializeField] private Renderer pixelRenderer;
         
         private enum PixelColor { Red, Green, Blue }
@@ -16,7 +19,7 @@ namespace Gameplay.Elements.Collectibles
 
         private void Awake()
         {
-            PixelColor randomColor = (PixelColor)Random.Range(0, 3);
+            PixelColor randomColor = (PixelColor)Random.Range(0, 3); // Pick a random Red, Blue, Green color
             SetColor(randomColor);
         }
 

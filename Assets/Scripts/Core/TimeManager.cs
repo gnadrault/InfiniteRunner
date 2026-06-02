@@ -3,6 +3,11 @@ using UnityEngine;
 
 namespace Core
 {
+    /// <summary>
+    /// Global time manager to update the timescale
+    /// 
+    /// !!! Timescale should only be updated using this class
+    /// </summary>
     public class TimeManager : GameBehavior
     {
         public static TimeManager Instance;

@@ -7,6 +7,7 @@ namespace Effects
     [CreateAssetMenu(fileName = "Stroboscope", menuName = "SyntaxError/Effects/Stroboscope")]
     public class Stroboscope : WordEffect
     {
+        [Header("Databases")]
         [SerializeField] protected GameFeelProfile gameFeelProfile;
 
         public override bool IsBonus => false;

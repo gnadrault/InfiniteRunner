@@ -3,10 +3,14 @@ using UnityEngine;
 
 namespace Audio
 {
+    /// <summary>
+    /// Manage global audio sources, music, sfx, volumes
+    /// </summary>
     public class AudioManager : MonoBehaviour
     {
         public static AudioManager Instance;
 
+        [Header("References")]
         [SerializeField] private SfxDatabase sfxDatabase;
         [SerializeField] private AudioSource musicSource;
         [SerializeField] private AudioSource sfxOneShotSource;

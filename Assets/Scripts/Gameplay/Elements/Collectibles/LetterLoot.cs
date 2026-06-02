@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Data;
+﻿using System.Collections.Generic;
 using Player;
 using TMPro;
 using UnityEngine;
@@ -8,15 +6,19 @@ using Random = UnityEngine.Random;
 
 namespace Gameplay.Elements.Collectibles
 {
+    /// <summary>
+    /// Letter collectible game objects
+    /// </summary>
     public class LetterLoot : Collectible
     {
+        [Header("References")]
         [SerializeField] private TextMeshPro label;
 
         public string Label => label.text;
 
         private void Awake()
         {
-            label.text = GetRandomLetter().ToString();
+            label.text = GetRandomLetter().ToString(); // Set the random letter to the display text
         }
 
         public override void OnPlayerCollision(Transform position)
@@ -25,6 +27,10 @@ namespace Gameplay.Elements.Collectibles
             Destroy(gameObject);
         }
         
+        /// <summary>
+        /// Get a random letter between A-Z
+        /// </summary>
+        /// <returns></returns>
         private char GetRandomLetter()
         {
             List<char> pool = new List<char>();
@@ -34,29 +40,5 @@ namespace Gameplay.Elements.Collectibles
             
             return pool[Random.Range(0, pool.Count)];
         }
-        
-        /*
-        private WordData[] _activeWords = Array.Empty<WordData>();
-
-        private void SetActiveWords(WordData[] words)
-        {
-            _activeWords = words;
-        }
-         
-        private char GetRandomLetter()
-        {
-            List<char> pool = new List<char>();
-
-            for (char c = 'A'; c <= 'Z'; c++)
-                pool.Add(c);
-            
-            foreach (WordData word in _activeWords)
-                for (int i = 0; i < activeLettersSpawnRate; i++)
-                {
-                    foreach (char c in word.Word)
-                        pool.Add(c);
-                }
-            return pool[Random.Range(0, pool.Count)];
-        }*/
     }
 }

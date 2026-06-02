@@ -4,8 +4,12 @@ using UnityEngine;
 
 namespace Player
 {
+    /// <summary>
+    /// Manage the player collisions
+    /// </summary>
     public class PlayerCollision : GameBehavior
     {
+        [Header("Settings")]
         [SerializeField] private Transform attachedPlayerPosition;
 
         private void OnTriggerEnter(Collider other)
