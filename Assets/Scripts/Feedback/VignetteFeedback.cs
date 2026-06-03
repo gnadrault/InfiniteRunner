@@ -20,18 +20,6 @@ namespace Feedback
         
         private Vignette _vignette;
 
-        private void OnEnable()
-        {
-            GameEvents.OnFeedbackStart += ApplyEffect;
-            GameEvents.OnFeedbackEnd += ResetToAmbient;
-        }
-
-        private void OnDisable()
-        {
-            GameEvents.OnFeedbackStart -= ApplyEffect;
-            GameEvents.OnFeedbackEnd -= ResetToAmbient;
-        }
-
         private void Awake()
         {
             globalVolume.profile.TryGet(out _vignette);

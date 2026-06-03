@@ -16,7 +16,6 @@ namespace Gameplay.Effects
         [SerializeField] private float duration = 10f;
         public abstract bool IsBonus { get; }
         public bool IsComplete { get; private set; }
-        private IEffectRunner Runner { get; set; }
 
         /// <summary>
         /// Apply the word effect
@@ -25,8 +24,7 @@ namespace Gameplay.Effects
         public void ApplyEffect(IEffectRunner runner)
         {
             IsComplete = false;
-            Runner = runner;
-            Runner.Register(this, duration);
+            runner.Register(this, duration);
             OnApply();
             
             AlertPanelType alertPanel = IsBonus ? AlertPanelType.Bonus : AlertPanelType.Malus;

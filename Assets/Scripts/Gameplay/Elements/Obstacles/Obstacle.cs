@@ -11,7 +11,10 @@ namespace Gameplay.Elements.Obstacles
     {
         public override void OnPlayerCollision(Transform position)
         {
-            PlayerController.Instance.Die();
+            if (PlayerController.Instance.HasGhost())
+                GameEvents.OnGhostBroken?.Invoke();
+            else
+                PlayerController.Instance.Die();
         }
     }
 }

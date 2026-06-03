@@ -19,18 +19,6 @@ namespace Feedback
 
         private Bloom _bloom;
 
-        private void OnEnable()
-        {
-            GameEvents.OnFeedbackStart += ApplyEffect;
-            GameEvents.OnFeedbackEnd += ResetToAmbient;
-        }
-
-        private void OnDisable()
-        {
-            GameEvents.OnFeedbackStart -= ApplyEffect;
-            GameEvents.OnFeedbackEnd -= ResetToAmbient;
-        }
-
         private void Awake()
         {
             globalVolume.profile.TryGet(out _bloom);

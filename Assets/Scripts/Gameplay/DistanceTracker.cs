@@ -1,4 +1,5 @@
 using Core;
+using Gameplay.Segments;
 using TMPro;
 using UnityEngine;
 using Utils;
@@ -17,27 +18,11 @@ namespace Gameplay
         [SerializeField] private float distanceScale = 1f;
         
         private float _distance;
-        private float _speed;
-
-        private void OnEnable()
-        {
-            GameEvents.OnSpeedChanged += HandleSpeedChanged;
-        }
-        
-        private void OnDisable()
-        {
-            GameEvents.OnSpeedChanged -= HandleSpeedChanged;
-        }
-        
-        private void HandleSpeedChanged(float speed)
-        {
-            _speed = speed;
-        }
 
         protected override void GameplayUpdate()
         {
             float oldDistance = _distance;
-            _distance += (Time.deltaTime * _speed * distanceScale);
+            _distance += (Time.deltaTime * SegmentManager.Instance.Speed * distanceScale);
             if ((int)_distance > (int)oldDistance)
             {
                 GameEvents.OnNewMeter?.Invoke(_distance); // Notify on new distinct meter

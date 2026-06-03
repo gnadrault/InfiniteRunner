@@ -147,6 +147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Data.Pixel
   point:
+    isRandom: 1
     fixedValue: 0
     min: 20
     max: 100

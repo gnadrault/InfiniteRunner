@@ -172,7 +172,7 @@ namespace Player
         }
 
         /// <summary>
-        /// Invert player movement (Left -> <- Right) 
+        /// Invert player movement
         /// </summary>
         /// <param name="intent"></param>
         /// <returns></returns>

@@ -21,18 +21,6 @@ namespace Feedback
         private Vector3 _initialPos;
         private Color _initialColor;
 
-        private void OnEnable()
-        {
-            GameEvents.OnFeedbackStart += ApplyEffect;
-            GameEvents.OnFeedbackEnd += ResetToAmbient;
-        }
-
-        private void OnDisable()
-        {
-            GameEvents.OnFeedbackStart -= ApplyEffect;
-            GameEvents.OnFeedbackEnd -= ResetToAmbient;
-        }
-
         private void Awake()
         {
             _initialPos = label.transform.localPosition;

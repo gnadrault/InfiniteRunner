@@ -1,5 +1,4 @@
-﻿using System;
-using Utils;
+﻿using Utils;
 
 namespace Core
 {
@@ -24,12 +23,13 @@ namespace Core
             TimeManager.Instance.SetPaused(false);
         }
 
-        public void SetState(GameState next)
+        public void SetState(GameState nextState)
         {
-            if (State == next) return;
-            State = next;
-            GameEvents.OnGameStateChanged?.Invoke(next);
-            TimeManager.Instance.SetPaused(next != GameState.Gameplay);
+            if (State == nextState) return;
+            
+            State = nextState;
+            GameEvents.OnGameStateChanged?.Invoke(nextState);
+            TimeManager.Instance.SetPaused(nextState != GameState.Gameplay);
         }
     }
 }

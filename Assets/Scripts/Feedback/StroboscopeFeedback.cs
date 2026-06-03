@@ -10,18 +10,6 @@ namespace Feedback
     /// </summary>
     public class StroboscopeFeedback : Feedback
     {
-        
-        private void OnEnable()
-        {
-            GameEvents.OnFeedbackStart += ApplyEffect;
-            GameEvents.OnFeedbackEnd += ResetToAmbient;
-        }
-
-        private void OnDisable()
-        {
-            GameEvents.OnFeedbackStart -= ApplyEffect;
-            GameEvents.OnFeedbackEnd -= ResetToAmbient;
-        }
 
         protected override void ApplyEffect(FeedbackProfile profile)
         {

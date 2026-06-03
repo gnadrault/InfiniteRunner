@@ -6,7 +6,7 @@ namespace Core
     /// <summary>
     /// Global time manager to update the timescale
     /// 
-    /// !!! Timescale should only be updated using this class
+    /// !!! Timescale should only be set here
     /// </summary>
     public class TimeManager : GameBehavior
     {

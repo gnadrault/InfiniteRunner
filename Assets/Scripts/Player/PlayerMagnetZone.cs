@@ -1,3 +1,4 @@
+using System;
 using Core;
 using Gameplay.Elements.Collectibles;
 using UnityEngine;
@@ -11,12 +12,12 @@ namespace Player
     {
         [Header("Settings")]
         [SerializeField] private float magnetForce = 50f;
-
-        private PlayerController _playerController;
+        
+        private Transform _transform;
 
         private void Awake()
         {
-            _playerController = GetComponentInParent<PlayerController>();
+            _transform = transform;
         }
 
         /// <summary>
@@ -28,7 +29,7 @@ namespace Player
             Collectible collectible = other.GetComponentInParent<Collectible>();
             if (collectible != null)
             {
-                collectible.ActivateMagnet(_playerController.transform, magnetForce);
+                collectible.ActivateMagnet(_transform, magnetForce);
             }
         }
     }
