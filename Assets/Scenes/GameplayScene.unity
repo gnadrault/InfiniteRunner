@@ -1159,7 +1159,7 @@ GameObject:
   - component: {fileID: 263420517}
   - component: {fileID: 263420521}
   m_Layer: 0
-  m_Name: LimitDestroyChunk
+  m_Name: LimitDestroySegment
   m_TagString: Untagged
   m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -1791,8 +1791,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb43235587714dd48c65d5cacdfa553f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Feedback.VignetteEffect
-  hitDuration: 1
   globalVolume: {fileID: 832575518}
+  hitDuration: 1
   transitionDuration: 0.4
 --- !u!114 &401428990
 MonoBehaviour:
@@ -4918,8 +4918,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c3eb44a043e4d85bebd2ace6edcab32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Gameplay.PhaseManager
+  phasesDatabase: {fileID: 11400000, guid: a5bfae34cb4bdda47aff250b3b091c95, type: 2}
   globalVolume: {fileID: 832575518}
-  phasesDatabase: {fileID: 11400000, guid: fd23602c190a2cd4888cb6c5287de2e3, type: 2}
   envParticles: {fileID: 1510276887}
   speedTransition: 2
 --- !u!4 &1163644731

@@ -28,7 +28,12 @@ namespace Utils
 
         public static float EaseInQuint(float t)
         {
-            return 1f - (t * t * t * t * t);
+            return t * t * t * t * t;
+        }
+        
+        public static float EaseInQuad(float t)
+        {
+            return t * t * t * t;
         }
     }
 }

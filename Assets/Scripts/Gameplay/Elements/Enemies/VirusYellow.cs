@@ -1,6 +1,6 @@
 ﻿using Audio;
-using Data;
-using Data.Database;
+using Database;
+using Gameplay.Effects;
 using Player;
 using UI;
 using UnityEngine;
@@ -26,7 +26,7 @@ namespace Gameplay.Elements.Enemies
             _timer = new EffectTimer(duration);
             _active = true;
             PlayerController.Instance.ApplyDelay(delay);
-            GameEvents.OnGameFeelProfileStart?.Invoke(gameFeelProfile);
+            GameEvents.OnFeedbackStart?.Invoke(feedbackProfile);
             AlertPanelUI.Instance.ShowPanel(AlertPanelType.Virus, alertTitleText, StringFormat.FormatTimer(duration));
             AudioManager.Instance.PlayOneShot(SfxType.AlertYellowVoice);
         }
@@ -35,7 +35,7 @@ namespace Gameplay.Elements.Enemies
         {
             _active = false;
             PlayerController.Instance.RemoveDelay();
-            GameEvents.OnGameFeelEnd?.Invoke();
+            GameEvents.OnFeedbackEnd?.Invoke();
             AlertPanelUI.Instance.HideActivePanel();
             Destroy(gameObject);
         }

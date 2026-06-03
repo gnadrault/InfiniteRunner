@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Core;
-using Data;
-using Data.Database;
+using Database;
 using UnityEngine;
 
 namespace Gameplay.Letters
@@ -14,6 +13,12 @@ namespace Gameplay.Letters
     {
         private WordData _currentWordData;
         private readonly List<LetterCell> _letterCells = new();
+        private Transform _transform;
+		
+        private void Awake()
+        {
+            _transform = transform;
+        }
 
         public bool IsEmpty() => _letterCells.Count == 0;
         public bool IsComplete() => _letterCells.Count > 0 && !_letterCells.Exists(letter => !letter.IsHighlighted);
@@ -22,13 +27,12 @@ namespace Gameplay.Letters
         public void SetWord(WordData wordData, LetterCell letterCellPrefab)
         {
             _currentWordData = wordData;
-            
             _letterCells.ForEach(letterCell => Destroy(letterCell.gameObject)); // Destroy all old letters cells
             _letterCells.Clear();
             
             foreach (char letter in _currentWordData.Word)
             {
-                LetterCell letterCell = Instantiate(letterCellPrefab, transform.position, Quaternion.identity, transform);
+                LetterCell letterCell = Instantiate(letterCellPrefab, _transform.position, Quaternion.identity, transform);
                 letterCell.Init(letter);
                 _letterCells.Add(letterCell);
             }

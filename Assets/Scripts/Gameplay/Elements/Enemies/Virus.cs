@@ -1,6 +1,5 @@
-﻿using Data;
-using Data.Database;
-using Movement;
+﻿using Feedback;
+using Gameplay.Movement;
 using Player;
 using UnityEngine;
 using Utils;
@@ -13,13 +12,20 @@ namespace Gameplay.Elements.Enemies
     public abstract class Virus : Element
     {
         [Header("Database")]
-        [SerializeField] protected GameFeelProfile gameFeelProfile;
+        [SerializeField] protected FeedbackProfile feedbackProfile;
         
         [Header("Settings")]
         [SerializeField] protected string alertTitleText = "INFECTED!";
+        
+        private Transform _transform;
+		
+        private void Awake()
+        {
+            _transform = transform;
+        }
 
         /// <summary>
-        /// Manage the player collision with an virus
+        /// Manage the player collision with a virus
         /// </summary>
         /// <param name="position"></param>
         public override void OnPlayerCollision(Transform position)
@@ -65,8 +71,8 @@ namespace Gameplay.Elements.Enemies
             if (animator != null)
                 animator.enabled = false;
             
-            transform.SetPositionAndRotation(position.position, position.rotation);
-            transform.SetParent(parent);
+            _transform.SetPositionAndRotation(position.position, position.rotation);
+            _transform.SetParent(parent);
         }
         
         protected abstract void OnApply();

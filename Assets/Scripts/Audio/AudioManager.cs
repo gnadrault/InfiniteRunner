@@ -1,5 +1,4 @@
-using Data;
-using Data.Database;
+using Database;
 using UnityEngine;
 
 namespace Audio
@@ -33,7 +32,9 @@ namespace Audio
                 Instance = this;
                 MusicVolume = PlayerPrefs.GetFloat(VolumeMusicPlayerPref, 1f);
                 SfxVolume = PlayerPrefs.GetFloat(VolumeSfxPlayerPref, 1f);
-                ApplyVolumes();
+                musicSource.volume = MusicVolume;
+                sfxOneShotSource.volume = SfxVolume;
+                sfxLoopSource.volume = SfxVolume;
             }
             else
                 Destroy(this);
@@ -69,13 +70,6 @@ namespace Audio
             sfxLoopSource.volume = volume;
             sfxLettersSource.volume = volume;
             PlayerPrefs.SetFloat(VolumeSfxPlayerPref, volume);
-        }
-
-        private void ApplyVolumes()
-        {
-            musicSource.volume = MusicVolume;
-            sfxOneShotSource.volume = SfxVolume;
-            sfxLoopSource.volume = SfxVolume;
         }
 
         public void PlayOneShot(SfxType type, AudioSource source = null)

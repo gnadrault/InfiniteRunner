@@ -89,6 +89,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d3e89e9edb645ae8abf03c216b85559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::World.GameElement.Virus.BlueVirus
-  gameFeelProfile: {fileID: 11400000, guid: 5d69d3abcfbf5604db34870cae6d7a7d, type: 2}
-  duration: 5
+  feedbackProfile: {fileID: 11400000, guid: 5d69d3abcfbf5604db34870cae6d7a7d, type: 2}
+  alertTitleText: INFECTED!
   wordsDatabase: {fileID: 11400000, guid: 03debf9990383cc4e8022818068c5be8, type: 2}
+  duration: 5

@@ -1,5 +1,112 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8365517844147296982
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6368504785567758887}
+  - component: {fileID: 6979299322387416294}
+  - component: {fileID: 7134333806297343934}
+  - component: {fileID: 8179153548691229275}
+  m_Layer: 0
+  m_Name: FallingLineDetector (Limit)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6368504785567758887
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8365517844147296982}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -35}
+  m_LocalScale: {x: 26, y: 16, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7024143845274367636}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &6979299322387416294
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8365517844147296982}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &7134333806297343934
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8365517844147296982}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8179153548691229275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8365517844147296982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77de674ec99e42fea117f63b0f5e1a1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Gameplay.Elements.Obstacles.FallTriggerObstacle
+  obstacle: {fileID: 5052441695916439225}
+--- !u!1 &8831909114969148484
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4543623611744756679}
+  m_Layer: 0
+  m_Name: EndPoint (Anchor)
+  m_TagString: Untagged
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4543623611744756679
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8831909114969148484}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7024143845274367636}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &3656848240430719285
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20,21 +127,33 @@ PrefabInstance:
       propertyPath: obstacleSize
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2963626850174661255, guid: 8e0faa93c84d11941bba2c5cc6d43308, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3285176501982059553, guid: 8e0faa93c84d11941bba2c5cc6d43308, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 20
+      value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 5022802771308101817, guid: 8e0faa93c84d11941bba2c5cc6d43308, type: 3}
+      propertyPath: endPosition
+      value: 
+      objectReference: {fileID: 4543623611744756679}
+    - target: {fileID: 5022802771308101817, guid: 8e0faa93c84d11941bba2c5cc6d43308, type: 3}
+      propertyPath: meshPosition
+      value: 
+      objectReference: {fileID: 2245315473547427092}
     - target: {fileID: 6036364487910594465, guid: 8e0faa93c84d11941bba2c5cc6d43308, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -88.7645
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6036364487910594465, guid: 8e0faa93c84d11941bba2c5cc6d43308, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.0000002627292
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6036364487910594465, guid: 8e0faa93c84d11941bba2c5cc6d43308, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -16
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6036364487910594465, guid: 8e0faa93c84d11941bba2c5cc6d43308, type: 3}
       propertyPath: m_LocalRotation.w
@@ -42,15 +161,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6036364487910594465, guid: 8e0faa93c84d11941bba2c5cc6d43308, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6036364487910594465, guid: 8e0faa93c84d11941bba2c5cc6d43308, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6036364487910594465, guid: 8e0faa93c84d11941bba2c5cc6d43308, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6036364487910594465, guid: 8e0faa93c84d11941bba2c5cc6d43308, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -68,16 +187,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: 4-3 Mobile Falling Wall
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_RemovedComponents:
+    - {fileID: -5190441065766004393, guid: 8e0faa93c84d11941bba2c5cc6d43308, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 4398379022272428421, guid: 8e0faa93c84d11941bba2c5cc6d43308, type: 3}
+    - {fileID: 5341552802434760304, guid: 8e0faa93c84d11941bba2c5cc6d43308, type: 3}
+    - {fileID: 5739259034770104298, guid: 8e0faa93c84d11941bba2c5cc6d43308, type: 3}
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 6036364487910594465, guid: 8e0faa93c84d11941bba2c5cc6d43308, type: 3}
+      insertIndex: 0
+      addedObject: {fileID: 6368504785567758887}
+    - targetCorrespondingSourceObject: {fileID: 6036364487910594465, guid: 8e0faa93c84d11941bba2c5cc6d43308, type: 3}
+      insertIndex: 1
+      addedObject: {fileID: 4543623611744756679}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8930819974588595678, guid: 8e0faa93c84d11941bba2c5cc6d43308, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6056113760775319977}
+      addedObject: {fileID: 5052441695916439225}
     - targetCorrespondingSourceObject: {fileID: 8930819974588595678, guid: 8e0faa93c84d11941bba2c5cc6d43308, type: 3}
       insertIndex: -1
-      addedObject: {fileID: -7026254771716191264}
+      addedObject: {fileID: 6056113760775319977}
   m_SourcePrefab: {fileID: 100100000, guid: 8e0faa93c84d11941bba2c5cc6d43308, type: 3}
 --- !u!4 &2245315473547427092 stripped
 Transform:
@@ -89,6 +218,21 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8930819974588595678, guid: 8e0faa93c84d11941bba2c5cc6d43308, type: 3}
   m_PrefabInstance: {fileID: 3656848240430719285}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5052441695916439225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5282468833573100779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6848a1536d7f40509c023bc931d6b433, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Gameplay.Elements.Obstacles.FallingObstacle
+  meshPosition: {fileID: 2245315473547427092}
+  endPosition: {fileID: 4543623611744756679}
+  fallingDuration: 0.5
 --- !u!54 &6056113760775319977
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -116,18 +260,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &-7026254771716191264
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+--- !u!4 &7024143845274367636 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6036364487910594465, guid: 8e0faa93c84d11941bba2c5cc6d43308, type: 3}
+  m_PrefabInstance: {fileID: 3656848240430719285}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5282468833573100779}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 122b3ba09189440f9f229273f2e7018a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Effect.FallingObject
-  obstaclePos: {fileID: 2245315473547427092}
-  heightDestroyObject: -50
-  triggerOffset: 5

@@ -1,5 +1,5 @@
 using Core;
-using Data;
+using Gameplay.Score;
 using TMPro;
 using UnityEngine;
 

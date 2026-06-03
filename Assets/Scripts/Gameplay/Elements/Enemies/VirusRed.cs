@@ -1,6 +1,5 @@
 ﻿using Audio;
-using Data;
-using Data.Database;
+using Database;
 using Player;
 using UI;
 using UnityEngine;
@@ -28,7 +27,7 @@ namespace Gameplay.Elements.Enemies
             _active = true;
             spamKey.action.started += OnKeyPressed;
             PlayerController.Instance.DisableMovement();
-            GameEvents.OnGameFeelProfileStart?.Invoke(gameFeelProfile);
+            GameEvents.OnFeedbackStart?.Invoke(feedbackProfile);
             AlertPanelUI.Instance.ShowPanel(AlertPanelType.Virus, alertTitleText, GetActionText());
             AudioManager.Instance.PlayOneShot(SfxType.AlertRedVoice);
         }
@@ -37,7 +36,7 @@ namespace Gameplay.Elements.Enemies
         {
             _active = false;
             PlayerController.Instance.EnableMovement();
-            GameEvents.OnGameFeelEnd?.Invoke();
+            GameEvents.OnFeedbackEnd?.Invoke();
             AlertPanelUI.Instance.HideActivePanel();
             Destroy(gameObject);
         }

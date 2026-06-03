@@ -103,7 +103,7 @@ namespace Player.State
             _descentElapsedTime += Time.deltaTime;
 
             float t = _descentElapsedTime / _jumpSettings.timeDescent;
-            return TweenUtils.EaseInQuint(Mathf.Clamp01(t));
+            return 1f - TweenUtils.EaseInQuint(Mathf.Clamp01(t));
         }
 
         public void Exit()

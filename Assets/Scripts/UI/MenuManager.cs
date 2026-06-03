@@ -13,26 +13,16 @@ namespace UI
         [SerializeField] private GameObject scoresMenu;
         [SerializeField] private GameObject optionsMenu;
         [SerializeField] private GameObject creditsMenu;
-
-        public void DisplayScoresMenu()
-        {
-            scoresMenu.SetActive(true);
-            optionsMenu.SetActive(false);
-            creditsMenu.SetActive(false);
-        }
-
-        public void DisplayOptionsMenu()
-        {
-            scoresMenu.SetActive(false);
-            optionsMenu.SetActive(true);
-            creditsMenu.SetActive(false);
-        }
         
-        public void DisplayCreditsMenu()
+        public void DisplayScoresMenu() => ShowOnly(scoresMenu);
+        public void DisplayOptionsMenu() => ShowOnly(optionsMenu);
+        public void DisplayCreditsMenu() => ShowOnly(creditsMenu);
+
+        private void ShowOnly(GameObject menu)
         {
-            scoresMenu.SetActive(false);
-            optionsMenu.SetActive(false);
-            creditsMenu.SetActive(true);
+            scoresMenu.SetActive(menu == scoresMenu);
+            optionsMenu.SetActive(menu == optionsMenu);
+            creditsMenu.SetActive(menu == creditsMenu);
         }
     }
 }

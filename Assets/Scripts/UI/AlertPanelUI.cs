@@ -1,5 +1,4 @@
 using Core;
-using Data;
 using UnityEngine;
 
 namespace UI

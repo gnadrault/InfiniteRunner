@@ -92,7 +92,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71788708fc3f47c1ab16511c3e145993, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::World.GameElement.Virus.RedVirus
-  gameFeelProfile: {fileID: 11400000, guid: 71f59eeb4dda9414f9bb697db395d312, type: 2}
+  feedbackProfile: {fileID: 11400000, guid: 71f59eeb4dda9414f9bb697db395d312, type: 2}
   alertTitleText: INFECTED!
   spamKey: {fileID: 3161682069650093083, guid: 0eae3734640624049a0c62a5acdfe144, type: 3}
   requiredPressed: 3
@@ -109,6 +109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Movement.FollowPlayerHorizontal
   speed:
+    isRandom: 1
     fixedValue: 0
     min: 1
     max: 3

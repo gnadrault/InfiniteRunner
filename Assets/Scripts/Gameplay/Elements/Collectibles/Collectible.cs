@@ -1,4 +1,4 @@
-﻿using Data;
+﻿using Shared;
 using UnityEngine;
 
 namespace Gameplay.Elements.Collectibles
@@ -10,12 +10,18 @@ namespace Gameplay.Elements.Collectibles
     {
         [Header("Settings")]
         [SerializeField] private FloatValue point;
+        
+        public int Point => (int)point.Value;
 
         private bool _magnetActivated;
         private float _magnetForce;
         private Transform _targetPosition;
-
-        public int Point => (int)point.Value;
+        private Transform _transform;
+		
+        private void Awake()
+        {
+            _transform = transform;
+        }
 
         public void ActivateMagnet(Transform position, float magnetForce)
         {
@@ -28,8 +34,8 @@ namespace Gameplay.Elements.Collectibles
         {
             if (_magnetActivated)
             {
-                transform.position = Vector3.MoveTowards(
-                    transform.position,
+                _transform.position = Vector3.MoveTowards(
+                    _transform.position,
                     _targetPosition.position,
                     Time.deltaTime * _magnetForce);
             }

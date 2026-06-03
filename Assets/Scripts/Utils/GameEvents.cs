@@ -1,7 +1,8 @@
 ﻿using System;
 using Core;
-using Data;
-using Data.Database;
+using Database;
+using Feedback;
+using Gameplay.Score;
 using Gameplay.Segments;
 
 namespace Utils
@@ -26,11 +27,9 @@ namespace Utils
         public static Action OnEndGame;
         #endregion
         
-        #region Effects
-        public static Action<GameFeelProfile> OnGameFeelProfileStart;
-        public static Action OnGameFeelEnd;
-        public static Action<GameFeelProfile> OnStroboscopeEffectStart;
-        public static Action OnStroboscopeEffectEnd;
+        #region Effects/Feedbacks
+        public static Action<FeedbackProfile> OnFeedbackStart;
+        public static Action OnFeedbackEnd;
         #endregion
 
         #region Score

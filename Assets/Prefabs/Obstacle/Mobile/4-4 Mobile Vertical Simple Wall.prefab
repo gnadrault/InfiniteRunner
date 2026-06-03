@@ -21,8 +21,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3285176501982059553, guid: 8e0faa93c84d11941bba2c5cc6d43308, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3285176501982059553, guid: 8e0faa93c84d11941bba2c5cc6d43308, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5022802771308101817, guid: 8e0faa93c84d11941bba2c5cc6d43308, type: 3}
+      propertyPath: endPosition
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6036364487910594465, guid: 8e0faa93c84d11941bba2c5cc6d43308, type: 3}
       propertyPath: m_LocalPosition.x
@@ -69,9 +77,15 @@ PrefabInstance:
       value: 4-4 Mobile Vertical Simple Wall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 4398379022272428421, guid: 8e0faa93c84d11941bba2c5cc6d43308, type: 3}
+    - {fileID: 5341552802434760304, guid: 8e0faa93c84d11941bba2c5cc6d43308, type: 3}
+    - {fileID: 5739259034770104298, guid: 8e0faa93c84d11941bba2c5cc6d43308, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8930819974588595678, guid: 8e0faa93c84d11941bba2c5cc6d43308, type: 3}
+      insertIndex: 1
+      addedObject: {fileID: -4200272652172839833}
     - targetCorrespondingSourceObject: {fileID: 8930819974588595678, guid: 8e0faa93c84d11941bba2c5cc6d43308, type: 3}
       insertIndex: -1
       addedObject: {fileID: 788992469938360616}
@@ -81,6 +95,18 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8930819974588595678, guid: 8e0faa93c84d11941bba2c5cc6d43308, type: 3}
   m_PrefabInstance: {fileID: 1422940501697728280}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &-4200272652172839833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7516483227752952518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3bb7c8628a6761459ade3cef95ad7f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Gameplay.Elements.Obstacles.Obstacle
 --- !u!114 &788992469938360616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93,5 +119,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b7b4743371f44ccb654d6067d110d64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Effect.MoveVertical
-  speed: 1
-  height: 5
+  speed:
+    isRandom: 1
+    fixedValue: 0
+    min: 1
+    max: 3
+  height: 3

@@ -1,6 +1,6 @@
 ﻿using Audio;
-using Data;
-using Data.Database;
+using Database;
+using Gameplay.Effects;
 using Player;
 using UI;
 using UnityEngine;
@@ -28,7 +28,7 @@ namespace Gameplay.Elements.Enemies
             _lastSecond = Mathf.CeilToInt(duration);
             _active = true;
             
-            GameEvents.OnGameFeelProfileStart?.Invoke(gameFeelProfile);
+            GameEvents.OnFeedbackStart?.Invoke(feedbackProfile);
             AlertPanelUI.Instance.ShowPanel(AlertPanelType.Virus, alertTitleText, StringFormat.FormatTimer(duration));
             AudioManager.Instance.PlayOneShot(SfxType.AlertGreenVoice);
         }
@@ -36,7 +36,7 @@ namespace Gameplay.Elements.Enemies
         protected override void OnRemove()
         {
             _active = false;
-            GameEvents.OnGameFeelEnd?.Invoke();
+            GameEvents.OnFeedbackEnd?.Invoke();
             AlertPanelUI.Instance.HideActivePanel();
             Destroy(gameObject);
         }

@@ -1,7 +1,6 @@
 ﻿using Audio;
-using Data;
-using Data.Database;
-using Effects;
+using Database;
+using Gameplay.Effects;
 using Player;
 using UI;
 using UnityEngine;

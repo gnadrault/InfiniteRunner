@@ -1,7 +1,7 @@
 using Audio;
 using Core;
-using Data;
-using Data.Database;
+using Database;
+using Gameplay.Score;
 using TMPro;
 using UnityEngine;
 using Utils;

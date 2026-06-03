@@ -19793,7 +19793,7 @@ GameObject:
   - component: {fileID: 9057071612173011952}
   - component: {fileID: 2240046322306994880}
   m_Layer: 0
-  m_Name: TronCube
+  m_Name: TronCube (Collision)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
