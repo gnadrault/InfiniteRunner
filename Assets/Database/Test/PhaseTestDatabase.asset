@@ -26,11 +26,11 @@ MonoBehaviour:
     distance: 100000000
     music: {fileID: 0}
     newSegments:
-    - {fileID: 66493209559607754, guid: 8eef716d8b41bbd40ab256dacc20e1b4, type: 3}
-    - {fileID: 66493209559607754, guid: 1d249127f8335bf4095d0606fe6c97d7, type: 3}
-    - {fileID: 66493209559607754, guid: 75a893f16383d1b4b9abb33c171a8126, type: 3}
-    - {fileID: 66493209559607754, guid: 0060e3b6727f1244d918e5efde521fa5, type: 3}
-    - {fileID: 66493209559607754, guid: 762699aaa1d570d44b91a944aeeb8ba7, type: 3}
+    - {fileID: 66493209559607754, guid: a5d23111f4004b84d9a3d5d50132ba7a, type: 3}
+    - {fileID: 66493209559607754, guid: aa999fe22a298a7498011f0e1754a97a, type: 3}
+    - {fileID: 66493209559607754, guid: 2d06e99d78421994c89b57310f3820bd, type: 3}
+    - {fileID: 66493209559607754, guid: ac13a03549549e445a8cf4d1853b798f, type: 3}
+    - {fileID: 66493209559607754, guid: 0a9d278554ce23644b238e0f6a04984b, type: 3}
     virus:
     - {fileID: 1786364590797097875, guid: 1a08c3a0cb92f6240a237030a04c5b1d, type: 3}
     - {fileID: -9186191132360030546, guid: 899210ec524a4d24caf90167c54613ad, type: 3}

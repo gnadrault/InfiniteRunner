@@ -16,14 +16,10 @@ namespace Gameplay.Movement
         private Vector3 _direction;
         private Vector3 _initPosition;
         private Transform _transform;
-		
-        private void Awake()
-        {
-            _transform = transform;
-        }
 
         private void Start()
         {
+            _transform = transform;
             _initPosition = _transform.position;
         }
 

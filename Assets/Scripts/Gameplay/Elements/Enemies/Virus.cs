@@ -16,13 +16,6 @@ namespace Gameplay.Elements.Enemies
         
         [Header("Settings")]
         [SerializeField] protected string alertTitleText = "INFECTED!";
-        
-        private Transform _transform;
-		
-        private void Awake()
-        {
-            _transform = transform;
-        }
 
         /// <summary>
         /// Manage the player collision with a virus
@@ -71,8 +64,8 @@ namespace Gameplay.Elements.Enemies
             if (animator != null)
                 animator.enabled = false;
             
-            _transform.SetPositionAndRotation(position.position, position.rotation);
-            _transform.SetParent(parent);
+            transform.SetPositionAndRotation(position.position, position.rotation);
+            transform.SetParent(parent);
         }
         
         protected abstract void OnApply();

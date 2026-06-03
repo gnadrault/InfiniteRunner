@@ -1,4 +1,3 @@
-using System;
 using Core;
 using Gameplay.Elements.Collectibles;
 using UnityEngine;
@@ -12,13 +11,6 @@ namespace Player
     {
         [Header("Settings")]
         [SerializeField] private float magnetForce = 50f;
-        
-        private Transform _transform;
-
-        private void Awake()
-        {
-            _transform = transform;
-        }
 
         /// <summary>
         /// Activate magnet on objet inside beam to the target point
@@ -29,7 +21,7 @@ namespace Player
             Collectible collectible = other.GetComponentInParent<Collectible>();
             if (collectible != null)
             {
-                collectible.ActivateMagnet(_transform, magnetForce);
+                collectible.ActivateMagnet(PlayerController.Instance.GetTransform(), magnetForce);
             }
         }
     }

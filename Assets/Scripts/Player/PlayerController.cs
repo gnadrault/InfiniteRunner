@@ -416,7 +416,8 @@ namespace Player
             _stateMachine.ChangeState(_stateMachine.Die());
             AudioManager.Instance.StopAll();
         }
-
+        
+        public Transform GetTransform() => _transform;
         public Vector3 GetCurrentPosition() => _transform.position;
         public Vector3 GetCurrentScale() => _transform.localScale;
         public GameObject GetMeshObject() => meshGameObject;

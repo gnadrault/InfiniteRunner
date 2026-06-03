@@ -17,14 +17,10 @@ namespace Gameplay.Movement
         
         private float _speed;
         private Transform _transform;
-		
-        private void Awake()
-        {
-            _transform = transform;
-        }
         
         private void Start()
         {
+            _transform = transform;
             _speed = speed.Value;
         }
         

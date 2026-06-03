@@ -16,14 +16,10 @@ namespace Gameplay.Movement
 
         private Vector3 _direction;
         private Transform _transform;
-		
-        private void Awake()
-        {
-            _transform = transform;
-        }
 
         private void Start()
         {
+            _transform = transform;
             _direction = Random.value < 0.5f ? Vector3.left : Vector3.right;
         }
 

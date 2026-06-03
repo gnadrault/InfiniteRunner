@@ -13,13 +13,7 @@ namespace Gameplay.Letters
     {
         private WordData _currentWordData;
         private readonly List<LetterCell> _letterCells = new();
-        private Transform _transform;
-		
-        private void Awake()
-        {
-            _transform = transform;
-        }
-
+        
         public bool IsEmpty() => _letterCells.Count == 0;
         public bool IsComplete() => _letterCells.Count > 0 && !_letterCells.Exists(letter => !letter.IsHighlighted);
         public WordData CurrentWordData => _currentWordData;
@@ -32,7 +26,7 @@ namespace Gameplay.Letters
             
             foreach (char letter in _currentWordData.Word)
             {
-                LetterCell letterCell = Instantiate(letterCellPrefab, _transform.position, Quaternion.identity, transform);
+                LetterCell letterCell = Instantiate(letterCellPrefab, transform.position, Quaternion.identity, transform);
                 letterCell.Init(letter);
                 _letterCells.Add(letterCell);
             }

@@ -15,14 +15,10 @@ namespace Gameplay.Movement
         
         private Quaternion _startRotation;
         private Transform _transform;
-		
-        private void Awake()
-        {
-            _transform = transform;
-        }
     
         void Start()
         {
+            _transform = transform;
             _startRotation = _transform.rotation;
         }
 

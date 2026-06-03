@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Data.WordDatabase
   bonusWords:
   - word: A
-    effect: {fileID: 11400000, guid: 444cd6cc4727e024ea5ba5efdec28df3, type: 2}
+    effect: {fileID: 11400000, guid: 6ee28d776c57a10438c92db761305da8, type: 2}
   - word: B
     effect: {fileID: 11400000, guid: 444cd6cc4727e024ea5ba5efdec28df3, type: 2}
   malusWords:
   - word: E
-    effect: {fileID: 11400000, guid: 6ee28d776c57a10438c92db761305da8, type: 2}
+    effect: {fileID: 11400000, guid: 3cb02b77cc81e5c41b60e78cd3c1d4ba, type: 2}
   - word: F
-    effect: {fileID: 11400000, guid: 6ee28d776c57a10438c92db761305da8, type: 2}
+    effect: {fileID: 11400000, guid: 3cb02b77cc81e5c41b60e78cd3c1d4ba, type: 2}

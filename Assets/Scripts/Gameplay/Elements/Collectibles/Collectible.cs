@@ -17,14 +17,10 @@ namespace Gameplay.Elements.Collectibles
         private float _magnetForce;
         private Transform _targetPosition;
         private Transform _transform;
-		
-        private void Awake()
-        {
-            _transform = transform;
-        }
 
         public void ActivateMagnet(Transform position, float magnetForce)
         {
+            _transform = transform;
             _targetPosition = position;
             _magnetForce = magnetForce;
             _magnetActivated = true;

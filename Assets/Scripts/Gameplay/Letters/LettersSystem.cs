@@ -95,13 +95,12 @@ namespace Gameplay.Letters
                     continue;
 
                 WordData completedWord = display.CurrentWordData;
-                
                 if (_completedWordsQueue.Contains(completedWord)) // Prevent the same completed word to be added multiple times
                     continue;
 
                 if (isBonus)
                     GameEvents.OnAddScorePoints?.Invoke(completedWord.Word.Length * 100); // If completed word is a bonus word => Notify to add points to the current score
-
+                
                 _completedWordsQueue.Enqueue(completedWord);
             }
         }
