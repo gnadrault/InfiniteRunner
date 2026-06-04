@@ -8,19 +8,19 @@ namespace Gameplay.Effects
     /// <summary>
     /// Runner to play, stop words effects (bonus, malus)
     /// </summary>
-    public class WordEffectRunner : GameBehavior, IEffectRunner
+    public class EffectRunner : GameBehavior, IEffectRunner
     {
-        private WordEffect _activeEffect;
+        private Effect _activeEffect;
         private EffectTimer _activeTimer;
 
         /// <summary>
         /// Register a new word effect to play
         /// </summary>
-        /// <param name="wordEffect"></param>
+        /// <param name="effect"></param>
         /// <param name="duration"></param>
-        public void Register(WordEffect wordEffect, float duration)
+        public void Register(Effect effect, float duration)
         {
-            _activeEffect = wordEffect;
+            _activeEffect = effect;
             _activeTimer = new EffectTimer(duration);
         }
         

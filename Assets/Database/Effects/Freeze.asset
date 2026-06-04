@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: Freeze
   m_EditorClassIdentifier: Assembly-CSharp::World.GameElement.WordEffect.Freeze
   effectName: Freeze
-  panelType: 2
+  isBonus: 0
   duration: 10
-  isComplete: 0

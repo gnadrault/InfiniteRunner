@@ -4,12 +4,10 @@ using UnityEngine;
 namespace Gameplay.Effects
 {
     [CreateAssetMenu(fileName = "Slow", menuName = "SyntaxError/Effects/Slow")]
-    public class Slow : WordEffect
+    public class Slow : Effect
     {
         [Header("Settings")]
         [SerializeField] private float speedTimeScale = 0.5f;
-
-        public override bool IsBonus => true;
         
         protected override void OnApply()
         {

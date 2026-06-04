@@ -15,17 +15,17 @@ namespace Gameplay.Elements.Enemies
     public class VirusBlue: Virus, IEffectRunner
     {
         [Header("Database")]
-        [SerializeField] private WordDatabase wordsDatabase;
+        [SerializeField] private WordEffectDatabase wordEffectDatabase;
         
         [Header("Settings")]
         [SerializeField] private int duration = 5;
         
-        private WordEffect _activeEffect;
+        private Effect _activeEffect;
         private EffectTimer _activeTimer;
         
         protected override void OnApply()
         {
-            WordData word = wordsDatabase.GetRandomWord(false);
+            WordEffect word = wordEffectDatabase.GetRandomWord(false);
             word.Effect.ApplyEffect(this);
             AudioManager.Instance.PlayOneShot(SfxType.AlertBlueVoice);
         }
@@ -35,9 +35,9 @@ namespace Gameplay.Elements.Enemies
             Destroy(gameObject);
         }
 
-        public void Register(WordEffect wordEffect, float effectDuration)
+        public void Register(Effect effect, float effectDuration)
         {
-            _activeEffect = wordEffect;
+            _activeEffect = effect;
             _activeTimer = new EffectTimer(effectDuration);
         }
 

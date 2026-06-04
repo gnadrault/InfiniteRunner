@@ -4,9 +4,8 @@ using UnityEngine;
 namespace Gameplay.Effects
 {
     [CreateAssetMenu(fileName = "Reverse", menuName = "SyntaxError/Effects/Reverse")]
-    public class Reverse : WordEffect
+    public class Reverse : Effect
     {
-        public override bool IsBonus => false;
         
         protected override void OnApply()
         {

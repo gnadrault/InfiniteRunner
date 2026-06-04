@@ -9,13 +9,16 @@ namespace Gameplay.Effects
     /// <summary>
     /// Abstract scriptable objects for word effects
     /// </summary>
-    public abstract class WordEffect : ScriptableObject
+    public abstract class Effect : ScriptableObject
     {
-        [Header("Settings")]
-        [SerializeField] protected string effectName;
+        [Header("Parameters")]
+        [SerializeField] private string effectName;
+        [SerializeField] private bool isBonus;
         [SerializeField] private float duration = 10f;
-        public abstract bool IsBonus { get; }
+        
         public bool IsComplete { get; private set; }
+
+        public bool IsBonus => isBonus;
 
         /// <summary>
         /// Apply the word effect
@@ -27,9 +30,9 @@ namespace Gameplay.Effects
             runner.Register(this, duration);
             OnApply();
             
-            AlertPanelType alertPanel = IsBonus ? AlertPanelType.Bonus : AlertPanelType.Malus;
+            AlertPanelType alertPanel = isBonus ? AlertPanelType.Bonus : AlertPanelType.Malus;
             AlertPanelUI.Instance.ShowPanel(alertPanel, name, StringFormat.FormatTimer(duration));
-            AudioManager.Instance.PlayOneShot(IsBonus ? SfxType.BonusActivate : SfxType.MalusActivate);
+            AudioManager.Instance.PlayOneShot(isBonus ? SfxType.BonusActivate : SfxType.MalusActivate);
         }
 
         /// <summary>

@@ -11,14 +11,14 @@ namespace Gameplay.Letters
     /// </summary>
     public class LettersDisplay : GameBehavior
     {
-        private WordData _currentWordData;
+        private WordEffect _currentWordData;
         private readonly List<LetterCell> _letterCells = new();
         
         public bool IsEmpty() => _letterCells.Count == 0;
         public bool IsComplete() => _letterCells.Count > 0 && !_letterCells.Exists(letter => !letter.IsHighlighted);
-        public WordData CurrentWordData => _currentWordData;
+        public WordEffect CurrentWordData => _currentWordData;
 
-        public void SetWord(WordData wordData, LetterCell letterCellPrefab)
+        public void SetWord(WordEffect wordData, LetterCell letterCellPrefab)
         {
             _currentWordData = wordData;
             _letterCells.ForEach(letterCell => Destroy(letterCell.gameObject)); // Destroy all old letters cells

@@ -5,9 +5,8 @@ using Utils;
 namespace Gameplay.Effects
 {
     [CreateAssetMenu(fileName = "Spectral", menuName = "SyntaxError/Effects/Spectral")]
-    public class Spectral : WordEffect
+    public class Spectral : Effect
     {
-        public override bool IsBonus => true;
         
         protected override void OnApply()
         {

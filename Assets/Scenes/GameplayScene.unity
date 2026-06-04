@@ -11349,7 +11349,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Gameplay.Letters.LettersSystem
   wordsDatabase: {fileID: 11400000, guid: 03debf9990383cc4e8022818068c5be8, type: 2}
   letterCellPrefab: {fileID: 832339328629178229, guid: 82273e491a0e55c41be591a5df4b3f6a, type: 3}
-  wordEffectRunner: {fileID: 1701807690}
+  effectRunner: {fileID: 1701807690}
   bonusDisplays:
   - {fileID: 1773744173}
   - {fileID: 483874016}

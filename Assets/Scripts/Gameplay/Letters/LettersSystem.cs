@@ -14,11 +14,11 @@ namespace Gameplay.Letters
     public class LettersSystem : GameBehavior
     {
         [Header("Database")]
-        [SerializeField] private WordDatabase wordsDatabase;
+        [SerializeField] private WordEffectDatabase wordsDatabase;
         [SerializeField] private LetterCell letterCellPrefab;
         
         [Header("References")]
-        [SerializeField] private WordEffectRunner wordEffectRunner;
+        [SerializeField] private EffectRunner effectRunner;
         
         [Header("Bonus")] 
         [SerializeField] private LettersDisplay[] bonusDisplays = new LettersDisplay[3];
@@ -28,12 +28,12 @@ namespace Gameplay.Letters
         [SerializeField] private LettersDisplay[] malusDisplays = new LettersDisplay[3];
         [SerializeField] private Color malusHighlightColor = Colors.HighlightMalus;
 
-        private readonly List<WordData> _currentBonus = new();
-        private readonly List<WordData> _currentMalus = new();
+        private readonly List<WordEffect> _currentBonus = new();
+        private readonly List<WordEffect> _currentMalus = new();
         
         // Completed Words + Active Effect
-        private readonly Queue<WordData> _completedWordsQueue = new();
-        private WordEffect _activeEffect;
+        private readonly Queue<WordEffect> _completedWordsQueue = new();
+        private Effect _activeEffect;
 
         private void OnEnable() 
         {
@@ -94,7 +94,7 @@ namespace Gameplay.Letters
                 if (!display.IsComplete()) 
                     continue;
 
-                WordData completedWord = display.CurrentWordData;
+                WordEffect completedWord = display.CurrentWordData;
                 if (_completedWordsQueue.Contains(completedWord)) // Prevent the same completed word to be added multiple times
                     continue;
 
@@ -111,7 +111,7 @@ namespace Gameplay.Letters
         /// <param name="displays"></param>
         /// <param name="currentWords"></param>
         /// <param name="isBonus"></param>
-        private void FillDisplays(LettersDisplay[] displays, List<WordData> currentWords, bool isBonus)
+        private void FillDisplays(LettersDisplay[] displays, List<WordEffect> currentWords, bool isBonus)
         {
             foreach (LettersDisplay display in displays)
             {
@@ -120,14 +120,14 @@ namespace Gameplay.Letters
             }
         }
         
-        private void AssignWord(LettersDisplay display, List<WordData> currentWords, bool isBonus)
+        private void AssignWord(LettersDisplay display, List<WordEffect> currentWords, bool isBonus)
         {
-            WordData word = wordsDatabase.GetRandomWordExcept(currentWords, isBonus);
+            WordEffect word = wordsDatabase.GetRandomWordExcept(currentWords, isBonus);
             display.SetWord(word, letterCellPrefab);
             currentWords.Add(word);
         }
         
-        private LettersDisplay FindDisplay(WordData word, LettersDisplay[] displays)
+        private LettersDisplay FindDisplay(WordEffect word, LettersDisplay[] displays)
         {
             foreach (LettersDisplay display in displays)
                 if (display.CurrentWordData == word) return display;
@@ -138,11 +138,11 @@ namespace Gameplay.Letters
         /// Apply the word effect
         /// </summary>
         /// <param name="newEffect"></param>
-        private void ApplyEffect(WordEffect newEffect)
+        private void ApplyEffect(Effect newEffect)
         {
             if (!newEffect) return;
             _activeEffect = newEffect;
-            _activeEffect.ApplyEffect(wordEffectRunner);
+            _activeEffect.ApplyEffect(effectRunner);
         }
         
         /// <summary>
@@ -150,7 +150,7 @@ namespace Gameplay.Letters
         /// </summary>
         private void StopEffect()
         {
-            wordEffectRunner.Stop();
+            effectRunner.Stop();
             _activeEffect = null;
         }
         
@@ -166,9 +166,9 @@ namespace Gameplay.Letters
             if (_activeEffect || _completedWordsQueue.Count == 0 || PlayerController.Instance.IsPlayerInfected()) 
                 return;
             
-            WordData nextWord = _completedWordsQueue.Dequeue();
+            WordEffect nextWord = _completedWordsQueue.Dequeue();
 
-            List<WordData> currentWords = nextWord.Effect.IsBonus ? _currentBonus : _currentMalus;
+            List<WordEffect> currentWords = nextWord.Effect.IsBonus ? _currentBonus : _currentMalus;
             LettersDisplay[] displays = nextWord.Effect.IsBonus ? bonusDisplays : malusDisplays;
             LettersDisplay display = FindDisplay(nextWord, displays);
             currentWords.Remove(nextWord);

@@ -2,7 +2,7 @@
 {
     public interface IEffectRunner
     {
-        void Register(WordEffect wordEffect, float duration);
+        void Register(Effect effect, float duration);
 
         void Stop();
     }

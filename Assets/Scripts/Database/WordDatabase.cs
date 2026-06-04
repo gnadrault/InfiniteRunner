@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using Gameplay.Effects;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -10,34 +8,23 @@ namespace Database
     /// <summary>
     /// Words effects Database
     /// </summary>
-    [CreateAssetMenu(fileName = "WordDatabase", menuName = "SyntaxError/WordDatabase")]
-    public class WordDatabase : ScriptableObject
+    [CreateAssetMenu(fileName = "WordEffectDatabase", menuName = "SyntaxError/WordEffectDatabase")]
+    public class WordEffectDatabase : ScriptableObject
     {
         [Header("References")]
-        [SerializeField] private List<WordData> bonusWords;
-        [SerializeField] private List<WordData> malusWords;
+        [SerializeField] private List<WordEffect> wordsEffect;
 
-        public WordData GetRandomWordExcept(List<WordData> exceptWords, bool isBonus)
+        public WordEffect GetRandomWordExcept(List<WordEffect> exceptWords, bool bonus)
         {
-            List<WordData> words = isBonus ? bonusWords : malusWords;
-            List<WordData> availableWords = words.Where(w => !exceptWords.Contains(w)).ToList();
+            List<WordEffect> availableWords =
+                wordsEffect.Where(word => !exceptWords.Contains(word) && word.Effect.IsBonus == bonus).ToList();
             return availableWords[Random.Range(0, availableWords.Count)];
         }
 
-        public WordData GetRandomWord(bool isBonus)
+        public WordEffect GetRandomWord(bool bonus)
         {
-            List<WordData> words = isBonus ? bonusWords : malusWords;
-            return words[Random.Range(0, words.Count)];
+            List<WordEffect> availableWords = wordsEffect.Where(word => word.Effect.IsBonus == bonus).ToList();
+            return availableWords[Random.Range(0, availableWords.Count)];
         }
-    }
-    
-    [Serializable]
-    public class WordData
-    {
-        [SerializeField] private string word;
-        [SerializeField] private WordEffect effect;
-
-        public string Word => word;
-        public WordEffect Effect => effect;
     }
 }

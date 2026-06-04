@@ -5,12 +5,10 @@ using Utils;
 namespace Gameplay.Effects
 {
     [CreateAssetMenu(fileName = "Stroboscope", menuName = "SyntaxError/Effects/Stroboscope")]
-    public class Stroboscope : WordEffect
+    public class Stroboscope : Effect
     {
         [Header("Databases")]
         [SerializeField] protected FeedbackProfile feedbackProfile;
-
-        public override bool IsBonus => false;
 
         protected override void OnApply()
         {

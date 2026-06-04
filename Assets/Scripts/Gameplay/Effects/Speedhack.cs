@@ -4,12 +4,10 @@ using UnityEngine;
 namespace Gameplay.Effects
 {
     [CreateAssetMenu(fileName = "Speedhack", menuName = "SyntaxError/Effects/Speedhack")]
-    public class Speedhack : WordEffect
+    public class Speedhack : Effect
     {
         [Header("Settings")]
         [SerializeField] private float speedTimeScale = 1.2f;
-
-        public override bool IsBonus => false;
         
         protected override void OnApply()
         {

@@ -5,9 +5,8 @@ using Utils;
 namespace Gameplay.Effects
 {
     [CreateAssetMenu(fileName = "Shield", menuName = "SyntaxError/Effects/Shield")]
-    public class Shield : WordEffect
+    public class Shield : Effect
     {
-        public override bool IsBonus => true;
         
         protected override void OnApply()
         {

@@ -4,9 +4,8 @@ using UnityEngine;
 namespace Gameplay.Effects
 {
     [CreateAssetMenu(fileName = "Freeze", menuName = "SyntaxError/Effects/Freeze")]
-    public class Freeze : WordEffect
+    public class Freeze : Effect
     {
-        public override bool IsBonus => false;
         
         protected override void OnApply()
         {
