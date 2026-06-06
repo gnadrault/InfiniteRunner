@@ -6,7 +6,6 @@ namespace Feedback
 {
     /// <summary>
     /// Abstract feedback effect
-    /// Listen to GameEvents Effect
     /// </summary>
     public abstract class Feedback : GameBehavior
     {

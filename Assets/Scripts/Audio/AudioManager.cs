@@ -84,7 +84,7 @@ namespace Audio
         public void PlayLetterSound(string letter)
         {
             int position = char.ToUpper(letter[0]) - 'A';
-            int index = (ScalePitchLetter.Length - 1) - (position % ScalePitchLetter.Length);
+            int index = position % ScalePitchLetter.Length;
             sfxLettersSource.pitch = ScalePitchLetter[index];
             PlayOneShot(SfxType.LetterCollect, sfxLettersSource);
         }
