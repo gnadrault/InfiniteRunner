@@ -34,6 +34,7 @@ namespace Gameplay.Segments
         
         public IReadOnlyList<Segment> ActiveSegments => _activeSegmentList;
         public float Speed => _speed;
+        public PhaseData CurrentPhaseData => _currentPhaseData;
 
         /// <summary>
         /// Singleton instance

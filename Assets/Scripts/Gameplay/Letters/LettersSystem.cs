@@ -34,7 +34,12 @@ namespace Gameplay.Letters
         // Completed Words + Active Effect
         private readonly Queue<WordEffect> _completedWordsQueue = new();
         private Effect _activeEffect;
-
+        
+        //Debug
+        public Queue<WordEffect> CompletedWordsQueue => _completedWordsQueue;
+        public Effect ActiveEffect => _activeEffect;
+        
+        
         private void OnEnable() 
         {
             GameEvents.OnLetterCollected += OnLetterCollected;
