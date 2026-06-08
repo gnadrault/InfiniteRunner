@@ -23,16 +23,11 @@ MonoBehaviour:
       fov: 25
     speed: 20
     speedParticles: 20
-    distance: 100000000
+    distance: -1
     music: {fileID: 0}
     newSegments:
     - {fileID: 66493209559607754, guid: a5d23111f4004b84d9a3d5d50132ba7a, type: 3}
     - {fileID: 66493209559607754, guid: aa999fe22a298a7498011f0e1754a97a, type: 3}
-    - {fileID: 66493209559607754, guid: 2d06e99d78421994c89b57310f3820bd, type: 3}
-    - {fileID: 66493209559607754, guid: ac13a03549549e445a8cf4d1853b798f, type: 3}
-    - {fileID: 66493209559607754, guid: 0a9d278554ce23644b238e0f6a04984b, type: 3}
     virus:
     - {fileID: 1786364590797097875, guid: 1a08c3a0cb92f6240a237030a04c5b1d, type: 3}
     - {fileID: -9186191132360030546, guid: 899210ec524a4d24caf90167c54613ad, type: 3}
-    - {fileID: 8340013460893703910, guid: 1a80f4b066f49eb41acfa18c19e993d1, type: 3}
-    - {fileID: -35816546029551191, guid: 3d5a24b4ceda09b47b19443886dbed74, type: 3}
